@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Suraj Sharma — Video Editor</title>
+
+<meta name="description" content="Suraj Sharma — Video Editor, Visual Storyteller and Creative Editor.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #f5f5f5;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* =========================
+   CURSOR
+========================= */
+
+.cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 28px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    mix-blend-mode: difference;
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 35px;
+    font-size: 13px;
+}
+
+.nav-right a {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.nav-right a:hover {
+    opacity: 1;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 160px 5vw 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-small {
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 35px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 11vw, 180px);
+    line-height: 0.82;
+    letter-spacing: -0.08em;
+    font-weight: 800;
+    max-width: 1200px;
+}
+
+.hero h1 span {
+    color: #777;
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 80px;
+    max-width: 1200px;
+}
+
+.hero-description {
+    max-width: 400px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #999;
+}
+
+.showreel-button {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+}
+
+.showreel-button:hover {
+    background: #fff;
+    color: #000;
+    transform: rotate(-10deg);
+}
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee {
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 22px 0;
+}
+
+.marquee-track {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee span {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 70px;
+    color: #777;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section {
+    padding: 140px 5vw;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 70px;
+}
+
+.section-number {
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    color: #666;
+}
+
+.section-title {
+    font-size: clamp(40px, 6vw, 85px);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    font-weight: 700;
+}
+
+/* =========================
+   WORK
+========================= */
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px 30px;
+}
+
+.project {
+    cursor: pointer;
+}
+
+.project-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #151515;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::after {
+    content: "PLAY";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.project:hover .project-image::after {
+    opacity: 1;
+}
+
+.project-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    transition: transform 0.7s ease;
+}
+
+.project:hover .project-placeholder {
+    transform: scale(1.04);
+}
+
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.project-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.project-type {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories {
+    border-top: 1px solid #222;
+}
+
+.category {
+    border-bottom: 1px solid #222;
+    padding: 35px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding 0.4s ease;
+}
+
+.category:hover {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.category-name {
+    font-size: clamp(30px, 5vw, 65px);
+    letter-spacing: -0.05em;
+    font-weight: 600;
+}
+
+.category-number {
+    font-family: "DM Mono", monospace;
+    color: #555;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+}
+
+.about-text {
+    font-size: clamp(28px, 4vw, 58px);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+}
+
+.about-text span {
+    color: #555;
+}
+
+.about-details {
+    max-width: 500px;
+    color: #888;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
+}
+
+.service {
+    padding: 45px;
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
+    min-height: 180px;
+}
+
+.service-number {
+    font-family: "DM Mono", monospace;
+    color: #555;
+    font-size: 11px;
+}
+
+.service h3 {
+    font-size: 25px;
+    margin-top: 45px;
+}
+
+.service p {
+    color: #777;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+/* =========================
+   SOFTWARE
+========================= */
+
+.software {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.software span {
+    border: 1px solid #333;
+    padding: 15px 20px;
+    border-radius: 100px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    color: #aaa;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact h2 {
+    font-size: clamp(60px, 11vw, 170px);
+    line-height: 0.82;
+    letter-spacing: -0.08em;
+}
+
+.contact h2 span {
+    color: #555;
+}
+
+.contact-bottom {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.email {
+    font-size: clamp(18px, 3vw, 35px);
+    border-bottom: 1px solid #555;
+    padding-bottom: 8px;
+}
+
+.socials {
+    display: flex;
+    gap: 30px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.socials a:hover {
+    color: #fff;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid #222;
+    padding: 25px 5vw;
+    display: flex;
+    justify-content: space-between;
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    color: #555;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 22px 6vw;
+    }
+
+    .nav-right {
+        gap: 15px;
+    }
+
+    .nav-right a:nth-child(2) {
+        display: none;
+    }
+
+    .hero {
+        padding: 130px 6vw 70px;
+    }
+
+    .hero h1 {
+        font-size: 18vw;
+    }
+
+    .hero-bottom {
+        margin-top: 60px;
+        align-items: flex-start;
+        gap: 40px;
+        flex-direction: column;
+    }
+
+    .showreel-button {
+        width: 120px;
+        height: 120px;
+    }
+
+    section {
+        padding: 90px 6vw;
+    }
+
+    .section-header {
+        margin-bottom: 45px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .project-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service {
+        padding: 30px;
+    }
+
+    .contact {
+        min-height: 70vh;
+    }
+
+    .contact-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+
+    .socials {
+        flex-wrap: wrap;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cursor {
+        display: none;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <a href="#" class="logo">
+        SURAJ SHARMA
+    </a>
+
+    <div class="nav-right">
+        <a href="#work">WORK</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-small">
+        Video Editor / Visual Storyteller
+    </div>
+
+    <h1>
+        I EDIT<br>
+        <span>STORIES.</span>
+    </h1>
+
+    <div class="hero-bottom">
+
+        <p class="hero-description">
+            I turn raw footage into engaging visual stories
+            through editing, rhythm, sound, color and motion.
+        </p>
+
+        <a href="#work" class="showreel-button">
+            View<br>My Work
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <span>VIDEO EDITING</span>
+        <span>STORYTELLING</span>
+        <span>COLOR</span>
+        <span>SOUND DESIGN</span>
+        <span>MOTION</span>
+
+        <span>VIDEO EDITING</span>
+        <span>STORYTELLING</span>
+        <span>COLOR</span>
+        <span>SOUND DESIGN</span>
+        <span>MOTION</span>
+
+    </div>
+
+</div>
+
+
+<!-- WORK -->
+
+<section id="work">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            01 / SELECTED WORK
+        </div>
+
+        <h2 class="section-title">
+            SELECTED<br>WORK
+        </h2>
+
+    </div>
+
+
+    <div class="work-grid">
+
+
+        <!-- PROJECT 01 -->
+
+        <a class="project" href="#" target="_blank">
+
+            <div class="project-image">
+
+                <div class="project-placeholder">
+                    YOUR VIDEO / SHOWREEL
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-name">
+                    Commercial Film
+                </div>
+
+                <div class="project-type">
+                    AD / COMMERCIAL
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- PROJECT 02 -->
+
+        <a class="project" href="#" target="_blank">
+
+            <div class="project-image">
+
+                <div class="project-placeholder">
+                    YOUR VIDEO
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-name">
+                    Cinematic Film
+                </div>
+
+                <div class="project-type">
+                    CINEMATIC
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- PROJECT 03 -->
+
+        <a class="project" href="#" target="_blank">
+
+            <div class="project-image">
+
+                <div class="project-placeholder">
+                    YOUR VIDEO
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-name">
+                    Social Campaign
+                </div>
+
+                <div class="project-type">
+                    SOCIAL MEDIA
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- PROJECT 04 -->
+
+        <a class="project" href="#" target="_blank">
+
+            <div class="project-image">
+
+                <div class="project-placeholder">
+                    YOUR VIDEO
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-name">
+                    Event Film
+                </div>
+
+                <div class="project-type">
+                    EVENT
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- PROJECT 05 -->
+
+        <a class="project" href="#" target="_blank">
+
+            <div class="project-image">
+
+                <div class="project-placeholder">
+                    YOUR VIDEO
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-name">
+                    YouTube Project
+                </div>
+
+                <div class="project-type">
+                    YOUTUBE
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- PROJECT 06 -->
+
+        <a class="project" href="#" target="_blank">
+
+            <div class="project-image">
+
+                <div class="project-placeholder">
+                    YOUR VIDEO
+                </div>
+
+            </div>
+
+            <div class="project-info">
+
+                <div class="project-name">
+                    Corporate Film
+                </div>
+
+                <div class="project-type">
+                    CORPORATE
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section>
+
+    <div class="section-header">
+
+        <div class="section-number">
+            02 / EXPERTISE
+        </div>
+
+        <h2 class="section-title">
+            WHAT I<br>EDIT
+        </h2>
+
+    </div>
+
+
+    <div class="categories">
+
+        <div class="category">
+            <div class="category-name">Commercials</div>
+            <div class="category-number">01</div>
+        </div>
+
+        <div class="category">
+            <div class="category-name">Cinematic Films</div>
+            <div class="category-number">02</div>
+        </div>
+
+        <div class="category">
+            <div class="category-name">Social Media</div>
+            <div class="category-number">03</div>
+        </div>
+
+        <div class="category">
+            <div class="category-name">Events</div>
+            <div class="category-number">04</div>
+        </div>
+
+        <div class="category">
+            <div class="category-name">YouTube</div>
+            <div class="category-number">05</div>
+        </div>
+
+        <div class="category">
+            <div class="category-name">Corporate</div>
+            <div class="category-number">06</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-header">
+
+        <div class="section-number">
+            03 / ABOUT
+        </div>
+
+    </div>
+
+
+    <div class="about">
+
+        <div class="about-text">
+
+            Editing isn't just
+            <span>cutting clips.</span>
+            It's about knowing
+            <span>when to hold,
+            when to cut,
+            and what the audience
+            should feel.</span>
+
+        </div>
+
+
+        <div class="about-details">
+
+            <p>
+                I'm Suraj Sharma, a video editor focused on
+                visual storytelling and creating content that
+                connects with the audience.
+            </p>
+
+            <br>
+
+            <p>
+                From commercial advertisements and cinematic
+                films to social media content, events and
+                YouTube videos — I work with footage, sound,
+                rhythm, typography and color to create a
+                complete visual experience.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section>
+
+    <div class="section-header">
+
+        <div class="section-number">
+            04 / SERVICES
+        </div>
+
+        <h2 class="section-title">
+            WHAT I<br>DO
+        </h2>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        <div class="service">
+
+            <div class="service-number">01</div>
+
+            <h3>Video Editing</h3>
+
+            <p>
+                Story-driven cuts, pacing and structure.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">02</div>
+
+            <h3>Color</h3>
+
+            <p>
+                Color correction and cinematic grading.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">03</div>
+
+            <h3>Sound Design</h3>
+
+            <p>
+                Music, ambience, SFX and audio transitions.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">04</div>
+
+            <h3>Motion Graphics</h3>
+
+            <p>
+                Typography, transitions and visual effects.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SOFTWARE -->
+
+<section>
+
+    <div class="section-header">
+
+        <div class="section-number">
+            05 / TOOLS
+        </div>
+
+        <h2 class="section-title">
+            TOOLS
+        </h2>
+
+    </div>
+
+
+    <div class="software">
+
+        <span>PREMIERE PRO</span>
+        <span>AFTER EFFECTS</span>
+        <span>DAVINCI RESOLVE</span>
+        <span>PHOTOSHOP</span>
+        <span>ILLUSTRATOR</span>
+        <span>AUDITION</span>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+    <div class="section-number">
+        06 / CONTACT
+    </div>
+
+    <br><br>
+
+    <h2>
+        LET'S MAKE<br>
+        <span>SOMETHING.</span>
+    </h2>
+
+
+    <div class="contact-bottom">
+
+        <!-- CHANGE THIS EMAIL -->
+
+        <a class="email"
+           href="mailto:yourmail@gmail.com">
+            yourmail@gmail.com
+        </a>
+
+
+        <div class="socials">
+
+            <!-- CHANGE THESE LINKS -->
+
+            <a href="#" target="_blank">
+                Instagram
+            </a>
+
+            <a href="#" target="_blank">
+                LinkedIn
+            </a>
+
+            <a href="#" target="_blank">
+                YouTube
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        © 2026 SURAJ SHARMA
+    </div>
+
+    <div>
+        VIDEO EDITOR / CREATIVE
+    </div>
+
+</footer>
+
+
+<script>
+
+/* Custom cursor */
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", function(e) {
+
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+
+});
+
+
+/* Reveal animation */
+
+const elements = document.querySelectorAll(
+    ".project, .category, .service, .about-text, .about-details"
+);
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.1
+    }
+
+);
+
+
+elements.forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(30px)";
+    element.style.transition =
+        "opacity 0.8s ease, transform 0.8s ease";
+
+    observer.observe(element);
+
+});
+
+</script>
+
+</body>
+</html>
