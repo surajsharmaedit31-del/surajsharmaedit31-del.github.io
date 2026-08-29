@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Suraj Sharma — Video Editor</title>
+<title>SURAJ SHARMA — VIDEO EDITOR</title>
 
 <meta
-    name="description"
-    content="Suraj Sharma — Video Editor & Visual Storyteller creating cinematic edits for brands, commercials and digital content."
+name="description"
+content="Suraj Sharma — Video Editor & Visual Storyteller."
 >
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin
 >
 
 <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet"
 >
 
 
@@ -49,8 +45,10 @@ html {
 
 body {
     background: #080808;
-    color: #f5f5f5;
+    color: #f2f2f2;
+
     font-family: "Inter", sans-serif;
+
     overflow-x: hidden;
 }
 
@@ -64,12 +62,12 @@ a {
 }
 
 button {
-    font-family: inherit;
+    font: inherit;
 }
 
 ::selection {
-    background: #ffffff;
-    color: #000000;
+    background: #fff;
+    color: #000;
 }
 
 
@@ -79,81 +77,74 @@ button {
 
 :root {
 
-    --background: #080808;
-    --surface: #111111;
-    --surface-light: #171717;
+    --black: #080808;
 
-    --white: #f5f5f5;
+    --white: #f2f2f2;
 
-    --text-muted: #777777;
-    --text-dark: #444444;
+    --grey: #777;
 
-    --line: #252525;
+    --dark-grey: #333;
+
+    --line: #242424;
+
+    --card: #111;
 
 }
 
 
 /* =========================================================
-   GLOBAL
+   NOISE
+========================================================= */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9998;
+
+    opacity: .035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   CONTAINER
 ========================================================= */
 
 .container {
 
-    width: 90%;
-    max-width: 1450px;
+    width: min(92%, 1500px);
 
     margin: 0 auto;
 }
 
-.eyebrow {
+
+/* =========================================================
+   MONO TEXT
+========================================================= */
+
+.mono {
 
     font-family: "DM Mono", monospace;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 1.5px;
 
     text-transform: uppercase;
-
-    color: #666666;
 }
 
 
 /* =========================================================
-   CURSOR
-========================================================= */
-
-.cursor {
-
-    position: fixed;
-
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: #ffffff;
-
-    pointer-events: none;
-
-    z-index: 99999;
-
-    transform: translate(-50%, -50%);
-
-    mix-blend-mode: difference;
-}
-
-@media (max-width: 800px) {
-
-    .cursor {
-        display: none;
-    }
-
-}
-
-
-/* =========================================================
-   NAVIGATION
+   NAV
 ========================================================= */
 
 .nav {
@@ -165,15 +156,15 @@ button {
 
     width: 100%;
 
-    padding: 25px 5%;
-
-    z-index: 5000;
+    padding: 28px 4%;
 
     display: flex;
 
+    justify-content: space-between;
+
     align-items: center;
 
-    justify-content: space-between;
+    z-index: 5000;
 
     mix-blend-mode: difference;
 }
@@ -182,16 +173,25 @@ button {
 
     font-size: 13px;
 
-    font-weight: 700;
+    font-weight: 800;
 
-    letter-spacing: -.4px;
+    letter-spacing: -.04em;
+}
+
+.nav-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
 }
 
 .nav-links {
 
     display: flex;
 
-    gap: 30px;
+    gap: 28px;
 }
 
 .nav-links a {
@@ -200,13 +200,13 @@ button {
 
     font-size: 9px;
 
-    text-transform: uppercase;
-
     letter-spacing: 1px;
+
+    text-transform: uppercase;
 
     opacity: .65;
 
-    transition: opacity .3s ease;
+    transition: opacity .3s;
 }
 
 .nav-links a:hover {
@@ -214,73 +214,49 @@ button {
     opacity: 1;
 }
 
+.available {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.available-dot {
+
+    width: 6px;
+    height: 6px;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,100% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
 .menu-button {
 
     display: none;
 
-    border: 0;
-
     background: none;
 
-    color: #ffffff;
+    border: none;
 
-    font-family: "DM Mono", monospace;
-
-    font-size: 9px;
-
-    text-transform: uppercase;
+    color: #fff;
 
     cursor: pointer;
-}
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-.mobile-menu {
-
-    position: fixed;
-
-    inset: 0;
-
-    background: #080808;
-
-    z-index: 4000;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    padding: 8%;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition: .4s ease;
-}
-
-.mobile-menu.active {
-
-    opacity: 1;
-
-    visibility: visible;
-}
-
-.mobile-menu a {
-
-    font-size: 15vw;
-
-    line-height: .9;
-
-    letter-spacing: -.07em;
-
-    font-weight: 700;
-
-    padding: 10px 0;
 }
 
 
@@ -292,43 +268,60 @@ button {
 
     min-height: 100vh;
 
-    padding: 150px 0 100px;
-
     display: flex;
 
     flex-direction: column;
 
-    justify-content: center;
+    justify-content: flex-end;
+
+    padding-bottom: 7vh;
+
+    position: relative;
 }
 
-.hero-top {
+.hero-meta {
 
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #666;
 }
 
 .hero-title {
 
     font-size: clamp(
-        70px,
-        11vw,
-        175px
+        90px,
+        16vw,
+        250px
     );
 
-    line-height: .82;
+    line-height: .72;
 
-    letter-spacing: -.085em;
+    letter-spacing: -.105em;
 
-    font-weight: 800;
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    position: relative;
 }
 
-.hero-title .muted {
+.hero-title .outline {
 
-    color: #3f3f3f;
+    color: transparent;
+
+    -webkit-text-stroke:
+        1px #555;
+
+    margin-left: 9vw;
 }
 
-.hero-description-row {
+.hero-bottom {
 
-    margin-top: 80px;
+    margin-top: 65px;
 
     display: flex;
 
@@ -337,23 +330,23 @@ button {
     align-items: flex-end;
 }
 
-.hero-description {
+.hero-intro {
 
-    max-width: 440px;
+    width: 430px;
 
-    font-size: 15px;
+    color: #777;
 
-    line-height: 1.65;
+    font-size: 14px;
 
-    color: #777777;
+    line-height: 1.7;
 }
 
-.hero-button {
+.hero-cta {
 
-    width: 135px;
-    height: 135px;
+    width: 130px;
+    height: 130px;
 
-    border: 1px solid #333333;
+    border: 1px solid #444;
 
     border-radius: 50%;
 
@@ -369,31 +362,58 @@ button {
 
     font-size: 9px;
 
-    line-height: 1.5;
-
     text-transform: uppercase;
 
     transition:
-        background .4s ease,
-        color .4s ease,
-        transform .4s ease;
+        background .4s,
+        color .4s,
+        transform .4s;
 }
 
-.hero-button:hover {
+.hero-cta:hover {
 
-    background: #ffffff;
+    background: #fff;
 
-    color: #000000;
+    color: #000;
 
-    transform: rotate(-8deg);
+    transform: rotate(-10deg);
+}
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #444;
+
+    animation:
+        scrollBounce 2s infinite;
+}
+
+@keyframes scrollBounce {
+
+    0%,100% {
+        transform:
+            translate(-50%, 0);
+    }
+
+    50% {
+        transform:
+            translate(-50%, 8px);
+    }
 }
 
 
 /* =========================================================
-   MARQUEE
+   TICKER
 ========================================================= */
 
-.marquee {
+.ticker {
 
     border-top: 1px solid var(--line);
 
@@ -401,20 +421,20 @@ button {
 
     overflow: hidden;
 
-    white-space: nowrap;
+    padding: 17px 0;
 
-    padding: 20px 0;
+    white-space: nowrap;
 }
 
-.marquee-track {
+.ticker-track {
 
     display: inline-flex;
 
     animation:
-        marquee 28s linear infinite;
+        ticker 35s linear infinite;
 }
 
-.marquee-item {
+.ticker-item {
 
     margin-right: 70px;
 
@@ -424,12 +444,12 @@ button {
 
     letter-spacing: 2px;
 
-    color: #555555;
+    color: #555;
 
     text-transform: uppercase;
 }
 
-@keyframes marquee {
+@keyframes ticker {
 
     from {
         transform: translateX(0);
@@ -438,242 +458,257 @@ button {
     to {
         transform: translateX(-50%);
     }
-
 }
 
 
 /* =========================================================
-   SECTIONS
+   SECTION
 ========================================================= */
 
 .section {
 
-    padding: 150px 0;
+    padding: 170px 0;
 }
 
-.section-head {
-
-    display: grid;
-
-    grid-template-columns: 1fr 2fr;
-
-    margin-bottom: 75px;
-}
-
-.section-title {
-
-    font-size: clamp(
-        55px,
-        7vw,
-        105px
-    );
-
-    line-height: .86;
-
-    letter-spacing: -.075em;
-
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   FEATURED VIDEO
-========================================================= */
-
-.featured {
-
-    margin-bottom: 110px;
-}
-
-.featured-video {
-
-    width: 100%;
-
-    max-width: 1100px;
-
-    aspect-ratio: 16 / 9;
-
-    margin: 0 auto;
-
-    background: #111111;
-
-    position: relative;
-
-    overflow: hidden;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-
-/* FEATURED PLACEHOLDER */
-
-.video-placeholder {
-
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #333333;
-
-    font-family: "DM Mono", monospace;
-
-    font-size: 10px;
-
-    letter-spacing: 1px;
-
-    text-transform: uppercase;
-}
-
-
-/* =========================================================
-   FILTERS
-========================================================= */
-
-.filters {
-
-    display: flex;
-
-    gap: 28px;
-
-    margin-bottom: 45px;
-
-    flex-wrap: wrap;
-}
-
-.filter {
-
-    border: 0;
-
-    background: none;
-
-    color: #555555;
-
-    font-family: "DM Mono", monospace;
-
-    font-size: 9px;
-
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    padding: 5px 0;
-
-    transition: color .3s ease;
-}
-
-.filter:hover,
-.filter.active {
-
-    color: #ffffff;
-}
-
-
-/* =========================================================
-   PROJECT GRID
-========================================================= */
-
-.project-grid {
+.section-top {
 
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        1fr 3fr;
 
-    gap: 80px 30px;
+    margin-bottom: 80px;
 }
 
-.project {
+.section-number {
 
-    cursor: pointer;
-
-    transition:
-        opacity .4s ease,
-        transform .4s ease;
+    color: #555;
 }
 
-.project.hidden {
+.section-heading {
 
-    display: none;
+    font-size: clamp(
+        55px,
+        8vw,
+        120px
+    );
+
+    line-height: .8;
+
+    letter-spacing: -.085em;
+
+    text-transform: uppercase;
+
+    font-weight: 800;
 }
 
-.project-media {
 
-    width: 100%;
+/* =========================================================
+   FEATURED
+========================================================= */
 
-    aspect-ratio: 16 / 10;
+.featured-wrap {
 
-    background: #121212;
+    position: relative;
+}
+
+.featured-frame {
+
+    min-height: 70vh;
+
+    background: #101010;
 
     position: relative;
 
     overflow: hidden;
-}
-
-.project-media-inner {
-
-    width: 100%;
-    height: 100%;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
+}
+
+.featured-placeholder {
+
+    text-align: center;
+
+    color: #333;
+}
+
+.featured-placeholder .big {
+
+    font-size: clamp(
+        40px,
+        8vw,
+        110px
+    );
+
+    line-height: .8;
+
+    letter-spacing: -.08em;
+
+    font-weight: 800;
+}
+
+.featured-placeholder .small {
+
+    margin-top: 25px;
 
     font-family: "DM Mono", monospace;
 
     font-size: 9px;
 
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 
-    color: #3b3b3b;
-
-    text-transform: uppercase;
-
-    transition:
-        transform .8s
-        cubic-bezier(
-            .2,
-            .7,
-            .2,
-            1
-        );
+    color: #444;
 }
 
-.project:hover
-.project-media-inner {
-
-    transform: scale(1.05);
-}
-
-.project-play {
+.featured-corner {
 
     position: absolute;
 
-    left: 50%;
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    color: #444;
+
+    text-transform: uppercase;
+}
+
+.featured-corner.tl {
+
+    top: 20px;
+    left: 20px;
+}
+
+.featured-corner.tr {
+
+    top: 20px;
+    right: 20px;
+}
+
+.featured-corner.bl {
+
+    bottom: 20px;
+    left: 20px;
+}
+
+.featured-corner.br {
+
+    bottom: 20px;
+    right: 20px;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.work-list {
+
+    border-top: 1px solid var(--line);
+}
+
+.project {
+
+    position: relative;
+
+    border-bottom:
+        1px solid var(--line);
+
+    padding: 42px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        90px 1fr auto;
+
+    gap: 30px;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition:
+        padding .5s ease;
+}
+
+.project:hover {
+
+    padding-left: 25px;
+
+    padding-right: 25px;
+
+    background: #0e0e0e;
+}
+
+.project-number {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    color: #444;
+}
+
+.project-title {
+
+    font-size: clamp(
+        32px,
+        5vw,
+        75px
+    );
+
+    line-height: .9;
+
+    letter-spacing: -.06em;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+}
+
+.project-type {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+    text-align: right;
+
+    color: #666;
+
+    text-transform: uppercase;
+}
+
+.project-arrow {
+
+    position: absolute;
+
+    right: 50%;
+
     top: 50%;
 
     transform:
-        translate(-50%, -50%)
-        scale(.8);
+        translate(50%, -50%)
+        scale(.7)
+        rotate(-20deg);
 
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
 
-    border: 1px solid #777777;
+    border: 1px solid #555;
 
     border-radius: 50%;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     font-family: "DM Mono", monospace;
@@ -685,188 +720,79 @@ button {
     transition: .4s ease;
 }
 
-.project:hover
-.project-play {
+.project:hover .project-arrow {
 
     opacity: 1;
 
     transform:
-        translate(-50%, -50%)
-        scale(1);
+        translate(50%, -50%)
+        scale(1)
+        rotate(0);
 }
 
-.project-info {
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.filters {
 
     display: flex;
 
-    justify-content: space-between;
+    gap: 25px;
 
-    align-items: flex-start;
+    flex-wrap: wrap;
 
-    margin-top: 18px;
+    margin-bottom: 55px;
 }
 
-.project-name {
+.filter {
 
-    font-size: 18px;
+    border: none;
 
-    font-weight: 600;
+    background: none;
 
-    letter-spacing: -.02em;
-}
+    color: #555;
 
-.project-meta {
-
-    text-align: right;
+    cursor: pointer;
 
     font-family: "DM Mono", monospace;
 
     font-size: 9px;
-
-    color: #555555;
 
     text-transform: uppercase;
 
-    line-height: 1.7;
+    transition: color .3s;
+}
+
+.filter:hover,
+.filter.active {
+
+    color: #fff;
 }
 
 
 /* =========================================================
-   APPROACH
+   PROCESS
 ========================================================= */
 
-.approach-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    border-top:
-        1px solid var(--line);
-
-    border-left:
-        1px solid var(--line);
-}
-
-.approach-card {
-
-    min-height: 250px;
-
-    padding: 35px;
-
-    border-right:
-        1px solid var(--line);
-
-    border-bottom:
-        1px solid var(--line);
-
-    transition:
-        background .3s ease;
-}
-
-.approach-card:hover {
-
-    background: #101010;
-}
-
-.approach-number {
-
-    font-family: "DM Mono", monospace;
-
-    color: #444444;
-
-    font-size: 9px;
-}
-
-.approach-card h3 {
-
-    margin-top: 65px;
-
-    font-size: 25px;
-
-    letter-spacing: -.04em;
-}
-
-.approach-card p {
-
-    margin-top: 10px;
-
-    font-size: 12px;
-
-    color: #666666;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1.5fr;
-
-    gap: 80px;
-}
-
-.about-big {
-
-    font-size: clamp(
-        32px,
-        4.5vw,
-        65px
-    );
-
-    line-height: 1.02;
-
-    letter-spacing: -.06em;
-}
-
-.about-big span {
-
-    color: #444444;
-}
-
-.about-copy {
-
-    max-width: 540px;
-
-    color: #777777;
-
-    font-size: 14px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   SKILLS
-========================================================= */
-
-.skills-grid {
+.process {
 
     display: grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    border-top:
-        1px solid var(--line);
+    border-top: 1px solid var(--line);
 
-    border-left:
-        1px solid var(--line);
+    border-left: 1px solid var(--line);
 }
 
-.skill {
+.process-item {
 
-    min-height: 160px;
+    min-height: 300px;
 
-    padding: 25px;
+    padding: 30px;
 
     border-right:
         1px solid var(--line);
@@ -881,30 +807,326 @@ button {
     justify-content: space-between;
 
     transition:
-        background .3s ease;
+        background .4s;
 }
 
-.skill:hover {
+.process-item:hover {
 
     background: #101010;
 }
 
-.skill-number {
+.process-number {
 
     font-family: "DM Mono", monospace;
 
-    color: #444444;
+    color: #444;
 
     font-size: 9px;
 }
 
+.process-title {
+
+    font-size: 27px;
+
+    letter-spacing: -.05em;
+
+    line-height: 1;
+}
+
+.process-description {
+
+    margin-top: 15px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BEFORE / AFTER
+========================================================= */
+
+.before-after {
+
+    position: relative;
+
+    min-height: 550px;
+
+    background: #111;
+
+    overflow: hidden;
+}
+
+.before-layer,
+.after-layer {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.before-layer {
+
+    background: #151515;
+}
+
+.after-layer {
+
+    background: #202020;
+
+    clip-path:
+        inset(
+            0 0 0 50%
+        );
+}
+
+.ba-label {
+
+    position: absolute;
+
+    top: 25px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    color: #666;
+
+    z-index: 5;
+}
+
+.ba-label.before {
+
+    left: 25px;
+}
+
+.ba-label.after {
+
+    right: 25px;
+}
+
+.ba-text {
+
+    font-size: clamp(
+        45px,
+        8vw,
+        120px
+    );
+
+    letter-spacing: -.09em;
+
+    font-weight: 800;
+
+    color: #292929;
+}
+
+.ba-slider {
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    background: #fff;
+
+    z-index: 10;
+}
+
+.ba-handle {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    border: 1px solid #777;
+
+    background: #080808;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills {
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-top:
+        1px solid var(--line);
+}
+
+.skill-row {
+
+    padding: 25px 0;
+
+    border-bottom:
+        1px solid var(--line);
+
+    display: grid;
+
+    grid-template-columns:
+        80px 1fr auto;
+
+    align-items: center;
+
+    transition:
+        padding .4s,
+        background .4s;
+}
+
+.skill-row:hover {
+
+    padding-left: 20px;
+
+    background: #0e0e0e;
+}
+
+.skill-index {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    color: #444;
+}
+
 .skill-name {
 
-    font-size: 17px;
+    font-size: clamp(
+        28px,
+        5vw,
+        70px
+    );
 
-    font-weight: 600;
+    letter-spacing: -.065em;
 
-    letter-spacing: -.03em;
+    line-height: .9;
+}
+
+.skill-detail {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    color: #555;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 100px;
+}
+
+.about-statement {
+
+    font-size: clamp(
+        35px,
+        5vw,
+        75px
+    );
+
+    line-height: .95;
+
+    letter-spacing: -.065em;
+}
+
+.about-statement span {
+
+    color: #444;
+}
+
+.about-copy {
+
+    max-width: 500px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.about-facts {
+
+    margin-top: 55px;
+
+    border-top:
+        1px solid var(--line);
+}
+
+.fact {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 16px 0;
+
+    border-bottom:
+        1px solid var(--line);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+}
+
+.fact span:first-child {
+
+    color: #444;
+}
+
+.fact span:last-child {
+
+    color: #888;
 }
 
 
@@ -916,17 +1138,16 @@ button {
 
     display: flex;
 
-    flex-wrap: wrap;
-
     gap: 10px;
+
+    flex-wrap: wrap;
 }
 
 .tool {
 
-    border:
-        1px solid #292929;
+    padding: 15px 22px;
 
-    padding: 14px 19px;
+    border: 1px solid #292929;
 
     border-radius: 100px;
 
@@ -934,16 +1155,16 @@ button {
 
     font-size: 9px;
 
-    color: #888888;
+    color: #777;
 
-    transition: .3s ease;
+    transition: .3s;
 }
 
 .tool:hover {
 
-    border-color: #777777;
+    color: #fff;
 
-    color: #ffffff;
+    border-color: #777;
 }
 
 
@@ -953,40 +1174,52 @@ button {
 
 .contact {
 
-    min-height: 85vh;
+    min-height: 100vh;
 
     display: flex;
 
-    flex-direction: column;
+    align-items: center;
 
-    justify-content: center;
+    position: relative;
+}
+
+.contact-main {
+
+    width: 100%;
+}
+
+.contact-kicker {
+
+    color: #555;
+
+    margin-bottom: 40px;
 }
 
 .contact-title {
 
     font-size: clamp(
-        65px,
-        12vw,
-        180px
+        70px,
+        14vw,
+        220px
     );
 
-    line-height: .8;
+    line-height: .73;
 
-    letter-spacing: -.09em;
+    letter-spacing: -.1em;
 
-    font-weight: 800;
+    font-weight: 900;
 
-    margin-top: 40px;
+    text-transform: uppercase;
 }
 
 .contact-title span {
 
-    color: #444444;
+    color: #3c3c3c;
 }
 
-.contact-bottom {
+.contact-footer {
 
-    margin-top: 90px;
+    margin-top: 100px;
 
     display: flex;
 
@@ -995,27 +1228,25 @@ button {
     align-items: flex-end;
 }
 
-.email {
+.contact-email {
 
     font-size: clamp(
         20px,
         3vw,
-        38px
+        40px
     );
 
     letter-spacing: -.04em;
 
     border-bottom:
-        1px solid #444444;
+        1px solid #444;
 
     padding-bottom: 7px;
-
-    transition: .3s ease;
 }
 
-.email:hover {
+.contact-email:hover {
 
-    border-color: #ffffff;
+    border-color: #fff;
 }
 
 .socials {
@@ -1023,19 +1254,18 @@ button {
     display: flex;
 
     gap: 25px;
+}
 
-    font-family: "DM Mono", monospace;
+.socials a {
 
-    font-size: 9px;
+    color: #666;
 
-    color: #666666;
-
-    text-transform: uppercase;
+    transition: color .3s;
 }
 
 .socials a:hover {
 
-    color: #ffffff;
+    color: #fff;
 }
 
 
@@ -1045,25 +1275,21 @@ button {
 
 footer {
 
+    padding: 25px 4%;
+
     border-top:
         1px solid var(--line);
-
-    padding: 25px 5%;
 
     display: flex;
 
     justify-content: space-between;
 
-    font-family: "DM Mono", monospace;
-
-    font-size: 9px;
-
-    color: #444444;
+    color: #444;
 }
 
 
 /* =========================================================
-   REVEAL ANIMATION
+   REVEAL
 ========================================================= */
 
 .reveal {
@@ -1099,21 +1325,14 @@ footer {
 
 @media (max-width: 800px) {
 
-    .container {
-
-        width: 88%;
-    }
-
-
-    /* NAV */
-
     .nav {
 
         padding:
-            23px 6%;
+            22px 6%;
     }
 
-    .nav-links {
+    .nav-links,
+    .available {
 
         display: none;
     }
@@ -1123,135 +1342,142 @@ footer {
         display: block;
     }
 
-
-    /* HERO */
-
     .hero {
 
-        padding-top: 130px;
+        min-height: 90vh;
+
+        padding-bottom: 70px;
     }
 
     .hero-title {
 
-        font-size: 19vw;
+        font-size: 21vw;
     }
 
-    .hero-description-row {
+    .hero-title .outline {
+
+        margin-left: 4vw;
+    }
+
+    .hero-bottom {
 
         flex-direction: column;
 
         align-items: flex-start;
 
         gap: 45px;
-
-        margin-top: 55px;
     }
 
-    .hero-button {
+    .hero-intro {
 
-        width: 115px;
-
-        height: 115px;
+        width: 100%;
     }
 
+    .hero-cta {
 
-    /* SECTIONS */
+        width: 105px;
+        height: 105px;
+    }
 
     .section {
 
         padding: 100px 0;
     }
 
-    .section-head {
+    .section-top {
 
         grid-template-columns: 1fr;
 
         gap: 25px;
 
-        margin-bottom: 50px;
+        margin-bottom: 55px;
     }
 
-    .section-title {
+    .section-heading {
 
         font-size: 15vw;
     }
 
+    .featured-frame {
 
-    /* FEATURED */
-
-    .featured-video {
-
-        max-width: 100%;
-
-        aspect-ratio: 16 / 9;
+        min-height: 65vh;
     }
 
-
-    /* PROJECTS */
-
-    .project-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 55px;
-    }
-
-
-    /* APPROACH */
-
-    .approach-grid {
-
-        grid-template-columns: 1fr;
-    }
-
-
-    /* SKILLS */
-
-    .skills-grid {
+    .project {
 
         grid-template-columns:
-            repeat(2, 1fr);
+            40px 1fr;
+
+        padding: 30px 0;
     }
 
+    .project-type {
 
-    /* ABOUT */
+        display: none;
+    }
 
-    .about-grid {
+    .project-title {
+
+        font-size: 9vw;
+    }
+
+    .project-arrow {
+
+        right: 30px;
+
+        transform:
+            translate(0, -50%)
+            scale(.8);
+
+        opacity: 1;
+    }
+
+    .process {
+
+        grid-template-columns: 1fr;
+    }
+
+    .process-item {
+
+        min-height: 220px;
+    }
+
+    .before-after {
+
+        min-height: 420px;
+    }
+
+    .about {
 
         grid-template-columns: 1fr;
 
-        gap: 50px;
+        gap: 60px;
     }
 
+    .skill-row {
 
-    /* CONTACT */
+        grid-template-columns:
+            45px 1fr;
+    }
 
-    .contact {
+    .skill-detail {
 
-        min-height: 75vh;
+        display: none;
     }
 
     .contact-title {
 
-        font-size: 18vw;
+        font-size: 19vw;
     }
 
-    .contact-bottom {
+    .contact-footer {
 
         flex-direction: column;
 
         align-items: flex-start;
 
-        gap: 45px;
+        gap: 50px;
     }
-
-    .socials {
-
-        flex-wrap: wrap;
-    }
-
-
-    /* FOOTER */
 
     footer {
 
@@ -1264,49 +1490,52 @@ footer {
 
 
 /* =========================================================
-   SMALL MOBILE
+   MOBILE MENU
 ========================================================= */
 
-@media (max-width: 480px) {
+.mobile-menu {
 
-    .skills-grid {
+    position: fixed;
 
-        grid-template-columns: 1fr;
-    }
+    inset: 0;
 
-    .featured-video {
+    z-index: 4500;
 
-        aspect-ratio: 16 / 9;
-    }
+    background: #080808;
 
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 8%;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .4s;
 }
 
+.mobile-menu.active {
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+    opacity: 1;
 
-@media (prefers-reduced-motion: reduce) {
+    visibility: visible;
+}
 
-    html {
+.mobile-menu a {
 
-        scroll-behavior: auto;
-    }
+    font-size: 16vw;
 
-    *,
-    *::before,
-    *::after {
+    line-height: .85;
 
-        animation-duration:
-            .01ms !important;
+    font-weight: 800;
 
-        animation-iteration-count:
-            1 !important;
+    letter-spacing: -.08em;
 
-        transition-duration:
-            .01ms !important;
-    }
-
+    padding: 8px 0;
 }
 
 </style>
@@ -1318,56 +1547,60 @@ footer {
 
 
 <!-- =======================================================
-     CURSOR
-======================================================= -->
-
-<div class="cursor"></div>
-
-
-<!-- =======================================================
      NAVIGATION
 ======================================================= -->
 
 <nav class="nav">
 
-    <a
-        href="#"
-        class="logo"
-    >
+    <a href="#" class="logo">
         SURAJ SHARMA
     </a>
 
 
-    <div class="nav-links">
+    <div class="nav-right">
 
-        <a href="#work">
-            Work
-        </a>
+        <div class="available mono">
 
-        <a href="#approach">
-            Approach
-        </a>
+            <span class="available-dot"></span>
 
-        <a href="#about">
-            About
-        </a>
+            AVAILABLE FOR WORK
 
-        <a href="#contact">
-            Contact
-        </a>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="#work">
+                Work
+            </a>
+
+            <a href="#process">
+                Process
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+        <button
+            class="menu-button mono"
+            id="menuButton"
+        >
+
+            MENU
+
+        </button>
 
     </div>
 
-
-    <button
-        class="menu-button"
-        id="menuButton"
-    >
-        Menu
-    </button>
-
 </nav>
-
 
 
 <!-- =======================================================
@@ -1383,8 +1616,8 @@ footer {
         Work
     </a>
 
-    <a href="#approach">
-        Approach
+    <a href="#process">
+        Process
     </a>
 
     <a href="#about">
@@ -1408,59 +1641,70 @@ footer {
     <div class="container">
 
 
-        <div class="hero-top eyebrow reveal">
+        <div class="hero-meta mono">
 
-            Video Editor /
-            Visual Storyteller
+            <span>
+                VIDEO EDITOR
+            </span>
+
+            <span>
+                PUNE / INDIA
+            </span>
 
         </div>
 
 
-        <h1 class="hero-title reveal">
+        <h1 class="hero-title">
 
-            I EDIT
+            SURAJ
 
             <br>
 
-            <span class="muted">
-                STORIES.
+            <span class="outline">
+                SHARMA
             </span>
 
         </h1>
 
 
-        <div
-            class="hero-description-row reveal"
-        >
+        <div class="hero-bottom">
 
-            <p class="hero-description">
 
-                Cinematic editing for brands,
-                commercials and digital content.
+            <p class="hero-intro">
+
+                Video editor and visual storyteller
+                focused on commercial, brand and
+                social content.
 
                 <br><br>
 
-                I shape footage through story,
-                rhythm, sound, color,
-                typography and motion.
+                I turn footage into rhythm,
+                emotion and visual identity.
 
             </p>
 
 
             <a
                 href="#work"
-                class="hero-button"
+                class="hero-cta"
             >
 
-                View
+                ENTER
                 <br>
-                Selected
+                THE
                 <br>
-                Work
+                WORK
 
             </a>
 
         </div>
+
+    </div>
+
+
+    <div class="scroll-indicator mono">
+
+        ↓ SCROLL
 
     </div>
 
@@ -1469,68 +1713,60 @@ footer {
 
 
 <!-- =======================================================
-     MARQUEE
+     TICKER
 ======================================================= -->
 
-<div class="marquee">
+<div class="ticker">
 
-    <div class="marquee-track">
+    <div class="ticker-track">
 
-        <span class="marquee-item">
-            Storytelling
+        <span class="ticker-item">
+            STORYTELLING
         </span>
 
-        <span class="marquee-item">
-            Fast Cuts
+        <span class="ticker-item">
+            SOUND DESIGN
         </span>
 
-        <span class="marquee-item">
-            Sound Design
+        <span class="ticker-item">
+            COLOR
         </span>
 
-        <span class="marquee-item">
-            Color Grading
+        <span class="ticker-item">
+            MOTION
         </span>
 
-        <span class="marquee-item">
-            Typography
+        <span class="ticker-item">
+            TYPOGRAPHY
         </span>
 
-        <span class="marquee-item">
-            Motion Graphics
-        </span>
-
-        <span class="marquee-item">
-            Cinematic Editing
+        <span class="ticker-item">
+            CINEMATIC EDITING
         </span>
 
 
-        <span class="marquee-item">
-            Storytelling
+        <span class="ticker-item">
+            STORYTELLING
         </span>
 
-        <span class="marquee-item">
-            Fast Cuts
+        <span class="ticker-item">
+            SOUND DESIGN
         </span>
 
-        <span class="marquee-item">
-            Sound Design
+        <span class="ticker-item">
+            COLOR
         </span>
 
-        <span class="marquee-item">
-            Color Grading
+        <span class="ticker-item">
+            MOTION
         </span>
 
-        <span class="marquee-item">
-            Typography
+        <span class="ticker-item">
+            TYPOGRAPHY
         </span>
 
-        <span class="marquee-item">
-            Motion Graphics
-        </span>
-
-        <span class="marquee-item">
-            Cinematic Editing
+        <span class="ticker-item">
+            CINEMATIC EDITING
         </span>
 
     </div>
@@ -1551,25 +1787,21 @@ footer {
     <div class="container">
 
 
-        <div class="section-head reveal">
+        <div class="section-top reveal">
 
-            <div class="eyebrow">
+            <div class="section-number mono">
 
                 01 /
-                Selected Work
+                SELECTED WORK
 
             </div>
 
 
-            <h2 class="section-title">
+            <h2 class="section-heading">
 
-                WORK
+                THE
                 <br>
-
-                THAT
-                <br>
-
-                SPEAKS.
+                CUTS.
 
             </h2>
 
@@ -1579,14 +1811,41 @@ footer {
 
         <!-- FEATURED -->
 
-        <div class="featured reveal">
+        <div class="featured-wrap reveal">
 
-            <div class="featured-video">
+            <div class="featured-frame">
 
-                <div class="video-placeholder">
+                <div class="featured-corner tl">
+                    00:00:00:00
+                </div>
 
-                    FEATURED VIDEO /
-                    SHOWREEL
+                <div class="featured-corner tr">
+                    FEATURED
+                </div>
+
+                <div class="featured-corner bl">
+                    SURAJ SHARMA / EDITOR
+                </div>
+
+                <div class="featured-corner br">
+                    01 / 01
+                </div>
+
+
+                <div class="featured-placeholder">
+
+                    <div class="big">
+
+                        SHOWREEL
+
+                    </div>
+
+                    <div class="small">
+
+                        FEATURED VIDEO
+                        / COMING SOON
+
+                    </div>
 
                 </div>
 
@@ -1598,464 +1857,288 @@ footer {
 
         <!-- FILTERS -->
 
-        <div class="filters reveal">
+        <div
+            class="filters reveal"
+            style="margin-top:80px;"
+        >
 
             <button
                 class="filter active"
                 data-filter="all"
             >
-
-                All
-
+                ALL
             </button>
-
 
             <button
                 class="filter"
                 data-filter="commercial"
             >
-
-                Commercial
-
+                COMMERCIAL
             </button>
-
 
             <button
                 class="filter"
                 data-filter="social"
             >
-
-                Social / Reels
-
+                SOCIAL
             </button>
-
 
             <button
                 class="filter"
                 data-filter="cinematic"
             >
-
-                Cinematic
-
+                CINEMATIC
             </button>
-
 
             <button
                 class="filter"
                 data-filter="event"
             >
-
-                Events
-
+                EVENTS
             </button>
-
 
             <button
                 class="filter"
-                data-filter="other"
+                data-filter="experimental"
             >
-
-                Other
-
+                EXPERIMENTAL
             </button>
 
         </div>
 
 
 
-        <!-- =================================================
-             PROJECT GRID
-        ================================================== -->
+        <!-- PROJECT LIST -->
 
-        <div class="project-grid">
+        <div class="work-list">
 
-
-            <!-- GOLDEN TRAILS -->
 
             <article
                 class="project reveal"
                 data-category="cinematic"
             >
 
-                <div class="project-media">
+                <div class="project-number">
+                    01
+                </div>
 
-                    <div class="project-media-inner">
+                <div class="project-title">
+                    Golden Trails
+                </div>
 
-                        GOLDEN TRAILS RESORT
+                <div class="project-type">
 
-                    </div>
-
-
-                    <div class="project-play">
-
-                        PLAY
-
-                    </div>
+                    Hospitality
+                    <br>
+                    08 Reels
 
                 </div>
 
-
-                <div class="project-info">
-
-                    <div class="project-name">
-
-                        Golden Trails Resort
-
-                    </div>
-
-
-                    <div class="project-meta">
-
-                        Hospitality
-                        <br>
-
-                        8 Reels
-
-                    </div>
-
+                <div class="project-arrow">
+                    VIEW
                 </div>
 
             </article>
 
 
-
-            <!-- EXPORT -->
 
             <article
                 class="project reveal"
                 data-category="social"
             >
 
-                <div class="project-media">
+                <div class="project-number">
+                    02
+                </div>
 
-                    <div class="project-media-inner">
+                <div class="project-title">
+                    Export
+                </div>
 
-                        EXPORT
+                <div class="project-type">
 
-                    </div>
-
-
-                    <div class="project-play">
-
-                        PLAY
-
-                    </div>
+                    Social Content
+                    <br>
+                    05 Reels / 03 Podcasts
 
                 </div>
 
-
-                <div class="project-info">
-
-                    <div class="project-name">
-
-                        Export
-
-                    </div>
-
-
-                    <div class="project-meta">
-
-                        Social Content
-                        <br>
-
-                        5 Reels / Podcasts
-
-                    </div>
-
+                <div class="project-arrow">
+                    VIEW
                 </div>
 
             </article>
 
 
-
-            <!-- CORPORATE -->
 
             <article
                 class="project reveal"
                 data-category="commercial"
             >
 
-                <div class="project-media">
+                <div class="project-number">
+                    03
+                </div>
 
-                    <div class="project-media-inner">
+                <div class="project-title">
+                    Corporate
+                </div>
 
-                        CORPORATE
+                <div class="project-type">
 
-                    </div>
-
-
-                    <div class="project-play">
-
-                        PLAY
-
-                    </div>
+                    Brand Content
+                    <br>
+                    02 Reels
 
                 </div>
 
-
-                <div class="project-info">
-
-                    <div class="project-name">
-
-                        Corporate Reels
-
-                    </div>
-
-
-                    <div class="project-meta">
-
-                        Corporate
-                        <br>
-
-                        Brand Content
-
-                    </div>
-
+                <div class="project-arrow">
+                    VIEW
                 </div>
 
             </article>
 
 
-
-            <!-- BIRTHDAY -->
 
             <article
                 class="project reveal"
                 data-category="event"
             >
 
-                <div class="project-media">
+                <div class="project-number">
+                    04
+                </div>
 
-                    <div class="project-media-inner">
+                <div class="project-title">
+                    Birthday
+                </div>
 
-                        BIRTHDAY
+                <div class="project-type">
 
-                    </div>
-
-
-                    <div class="project-play">
-
-                        PLAY
-
-                    </div>
+                    Event
+                    <br>
+                    02 Reels
 
                 </div>
 
-
-                <div class="project-info">
-
-                    <div class="project-name">
-
-                        Birthday Reels
-
-                    </div>
-
-
-                    <div class="project-meta">
-
-                        Event
-                        <br>
-
-                        Social
-
-                    </div>
-
+                <div class="project-arrow">
+                    VIEW
                 </div>
 
             </article>
 
 
-
-            <!-- BABY SHOWER -->
 
             <article
                 class="project reveal"
                 data-category="event"
             >
 
-                <div class="project-media">
+                <div class="project-number">
+                    05
+                </div>
 
-                    <div class="project-media-inner">
+                <div class="project-title">
+                    Baby Shower
+                </div>
 
-                        BABY SHOWER
+                <div class="project-type">
 
-                    </div>
-
-
-                    <div class="project-play">
-
-                        PLAY
-
-                    </div>
+                    Event
+                    <br>
+                    Multiple Reels
 
                 </div>
 
-
-                <div class="project-info">
-
-                    <div class="project-name">
-
-                        Baby Shower
-
-                    </div>
-
-
-                    <div class="project-meta">
-
-                        Event
-                        <br>
-
-                        Multiple Reels
-
-                    </div>
-
+                <div class="project-arrow">
+                    VIEW
                 </div>
 
             </article>
 
 
-
-            <!-- PARACHUTE -->
 
             <article
                 class="project reveal"
                 data-category="commercial"
             >
 
-                <div class="project-media">
+                <div class="project-number">
+                    06
+                </div>
 
-                    <div class="project-media-inner">
+                <div class="project-title">
+                    Parachute
+                </div>
 
-                        PARACHUTE ADVANSED
+                <div class="project-type">
 
-                    </div>
-
-
-                    <div class="project-play">
-
-                        PLAY
-
-                    </div>
+                    Brand
+                    <br>
+                    Commercial
 
                 </div>
 
-
-                <div class="project-info">
-
-                    <div class="project-name">
-
-                        Parachute Advansed
-
-                    </div>
-
-
-                    <div class="project-meta">
-
-                        Brand
-                        <br>
-
-                        Commercial
-
-                    </div>
-
+                <div class="project-arrow">
+                    VIEW
                 </div>
 
             </article>
 
 
 
-            <!-- AI PROJECT -->
-
             <article
                 class="project reveal"
-                data-category="other"
+                data-category="experimental"
             >
 
-                <div class="project-media">
+                <div class="project-number">
+                    07
+                </div>
 
-                    <div class="project-media-inner">
+                <div class="project-title">
+                    Go-Karting
+                </div>
 
-                        AI EXPERIMENT
+                <div class="project-type">
 
-                    </div>
-
-
-                    <div class="project-play">
-
-                        PLAY
-
-                    </div>
+                    Cinematic
+                    <br>
+                    Experimental
 
                 </div>
 
-
-                <div class="project-info">
-
-                    <div class="project-name">
-
-                        AI-Assisted Reel
-
-                    </div>
-
-
-                    <div class="project-meta">
-
-                        Experimental
-                        <br>
-
-                        AI / Motion
-
-                    </div>
-
+                <div class="project-arrow">
+                    VIEW
                 </div>
 
             </article>
 
 
 
-            <!-- GOCARTING -->
-
             <article
                 class="project reveal"
-                data-category="other"
+                data-category="experimental"
             >
 
-                <div class="project-media">
+                <div class="project-number">
+                    08
+                </div>
 
-                    <div class="project-media-inner">
+                <div class="project-title">
+                    AI Reel
+                </div>
 
-                        GOCARTING
+                <div class="project-type">
 
-                    </div>
-
-
-                    <div class="project-play">
-
-                        PLAY
-
-                    </div>
+                    AI / Motion
+                    <br>
+                    Experimental
 
                 </div>
 
-
-                <div class="project-info">
-
-                    <div class="project-name">
-
-                        Go-Karting
-
-                    </div>
-
-
-                    <div class="project-meta">
-
-                        Cinematic
-                        <br>
-
-                        Experimental
-
-                    </div>
-
+                <div class="project-arrow">
+                    VIEW
                 </div>
 
             </article>
@@ -2069,36 +2152,32 @@ footer {
 
 
 <!-- =======================================================
-     APPROACH
+     PROCESS
 ======================================================= -->
 
 <section
     class="section"
-    id="approach"
+    id="process"
 >
 
     <div class="container">
 
 
-        <div class="section-head reveal">
+        <div class="section-top reveal">
 
-            <div class="eyebrow">
+            <div class="section-number mono">
 
                 02 /
-                My Approach
+                PROCESS
 
             </div>
 
 
-            <h2 class="section-title">
+            <h2 class="section-heading">
 
-                MORE
+                HOW I
                 <br>
-
-                THAN
-                <br>
-
-                JUST CUTS.
+                EDIT.
 
             </h2>
 
@@ -2106,93 +2185,368 @@ footer {
 
 
 
-        <div class="approach-grid">
+        <div class="process">
 
 
-            <div class="approach-card reveal">
+            <div class="process-item reveal">
 
-                <div class="approach-number">
+                <div class="process-number">
                     01
                 </div>
 
-                <h3>
-                    Storytelling
-                </h3>
+                <div>
 
-                <p>
+                    <div class="process-title">
+                        STORY
+                    </div>
 
-                    Finding the story inside
-                    the footage and shaping
-                    it into something people
-                    want to watch.
+                    <p class="process-description">
 
-                </p>
+                        Find the strongest
+                        story inside the footage.
+
+                    </p>
+
+                </div>
 
             </div>
 
 
 
-            <div class="approach-card reveal">
+            <div class="process-item reveal">
 
-                <div class="approach-number">
+                <div class="process-number">
                     02
                 </div>
 
-                <h3>
-                    Fast Cuts
-                </h3>
+                <div>
 
-                <p>
+                    <div class="process-title">
+                        RHYTHM
+                    </div>
 
-                    Creating energy and rhythm
-                    through precise pacing,
-                    timing and purposeful cuts.
+                    <p class="process-description">
 
-                </p>
+                        Build pacing through
+                        cuts, music and timing.
+
+                    </p>
+
+                </div>
 
             </div>
 
 
 
-            <div class="approach-card reveal">
+            <div class="process-item reveal">
 
-                <div class="approach-number">
+                <div class="process-number">
                     03
                 </div>
 
-                <h3>
-                    Sound Design
-                </h3>
+                <div>
 
-                <p>
+                    <div class="process-title">
+                        SOUND
+                    </div>
 
-                    Music, ambience and sound
-                    effects that make the visuals
-                    feel alive.
+                    <p class="process-description">
 
-                </p>
+                        Shape emotion through
+                        music, ambience and SFX.
+
+                    </p>
+
+                </div>
 
             </div>
 
 
 
-            <div class="approach-card reveal">
+            <div class="process-item reveal">
 
-                <div class="approach-number">
+                <div class="process-number">
                     04
                 </div>
 
-                <h3>
-                    Color & Motion
-                </h3>
+                <div>
 
-                <p>
+                    <div class="process-title">
+                        FINISH
+                    </div>
 
-                    Color grading, typography
-                    and motion graphics that
-                    create visual identity.
+                    <p class="process-description">
 
-                </p>
+                        Color, typography,
+                        motion and final polish.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     BEFORE / AFTER
+======================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-top reveal">
+
+            <div class="section-number mono">
+
+                03 /
+                TRANSFORMATION
+
+            </div>
+
+
+            <h2 class="section-heading">
+
+                RAW
+                <br>
+                TO
+                <br>
+                FINAL.
+
+            </h2>
+
+        </div>
+
+
+
+        <div class="before-after reveal">
+
+
+            <div class="before-layer">
+
+                <div class="ba-text">
+                    RAW
+                </div>
+
+            </div>
+
+
+            <div class="after-layer">
+
+                <div class="ba-text">
+                    EDITED
+                </div>
+
+            </div>
+
+
+            <div class="ba-label before mono">
+                BEFORE
+            </div>
+
+
+            <div class="ba-label after mono">
+                AFTER
+            </div>
+
+
+            <div class="ba-slider">
+
+                <div class="ba-handle">
+                    ↔
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     SKILLS
+======================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-top reveal">
+
+            <div class="section-number mono">
+
+                04 /
+                SKILLS
+
+            </div>
+
+
+            <h2 class="section-heading">
+
+                THE
+                <br>
+                TOOLSET.
+
+            </h2>
+
+        </div>
+
+
+
+        <div class="skills">
+
+
+            <div class="skill-row reveal">
+
+                <div class="skill-index">
+                    01
+                </div>
+
+                <div class="skill-name">
+                    Storytelling
+                </div>
+
+                <div class="skill-detail">
+                    Narrative
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row reveal">
+
+                <div class="skill-index">
+                    02
+                </div>
+
+                <div class="skill-name">
+                    Fast Cuts
+                </div>
+
+                <div class="skill-detail">
+                    Rhythm
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row reveal">
+
+                <div class="skill-index">
+                    03
+                </div>
+
+                <div class="skill-name">
+                    Sound Design
+                </div>
+
+                <div class="skill-detail">
+                    Audio
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row reveal">
+
+                <div class="skill-index">
+                    04
+                </div>
+
+                <div class="skill-name">
+                    Color Grading
+                </div>
+
+                <div class="skill-detail">
+                    Look
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row reveal">
+
+                <div class="skill-index">
+                    05
+                </div>
+
+                <div class="skill-name">
+                    Typography
+                </div>
+
+                <div class="skill-detail">
+                    Type
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row reveal">
+
+                <div class="skill-index">
+                    06
+                </div>
+
+                <div class="skill-name">
+                    Motion Graphics
+                </div>
+
+                <div class="skill-detail">
+                    Motion
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row reveal">
+
+                <div class="skill-index">
+                    07
+                </div>
+
+                <div class="skill-name">
+                    Transitions
+                </div>
+
+                <div class="skill-detail">
+                    Flow
+                </div>
+
+            </div>
+
+
+
+            <div class="skill-row reveal">
+
+                <div class="skill-index">
+                    08
+                </div>
+
+                <div class="skill-name">
+                    Cinematic Editing
+                </div>
+
+                <div class="skill-detail">
+                    Visual
+                </div>
 
             </div>
 
@@ -2216,21 +2570,20 @@ footer {
     <div class="container">
 
 
-        <div class="section-head reveal">
+        <div class="section-top reveal">
 
-            <div class="eyebrow">
+            <div class="section-number mono">
 
-                03 /
-                About
+                05 /
+                ABOUT
 
             </div>
 
 
-            <h2 class="section-title">
+            <h2 class="section-heading">
 
                 THE
                 <br>
-
                 EDITOR.
 
             </h2>
@@ -2239,19 +2592,27 @@ footer {
 
 
 
-        <div class="about-grid">
+        <div class="about">
 
 
-            <div class="about-big reveal">
+            <div class="about-statement reveal">
 
-                I believe good editing
-                isn't about showing
+                I DON'T JUST
+                CUT FOOTAGE.
+
+                <br><br>
+
+                I FIND THE
                 <span>
-                    how much you can do.
+                    MOMENT,
                 </span>
 
-                It's about knowing
-                what the story needs.
+                THE RHYTHM,
+
+                THE SOUND,
+
+                AND BUILD THE
+                STORY.
 
             </div>
 
@@ -2261,167 +2622,75 @@ footer {
 
                 I'm Suraj Sharma, a video editor
                 with one year of professional
-                experience, focused on cinematic
-                editing and commercial storytelling.
+                experience.
 
                 <br><br>
 
-                I work with footage, music, sound,
-                color, typography and motion to
-                turn raw material into polished
-                visual content.
+                My work focuses on commercial,
+                brand and social-media content.
+
+                I enjoy combining storytelling,
+                sound design, color, typography
+                and motion to create edits that
+                feel intentional and cinematic.
 
                 <br><br>
 
-                My main interests are commercial,
-                brand and social-media content where
-                strong visual storytelling can make
-                a difference.
+                I currently work with:
 
-            </div>
+                <div class="about-facts">
 
-        </div>
+                    <div class="fact">
 
-    </div>
+                        <span>
+                            EXPERIENCE
+                        </span>
 
-</section>
+                        <span>
+                            01 YEAR
+                        </span>
 
-
-
-<!-- =======================================================
-     SKILLS
-======================================================= -->
-
-<section class="section">
-
-    <div class="container">
+                    </div>
 
 
-        <div class="section-head reveal">
+                    <div class="fact">
 
-            <div class="eyebrow">
+                        <span>
+                            FOCUS
+                        </span>
 
-                04 /
-                Skills
+                        <span>
+                            COMMERCIAL / BRAND
+                        </span>
 
-            </div>
-
-
-            <h2 class="section-title">
-
-                WHAT
-                <br>
-
-                I DO.
-
-            </h2>
-
-        </div>
+                    </div>
 
 
+                    <div class="fact">
 
-        <div class="skills-grid">
+                        <span>
+                            CONTENT
+                        </span>
 
+                        <span>
+                            SOCIAL / REELS
+                        </span>
 
-            <div class="skill reveal">
-
-                <div class="skill-number">
-                    01
-                </div>
-
-                <div class="skill-name">
-                    Storytelling
-                </div>
-
-            </div>
+                    </div>
 
 
-            <div class="skill reveal">
+                    <div class="fact">
 
-                <div class="skill-number">
-                    02
-                </div>
+                        <span>
+                            BASE
+                        </span>
 
-                <div class="skill-name">
-                    Fast Cuts
-                </div>
+                        <span>
+                            PUNE / INDIA
+                        </span>
 
-            </div>
+                    </div>
 
-
-            <div class="skill reveal">
-
-                <div class="skill-number">
-                    03
-                </div>
-
-                <div class="skill-name">
-                    Sound Design
-                </div>
-
-            </div>
-
-
-            <div class="skill reveal">
-
-                <div class="skill-number">
-                    04
-                </div>
-
-                <div class="skill-name">
-                    Color Grading
-                </div>
-
-            </div>
-
-
-            <div class="skill reveal">
-
-                <div class="skill-number">
-                    05
-                </div>
-
-                <div class="skill-name">
-                    Typography
-                </div>
-
-            </div>
-
-
-            <div class="skill reveal">
-
-                <div class="skill-number">
-                    06
-                </div>
-
-                <div class="skill-name">
-                    Motion Graphics
-                </div>
-
-            </div>
-
-
-            <div class="skill reveal">
-
-                <div class="skill-number">
-                    07
-                </div>
-
-                <div class="skill-name">
-                    Transitions
-                </div>
-
-            </div>
-
-
-            <div class="skill reveal">
-
-                <div class="skill-number">
-                    08
-                </div>
-
-                <div class="skill-name">
-                    Cinematic Editing
                 </div>
 
             </div>
@@ -2443,22 +2712,23 @@ footer {
     <div class="container">
 
 
-        <div class="section-head reveal">
+        <div class="section-top reveal">
 
-            <div class="eyebrow">
+            <div class="section-number mono">
 
-                05 /
-                Tools
+                06 /
+                SOFTWARE
 
             </div>
 
 
-            <h2 class="section-title">
+            <h2 class="section-heading">
 
-                THE
+                WHAT'S
                 <br>
-
-                TOOLKIT.
+                IN THE
+                <br>
+                TIMELINE.
 
             </h2>
 
@@ -2469,15 +2739,15 @@ footer {
         <div class="tools reveal">
 
             <div class="tool">
-                Adobe Premiere Pro
+                Premiere Pro
             </div>
 
             <div class="tool">
-                Adobe After Effects
+                After Effects
             </div>
 
             <div class="tool">
-                Adobe Photoshop
+                Photoshop
             </div>
 
         </div>
@@ -2499,70 +2769,66 @@ footer {
 
     <div class="container">
 
-
-        <div class="eyebrow reveal">
-
-            06 /
-            Contact
-
-        </div>
+        <div class="contact-main">
 
 
-        <h2 class="contact-title reveal">
+            <div class="contact-kicker mono">
 
-            LET'S MAKE
+                07 /
+                START A PROJECT
 
-            <br>
-
-            <span>
-                SOMETHING.
-            </span>
-
-        </h2>
+            </div>
 
 
-        <div class="contact-bottom reveal">
+            <h2 class="contact-title">
+
+                LET'S
+
+                <br>
+
+                MAKE
+
+                <br>
+
+                <span>
+                    SOMETHING.
+                </span>
+
+            </h2>
 
 
-            <!-- CHANGE EMAIL LATER -->
-
-            <a
-                href="mailto:yourmail@gmail.com"
-                class="email"
-            >
-
-                yourmail@gmail.com
-
-            </a>
+            <div class="contact-footer">
 
 
-
-            <div class="socials">
-
-                <!-- ADD REAL LINKS LATER -->
+                <!-- CHANGE EMAIL -->
 
                 <a
-                    href="#"
-                    target="_blank"
+                    href="mailto:yourmail@gmail.com"
+                    class="contact-email"
                 >
-                    Instagram
+
+                    yourmail@gmail.com
+
                 </a>
 
 
-                <a
-                    href="#"
-                    target="_blank"
-                >
-                    LinkedIn
-                </a>
+                <div class="socials mono">
 
+                    <!-- ADD REAL LINKS -->
 
-                <a
-                    href="#"
-                    target="_blank"
-                >
-                    YouTube
-                </a>
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        LinkedIn
+                    </a>
+
+                    <a href="#">
+                        YouTube
+                    </a>
+
+                </div>
 
             </div>
 
@@ -2578,148 +2844,83 @@ footer {
      FOOTER
 ======================================================= -->
 
-<footer>
+<footer class="mono">
 
-    <div>
+    <span>
+        © 2026 SURAJ SHARMA
+    </span>
 
-        © 2026
-        SURAJ SHARMA
-
-    </div>
-
-
-    <div>
-
-        VIDEO EDITOR /
-        VISUAL STORYTELLER
-
-    </div>
+    <span>
+        VIDEO EDITOR / VISUAL STORYTELLER
+    </span>
 
 </footer>
 
 
 
-<!-- =======================================================
-     JAVASCRIPT
-======================================================= -->
-
 <script>
-
-
-/* =========================================================
-   CUSTOM CURSOR
-========================================================= */
-
-const cursor =
-    document.querySelector(".cursor");
-
-
-if (cursor) {
-
-    document.addEventListener(
-        "mousemove",
-        function(event) {
-
-            cursor.style.left =
-                event.clientX + "px";
-
-            cursor.style.top =
-                event.clientY + "px";
-
-        }
-    );
-
-}
-
 
 /* =========================================================
    MOBILE MENU
 ========================================================= */
 
 const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
+    document.getElementById("menuButton");
 
 const mobileMenu =
-    document.getElementById(
-        "mobileMenu"
-    );
+    document.getElementById("mobileMenu");
 
 
-if (
-    menuButton &&
-    mobileMenu
-) {
+menuButton.addEventListener(
+    "click",
+    () => {
 
-    menuButton.addEventListener(
-        "click",
-        function() {
+        mobileMenu.classList.toggle(
+            "active"
+        );
 
-            mobileMenu.classList.toggle(
+        document.body.classList.toggle(
+            "menu-open"
+        );
+
+        menuButton.textContent =
+            mobileMenu.classList.contains(
                 "active"
-            );
+            )
+            ? "CLOSE"
+            : "MENU";
 
-            document.body.classList.toggle(
-                "menu-open"
-            );
+    }
+);
 
 
-            if (
-                mobileMenu.classList.contains(
+mobileMenu
+    .querySelectorAll("a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                mobileMenu.classList.remove(
                     "active"
-                )
-            ) {
-
-                menuButton.textContent =
-                    "Close";
-
-            } else {
-
-                menuButton.textContent =
-                    "Menu";
-
-            }
-
-        }
-    );
-
-
-    mobileMenu
-        .querySelectorAll("a")
-        .forEach(
-            function(link) {
-
-                link.addEventListener(
-                    "click",
-                    function() {
-
-                        mobileMenu
-                            .classList
-                            .remove(
-                                "active"
-                            );
-
-                        document.body
-                            .classList
-                            .remove(
-                                "menu-open"
-                            );
-
-                        menuButton.textContent =
-                            "Menu";
-
-                    }
                 );
+
+                document.body.classList.remove(
+                    "menu-open"
+                );
+
+                menuButton.textContent =
+                    "MENU";
 
             }
         );
 
-}
+    });
 
 
 /* =========================================================
-   SCROLL REVEAL
+   REVEAL
 ========================================================= */
 
 const revealElements =
@@ -2731,42 +2932,37 @@ const revealElements =
 const revealObserver =
     new IntersectionObserver(
 
-        function(entries) {
+        entries => {
 
-            entries.forEach(
-                function(entry) {
+            entries.forEach(entry => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                if (
+                    entry.isIntersecting
+                ) {
 
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
                         entry.target
-                            .classList
-                            .add(
-                                "visible"
-                            );
-
-                        revealObserver
-                            .unobserve(
-                                entry.target
-                            );
-
-                    }
+                    );
 
                 }
-            );
+
+            });
 
         },
 
         {
-            threshold: 0.12
+            threshold: .12
         }
 
     );
 
 
 revealElements.forEach(
-    function(element) {
+    element => {
 
         revealObserver.observe(
             element
@@ -2777,7 +2973,7 @@ revealElements.forEach(
 
 
 /* =========================================================
-   PROJECT FILTER
+   FILTER
 ========================================================= */
 
 const filters =
@@ -2785,77 +2981,152 @@ const filters =
         ".filter"
     );
 
-
 const projects =
     document.querySelectorAll(
         ".project"
     );
 
 
-filters.forEach(
-    function(filter) {
+filters.forEach(filter => {
 
-        filter.addEventListener(
-            "click",
-            function() {
+    filter.addEventListener(
+        "click",
+        () => {
 
-                const selected =
-                    this.getAttribute(
-                        "data-filter"
-                    );
+            const category =
+                filter.dataset.filter;
 
 
-                filters.forEach(
-                    function(button) {
+            filters.forEach(
+                item =>
+                    item.classList.remove(
+                        "active"
+                    )
+            );
 
-                        button.classList.remove(
-                            "active"
-                        );
 
-                    }
+            filter.classList.add(
+                "active"
+            );
+
+
+            projects.forEach(project => {
+
+                const projectCategory =
+                    project.dataset.category;
+
+
+                if (
+                    category === "all" ||
+                    category === projectCategory
+                ) {
+
+                    project.style.display =
+                        "grid";
+
+                } else {
+
+                    project.style.display =
+                        "none";
+
+                }
+
+            });
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   BEFORE / AFTER SLIDER
+========================================================= */
+
+const beforeAfter =
+    document.querySelector(
+        ".before-after"
+    );
+
+const afterLayer =
+    document.querySelector(
+        ".after-layer"
+    );
+
+const baSlider =
+    document.querySelector(
+        ".ba-slider"
+    );
+
+
+if (
+    beforeAfter &&
+    afterLayer &&
+    baSlider
+) {
+
+    beforeAfter.addEventListener(
+        "mousemove",
+        event => {
+
+            const rect =
+                beforeAfter.getBoundingClientRect();
+
+            const position =
+                (
+                    (event.clientX - rect.left)
+                    /
+                    rect.width
+                ) * 100;
+
+
+            const clamped =
+                Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        position
+                    )
                 );
 
 
-                this.classList.add(
-                    "active"
-                );
+            afterLayer.style.clipPath =
+                `inset(0 0 0 ${clamped}%)`;
+
+            baSlider.style.left =
+                `${clamped}%`;
+
+        }
+    );
+
+}
 
 
-                projects.forEach(
-                    function(project) {
+/* =========================================================
+   PROJECT HOVER CURSOR TEXT
+========================================================= */
 
-                        const category =
-                            project.getAttribute(
-                                "data-category"
-                            );
+projects.forEach(project => {
 
+    project.addEventListener(
+        "mouseenter",
+        () => {
 
-                        if (
-                            selected === "all" ||
-                            selected === category
-                        ) {
+            project.style.zIndex = "5";
 
-                            project.classList.remove(
-                                "hidden"
-                            );
+        }
+    );
 
-                        } else {
+    project.addEventListener(
+        "mouseleave",
+        () => {
 
-                            project.classList.add(
-                                "hidden"
-                            );
+            project.style.zIndex = "1";
 
-                        }
+        }
+    );
 
-                    }
-                );
-
-            }
-        );
-
-    }
-);
-
+});
 
 </script>
 
