@@ -70,9 +70,7 @@ button {
     --black: #080808;
     --white: #f2f2f2;
     --grey: #777;
-    --dark-grey: #333;
     --line: #242424;
-    --card: #111;
 }
 
 
@@ -109,13 +107,9 @@ body::after {
 }
 
 .mono {
-
     font-family: "DM Mono", monospace;
-
     font-size: 9px;
-
     letter-spacing: 1.5px;
-
     text-transform: uppercase;
 }
 
@@ -612,7 +606,7 @@ body::after {
 
 
 /* =========================================================
-   VIEW ALL WORK BUTTON
+   VIEW ALL WORK
 ========================================================= */
 
 .view-all-wrap {
@@ -786,6 +780,8 @@ body::after {
 
     align-items: center;
 
+    cursor: pointer;
+
     transition:
         background .4s,
         padding .4s;
@@ -872,7 +868,7 @@ body::after {
 
 
 /* =========================================================
-   PROJECT DETAIL OVERLAY
+   PROJECT OVERLAY
 ========================================================= */
 
 .project-overlay {
@@ -989,7 +985,7 @@ body::after {
 
 
 /* =========================================================
-   PROJECT VIDEO GRID
+   VIDEO GRID
 ========================================================= */
 
 .detail-videos {
@@ -997,79 +993,75 @@ body::after {
     display: grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(4, 1fr);
 
-    gap: 30px;
+    gap: 25px;
 
     border-top: 1px solid var(--line);
 
     padding-top: 40px;
+
+    align-items: start;
 }
 
 .video-card {
 
+    width: 100%;
+
+    aspect-ratio: 9 / 16;
+
     background: #111;
-
-    aspect-ratio: 16 / 10;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
 
     position: relative;
 
     overflow: hidden;
+
+    border: 1px solid #1c1c1c;
+
+    transition:
+        transform .4s,
+        border-color .4s;
 }
 
-.video-card.vertical {
+.video-card:hover {
 
-    aspect-ratio: 9 / 16;
+    transform: translateY(-8px);
 
+    border-color: #444;
 }
 
-.video-placeholder {
+.video-card iframe {
 
-    text-align: center;
+    width: 100%;
 
-    color: #333;
+    height: 100%;
 
-    font-family: "DM Mono", monospace;
+    border: 0;
 
-    font-size: 9px;
-
-    letter-spacing: 1px;
+    display: block;
 }
 
 .video-number {
 
     position: absolute;
 
-    top: 18px;
-    left: 18px;
+    top: 12px;
 
-    color: #444;
+    left: 12px;
 
-    font-family: "DM Mono", monospace;
+    z-index: 5;
 
-    font-size: 8px;
-}
+    background: rgba(0,0,0,.75);
 
-.video-status {
-
-    position: absolute;
-
-    bottom: 18px;
-    right: 18px;
-
-    color: #444;
+    padding: 6px 8px;
 
     font-family: "DM Mono", monospace;
 
     font-size: 8px;
 
-    text-transform: uppercase;
+    color: #aaa;
+
+    pointer-events: none;
 }
 
 
@@ -1109,7 +1101,6 @@ body::after {
 }
 
 .process-item:hover {
-
     background: #101010;
 }
 
@@ -1243,7 +1234,6 @@ body::after {
 }
 
 .about-statement span {
-
     color: #444;
 }
 
@@ -1465,6 +1455,15 @@ footer {
    MOBILE
 ========================================================= */
 
+@media (max-width: 1000px) {
+
+    .detail-videos {
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
 @media (max-width: 800px) {
 
     .nav {
@@ -1507,8 +1506,10 @@ footer {
     }
 
     .hero-cta {
+
         width: 105px;
         height: 105px;
+
     }
 
     .section {
@@ -1557,12 +1558,19 @@ footer {
     }
 
     .archive-arrow {
+
         width: 38px;
         height: 38px;
+
     }
 
     .detail-videos {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap: 15px;
+
     }
 
     .process {
@@ -1574,12 +1582,18 @@ footer {
     }
 
     .about {
+
         grid-template-columns: 1fr;
+
         gap: 60px;
+
     }
 
     .skill-row {
-        grid-template-columns: 45px 1fr;
+
+        grid-template-columns:
+            45px 1fr;
+
     }
 
     .skill-detail {
@@ -1597,6 +1611,7 @@ footer {
         align-items: flex-start;
 
         gap: 50px;
+
     }
 
     footer {
@@ -1604,8 +1619,34 @@ footer {
         flex-direction: column;
 
         gap: 10px;
+
     }
 
+}
+
+@media (max-width: 500px) {
+
+    .detail-videos {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   HIDE SCROLLBAR INSIDE PROJECT
+========================================================= */
+
+.project-overlay::-webkit-scrollbar {
+    width: 5px;
+}
+
+.project-overlay::-webkit-scrollbar-track {
+    background: #080808;
+}
+
+.project-overlay::-webkit-scrollbar-thumb {
+    background: #333;
 }
 
 </style>
@@ -1617,7 +1658,7 @@ footer {
 
 
 <!-- =======================================================
-     NAV
+     NAVIGATION
 ======================================================= -->
 
 <nav class="nav">
@@ -1669,6 +1710,7 @@ footer {
     </div>
 
 </nav>
+
 
 
 <!-- =======================================================
@@ -1856,10 +1898,7 @@ footer {
         <div class="section-top reveal">
 
             <div class="section-number mono">
-
-                01 /
-                SELECTED WORK
-
+                01 / SELECTED WORK
             </div>
 
 
@@ -1874,8 +1913,6 @@ footer {
         </div>
 
 
-
-        <!-- FEATURED -->
 
         <div class="featured-frame reveal">
 
@@ -1911,8 +1948,6 @@ footer {
         </div>
 
 
-
-        <!-- VIEW ALL -->
 
         <div class="view-all-wrap reveal">
 
@@ -1967,9 +2002,9 @@ footer {
 
             <p class="archive-subtitle">
 
-                A complete collection of selected
-                commercial, cinematic, social,
-                event and experimental work.
+                A complete collection of commercial,
+                cinematic, social, event and
+                experimental work.
 
             </p>
 
@@ -2026,8 +2061,6 @@ footer {
         </div>
 
 
-
-        <!-- PROJECT LIST -->
 
         <div class="archive-list">
 
@@ -2286,6 +2319,7 @@ footer {
 
             </article>
 
+
         </div>
 
     </div>
@@ -2295,7 +2329,7 @@ footer {
 
 
 <!-- =======================================================
-     PROJECT DETAIL OVERLAY
+     PROJECT OVERLAY
 ======================================================= -->
 
 <div
@@ -2402,16 +2436,13 @@ footer {
                     </div>
 
                     <p class="process-description">
-
-                        Find the strongest
-                        story inside the footage.
-
+                        Find the strongest story
+                        inside the footage.
                     </p>
 
                 </div>
 
             </div>
-
 
 
             <div class="process-item reveal">
@@ -2427,16 +2458,13 @@ footer {
                     </div>
 
                     <p class="process-description">
-
                         Build pacing through
                         cuts, music and timing.
-
                     </p>
 
                 </div>
 
             </div>
-
 
 
             <div class="process-item reveal">
@@ -2452,16 +2480,13 @@ footer {
                     </div>
 
                     <p class="process-description">
-
                         Shape emotion through
                         music, ambience and SFX.
-
                     </p>
 
                 </div>
 
             </div>
-
 
 
             <div class="process-item reveal">
@@ -2477,15 +2502,14 @@ footer {
                     </div>
 
                     <p class="process-description">
-
                         Color, typography,
                         motion and final polish.
-
                     </p>
 
                 </div>
 
             </div>
+
 
         </div>
 
@@ -2528,9 +2552,7 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">
-                    01
-                </div>
+                <div class="skill-index">01</div>
 
                 <div class="skill-name">
                     Storytelling
@@ -2545,9 +2567,7 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">
-                    02
-                </div>
+                <div class="skill-index">02</div>
 
                 <div class="skill-name">
                     Fast Cuts
@@ -2562,9 +2582,7 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">
-                    03
-                </div>
+                <div class="skill-index">03</div>
 
                 <div class="skill-name">
                     Sound Design
@@ -2579,9 +2597,7 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">
-                    04
-                </div>
+                <div class="skill-index">04</div>
 
                 <div class="skill-name">
                     Color Grading
@@ -2596,9 +2612,7 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">
-                    05
-                </div>
+                <div class="skill-index">05</div>
 
                 <div class="skill-name">
                     Typography
@@ -2613,9 +2627,7 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">
-                    06
-                </div>
+                <div class="skill-index">06</div>
 
                 <div class="skill-name">
                     Motion Graphics
@@ -2630,9 +2642,7 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">
-                    07
-                </div>
+                <div class="skill-index">07</div>
 
                 <div class="skill-name">
                     Transitions
@@ -2647,9 +2657,7 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">
-                    08
-                </div>
+                <div class="skill-index">08</div>
 
                 <div class="skill-name">
                     Cinematic Editing
@@ -2660,6 +2668,7 @@ footer {
                 </div>
 
             </div>
+
 
         </div>
 
@@ -2711,9 +2720,7 @@ footer {
                 <br><br>
 
                 I FIND THE
-                <span>
-                    MOMENT,
-                </span>
+                <span>MOMENT,</span>
 
                 THE RHYTHM,
 
@@ -2741,6 +2748,7 @@ footer {
                 sound design, color, typography
                 and motion to create edits that
                 feel intentional and cinematic.
+
 
                 <div class="about-facts">
 
@@ -2874,9 +2882,7 @@ footer {
 
 
         <div class="contact-kicker mono">
-
             07 / START A PROJECT
-
         </div>
 
 
@@ -2900,7 +2906,7 @@ footer {
         <div class="contact-footer">
 
 
-            <!-- CHANGE THIS -->
+            <!-- CHANGE YOUR EMAIL -->
 
             <a
                 href="mailto:yourmail@gmail.com"
@@ -2913,6 +2919,8 @@ footer {
 
 
             <div class="socials mono">
+
+                <!-- ADD YOUR REAL LINKS -->
 
                 <a href="#">
                     Instagram
@@ -2980,9 +2988,7 @@ menuButton.addEventListener(
         );
 
         menuButton.textContent =
-            mobileMenu.classList.contains(
-                "active"
-            )
+            mobileMenu.classList.contains("active")
             ? "CLOSE"
             : "MENU";
 
@@ -3020,9 +3026,7 @@ mobileMenu
 ========================================================= */
 
 const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
+    document.querySelectorAll(".reveal");
 
 
 const revealObserver =
@@ -3069,13 +3073,11 @@ revealElements.forEach(
 
 
 /* =========================================================
-   WORK FILTER
+   FILTER
 ========================================================= */
 
 const filters =
-    document.querySelectorAll(
-        ".filter"
-    );
+    document.querySelectorAll(".filter");
 
 const archiveProjects =
     document.querySelectorAll(
@@ -3093,15 +3095,13 @@ filters.forEach(filter => {
                 filter.dataset.filter;
 
 
-            filters.forEach(
-                button => {
+            filters.forEach(button => {
 
-                    button.classList.remove(
-                        "active"
-                    );
+                button.classList.remove(
+                    "active"
+                );
 
-                }
-            );
+            });
 
 
             filter.classList.add(
@@ -3146,6 +3146,7 @@ filters.forEach(filter => {
 
 const projectData = {
 
+
     golden: {
 
         title:
@@ -3157,7 +3158,25 @@ const projectData = {
         description:
             "A collection of resort-focused social edits combining cinematic visuals, pacing, music and atmosphere.",
 
-        videos: 8
+        videos: [
+
+            "kHF4eNcoZ68",
+
+            "57ZeI9pZSPk",
+
+            "doUfGzefhsc",
+
+            "FPL3qbc2TaM",
+
+            "ua6jmbpWI3w",
+
+            "39OttbiJbiE",
+
+            "JUgAJNkmCTo",
+
+            "LNoY798kMY0"
+
+        ]
 
     },
 
@@ -3168,12 +3187,24 @@ const projectData = {
             "Export",
 
         category:
-            "Social Content",
+            "Social Content / Reels",
 
         description:
-            "Short-form social content and podcast edits built around fast pacing, typography and engaging visual rhythm.",
+            "Short-form social content built around fast pacing, typography, sound and engaging visual rhythm. Long-form podcast work will be added later.",
 
-        videos: 5
+        videos: [
+
+            "GL6WYXPOcpc",
+
+            "sMXWJEPx0CQ",
+
+            "QzqoPL7FHUQ",
+
+            "RKoW1EugwCM",
+
+            "3-2nC5tUf7M"
+
+        ]
 
     },
 
@@ -3189,7 +3220,7 @@ const projectData = {
         description:
             "Corporate content focused on clean storytelling, professional pacing and brand communication.",
 
-        videos: 2
+        videos: []
 
     },
 
@@ -3205,7 +3236,7 @@ const projectData = {
         description:
             "Event-focused social edits capturing moments, energy and celebration.",
 
-        videos: 2
+        videos: []
 
     },
 
@@ -3221,7 +3252,7 @@ const projectData = {
         description:
             "Event reels focused on atmosphere, decoration, people and emotional moments.",
 
-        videos: 4
+        videos: []
 
     },
 
@@ -3237,7 +3268,7 @@ const projectData = {
         description:
             "A commercial-focused edit demonstrating brand storytelling and visual polish.",
 
-        videos: 1
+        videos: []
 
     },
 
@@ -3253,7 +3284,7 @@ const projectData = {
         description:
             "A high-energy cinematic experiment built around movement, speed and rhythm.",
 
-        videos: 1
+        videos: []
 
     },
 
@@ -3269,7 +3300,7 @@ const projectData = {
         description:
             "An experimental AI-assisted visual project exploring generated imagery, motion and editing.",
 
-        videos: 1
+        videos: []
 
     }
 
@@ -3344,54 +3375,93 @@ archiveProjects.forEach(
                     "";
 
 
-                for (
-                    let i = 1;
-                    i <= data.videos;
-                    i++
+                if (
+                    data.videos.length === 0
                 ) {
 
-                    const card =
-                        document.createElement(
-                            "div"
-                        );
+                    detailVideos.innerHTML = `
 
+                        <div
+                            style="
+                                grid-column:1/-1;
+                                min-height:300px;
+                                display:flex;
+                                align-items:center;
+                                justify-content:center;
+                                color:#444;
+                                font-family:'DM Mono',monospace;
+                                font-size:9px;
+                                text-align:center;
+                            "
+                        >
 
-                    card.className =
-                        "video-card";
-
-
-                    card.innerHTML = `
-
-                        <div class="video-number">
-
-                            ${String(i).padStart(2,"0")}
-
-                        </div>
-
-
-                        <div class="video-placeholder">
-
-                            VIDEO ${String(i).padStart(2,"0")}
-
-                            <br><br>
-
-                            YOUTUBE LINK
+                            VIDEOS
+                            <br>
                             COMING SOON
-
-                        </div>
-
-
-                        <div class="video-status">
-
-                            READY FOR VIDEO
 
                         </div>
 
                     `;
 
+                } else {
 
-                    detailVideos.appendChild(
-                        card
+
+                    data.videos.forEach(
+                        (videoId, index) => {
+
+                            const card =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            card.className =
+                                "video-card";
+
+
+                            card.innerHTML = `
+
+                                <div
+                                    class="video-number"
+                                >
+
+                                    ${String(
+                                        index + 1
+                                    ).padStart(2,"0")}
+
+                                </div>
+
+
+                                <iframe
+
+                                    src="https://www.youtube.com/embed/${videoId}"
+
+                                    title="${data.title} — Video ${index + 1}"
+
+                                    loading="lazy"
+
+                                    allow="
+                                        accelerometer;
+                                        autoplay;
+                                        clipboard-write;
+                                        encrypted-media;
+                                        gyroscope;
+                                        picture-in-picture;
+                                        web-share
+                                    "
+
+                                    allowfullscreen>
+
+                                </iframe>
+
+                            `;
+
+
+                            detailVideos.appendChild(
+                                card
+                            );
+
+                        }
                     );
 
                 }
@@ -3405,12 +3475,18 @@ archiveProjects.forEach(
                     "menu-open"
                 );
 
+                projectOverlay.scrollTop = 0;
+
             }
         );
 
     }
 );
 
+
+/* =========================================================
+   CLOSE PROJECT
+========================================================= */
 
 projectClose.addEventListener(
     "click",
@@ -3424,9 +3500,16 @@ projectClose.addEventListener(
             "menu-open"
         );
 
+        detailVideos.innerHTML =
+            "";
+
     }
 );
 
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
 
 document.addEventListener(
     "keydown",
@@ -3443,6 +3526,9 @@ document.addEventListener(
             document.body.classList.remove(
                 "menu-open"
             );
+
+            detailVideos.innerHTML =
+                "";
 
         }
 
