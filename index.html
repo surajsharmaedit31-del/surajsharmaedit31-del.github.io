@@ -8,7 +8,6 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
@@ -95,18 +94,13 @@ button{
     position:fixed;
     top:0;
     left:0;
-
     width:100%;
     height:82px;
-
     padding:0 6%;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     z-index:5000;
-
     mix-blend-mode:difference;
 }
 
@@ -129,11 +123,9 @@ button{
 
 .nav-links a{
     color:#aaa;
-
     font-family:"DM Mono",monospace;
     font-size:8px;
     letter-spacing:1px;
-
     transition:.3s;
 }
 
@@ -145,39 +137,27 @@ button{
     display:flex;
     align-items:center;
     gap:8px;
-
     color:#aaa;
 }
 
 .availability-dot{
     width:5px;
     height:5px;
-
     border-radius:50%;
     background:#fff;
-
     animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-
-    0%,100%{
-        opacity:.25;
-    }
-
-    50%{
-        opacity:1;
-    }
-
+    0%,100%{opacity:.25;}
+    50%{opacity:1;}
 }
 
 .menu-button{
     display:none;
-
     border:0;
     background:none;
     color:#fff;
-
     cursor:pointer;
 }
 
@@ -189,20 +169,14 @@ button{
 .mobile-menu{
     position:fixed;
     inset:0;
-
     z-index:4500;
-
     background:#070707;
-
     padding:8%;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
-
     opacity:0;
     visibility:hidden;
-
     transition:.45s;
 }
 
@@ -214,10 +188,8 @@ button{
 .mobile-menu a{
     font-size:14vw;
     font-weight:800;
-
     line-height:.84;
     letter-spacing:-.09em;
-
     padding:7px 0;
 }
 
@@ -228,66 +200,50 @@ button{
 
 .hero{
     min-height:100vh;
-
     display:flex;
     align-items:flex-end;
-
     padding-bottom:9vh;
 }
 
 .hero-meta{
     display:flex;
     justify-content:space-between;
-
     color:#444;
-
     margin-bottom:35px;
 }
 
 .hero-title{
     font-size:clamp(90px,15.5vw,235px);
-
     font-weight:900;
-
     line-height:.68;
-
     letter-spacing:-.11em;
 }
 
 .hero-outline{
     color:transparent;
-
     -webkit-text-stroke:1px #3d3d3d;
-
     margin-left:8vw;
 }
 
 .hero-bottom{
     display:flex;
-
     align-items:flex-end;
     justify-content:space-between;
-
     margin-top:70px;
 }
 
 .hero-description{
     max-width:450px;
-
     color:#707070;
-
     font-size:13px;
     line-height:1.8;
 }
 
 .hero-link{
     display:flex;
-
     align-items:center;
     gap:15px;
-
     color:#777;
-
     transition:.35s;
 }
 
@@ -298,9 +254,7 @@ button{
 .hero-link-line{
     width:65px;
     height:1px;
-
     background:#555;
-
     transition:.4s;
 }
 
@@ -315,42 +269,28 @@ button{
 
 .ticker{
     overflow:hidden;
-
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
-
     padding:16px 0;
-
     white-space:nowrap;
 }
 
 .ticker-track{
     display:inline-flex;
-
     animation:ticker 45s linear infinite;
 }
 
 .ticker-item{
     color:#414141;
-
     font-family:"DM Mono",monospace;
-
     font-size:8px;
     letter-spacing:2px;
-
     margin-right:80px;
 }
 
 @keyframes ticker{
-
-    from{
-        transform:translateX(0);
-    }
-
-    to{
-        transform:translateX(-50%);
-    }
-
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
 }
 
 
@@ -364,9 +304,7 @@ button{
 
 .section-heading{
     display:grid;
-
     grid-template-columns:170px 1fr;
-
     margin-bottom:65px;
 }
 
@@ -376,11 +314,8 @@ button{
 
 .section-title{
     font-size:clamp(60px,7vw,105px);
-
     font-weight:800;
-
     line-height:.8;
-
     letter-spacing:-.09em;
 }
 
@@ -395,17 +330,11 @@ button{
 
 .showreel-window{
     position:relative;
-
     overflow:hidden;
-
     background:#0c0c0c;
-
     border:1px solid #181818;
-
     border-radius:2px;
-
     cursor:grab;
-
     box-shadow:0 30px 100px rgba(0,0,0,.35);
 }
 
@@ -415,84 +344,63 @@ button{
 
 .showreel-track{
     display:flex;
-
-    transition:
-        transform 1.1s cubic-bezier(.76,0,.18,1);
+    transition:transform 1.1s cubic-bezier(.76,0,.18,1);
 }
 
 .showreel-slide{
     min-width:100%;
-
     position:relative;
 }
 
 .showreel-frame{
     aspect-ratio:16/8.6;
-
     position:relative;
-
     overflow:hidden;
 }
 
 .showreel-frame iframe{
     position:absolute;
-
     inset:0;
-
     width:100%;
     height:100%;
-
     border:0;
 }
 
 .showreel-slide::after{
     content:"";
-
     position:absolute;
-
     inset:0;
-
     pointer-events:none;
-
-    background:
-        linear-gradient(
-            180deg,
-            transparent 45%,
-            rgba(0,0,0,.75)
-        );
+    background:linear-gradient(
+        180deg,
+        transparent 45%,
+        rgba(0,0,0,.75)
+    );
 }
 
 .showreel-info{
     position:absolute;
-
     left:32px;
     bottom:28px;
-
     z-index:4;
 }
 
 .showreel-name{
     font-size:clamp(25px,3vw,45px);
-
     font-weight:700;
-
     letter-spacing:-.06em;
 }
 
 .showreel-subtitle{
     margin-top:9px;
-
     color:#aaa;
 }
 
 .showreel-controls{
     position:absolute;
-
     right:24px;
     bottom:22px;
-
     z-index:10;
-
     display:flex;
     gap:9px;
 }
@@ -500,56 +408,39 @@ button{
 .reel-button{
     width:52px;
     height:52px;
-
     border-radius:50%;
-
     border:1px solid rgba(255,255,255,.3);
-
     background:rgba(0,0,0,.35);
-
     color:#fff;
-
     backdrop-filter:blur(15px);
-
     cursor:pointer;
-
     transition:.35s;
 }
 
 .reel-button:hover{
     background:#fff;
-
     color:#000;
-
     transform:scale(1.08);
 }
 
 .showreel-status{
     height:60px;
-
     display:flex;
-
     align-items:center;
     justify-content:space-between;
-
     border-bottom:1px solid var(--line);
 }
 
 .progress{
     width:220px;
-
     height:1px;
-
     background:#242424;
 }
 
 .progress-fill{
     width:50%;
-
     height:1px;
-
     background:#fff;
-
     transition:.7s;
 }
 
@@ -560,9 +451,7 @@ button{
 
 .featured-grid{
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:30px;
 }
 
@@ -572,19 +461,12 @@ button{
 
 .work-media{
     position:relative;
-
     width:100%;
-
     aspect-ratio:9/16;
-
     background:#101010;
-
     overflow:hidden;
-
     cursor:pointer;
-
     border:1px solid #181818;
-
     transition:
         transform .6s cubic-bezier(.2,.7,.2,1),
         border-color .4s;
@@ -592,24 +474,17 @@ button{
 
 .work-media:hover{
     transform:translateY(-5px);
-
     border-color:#333;
 }
 
 .work-media video{
     position:absolute;
-
     inset:0;
-
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     display:block;
-
     transform:scale(1.01);
-
     transition:
         transform 1.2s cubic-bezier(.2,.7,.2,1),
         filter .5s,
@@ -622,22 +497,15 @@ button{
 
 .work-media::after{
     content:"";
-
     position:absolute;
-
     inset:0;
-
     pointer-events:none;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,.03) 20%,
-            rgba(0,0,0,.72) 100%
-        );
-
+    background:linear-gradient(
+        180deg,
+        rgba(0,0,0,.03) 20%,
+        rgba(0,0,0,.72) 100%
+    );
     opacity:.7;
-
     transition:.5s;
 }
 
@@ -647,34 +515,20 @@ button{
 
 .work-play{
     position:absolute;
-
     left:50%;
     top:50%;
-
     width:56px;
     height:56px;
-
     border:1px solid rgba(255,255,255,.7);
-
     border-radius:50%;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     z-index:5;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.75);
-
+    transform:translate(-50%,-50%) scale(.75);
     opacity:0;
-
     background:rgba(0,0,0,.25);
-
     backdrop-filter:blur(12px);
-
     transition:
         opacity .4s,
         transform .5s cubic-bezier(.2,.8,.2,1);
@@ -682,17 +536,12 @@ button{
 
 .work-media:hover .work-play{
     opacity:1;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1);
+    transform:translate(-50%,-50%) scale(1);
 }
 
 .work-play::after{
     content:"";
-
     margin-left:4px;
-
     border-left:9px solid #fff;
     border-top:6px solid transparent;
     border-bottom:6px solid transparent;
@@ -700,63 +549,47 @@ button{
 
 .work-index{
     position:absolute;
-
     left:14px;
     top:14px;
-
     z-index:5;
-
     color:rgba(255,255,255,.6);
-
     background:rgba(0,0,0,.4);
-
     padding:6px 8px;
-
     backdrop-filter:blur(10px);
 }
 
 .work-label{
     position:absolute;
-
     left:15px;
     bottom:15px;
-
     z-index:5;
 }
 
 .work-name-overlay{
     font-size:15px;
-
     font-weight:600;
-
     letter-spacing:-.04em;
 }
 
 .work-type-overlay{
     margin-top:6px;
-
     color:#aaa;
 }
 
 .work-info{
     padding:14px 0;
-
     display:flex;
-
     justify-content:space-between;
-
     border-bottom:1px solid #1c1c1c;
 }
 
 .work-name{
     font-size:12px;
-
     font-weight:600;
 }
 
 .work-type{
     margin-top:5px;
-
     color:#505050;
 }
 
@@ -771,7 +604,6 @@ button{
 
 .archive{
     background:#0a0a0a;
-
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
 }
@@ -782,45 +614,31 @@ button{
 
 .archive-title{
     font-size:clamp(75px,13vw,190px);
-
     font-weight:900;
-
     line-height:.7;
-
     letter-spacing:-.105em;
 }
 
 .archive-description{
     max-width:500px;
-
     margin-top:30px;
-
     color:#666;
-
     font-size:12px;
-
     line-height:1.8;
 }
 
 .archive-filters{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:25px;
-
     padding-bottom:35px;
 }
 
 .filter{
     border:0;
-
     background:none;
-
     color:#444;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
@@ -835,25 +653,17 @@ button{
 
 .archive-row{
     min-height:125px;
-
     display:grid;
-
     grid-template-columns:70px 1fr 210px 50px;
-
     align-items:center;
-
     gap:25px;
-
     border-bottom:1px solid var(--line);
-
     cursor:pointer;
-
     transition:.4s;
 }
 
 .archive-row:hover{
     background:#101010;
-
     padding-left:20px;
     padding-right:20px;
 }
@@ -864,116 +674,312 @@ button{
 
 .archive-name{
     font-size:clamp(28px,4.5vw,62px);
-
     font-weight:600;
-
     letter-spacing:-.07em;
-
     line-height:.9;
 }
 
 .archive-meta{
     color:#555;
-
     line-height:1.8;
 }
 
 .archive-arrow{
     width:40px;
     height:40px;
-
     border-radius:50%;
-
     border:1px solid #333;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     transition:.4s;
 }
 
 .archive-row:hover .archive-arrow{
     background:#fff;
-
     color:#000;
-
     transform:rotate(-45deg);
 }
 
 
 /* =========================================================
-   OTHER PROJECTS
+   OTHER PROJECTS — ONE SINGLE COLLECTION
 ========================================================= */
 
-.other-projects{
+.other-projects-wrapper{
+    border-bottom:1px solid var(--line);
+}
+
+
+/* Main row */
+
+.other-project-main{
+    position:relative;
+    cursor:pointer;
+    user-select:none;
+
+    transition:
+        background .45s ease,
+        padding .55s cubic-bezier(.2,.7,.2,1);
+}
+
+.other-project-main:hover{
+    background:#101010;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+
+/* Toggle */
+
+.other-project-toggle{
+    width:46px;
+    height:46px;
+
+    border:1px solid #303030;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#777;
+    background:#090909;
+
+    transition:
+        background .45s ease,
+        color .45s ease,
+        border-color .45s ease;
+}
+
+.other-project-main:hover
+.other-project-toggle{
+    border-color:#666;
+    color:#fff;
+}
+
+#otherProjectPlus{
+    font-size:23px;
+    font-weight:300;
+    line-height:1;
+
+    transition:
+        transform .65s cubic-bezier(.2,.7,.2,1);
+}
+
+.other-project-main.open
+.other-project-toggle{
+    background:#fff;
+    border-color:#fff;
+    color:#000;
+}
+
+.other-project-main.open
+#otherProjectPlus{
+    transform:rotate(45deg);
+}
+
+
+/* Collection */
+
+.other-project-collection{
     max-height:0;
-
     overflow:hidden;
-
+    opacity:0;
     background:#080808;
 
     transition:
-        max-height .8s cubic-bezier(.2,.7,.2,1);
+        max-height 1s cubic-bezier(.2,.7,.2,1),
+        opacity .5s ease;
 }
 
-.other-projects.open{
-    max-height:1000px;
+.other-project-collection.open{
+    max-height:1200px;
+    opacity:1;
 }
 
-.other-project{
-    min-height:90px;
 
-    display:grid;
+/* Collection header */
 
-    grid-template-columns:70px 1fr 180px 40px;
+.other-collection-header{
+    min-height:95px;
+    padding:30px 20px 30px 70px;
 
+    display:flex;
     align-items:center;
+    justify-content:space-between;
 
-    gap:20px;
+    gap:40px;
 
-    padding:0 20px 0 70px;
-
-    border-bottom:1px solid #151515;
-
-    cursor:pointer;
-
-    transition:.35s;
+    border-bottom:1px solid #181818;
 }
 
-.other-project:hover{
-    background:#101010;
-
-    padding-left:85px;
-}
-
-.other-index{
+.other-collection-header .mono{
     color:#444;
 }
 
-.other-name{
-    font-size:18px;
+.other-collection-description{
+    max-width:400px;
+    color:#555;
+    font-size:11px;
+    line-height:1.7;
+}
+
+
+/* Project items */
+
+.other-project-item{
+    min-height:110px;
+
+    padding:0 20px 0 70px;
+
+    display:grid;
+
+    grid-template-columns:
+        70px
+        1fr
+        180px
+        50px;
+
+    align-items:center;
+
+    gap:25px;
+
+    border-bottom:1px solid #151515;
+
+    position:relative;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:
+        background .4s ease,
+        padding .55s cubic-bezier(.2,.7,.2,1);
+}
+
+.other-project-item:last-child{
+    border-bottom:none;
+}
+
+.other-project-item:hover{
+    background:#101010;
+    padding-left:85px;
+}
+
+
+/* Left highlight */
+
+.other-project-item::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+    bottom:0;
+
+    width:1px;
+
+    background:#fff;
+
+    transform:scaleY(0);
+
+    transform-origin:center;
+
+    transition:
+        transform .55s cubic-bezier(.2,.7,.2,1);
+}
+
+.other-project-item:hover::before{
+    transform:scaleY(1);
+}
+
+
+/* Number */
+
+.other-project-number{
+    color:#3d3d3d;
+
+    transition:
+        color .35s ease;
+}
+
+.other-project-item:hover
+.other-project-number{
+    color:#888;
+}
+
+
+/* Title */
+
+.other-project-title{
+    font-size:clamp(21px,3vw,40px);
 
     font-weight:500;
 
-    letter-spacing:-.04em;
+    letter-spacing:-.055em;
+
+    line-height:.9;
+
+    transition:
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        color .35s ease;
 }
 
-.other-type{
-    color:#555;
-}
-
-.other-arrow{
-    color:#555;
-
-    transition:.3s;
-}
-
-.other-project:hover .other-arrow{
-    color:#fff;
-
+.other-project-item:hover
+.other-project-title{
     transform:translateX(5px);
+    color:#fff;
+}
+
+
+/* Category */
+
+.other-project-category{
+    color:#444;
+
+    transition:
+        color .35s ease;
+}
+
+.other-project-item:hover
+.other-project-category{
+    color:#777;
+}
+
+
+/* Arrow */
+
+.other-project-arrow{
+    width:42px;
+    height:42px;
+
+    border:1px solid #292929;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#555;
+
+    transition:
+        background .45s ease,
+        color .45s ease,
+        border-color .45s ease,
+        transform .65s cubic-bezier(.2,.7,.2,1);
+}
+
+.other-project-item:hover
+.other-project-arrow{
+    background:#fff;
+    color:#000;
+    border-color:#fff;
+
+    transform:
+        rotate(-45deg)
+        scale(1.05);
 }
 
 
@@ -983,9 +989,7 @@ button{
 
 .project-overlay{
     position:fixed;
-
     inset:0;
-
     z-index:7000;
 
     background:#070707;
@@ -995,7 +999,6 @@ button{
     padding:110px 0;
 
     opacity:0;
-
     visibility:hidden;
 
     transform:translateY(20px);
@@ -1005,15 +1008,12 @@ button{
 
 .project-overlay.active{
     opacity:1;
-
     visibility:visible;
-
     transform:translateY(0);
 }
 
 .project-close{
     position:fixed;
-
     top:22px;
     right:5%;
 
@@ -1025,7 +1025,6 @@ button{
     border:1px solid #333;
 
     background:#070707;
-
     color:#fff;
 
     cursor:pointer;
@@ -1033,7 +1032,6 @@ button{
     z-index:20;
 
     font-family:"DM Mono",monospace;
-
     font-size:8px;
 
     transition:.3s;
@@ -1041,13 +1039,11 @@ button{
 
 .project-close:hover{
     background:#fff;
-
     color:#000;
 }
 
 .project-category{
     color:#555;
-
     margin-bottom:20px;
 }
 
@@ -1132,7 +1128,6 @@ button{
 ========================================================= */
 
 .process-grid{
-
     display:grid;
 
     grid-template-columns:repeat(4,1fr);
@@ -1142,11 +1137,7 @@ button{
     border-left:1px solid var(--line);
 }
 
-
-/* MAIN CARD */
-
 .process-card{
-
     min-height:290px;
 
     padding:28px;
@@ -1176,15 +1167,9 @@ button{
     background:#0b0b0b;
 }
 
-
-/* NUMBER */
-
 .process-number{
-
     position:relative;
-
     z-index:10;
-
     color:#3d3d3d;
 
     transition:
@@ -1195,18 +1180,12 @@ button{
     color:#777;
 }
 
-
-/* CONTENT */
-
 .process-content{
-
     position:relative;
-
     z-index:10;
 }
 
 .process-title{
-
     font-size:25px;
 
     font-weight:600;
@@ -1219,7 +1198,6 @@ button{
 }
 
 .process-text{
-
     max-width:270px;
 
     margin-top:12px;
@@ -1235,7 +1213,6 @@ button{
 }
 
 .process-card:hover .process-title{
-
     transform:translateX(4px);
 
     letter-spacing:-.035em;
@@ -1247,11 +1224,10 @@ button{
 
 
 /* =========================================================
-   PROCESS VISUAL BASE
+   PROCESS VISUAL
 ========================================================= */
 
 .process-visual{
-
     position:absolute;
 
     left:28px;
@@ -1273,7 +1249,6 @@ button{
 }
 
 .process-card:hover .process-visual{
-
     opacity:.42;
 
     transform:
@@ -1282,12 +1257,9 @@ button{
 }
 
 
-/* =========================================================
-   STORY — ANIMATED STORYTELLING LINE
-========================================================= */
+/* STORY */
 
 .story-visual{
-
     display:flex;
 
     flex-direction:column;
@@ -1298,7 +1270,6 @@ button{
 }
 
 .story-visual span{
-
     display:block;
 
     height:1px;
@@ -1324,11 +1295,7 @@ button{
     width:42%;
 }
 
-
-/* tiny moving head */
-
 .story-visual::after{
-
     content:"";
 
     position:absolute;
@@ -1341,7 +1308,6 @@ button{
     background:#fff;
 
     left:0;
-
     top:50%;
 
     transform:translate(-50%,-50%);
@@ -1353,32 +1319,31 @@ button{
         opacity .4s ease;
 }
 
-.process-story:hover .story-visual span:nth-child(1){
+.process-story:hover
+.story-visual span:nth-child(1){
     width:48%;
 }
 
-.process-story:hover .story-visual span:nth-child(2){
+.process-story:hover
+.story-visual span:nth-child(2){
     width:92%;
 }
 
-.process-story:hover .story-visual span:nth-child(3){
+.process-story:hover
+.story-visual span:nth-child(3){
     width:68%;
 }
 
-.process-story:hover .story-visual::after{
-
+.process-story:hover
+.story-visual::after{
     left:92%;
-
     opacity:1;
 }
 
 
-/* =========================================================
-   RHYTHM — MOVING WAVEFORM
-========================================================= */
+/* RHYTHM */
 
 .rhythm-visual{
-
     display:flex;
 
     align-items:center;
@@ -1389,12 +1354,9 @@ button{
 }
 
 .rhythm-visual i{
-
     display:block;
 
     width:2px;
-
-    height:14px;
 
     background:#fff;
 
@@ -1405,9 +1367,6 @@ button{
     animation:
         rhythmIdle 1.8s ease-in-out infinite;
 }
-
-
-/* different heights */
 
 .rhythm-visual i:nth-child(1){
     height:15px;
@@ -1469,9 +1428,7 @@ button{
     animation-delay:-1.8s;
 }
 
-
 @keyframes rhythmIdle{
-
     0%,100%{
         transform:scaleY(.35);
     }
@@ -1479,24 +1436,18 @@ button{
     50%{
         transform:scaleY(1);
     }
-
 }
 
-
-.process-rhythm:hover .rhythm-visual i{
-
+.process-rhythm:hover
+.rhythm-visual i{
     animation-duration:.75s;
-
     opacity:.9;
 }
 
 
-/* =========================================================
-   SOUND — AUDIO WAVE
-========================================================= */
+/* SOUND */
 
 .sound-visual{
-
     display:flex;
 
     align-items:center;
@@ -1507,7 +1458,6 @@ button{
 }
 
 .sound-visual span{
-
     display:block;
 
     width:2px;
@@ -1524,57 +1474,20 @@ button{
         soundWave 1.45s ease-in-out infinite;
 }
 
-.sound-visual span:nth-child(1){
-    animation-delay:-.1s;
-}
-
-.sound-visual span:nth-child(2){
-    animation-delay:-.2s;
-}
-
-.sound-visual span:nth-child(3){
-    animation-delay:-.3s;
-}
-
-.sound-visual span:nth-child(4){
-    animation-delay:-.4s;
-}
-
-.sound-visual span:nth-child(5){
-    animation-delay:-.5s;
-}
-
-.sound-visual span:nth-child(6){
-    animation-delay:-.6s;
-}
-
-.sound-visual span:nth-child(7){
-    animation-delay:-.7s;
-}
-
-.sound-visual span:nth-child(8){
-    animation-delay:-.8s;
-}
-
-.sound-visual span:nth-child(9){
-    animation-delay:-.9s;
-}
-
-.sound-visual span:nth-child(10){
-    animation-delay:-1s;
-}
-
-.sound-visual span:nth-child(11){
-    animation-delay:-1.1s;
-}
-
-.sound-visual span:nth-child(12){
-    animation-delay:-1.2s;
-}
-
+.sound-visual span:nth-child(1){animation-delay:-.1s;}
+.sound-visual span:nth-child(2){animation-delay:-.2s;}
+.sound-visual span:nth-child(3){animation-delay:-.3s;}
+.sound-visual span:nth-child(4){animation-delay:-.4s;}
+.sound-visual span:nth-child(5){animation-delay:-.5s;}
+.sound-visual span:nth-child(6){animation-delay:-.6s;}
+.sound-visual span:nth-child(7){animation-delay:-.7s;}
+.sound-visual span:nth-child(8){animation-delay:-.8s;}
+.sound-visual span:nth-child(9){animation-delay:-.9s;}
+.sound-visual span:nth-child(10){animation-delay:-1s;}
+.sound-visual span:nth-child(11){animation-delay:-1.1s;}
+.sound-visual span:nth-child(12){animation-delay:-1.2s;}
 
 @keyframes soundWave{
-
     0%,100%{
         transform:scaleY(.25);
     }
@@ -1582,24 +1495,19 @@ button{
     50%{
         transform:scaleY(1.8);
     }
-
 }
 
-
-.process-sound:hover .sound-visual span{
-
+.process-sound:hover
+.sound-visual span{
     animation-duration:.65s;
 
     opacity:.9;
 }
 
 
-/* =========================================================
-   FINISH — CINEMATIC LIGHT / GRADIENT
-========================================================= */
+/* FINISH */
 
 .finish-visual{
-
     display:flex;
 
     align-items:center;
@@ -1607,17 +1515,12 @@ button{
     justify-content:center;
 }
 
-
-/* soft light */
-
 .finish-visual::before{
-
     content:"";
 
     position:absolute;
 
     width:150px;
-
     height:150px;
 
     border-radius:50%;
@@ -1633,7 +1536,6 @@ button{
     filter:blur(12px);
 
     left:10%;
-
     top:50%;
 
     transform:
@@ -1648,21 +1550,15 @@ button{
         opacity .8s ease;
 }
 
-
-/* cinematic horizontal beam */
-
 .finish-visual::after{
-
     content:"";
 
     position:absolute;
 
     left:0;
-
     top:50%;
 
     width:100%;
-
     height:1px;
 
     background:
@@ -1684,9 +1580,8 @@ button{
         opacity .7s ease;
 }
 
-
-.process-finish:hover .finish-visual::before{
-
+.process-finish:hover
+.finish-visual::before{
     left:85%;
 
     transform:
@@ -1696,8 +1591,8 @@ button{
     opacity:.7;
 }
 
-.process-finish:hover .finish-visual::after{
-
+.process-finish:hover
+.finish-visual::after{
     transform:
         translateX(100%)
         scaleX(1);
@@ -1705,15 +1600,8 @@ button{
     opacity:.7;
 }
 
-
-/* =========================================================
-   FINISH CENTER DETAIL
-========================================================= */
-
 .finish-circle{
-
     width:65px;
-
     height:65px;
 
     border-radius:50%;
@@ -1730,7 +1618,6 @@ button{
 }
 
 .finish-circle::before{
-
     content:"";
 
     position:absolute;
@@ -1745,8 +1632,8 @@ button{
         transform 1s cubic-bezier(.2,.7,.2,1);
 }
 
-.process-finish:hover .finish-circle{
-
+.process-finish:hover
+.finish-circle{
     transform:
         scale(1.18)
         rotate(20deg);
@@ -1754,24 +1641,9 @@ button{
     border-color:rgba(255,255,255,.7);
 }
 
-.process-finish:hover .finish-circle::before{
-
+.process-finish:hover
+.finish-circle::before{
     transform:scale(.65);
-}
-
-
-/* =========================================================
-   PROCESS REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    .rhythm-visual i,
-    .sound-visual span{
-
-        animation:none;
-    }
-
 }
 
 
@@ -1784,7 +1656,6 @@ button{
 }
 
 .skill-row{
-
     min-height:90px;
 
     display:grid;
@@ -1799,7 +1670,6 @@ button{
 }
 
 .skill-row:hover{
-
     background:#0d0d0d;
 
     padding-left:20px;
@@ -1810,7 +1680,6 @@ button{
 }
 
 .skill-name{
-
     font-size:clamp(28px,4vw,55px);
 
     letter-spacing:-.065em;
@@ -1826,7 +1695,6 @@ button{
 ========================================================= */
 
 .about-grid{
-
     display:grid;
 
     grid-template-columns:1fr 1fr;
@@ -1835,7 +1703,6 @@ button{
 }
 
 .about-statement{
-
     font-size:clamp(36px,5vw,72px);
 
     line-height:.94;
@@ -1848,7 +1715,6 @@ button{
 }
 
 .about-copy{
-
     max-width:500px;
 
     color:#707070;
@@ -1859,14 +1725,12 @@ button{
 }
 
 .about-facts{
-
     margin-top:45px;
 
     border-top:1px solid var(--line);
 }
 
 .fact{
-
     padding:14px 0;
 
     display:flex;
@@ -1882,7 +1746,6 @@ button{
 ========================================================= */
 
 .tools{
-
     display:flex;
 
     flex-wrap:wrap;
@@ -1891,7 +1754,6 @@ button{
 }
 
 .tool{
-
     padding:14px 20px;
 
     border:1px solid #272727;
@@ -1904,7 +1766,6 @@ button{
 }
 
 .tool:hover{
-
     color:#fff;
 
     border-color:#777;
@@ -1916,7 +1777,6 @@ button{
 ========================================================= */
 
 .hire{
-
     min-height:90vh;
 
     display:flex;
@@ -1931,7 +1791,6 @@ button{
 }
 
 .hire::before{
-
     content:"";
 
     position:absolute;
@@ -1948,7 +1807,6 @@ button{
 }
 
 .hire::after{
-
     content:"";
 
     position:absolute;
@@ -1965,21 +1823,18 @@ button{
 }
 
 .hire-inner{
-
     position:relative;
 
     z-index:2;
 }
 
 .hire-kicker{
-
     color:#555;
 
     margin-bottom:40px;
 }
 
 .hire-title{
-
     font-size:clamp(65px,11vw,160px);
 
     font-weight:900;
@@ -1992,14 +1847,12 @@ button{
 }
 
 .hire-title span{
-
     color:transparent;
 
     -webkit-text-stroke:1px #444;
 }
 
 .hire-description{
-
     max-width:500px;
 
     margin-top:45px;
@@ -2012,7 +1865,6 @@ button{
 }
 
 .hire-button{
-
     margin-top:45px;
 
     display:inline-flex;
@@ -2035,23 +1887,20 @@ button{
 }
 
 .hire-button:hover{
-
     background:#fff;
 
     color:#000;
 
     padding-left:35px;
-
     padding-right:35px;
 }
 
 .hire-arrow{
-
     transition:.3s;
 }
 
-.hire-button:hover .hire-arrow{
-
+.hire-button:hover
+.hire-arrow{
     transform:translateX(6px);
 }
 
@@ -2061,7 +1910,6 @@ button{
 ========================================================= */
 
 .contact-modal{
-
     position:fixed;
 
     inset:0;
@@ -2088,14 +1936,12 @@ button{
 }
 
 .contact-modal.active{
-
     opacity:1;
 
     visibility:visible;
 }
 
 .contact-box{
-
     width:min(850px,100%);
 
     background:#0b0b0b;
@@ -2113,15 +1959,14 @@ button{
     transition:.45s;
 }
 
-.contact-modal.active .contact-box{
-
+.contact-modal.active
+.contact-box{
     transform:
         translateY(0)
         scale(1);
 }
 
 .contact-close{
-
     position:absolute;
 
     top:22px;
@@ -2148,21 +1993,18 @@ button{
 }
 
 .contact-close:hover{
-
     background:#fff;
 
     color:#000;
 }
 
 .contact-kicker{
-
     color:#555;
 
     margin-bottom:25px;
 }
 
 .contact-heading{
-
     font-size:clamp(50px,7vw,90px);
 
     font-weight:800;
@@ -2173,7 +2015,6 @@ button{
 }
 
 .contact-subtitle{
-
     max-width:480px;
 
     margin-top:30px;
@@ -2186,14 +2027,12 @@ button{
 }
 
 .contact-list{
-
     margin-top:50px;
 
     border-top:1px solid #202020;
 }
 
 .contact-link{
-
     min-height:82px;
 
     display:grid;
@@ -2208,14 +2047,12 @@ button{
 }
 
 .contact-link:hover{
-
     padding-left:15px;
 
     background:#101010;
 }
 
 .contact-icon{
-
     width:42px;
     height:42px;
 
@@ -2233,34 +2070,31 @@ button{
     transition:.3s;
 }
 
-.contact-link:hover .contact-icon{
-
+.contact-link:hover
+.contact-icon{
     background:#fff;
 
     color:#000;
 }
 
 .contact-label{
-
     color:#444;
 
     margin-bottom:4px;
 }
 
 .contact-value{
-
     font-size:15px;
 }
 
 .contact-link-arrow{
-
     color:#555;
 
     transition:.3s;
 }
 
-.contact-link:hover .contact-link-arrow{
-
+.contact-link:hover
+.contact-link-arrow{
     color:#fff;
 
     transform:translateX(4px);
@@ -2272,7 +2106,6 @@ button{
 ========================================================= */
 
 .reveal{
-
     opacity:0;
 
     transform:translateY(30px);
@@ -2283,7 +2116,6 @@ button{
 }
 
 .reveal.visible{
-
     opacity:1;
 
     transform:translateY(0);
@@ -2295,7 +2127,6 @@ button{
 ========================================================= */
 
 footer{
-
     padding:22px 6%;
 
     border-top:1px solid var(--line);
@@ -2309,7 +2140,7 @@ footer{
 
 
 /* =========================================================
-   RESPONSIVE — 1100
+   RESPONSIVE
 ========================================================= */
 
 @media(max-width:1100px){
@@ -2323,11 +2154,6 @@ footer{
     }
 
 }
-
-
-/* =========================================================
-   RESPONSIVE — 800
-========================================================= */
 
 @media(max-width:800px){
 
@@ -2349,7 +2175,6 @@ footer{
     }
 
     .hero-bottom{
-
         flex-direction:column;
 
         align-items:flex-start;
@@ -2362,7 +2187,6 @@ footer{
     }
 
     .section-heading{
-
         grid-template-columns:1fr;
 
         gap:22px;
@@ -2375,7 +2199,6 @@ footer{
     }
 
     .featured-grid{
-
         grid-template-columns:repeat(2,1fr);
 
         gap:20px;
@@ -2386,25 +2209,21 @@ footer{
     }
 
     .showreel-info{
-
         left:18px;
         bottom:18px;
     }
 
     .showreel-controls{
-
         right:15px;
         bottom:15px;
     }
 
     .reel-button{
-
         width:44px;
         height:44px;
     }
 
     .archive-row{
-
         grid-template-columns:45px 1fr 40px;
     }
 
@@ -2412,18 +2231,46 @@ footer{
         display:none;
     }
 
-    .other-project{
+    /* OTHER PROJECTS */
 
-        grid-template-columns:45px 1fr 35px;
-
-        padding-left:45px;
+    .other-project-toggle{
+        width:42px;
+        height:42px;
     }
 
-    .other-type{
+    .other-collection-header{
+        padding:28px 20px 28px 45px;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+    }
+
+    .other-project-item{
+        grid-template-columns:
+            45px
+            1fr
+            42px;
+
+        padding:
+            0 15px 0 45px;
+
+        gap:15px;
+    }
+
+    .other-project-item:hover{
+        padding-left:55px;
+    }
+
+    .other-project-category{
         display:none;
     }
 
-    /* PROCESS */
+    .other-project-title{
+        font-size:24px;
+    }
 
     .process-grid{
         grid-template-columns:repeat(2,1fr);
@@ -2434,14 +2281,12 @@ footer{
     }
 
     .about-grid{
-
         grid-template-columns:1fr;
 
         gap:55px;
     }
 
     .skill-row{
-
         grid-template-columns:45px 1fr;
     }
 
@@ -2455,11 +2300,6 @@ footer{
 
 }
 
-
-/* =========================================================
-   RESPONSIVE — 520
-========================================================= */
-
 @media(max-width:520px){
 
     .container{
@@ -2467,7 +2307,6 @@ footer{
     }
 
     .featured-grid{
-
         grid-template-columns:repeat(2,1fr);
 
         gap:15px;
@@ -2482,13 +2321,38 @@ footer{
     }
 
     .project-videos{
-
         grid-template-columns:repeat(2,1fr);
 
         gap:15px;
     }
 
-    /* PROCESS */
+    .other-project-toggle{
+        width:40px;
+        height:40px;
+    }
+
+    .other-collection-header{
+        padding-left:20px;
+    }
+
+    .other-project-item{
+        min-height:90px;
+
+        padding-left:20px;
+    }
+
+    .other-project-item:hover{
+        padding-left:30px;
+    }
+
+    .other-project-title{
+        font-size:19px;
+    }
+
+    .other-project-arrow{
+        width:36px;
+        height:36px;
+    }
 
     .process-grid{
         grid-template-columns:1fr;
@@ -2511,7 +2375,6 @@ footer{
     }
 
     footer{
-
         flex-direction:column;
 
         gap:10px;
@@ -2522,12 +2385,11 @@ footer{
 </style>
 </head>
 
-
 <body>
 
 
 <!-- =========================================================
-     NAV
+     NAVIGATION
 ========================================================= -->
 
 <nav class="nav">
@@ -2539,8 +2401,11 @@ footer{
     <div class="nav-right">
 
         <div class="availability mono">
+
             <span class="availability-dot"></span>
+
             AVAILABLE FOR WORK
+
         </div>
 
         <div class="nav-links">
@@ -2599,7 +2464,6 @@ footer{
 
         </div>
 
-
         <h1 class="hero-title">
 
             SURAJ
@@ -2611,7 +2475,6 @@ footer{
             </span>
 
         </h1>
-
 
         <div class="hero-bottom">
 
@@ -2625,7 +2488,6 @@ footer{
                 Turning footage into rhythm, emotion and visual identity.
 
             </p>
-
 
             <a
                 href="#showreel"
@@ -2674,7 +2536,7 @@ footer{
 
 
 <!-- =========================================================
-     SHOWREEL
+     SHOWREELS
 ========================================================= -->
 
 <section
@@ -2690,9 +2552,11 @@ footer{
             </div>
 
             <h2 class="section-title">
+
                 TWO
                 <br>
                 SIDES.
+
             </h2>
 
         </div>
@@ -2707,21 +2571,17 @@ footer{
                 id="showreelTrack">
 
 
-                <!-- SHOWREEL 01 -->
-
                 <div class="showreel-slide">
 
                     <div class="showreel-frame">
 
                         <iframe
                             src="https://drive.google.com/file/d/1FOBalR2kkWACMrxDvgnW_wS2UIvggTWW/preview"
-                            title="Editing Showreel"
                             allow="autoplay"
                             allowfullscreen>
                         </iframe>
 
                     </div>
-
 
                     <div class="showreel-info">
 
@@ -2738,21 +2598,17 @@ footer{
                 </div>
 
 
-                <!-- SHOWREEL 02 -->
-
                 <div class="showreel-slide">
 
                     <div class="showreel-frame">
 
                         <iframe
                             src="https://drive.google.com/file/d/1EdQs-iJTkL7YOXtV46_FTB2AGDPTGkUG/preview"
-                            title="Color Grading Showreel"
                             allow="autoplay"
                             allowfullscreen>
                         </iframe>
 
                     </div>
-
 
                     <div class="showreel-info">
 
@@ -2776,17 +2632,13 @@ footer{
                 <button
                     class="reel-button"
                     id="reelPrev">
-
                     ←
-
                 </button>
 
                 <button
                     class="reel-button"
                     id="reelNext">
-
                     →
-
                 </button>
 
             </div>
@@ -2841,9 +2693,11 @@ footer{
             </div>
 
             <h2 class="section-title">
+
                 THE
                 <br>
                 CUTS.
+
             </h2>
 
         </div>
@@ -2859,7 +2713,7 @@ footer{
                 <div class="work-media">
 
                     <video
-                        src="Air_drop(1).mp4"
+                        src="Golden Trails 01.mp4"
                         muted
                         loop
                         playsinline
@@ -2885,7 +2739,6 @@ footer{
                     </div>
 
                 </div>
-
 
                 <div class="work-info">
 
@@ -2917,7 +2770,7 @@ footer{
                 <div class="work-media">
 
                     <video
-                        src="Baad_mein(1).mp4"
+                        src="Golden Trails 02.mp4"
                         muted
                         loop
                         playsinline
@@ -2943,7 +2796,6 @@ footer{
                     </div>
 
                 </div>
-
 
                 <div class="work-info">
 
@@ -2975,7 +2827,7 @@ footer{
                 <div class="work-media">
 
                     <video
-                        src="Golden Trails_Trending.mp4"
+                        src="Golden Trails 03.mp4"
                         muted
                         loop
                         playsinline
@@ -3001,7 +2853,6 @@ footer{
                     </div>
 
                 </div>
-
 
                 <div class="work-info">
 
@@ -3033,7 +2884,7 @@ footer{
                 <div class="work-media">
 
                     <video
-                        src="Export Start Karna Hai(1).mp4"
+                        src="Export Social 1.mp4"
                         muted
                         loop
                         playsinline
@@ -3059,7 +2910,6 @@ footer{
                     </div>
 
                 </div>
-
 
                 <div class="work-info">
 
@@ -3091,7 +2941,7 @@ footer{
                 <div class="work-media">
 
                     <video
-                        src="Nilesh dada(1).mp4"
+                        src="Nilesh AI.mp4"
                         muted
                         loop
                         playsinline
@@ -3117,7 +2967,6 @@ footer{
                     </div>
 
                 </div>
-
 
                 <div class="work-info">
 
@@ -3149,7 +2998,7 @@ footer{
                 <div class="work-media">
 
                     <video
-                        src="regain app reel.mp4"
+                        src="Regain App AI.mp4"
                         muted
                         loop
                         playsinline
@@ -3175,7 +3024,6 @@ footer{
                     </div>
 
                 </div>
-
 
                 <div class="work-info">
 
@@ -3207,7 +3055,7 @@ footer{
                 <div class="work-media">
 
                     <video
-                        src="Host(1).mp4"
+                        src="Host.mp4"
                         muted
                         loop
                         playsinline
@@ -3233,7 +3081,6 @@ footer{
                     </div>
 
                 </div>
-
 
                 <div class="work-info">
 
@@ -3265,7 +3112,7 @@ footer{
                 <div class="work-media">
 
                     <video
-                        src="Decore(1).mp4"
+                        src="Decore.mp4"
                         muted
                         loop
                         playsinline
@@ -3291,7 +3138,6 @@ footer{
                     </div>
 
                 </div>
-
 
                 <div class="work-info">
 
@@ -3341,9 +3187,11 @@ footer{
             </div>
 
             <h2 class="archive-title">
+
                 ALL
                 <br>
                 WORK.
+
             </h2>
 
             <p class="archive-description">
@@ -3400,57 +3248,7 @@ footer{
         <div class="archive-list">
 
 
-            <article
-                class="archive-row reveal"
-                data-category="hospitality"
-                data-project="golden">
-
-                <div class="archive-index mono">
-                    01
-                </div>
-
-                <div class="archive-name">
-                    Golden Trails
-                </div>
-
-                <div class="archive-meta mono">
-                    HOSPITALITY
-                    <br>
-                    03 VIDEOS
-                </div>
-
-                <div class="archive-arrow">
-                    ↗
-                </div>
-
-            </article>
-
-
-            <article
-                class="archive-row reveal"
-                data-category="social"
-                data-project="export">
-
-                <div class="archive-index mono">
-                    02
-                </div>
-
-                <div class="archive-name">
-                    Export
-                </div>
-
-                <div class="archive-meta mono">
-                    SOCIAL
-                    <br>
-                    REELS
-                </div>
-
-                <div class="archive-arrow">
-                    ↗
-                </div>
-
-            </article>
-
+            <!-- CORPORATE -->
 
             <article
                 class="archive-row reveal"
@@ -3458,7 +3256,7 @@ footer{
                 data-project="corporate">
 
                 <div class="archive-index mono">
-                    03
+                    01
                 </div>
 
                 <div class="archive-name">
@@ -3466,7 +3264,7 @@ footer{
                 </div>
 
                 <div class="archive-meta mono">
-                    BRAND
+                    COMMERCIAL
                     <br>
                     02 VIDEOS
                 </div>
@@ -3478,13 +3276,15 @@ footer{
             </article>
 
 
+            <!-- BIRTHDAY -->
+
             <article
                 class="archive-row reveal"
                 data-category="events"
                 data-project="birthday">
 
                 <div class="archive-index mono">
-                    04
+                    02
                 </div>
 
                 <div class="archive-name">
@@ -3504,13 +3304,15 @@ footer{
             </article>
 
 
+            <!-- BABY SHOWER -->
+
             <article
                 class="archive-row reveal"
                 data-category="events"
                 data-project="baby">
 
                 <div class="archive-index mono">
-                    05
+                    03
                 </div>
 
                 <div class="archive-name">
@@ -3532,201 +3334,239 @@ footer{
 
             <!-- OTHER PROJECTS -->
 
-            <article
-                class="archive-row reveal"
-                id="otherProjectsRow"
-                data-category="other">
-
-                <div class="archive-index mono">
-                    06
-                </div>
-
-                <div class="archive-name">
-                    Other Projects
-                </div>
-
-                <div class="archive-meta mono">
-                    07 PROJECTS
-                    <br>
-                    ONE COLLECTION
-                </div>
-
-                <div
-                    class="archive-arrow"
-                    id="otherArrow">
-
-                    ↗
-
-                </div>
-
-            </article>
-
-
-            <div
-                class="other-projects"
-                id="otherProjects">
+            <div class="other-projects-wrapper">
 
 
                 <div
-                    class="other-project"
-                    data-project="parachute">
+                    class="archive-row other-project-main"
+                    id="otherProjectsMain"
+                    data-category="other">
 
-                    <div class="other-index mono">
-                        01
-                    </div>
-
-                    <div class="other-name">
-                        Parachute Advansed
-                    </div>
-
-                    <div class="other-type mono">
-                        BRAND
-                    </div>
-
-                    <div class="other-arrow">
-                        →
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="other-project"
-                    data-project="evm">
-
-                    <div class="other-index mono">
-                        02
-                    </div>
-
-                    <div class="other-name">
-                        EVM
-                    </div>
-
-                    <div class="other-type mono">
-                        COMMERCIAL
-                    </div>
-
-                    <div class="other-arrow">
-                        →
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="other-project"
-                    data-project="flying">
-
-                    <div class="other-index mono">
-                        03
-                    </div>
-
-                    <div class="other-name">
-                        Flying Panda
-                    </div>
-
-                    <div class="other-type mono">
-                        BRAND
-                    </div>
-
-                    <div class="other-arrow">
-                        →
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="other-project"
-                    data-project="nilesh">
-
-                    <div class="other-index mono">
+                    <div class="archive-index mono">
                         04
                     </div>
 
-                    <div class="other-name">
-                        Nilesh AI
+                    <div class="archive-name">
+                        Other Projects
                     </div>
 
-                    <div class="other-type mono">
-                        AI / VISUAL
+                    <div class="archive-meta mono">
+                        07 PROJECTS
+                        <br>
+                        ONE COLLECTION
                     </div>
 
-                    <div class="other-arrow">
-                        →
+                    <div class="other-project-toggle">
+
+                        <span id="otherProjectPlus">
+                            +
+                        </span>
+
                     </div>
 
                 </div>
 
+
+                <!-- SINGLE COLLECTION -->
 
                 <div
-                    class="other-project"
-                    data-project="regain">
+                    class="other-project-collection"
+                    id="otherProjectCollection">
 
-                    <div class="other-index mono">
-                        05
+
+                    <div class="other-collection-header">
+
+                        <div class="mono">
+                            OTHER PROJECTS / 07
+                        </div>
+
+                        <div class="other-collection-description">
+
+                            Additional commercial,
+                            AI, music, brand and
+                            experimental work.
+
+                        </div>
+
                     </div>
 
-                    <div class="other-name">
-                        Regain App
+
+                    <!-- 01 -->
+
+                    <div
+                        class="other-project-item"
+                        data-project="parachute">
+
+                        <div class="other-project-number mono">
+                            01
+                        </div>
+
+                        <div class="other-project-title">
+                            Parachute Advansed
+                        </div>
+
+                        <div class="other-project-category mono">
+                            BRAND
+                        </div>
+
+                        <div class="other-project-arrow">
+                            ↗
+                        </div>
+
                     </div>
 
-                    <div class="other-type mono">
-                        AI / APP
+
+                    <!-- 02 -->
+
+                    <div
+                        class="other-project-item"
+                        data-project="evm">
+
+                        <div class="other-project-number mono">
+                            02
+                        </div>
+
+                        <div class="other-project-title">
+                            EVM
+                        </div>
+
+                        <div class="other-project-category mono">
+                            COMMERCIAL
+                        </div>
+
+                        <div class="other-project-arrow">
+                            ↗
+                        </div>
+
                     </div>
 
-                    <div class="other-arrow">
-                        →
+
+                    <!-- 03 -->
+
+                    <div
+                        class="other-project-item"
+                        data-project="flying">
+
+                        <div class="other-project-number mono">
+                            03
+                        </div>
+
+                        <div class="other-project-title">
+                            Flying Panda
+                        </div>
+
+                        <div class="other-project-category mono">
+                            BRAND
+                        </div>
+
+                        <div class="other-project-arrow">
+                            ↗
+                        </div>
+
                     </div>
+
+
+                    <!-- 04 -->
+
+                    <div
+                        class="other-project-item"
+                        data-project="nilesh">
+
+                        <div class="other-project-number mono">
+                            04
+                        </div>
+
+                        <div class="other-project-title">
+                            Nilesh AI
+                        </div>
+
+                        <div class="other-project-category mono">
+                            AI / VISUAL
+                        </div>
+
+                        <div class="other-project-arrow">
+                            ↗
+                        </div>
+
+                    </div>
+
+
+                    <!-- 05 -->
+
+                    <div
+                        class="other-project-item"
+                        data-project="regain">
+
+                        <div class="other-project-number mono">
+                            05
+                        </div>
+
+                        <div class="other-project-title">
+                            Regain App AI
+                        </div>
+
+                        <div class="other-project-category mono">
+                            AI / APP
+                        </div>
+
+                        <div class="other-project-arrow">
+                            ↗
+                        </div>
+
+                    </div>
+
+
+                    <!-- 06 -->
+
+                    <div
+                        class="other-project-item"
+                        data-project="maenzraat3">
+
+                        <div class="other-project-number mono">
+                            06
+                        </div>
+
+                        <div class="other-project-title">
+                            MAENZRAAT 3.0
+                        </div>
+
+                        <div class="other-project-category mono">
+                            MUSIC / CULTURE
+                        </div>
+
+                        <div class="other-project-arrow">
+                            ↗
+                        </div>
+
+                    </div>
+
+
+                    <!-- 07 -->
+
+                    <div
+                        class="other-project-item"
+                        data-project="maenzraat2">
+
+                        <div class="other-project-number mono">
+                            07
+                        </div>
+
+                        <div class="other-project-title">
+                            MAENZRAAT V2
+                        </div>
+
+                        <div class="other-project-category mono">
+                            MUSIC / CULTURE
+                        </div>
+
+                        <div class="other-project-arrow">
+                            ↗
+                        </div>
+
+                    </div>
+
 
                 </div>
-
-
-                <div
-                    class="other-project"
-                    data-project="maenzraat3">
-
-                    <div class="other-index mono">
-                        06
-                    </div>
-
-                    <div class="other-name">
-                        MAENZRAAT 3.0
-                    </div>
-
-                    <div class="other-type mono">
-                        MUSIC / EVENT
-                    </div>
-
-                    <div class="other-arrow">
-                        →
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="other-project"
-                    data-project="maenzraat2">
-
-                    <div class="other-index mono">
-                        07
-                    </div>
-
-                    <div class="other-name">
-                        MAENZRAAT V2
-                    </div>
-
-                    <div class="other-type mono">
-                        MUSIC / EVENT
-                    </div>
-
-                    <div class="other-arrow">
-                        →
-                    </div>
-
-                </div>
-
 
             </div>
 
@@ -3801,9 +3641,11 @@ footer{
             </div>
 
             <h2 class="section-title">
+
                 HOW I
                 <br>
                 EDIT.
+
             </h2>
 
         </div>
@@ -3821,7 +3663,6 @@ footer{
                     01
                 </div>
 
-
                 <div class="process-visual story-visual">
 
                     <span></span>
@@ -3829,7 +3670,6 @@ footer{
                     <span></span>
 
                 </div>
-
 
                 <div class="process-content">
 
@@ -3855,24 +3695,13 @@ footer{
                     02
                 </div>
 
-
                 <div class="process-visual rhythm-visual">
 
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                    <i></i>
+                    <i></i><i></i><i></i><i></i>
+                    <i></i><i></i><i></i><i></i>
+                    <i></i><i></i><i></i><i></i>
 
                 </div>
-
 
                 <div class="process-content">
 
@@ -3898,24 +3727,14 @@ footer{
                     03
                 </div>
 
-
                 <div class="process-visual sound-visual">
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
 
                 </div>
-
 
                 <div class="process-content">
 
@@ -3941,13 +3760,11 @@ footer{
                     04
                 </div>
 
-
                 <div class="process-visual finish-visual">
 
                     <div class="finish-circle"></div>
 
                 </div>
-
 
                 <div class="process-content">
 
@@ -3979,7 +3796,6 @@ footer{
 
     <div class="container">
 
-
         <div class="section-heading reveal">
 
             <div class="section-number mono">
@@ -3987,9 +3803,11 @@ footer{
             </div>
 
             <h2 class="section-title">
+
                 THE
                 <br>
                 TOOLSET.
+
             </h2>
 
         </div>
@@ -4134,7 +3952,6 @@ footer{
 
     <div class="container">
 
-
         <div class="section-heading reveal">
 
             <div class="section-number mono">
@@ -4142,9 +3959,11 @@ footer{
             </div>
 
             <h2 class="section-title">
+
                 THE
                 <br>
                 EDITOR.
+
             </h2>
 
         </div>
@@ -4254,9 +4073,11 @@ footer{
             </div>
 
             <h2 class="section-title">
+
                 IN THE
                 <br>
                 TIMELINE.
+
             </h2>
 
         </div>
@@ -4328,7 +4149,7 @@ footer{
                 class="hire-button mono"
                 id="hireButton">
 
-                HIRE ME
+                CLICK HERE TO HIRE ME
 
                 <span class="hire-arrow">
                     →
@@ -4576,12 +4397,7 @@ footer{
 </footer>
 
 
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
 <script>
-
 
 /* =========================================================
    MOBILE MENU
@@ -4609,25 +4425,24 @@ menuButton.addEventListener("click",()=>{
 
 
 mobileMenu
-    .querySelectorAll("a")
-    .forEach(link=>{
+.querySelectorAll("a")
+.forEach(link=>{
 
-        link.addEventListener("click",()=>{
+    link.addEventListener("click",()=>{
 
-            mobileMenu.classList.remove("active");
+        mobileMenu.classList.remove("active");
 
-            document.body.classList.remove("lock");
+        document.body.classList.remove("lock");
 
-            menuButton.textContent="MENU";
-
-        });
+        menuButton.textContent="MENU";
 
     });
 
+});
 
 
 /* =========================================================
-   SCROLL REVEAL
+   REVEAL
 ========================================================= */
 
 const revealElements =
@@ -4663,91 +4478,111 @@ const revealObserver =
 
 
 revealElements.forEach(element=>{
-
     revealObserver.observe(element);
-
 });
 
 
-
 /* =========================================================
-   SELECTED WORK HOVER PREVIEW
+   HERO VIDEO HOVER PREVIEW
 ========================================================= */
 
 document
-    .querySelectorAll(".work-media")
-    .forEach(card=>{
+.querySelectorAll(".work-media")
+.forEach(card=>{
 
-        const video =
-            card.querySelector("video");
+    const video =
+        card.querySelector("video");
 
 
-        card.addEventListener("mouseenter",()=>{
+    card.addEventListener(
+        "mouseenter",
+        ()=>{
 
             video.currentTime=0;
 
-            const promise =
+            const playPromise =
                 video.play();
 
-            if(promise!==undefined){
+            if(playPromise){
 
-                promise.catch(()=>{});
+                playPromise.catch(
+                    ()=>{}
+                );
 
             }
 
-        });
+        }
+    );
 
 
-        card.addEventListener("mouseleave",()=>{
+    card.addEventListener(
+        "mouseleave",
+        ()=>{
 
             video.pause();
 
             video.currentTime=0;
 
-        });
+        }
+    );
 
 
-        card.addEventListener("touchstart",()=>{
+    card.addEventListener(
+        "touchstart",
+        ()=>{
 
             if(video.paused){
 
                 video.currentTime=0;
 
                 video
-                    .play()
-                    .catch(()=>{});
+                .play()
+                .catch(()=>{});
 
             }
 
-        },{
+        },
+        {
             passive:true
-        });
+        }
+    );
 
-    });
-
+});
 
 
 /* =========================================================
-   SHOWREEL
+   SHOWREEL SLIDER
 ========================================================= */
 
 const showreelTrack =
-    document.getElementById("showreelTrack");
+    document.getElementById(
+        "showreelTrack"
+    );
 
 const showreelWindow =
-    document.getElementById("showreelWindow");
+    document.getElementById(
+        "showreelWindow"
+    );
 
 const reelNext =
-    document.getElementById("reelNext");
+    document.getElementById(
+        "reelNext"
+    );
 
 const reelPrev =
-    document.getElementById("reelPrev");
+    document.getElementById(
+        "reelPrev"
+    );
 
 const reelCount =
-    document.getElementById("reelCount");
+    document.getElementById(
+        "reelCount"
+    );
 
 const progressFill =
-    document.getElementById("progressFill");
+    document.getElementById(
+        "progressFill"
+    );
 
 
 let currentReel=0;
@@ -4771,29 +4606,34 @@ function updateReel(){
 }
 
 
-reelNext.addEventListener("click",()=>{
+reelNext.addEventListener(
+    "click",
+    ()=>{
 
-    currentReel =
-        currentReel===0
-        ? 1
-        : 0;
+        currentReel =
+            currentReel===0
+            ? 1
+            : 0;
 
-    updateReel();
+        updateReel();
 
-});
+    }
+);
 
 
-reelPrev.addEventListener("click",()=>{
+reelPrev.addEventListener(
+    "click",
+    ()=>{
 
-    currentReel =
-        currentReel===0
-        ? 1
-        : 0;
+        currentReel =
+            currentReel===0
+            ? 1
+            : 0;
 
-    updateReel();
+        updateReel();
 
-});
-
+    }
+);
 
 
 /* =========================================================
@@ -4849,102 +4689,94 @@ showreelWindow.addEventListener(
 );
 
 
-
 /* =========================================================
-   ARCHIVE FILTER
+   ARCHIVE FILTERS
 ========================================================= */
 
 const filters =
     document.querySelectorAll(".filter");
 
 const archiveRows =
-    document.querySelectorAll(".archive-row");
-
-const otherProjects =
-    document.getElementById("otherProjects");
+    document.querySelectorAll(
+        ".archive-list > .archive-row"
+    );
 
 
 filters.forEach(filter=>{
 
-    filter.addEventListener("click",()=>{
+    filter.addEventListener(
+        "click",
+        ()=>{
 
-        const category =
-            filter.dataset.filter;
-
-
-        filters.forEach(button=>{
-
-            button.classList.remove("active");
-
-        });
+            const category =
+                filter.dataset.filter;
 
 
-        filter.classList.add("active");
+            filters.forEach(button=>{
+                button.classList.remove("active");
+            });
 
 
-        archiveRows.forEach(row=>{
-
-            if(
-                category==="all" ||
-                row.dataset.category===category
-            ){
-
-                row.style.display="grid";
-
-            }else{
-
-                row.style.display="none";
-
-            }
-
-        });
+            filter.classList.add("active");
 
 
-        if(category!=="other"){
+            archiveRows.forEach(row=>{
 
-            otherProjects.classList.remove("open");
+                if(
+                    category==="all" ||
+                    row.dataset.category===category
+                ){
+
+                    row.style.display="grid";
+
+                }else{
+
+                    row.style.display="none";
+
+                }
+
+            });
 
         }
-
-    });
+    );
 
 });
 
 
-
 /* =========================================================
-   OTHER PROJECTS
+   OTHER PROJECTS — SINGLE COLLECTION
 ========================================================= */
 
-const otherProjectsRow =
+const otherProjectsMain =
     document.getElementById(
-        "otherProjectsRow"
+        "otherProjectsMain"
     );
 
-const otherArrow =
+const otherProjectCollection =
     document.getElementById(
-        "otherArrow"
+        "otherProjectCollection"
     );
 
 
-otherProjectsRow.addEventListener(
+otherProjectsMain.addEventListener(
     "click",
     ()=>{
 
-        const opened =
-            otherProjects.classList.toggle(
-                "open"
-            );
+        const isOpen =
+            otherProjectsMain
+            .classList
+            .toggle("open");
 
 
-        otherArrow.style.transform =
-            opened
-            ? "rotate(90deg)"
-            : "rotate(0deg)";
+        otherProjectCollection
+        .classList
+        .toggle(
+            "open",
+            isOpen
+        );
 
     }
 );
-
 
 
 /* =========================================================
@@ -4952,62 +4784,6 @@ otherProjectsRow.addEventListener(
 ========================================================= */
 
 const projects={
-
-
-    golden:{
-
-        title:"Golden Trails",
-
-        category:"Hospitality / Cinematic",
-
-        description:
-        "A cinematic hospitality collection built around atmosphere, rhythm and visual storytelling.",
-
-        videos:[
-
-            [
-                "video",
-                "Air_drop(1).mp4",
-                "VIDEO 01"
-            ],
-
-            [
-                "video",
-                "Baad_mein(1).mp4",
-                "VIDEO 02"
-            ],
-
-            [
-                "video",
-                "Golden Trails_Trending.mp4",
-                "VIDEO 03"
-            ]
-
-        ]
-
-    },
-
-
-    export:{
-
-        title:"Export",
-
-        category:"Social / Reels",
-
-        description:
-        "Short-form social content focused on pacing, rhythm and engaging reel editing.",
-
-        videos:[
-
-            [
-                "video",
-                "Export Start Karna Hai(1).mp4",
-                "SOCIAL REEL"
-            ]
-
-        ]
-
-    },
 
 
     corporate:{
@@ -5179,7 +4955,7 @@ const projects={
 
             [
                 "video",
-                "Nilesh dada(1).mp4",
+                "Nilesh AI.mp4",
                 "VIDEO 01"
             ]
 
@@ -5190,7 +4966,7 @@ const projects={
 
     regain:{
 
-        title:"Regain App",
+        title:"Regain App AI",
 
         category:"AI / App",
 
@@ -5201,7 +4977,7 @@ const projects={
 
             [
                 "video",
-                "regain app reel.mp4",
+                "Regain App AI.mp4",
                 "VIDEO 01"
             ]
 
@@ -5239,7 +5015,7 @@ const projects={
         category:"Music / Culture",
 
         description:
-        "Music and culture-focused visual content created for MAENZRAAT.",
+        "Music and culture-focused visual content created for MAENZRAAT V2.",
 
         videos:[
 
@@ -5256,9 +5032,8 @@ const projects={
 };
 
 
-
 /* =========================================================
-   OPEN PROJECT
+   PROJECT MODAL
 ========================================================= */
 
 const projectOverlay =
@@ -5332,14 +5107,18 @@ function openProject(projectID){
 
 
             const card =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
             card.className=
                 "project-video";
 
 
             const labelElement =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
             labelElement.className=
                 "video-label";
@@ -5373,7 +5152,6 @@ function openProject(projectID){
                     video
                 );
 
-
             }else{
 
                 const iframe =
@@ -5381,14 +5159,11 @@ function openProject(projectID){
                         "iframe"
                     );
 
-
                 iframe.src=
                     `https://drive.google.com/file/d/${source}/preview`;
 
-
                 iframe.allow=
                     "autoplay";
-
 
                 iframe.allowFullscreen=true;
 
@@ -5421,34 +5196,26 @@ function openProject(projectID){
 }
 
 
-
 /* =========================================================
    ARCHIVE PROJECT CLICKS
 ========================================================= */
 
-archiveRows.forEach(row=>{
+document
+.querySelectorAll(
+    ".archive-row[data-project]"
+)
+.forEach(row=>{
 
     row.addEventListener(
         "click",
         ()=>{
-
-            const project =
-                row.dataset.project;
-
-
-            if(project){
-
-                openProject(
-                    project
-                );
-
-            }
-
+            openProject(
+                row.dataset.project
+            );
         }
     );
 
 });
-
 
 
 /* =========================================================
@@ -5456,24 +5223,25 @@ archiveRows.forEach(row=>{
 ========================================================= */
 
 document
-    .querySelectorAll(".other-project")
-    .forEach(project=>{
+.querySelectorAll(
+    ".other-project-item"
+)
+.forEach(item=>{
 
-        project.addEventListener(
-            "click",
-            event=>{
+    item.addEventListener(
+        "click",
+        event=>{
 
-                event.stopPropagation();
+            event.stopPropagation();
 
-                openProject(
-                    project.dataset.project
-                );
+            openProject(
+                item.dataset.project
+            );
 
-            }
-        );
+        }
+    );
 
-    });
-
+});
 
 
 /* =========================================================
@@ -5501,9 +5269,8 @@ projectClose.addEventListener(
 );
 
 
-
 /* =========================================================
-   CONTACT MODAL
+   CONTACT
 ========================================================= */
 
 const hireButton =
@@ -5582,9 +5349,8 @@ contactModal.addEventListener(
 );
 
 
-
 /* =========================================================
-   ESC KEY
+   ESCAPE
 ========================================================= */
 
 document.addEventListener(
@@ -5603,20 +5369,18 @@ document.addEventListener(
 );
 
 
-
 /* =========================================================
-   YEAR
+   COPYRIGHT
 ========================================================= */
 
 document.getElementById(
     "copyright"
-).textContent=
+).textContent =
     `© ${new Date().getFullYear()} SURAJ SHARMA`;
 
 
-
 /* =========================================================
-   INITIAL SHOWREEL
+   INITIAL
 ========================================================= */
 
 updateReel();
