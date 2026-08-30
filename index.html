@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Suraj Sharma — Video Editor</title>
-
 
 <style>
 
@@ -31,12 +24,12 @@ html{
 
 body{
     background:#070707;
-    color:#f4f4f4;
-    font-family:Arial,Helvetica,sans-serif;
+    color:#f2f2f2;
+    font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
 }
 
-body.lock{
+body.modal-open{
     overflow:hidden;
 }
 
@@ -46,7 +39,8 @@ a{
 }
 
 button{
-    font-family:inherit;
+    font:inherit;
+    cursor:pointer;
 }
 
 ::selection{
@@ -61,27 +55,36 @@ button{
 
 :root{
     --bg:#070707;
-    --line:#222;
-    --muted:#555;
-    --soft:#777;
+    --soft-bg:#0b0b0b;
+    --line:#202020;
+    --line-light:#292929;
+    --white:#f2f2f2;
+    --grey:#666;
+    --dark-grey:#414141;
 }
 
 
 /* =========================================================
-   COMMON
+   GLOBAL
 ========================================================= */
 
 .container{
-    width:min(90%,1380px);
+    width:min(90%,1400px);
     margin:auto;
 }
 
 .mono{
-    font-family:monospace;
+    font-family:
+        "Courier New",
+        monospace;
+
     font-size:9px;
-    line-height:1.5;
-    letter-spacing:1.6px;
+    letter-spacing:1.5px;
     text-transform:uppercase;
+}
+
+section{
+    padding:150px 0;
 }
 
 
@@ -95,7 +98,7 @@ button{
     left:0;
     right:0;
 
-    height:78px;
+    height:76px;
 
     padding:0 5%;
 
@@ -116,17 +119,12 @@ button{
 
 .nav-links{
     display:flex;
-    gap:28px;
+    gap:30px;
 }
 
 .nav-links a{
     color:#aaa;
-
-    font-family:monospace;
-    font-size:9px;
-    letter-spacing:1px;
-
-    transition:.3s;
+    transition:color .3s ease;
 }
 
 .nav-links a:hover{
@@ -149,37 +147,31 @@ button{
 
 .hero-meta{
     color:#444;
-    margin-bottom:35px;
+    margin-bottom:38px;
 }
 
 .hero-title{
-    font-size:clamp(90px,15vw,220px);
-
-    line-height:.68;
-
+    font-size:clamp(85px,15vw,220px);
+    line-height:.67;
     letter-spacing:-.11em;
-
     font-weight:900;
 }
 
 .hero-outline{
     color:transparent;
-
     -webkit-text-stroke:1px #444;
-
     margin-left:7vw;
 }
 
 .hero-description{
-    max-width:480px;
+    max-width:520px;
 
     margin-top:60px;
 
-    color:#707070;
+    color:#666;
 
     font-size:13px;
-
-    line-height:1.8;
+    line-height:1.9;
 }
 
 
@@ -192,7 +184,7 @@ button{
 
     white-space:nowrap;
 
-    padding:15px 0;
+    padding:16px 0;
 
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
@@ -200,10 +192,13 @@ button{
 
 .ticker-track{
     display:inline-flex;
+    gap:90px;
 
-    gap:80px;
-
-    animation:tickerMove 40s linear infinite;
+    animation:
+        tickerMove
+        40s
+        linear
+        infinite;
 }
 
 .ticker-item{
@@ -224,24 +219,22 @@ button{
 
 
 /* =========================================================
-   SECTIONS
+   SECTION HEADING
 ========================================================= */
-
-section{
-    padding:140px 0;
-}
 
 .section-heading{
     display:grid;
 
-    grid-template-columns:170px 1fr;
+    grid-template-columns:
+        170px
+        1fr;
 
-    gap:20px;
+    gap:30px;
 
-    margin-bottom:60px;
+    margin-bottom:65px;
 }
 
-.section-heading .mono{
+.section-label{
     color:#444;
 }
 
@@ -263,7 +256,8 @@ section{
 .showreel-grid{
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap:22px;
 }
@@ -275,31 +269,32 @@ section{
 
     overflow:hidden;
 
-    background:#111;
+    background:#101010;
 
-    border:1px solid #1c1c1c;
+    border:1px solid #1b1b1b;
 }
 
 .showreel video{
     width:100%;
     height:100%;
 
-    object-fit:cover;
-
     display:block;
+
+    object-fit:cover;
 }
 
 .showreel-info{
     position:absolute;
 
-    left:22px;
-    bottom:20px;
+    left:24px;
+    bottom:22px;
 
-    z-index:2;
+    z-index:5;
 
     pointer-events:none;
 
-    text-shadow:0 2px 20px #000;
+    text-shadow:
+        0 2px 25px #000;
 }
 
 .showreel-title{
@@ -311,8 +306,7 @@ section{
 }
 
 .showreel-sub{
-    margin-top:7px;
-
+    margin-top:8px;
     color:#aaa;
 }
 
@@ -322,7 +316,6 @@ section{
 ========================================================= */
 
 .selected-grid{
-
     display:grid;
 
     grid-template-columns:
@@ -336,22 +329,20 @@ section{
 }
 
 .work-media{
-
     position:relative;
 
     width:100%;
 
     aspect-ratio:9/16;
 
-    background:#101010;
-
     overflow:hidden;
+
+    background:#101010;
 
     border:1px solid #1a1a1a;
 }
 
 .work-media video{
-
     width:100%;
     height:100%;
 
@@ -362,123 +353,103 @@ section{
     background:#101010;
 }
 
-
-/* Native video controls */
-
-.work-media video::-webkit-media-controls-panel{
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,.9)
-        );
-}
-
-.work-index{
-
+.work-number{
     position:absolute;
-
-    z-index:5;
 
     top:12px;
     left:12px;
 
+    z-index:5;
+
     padding:6px 8px;
 
-    color:#aaa;
-
-    background:rgba(0,0,0,.55);
-
-    pointer-events:none;
-}
-
-.work-media::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:0;
-
-    height:70px;
-
     background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,.25)
-        );
+        rgba(0,0,0,.6);
+
+    color:#aaa;
 
     pointer-events:none;
 }
 
 .work-caption{
-
     display:flex;
 
     justify-content:space-between;
 
-    padding:14px 0;
+    gap:20px;
 
-    border-bottom:1px solid var(--line);
+    padding:15px 0;
+
+    border-bottom:
+        1px solid var(--line);
 }
 
 .work-name{
-
     font-size:12px;
-
     font-weight:600;
 }
 
 .work-type{
-
     color:#555;
-
-    margin-top:6px;
+    margin-top:7px;
 }
 
-.work-number{
-
+.work-index{
     color:#444;
 }
 
 
 /* =========================================================
-   ARCHIVE
+   COMPLETE WORK
 ========================================================= */
 
 .archive{
 
     background:#0a0a0a;
 
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
+    border-top:
+        1px solid var(--line);
+
+    border-bottom:
+        1px solid var(--line);
 }
 
-.archive-row{
+
+/* =========================================================
+   CATEGORY HEADER
+========================================================= */
+
+.project-group{
+    border-bottom:
+        1px solid var(--line);
+}
+
+.project-header{
 
     min-height:120px;
 
     display:grid;
 
     grid-template-columns:
-        70px 1fr 190px 48px;
+        70px
+        1fr
+        190px
+        50px;
 
     align-items:center;
 
     gap:20px;
 
-    border-bottom:1px solid var(--line);
-
     cursor:pointer;
 
+    user-select:none;
+
     transition:
-        background .4s ease,
-        padding .5s ease;
+        background .35s ease,
+        padding .45s ease;
 }
 
-.archive-row:hover{
+.project-header:hover{
 
     background:#101010;
 
@@ -486,34 +457,38 @@ section{
     padding-right:18px;
 }
 
-.archive-number{
-
+.project-number{
     color:#444;
 }
 
-.archive-name{
+.project-name{
 
     font-size:
-        clamp(27px,4vw,58px);
-
-    letter-spacing:-.07em;
+        clamp(
+            28px,
+            4vw,
+            58px
+        );
 
     line-height:.9;
+
+    letter-spacing:-.07em;
 }
 
-.archive-meta{
+.project-meta{
 
     color:#555;
 
     line-height:1.7;
 }
 
-.archive-arrow{
+.project-button{
 
     width:44px;
     height:44px;
 
-    border:1px solid #333;
+    border:
+        1px solid #333;
 
     border-radius:50%;
 
@@ -521,199 +496,166 @@ section{
 
     place-items:center;
 
-    transition:.4s;
+    color:#aaa;
+
+    transition:
+        background .35s ease,
+        color .35s ease;
 }
 
-.archive-row:hover .archive-arrow{
+.project-header.open
+.project-button{
 
     background:#fff;
-
     color:#000;
 }
 
+.project-plus{
 
-/* =========================================================
-   OTHER PROJECTS
-========================================================= */
+    display:block;
 
-.other-projects{
-    border-bottom:1px solid var(--line);
+    font-size:20px;
+
+    line-height:1;
+
+    transition:
+        transform .45s
+        cubic-bezier(.2,.7,.2,1);
 }
 
-.other-main{
-    cursor:pointer;
-}
-
-.other-toggle{
-
-    width:44px;
-    height:44px;
-
-    border:1px solid #333;
-
-    border-radius:50%;
-
-    display:grid;
-
-    place-items:center;
-
-    transition:.5s;
-}
-
-#otherPlus{
-
-    font-size:22px;
-
-    font-weight:300;
-
-    transition:.5s;
-}
-
-.other-main.open .other-toggle{
-
-    background:#fff;
-
-    color:#000;
-
-    border-color:#fff;
-}
-
-.other-main.open #otherPlus{
+.project-header.open
+.project-plus{
 
     transform:rotate(45deg);
 }
 
-.other-content{
 
-    max-height:0;
+/* =========================================================
+   EXPANDED CONTENT
+========================================================= */
 
-    overflow:hidden;
+.project-content{
+
+    display:grid;
+
+    grid-template-rows:
+        0fr;
 
     opacity:0;
 
-    background:#080808;
-
     transition:
-        max-height 1s cubic-bezier(.2,.7,.2,1),
-        opacity .5s ease;
+        grid-template-rows .7s
+        cubic-bezier(.2,.7,.2,1),
+        opacity .35s ease;
 }
 
-.other-content.open{
+.project-content.open{
 
-    max-height:1000px;
+    grid-template-rows:
+        1fr;
 
     opacity:1;
 }
 
-.other-header{
+.project-content-inner{
 
-    padding:
-        30px
-        20px
-        30px
-        70px;
+    overflow:hidden;
 
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:40px;
-
-    border-bottom:1px solid var(--line);
-
-    color:#444;
 }
 
-.other-header-text{
+.project-inner{
 
-    max-width:420px;
+    padding-left:70px;
 
-    color:#555;
-
-    font-size:11px;
-
-    line-height:1.7;
+    padding-bottom:5px;
 }
 
-.other-item{
+.project-item{
 
-    min-height:105px;
+    min-height:92px;
 
     display:grid;
 
     grid-template-columns:
-        65px 1fr 180px 45px;
+        60px
+        1fr
+        180px
+        44px;
 
     align-items:center;
 
     gap:20px;
 
-    padding:
-        0
-        20px
-        0
-        70px;
-
-    border-bottom:1px solid #181818;
+    border-bottom:
+        1px solid #181818;
 
     transition:
-        background .4s ease,
-        padding .5s ease;
+        background .3s ease,
+        padding .4s ease;
 }
 
-.other-item:hover{
+.project-item:last-child{
+    border-bottom:none;
+}
+
+.project-item:hover{
 
     background:#101010;
 
-    padding-left:85px;
+    padding-left:15px;
 }
 
-.other-item:last-child{
-
-    border-bottom:0;
-}
-
-.other-number{
-
+.project-item-number{
     color:#444;
 }
 
-.other-title{
+.project-item-name{
 
     font-size:
-        clamp(20px,3vw,38px);
+        clamp(
+            18px,
+            2.5vw,
+            34px
+        );
 
-    letter-spacing:-.055em;
+    letter-spacing:-.05em;
 }
 
-.other-type{
-
+.project-item-type{
     color:#444;
 }
 
-.other-arrow{
+.project-item-arrow{
 
-    width:40px;
-    height:40px;
-
-    border:1px solid #292929;
-
-    border-radius:50%;
+    width:38px;
+    height:38px;
 
     display:grid;
 
     place-items:center;
 
-    transition:.5s;
+    border:
+        1px solid #292929;
+
+    border-radius:50%;
+
+    color:#777;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
 }
 
-.other-item:hover .other-arrow{
+.project-item:hover
+.project-item-arrow{
 
     background:#fff;
 
     color:#000;
 
-    transform:rotate(-45deg);
+    transform:
+        translate(2px,-2px);
 }
 
 
@@ -728,38 +670,224 @@ section{
     grid-template-columns:
         repeat(4,1fr);
 
-    border-top:1px solid var(--line);
+    border-top:
+        1px solid var(--line);
 
-    border-left:1px solid var(--line);
+    border-left:
+        1px solid var(--line);
 }
 
 .process-card{
 
-    height:290px;
-
     position:relative;
+
+    height:300px;
 
     overflow:hidden;
 
     padding:25px;
 
-    border-right:1px solid var(--line);
+    border-right:
+        1px solid var(--line);
 
-    border-bottom:1px solid var(--line);
+    border-bottom:
+        1px solid var(--line);
 }
 
 .process-number{
-
     color:#444;
 }
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story-visual{
+
+    position:absolute;
+
+    left:25px;
+    right:25px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+}
+
+.story-line{
+
+    display:block;
+
+    height:1px;
+
+    background:#888;
+
+    margin:13px 0;
+
+    transform-origin:left;
+
+    transition:
+        width 1s
+        cubic-bezier(.2,.7,.2,1);
+}
+
+.story-line:nth-child(1){
+    width:30%;
+}
+
+.story-line:nth-child(2){
+    width:65%;
+}
+
+.story-line:nth-child(3){
+    width:45%;
+}
+
+.process-card:hover
+.story-line:nth-child(1){
+    width:60%;
+}
+
+.process-card:hover
+.story-line:nth-child(2){
+    width:100%;
+}
+
+.process-card:hover
+.story-line:nth-child(3){
+    width:75%;
+}
+
+
+/* =========================================================
+   WAVEFORM
+========================================================= */
+
+.wave{
+
+    position:absolute;
+
+    left:25px;
+    right:25px;
+
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    height:90px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:4px;
+}
+
+.wave-bar{
+
+    width:2px;
+
+    height:var(--height);
+
+    background:#888;
+
+    transform-origin:center;
+
+    animation:
+        waveform
+        1.1s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+.wave-bar:nth-child(2n){
+    animation-delay:.12s;
+}
+
+.wave-bar:nth-child(3n){
+    animation-delay:.24s;
+}
+
+.wave-bar:nth-child(4n){
+    animation-delay:.36s;
+}
+
+@keyframes waveform{
+
+    from{
+        transform:scaleY(1);
+    }
+
+    to{
+        transform:scaleY(.25);
+    }
+
+}
+
+
+/* =========================================================
+   FINISH LIGHT
+========================================================= */
+
+.finish-light{
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    top:50%;
+    left:12%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.18),
+            rgba(255,255,255,0)
+            70%
+        );
+
+    filter:blur(14px);
+
+    transition:
+        left 1.5s
+        cubic-bezier(.2,.7,.2,1),
+        transform 1.5s
+        cubic-bezier(.2,.7,.2,1);
+}
+
+.process-card:hover
+.finish-light{
+
+    left:88%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.25);
+}
+
+
+/* =========================================================
+   PROCESS TEXT
+========================================================= */
 
 .process-title{
 
     position:absolute;
 
     left:25px;
-
-    bottom:58px;
+    bottom:62px;
 
     font-size:25px;
 
@@ -786,227 +914,57 @@ section{
 
 
 /* =========================================================
-   STORY
-========================================================= */
-
-.story-visual{
-
-    position:absolute;
-
-    left:25px;
-    right:25px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-}
-
-.story-line{
-
-    display:block;
-
-    height:1px;
-
-    background:#aaa;
-
-    margin:12px 0;
-
-    transition:
-        width 1s cubic-bezier(.2,.7,.2,1);
-}
-
-.story-line:nth-child(1){
-    width:30%;
-}
-
-.story-line:nth-child(2){
-    width:65%;
-}
-
-.story-line:nth-child(3){
-    width:45%;
-}
-
-.process-card:hover
-.story-line:nth-child(1){
-
-    width:55%;
-}
-
-.process-card:hover
-.story-line:nth-child(2){
-
-    width:95%;
-}
-
-.process-card:hover
-.story-line:nth-child(3){
-
-    width:70%;
-}
-
-
-/* =========================================================
-   RHYTHM / SOUND
-========================================================= */
-
-.wave{
-
-    position:absolute;
-
-    left:25px;
-    right:25px;
-
-    top:50%;
-
-    height:80px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:4px;
-
-    transform:translateY(-50%);
-}
-
-.wave i{
-
-    width:2px;
-
-    height:var(--height);
-
-    background:#aaa;
-
-    animation:
-        waveMove
-        .9s
-        ease-in-out
-        infinite
-        alternate;
-}
-
-.wave i:nth-child(2n){
-
-    animation-delay:.15s;
-}
-
-.wave i:nth-child(3n){
-
-    animation-delay:.3s;
-}
-
-@keyframes waveMove{
-
-    from{
-        transform:scaleY(1);
-    }
-
-    to{
-        transform:scaleY(.25);
-    }
-
-}
-
-
-/* =========================================================
-   FINISH
-========================================================= */
-
-.finish-light{
-
-    position:absolute;
-
-    top:50%;
-    left:15%;
-
-    width:140px;
-    height:140px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.22),
-            rgba(255,255,255,0) 68%
-        );
-
-    filter:blur(10px);
-
-    transform:
-        translate(-50%,-50%);
-
-    transition:
-
-        left
-        1.2s
-        cubic-bezier(.2,.7,.2,1),
-
-        transform
-        1.2s
-        cubic-bezier(.2,.7,.2,1);
-}
-
-.process-card:hover
-.finish-light{
-
-    left:85%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1.25);
-}
-
-
-/* =========================================================
    HIRE
 ========================================================= */
 
 .hire{
 
-    min-height:80vh;
+    min-height:85vh;
 
     display:flex;
 
     align-items:center;
 
-    border-top:1px solid var(--line);
+    border-top:
+        1px solid var(--line);
 }
 
 .hire-kicker{
 
     color:#555;
 
-    margin-bottom:35px;
+    margin-bottom:38px;
 }
 
 .hire-title{
 
     font-size:
-        clamp(65px,10vw,150px);
-
-    font-weight:900;
+        clamp(
+            65px,
+            10vw,
+            150px
+        );
 
     line-height:.75;
 
     letter-spacing:-.1em;
+
+    font-weight:900;
 }
 
-.hire-title span{
+.hire-outline{
 
     color:transparent;
 
-    -webkit-text-stroke:1px #444;
+    -webkit-text-stroke:
+        1px #444;
 }
 
 .hire-description{
 
     max-width:500px;
 
-    margin-top:45px;
+    margin-top:50px;
 
     color:#666;
 
@@ -1020,18 +978,18 @@ section{
     margin-top:40px;
 
     padding:
-        19px
-        27px;
+        19px 28px;
 
-    border:1px solid #444;
+    border:
+        1px solid #444;
 
     background:#0c0c0c;
 
     color:#fff;
 
-    cursor:pointer;
-
-    transition:.4s;
+    transition:
+        background .35s ease,
+        color .35s ease;
 }
 
 .hire-button:hover{
@@ -1061,14 +1019,16 @@ section{
     padding:25px;
 
     background:
-        rgba(0,0,0,.78);
+        rgba(0,0,0,.82);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:
+        blur(18px);
 }
 
 .contact-modal.open{
 
     display:grid;
+
 }
 
 .contact-box{
@@ -1077,11 +1037,35 @@ section{
 
     position:relative;
 
+    padding:55px;
+
     background:#0b0b0b;
 
-    border:1px solid #292929;
+    border:
+        1px solid #292929;
 
-    padding:55px;
+    animation:
+        contactIn
+        .45s
+        cubic-bezier(.2,.7,.2,1);
+}
+
+@keyframes contactIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(20px)
+            scale(.98);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
 }
 
 .contact-close{
@@ -1094,7 +1078,8 @@ section{
     width:44px;
     height:44px;
 
-    border:1px solid #333;
+    border:
+        1px solid #333;
 
     border-radius:50%;
 
@@ -1102,35 +1087,65 @@ section{
 
     color:#fff;
 
-    cursor:pointer;
-
     font-size:20px;
+
+    transition:
+        background .3s ease,
+        color .3s ease;
 }
 
-.contact-heading{
+.contact-close:hover{
+
+    background:#fff;
+    color:#000;
+}
+
+.contact-small{
+
+    color:#555;
+
+    margin-bottom:20px;
+}
+
+.contact-title{
 
     font-size:
-        clamp(55px,8vw,90px);
+        clamp(
+            55px,
+            8vw,
+            90px
+        );
 
     line-height:.8;
 
     letter-spacing:-.08em;
 
-    margin-bottom:35px;
+    margin-bottom:40px;
 }
 
 .contact-link{
 
-    min-height:80px;
+    min-height:82px;
 
     display:grid;
 
     grid-template-columns:
-        55px 1fr 25px;
+        55px
+        1fr
+        30px;
 
     align-items:center;
 
-    border-top:1px solid #222;
+    border-top:
+        1px solid #222;
+
+    transition:
+        padding .35s ease;
+}
+
+.contact-link:hover{
+
+    padding-left:10px;
 }
 
 .contact-icon{
@@ -1138,13 +1153,14 @@ section{
     width:40px;
     height:40px;
 
-    border:1px solid #333;
-
-    border-radius:50%;
-
     display:grid;
 
     place-items:center;
+
+    border:
+        1px solid #333;
+
+    border-radius:50%;
 
     color:#aaa;
 }
@@ -1153,7 +1169,7 @@ section{
 
     color:#444;
 
-    margin-bottom:5px;
+    margin-bottom:6px;
 }
 
 .contact-value{
@@ -1164,6 +1180,17 @@ section{
 .contact-arrow{
 
     color:#555;
+
+    transition:
+        transform .3s ease;
+}
+
+.contact-link:hover
+.contact-arrow{
+
+    transform:
+        translateX(5px);
+
 }
 
 
@@ -1174,10 +1201,10 @@ section{
 footer{
 
     padding:
-        25px
-        5%;
+        25px 5%;
 
-    border-top:1px solid var(--line);
+    border-top:
+        1px solid var(--line);
 
     display:flex;
 
@@ -1188,26 +1215,23 @@ footer{
 
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
-@media(max-width:950px){
+@media(max-width:1000px){
 
     .selected-grid{
 
         grid-template-columns:
             repeat(2,1fr);
+
     }
 
     .process-grid{
 
         grid-template-columns:
             repeat(2,1fr);
-    }
 
-    .section-heading{
-
-        grid-template-columns:1fr;
     }
 
 }
@@ -1216,20 +1240,40 @@ footer{
 @media(max-width:650px){
 
     section{
+
         padding:100px 0;
+
     }
 
-    .nav-links a{
+    .nav-links{
         display:none;
     }
 
     .hero-title{
-        font-size:21vw;
+
+        font-size:
+            21vw;
+
+    }
+
+    .hero-description{
+
+        margin-top:45px;
+
+    }
+
+    .section-heading{
+
+        grid-template-columns:
+            1fr;
+
     }
 
     .showreel-grid{
 
-        grid-template-columns:1fr;
+        grid-template-columns:
+            1fr;
+
     }
 
     .selected-grid{
@@ -1238,61 +1282,57 @@ footer{
             repeat(2,1fr);
 
         gap:14px;
+
     }
 
     .process-grid{
 
-        grid-template-columns:1fr;
+        grid-template-columns:
+            1fr;
+
     }
 
-    .archive-row{
+    .project-header{
 
         grid-template-columns:
-            45px 1fr 45px;
+            45px
+            1fr
+            48px;
+
     }
 
-    .archive-meta{
+    .project-meta{
+
         display:none;
+
     }
 
-    .other-header{
-
-        padding:25px 20px;
-
-        display:block;
-    }
-
-    .other-header-text{
-
-        margin-top:12px;
-    }
-
-    .other-item{
-
-        grid-template-columns:
-            45px 1fr 42px;
+    .project-inner{
 
         padding-left:20px;
+
     }
 
-    .other-item:hover{
+    .project-item{
 
-        padding-left:30px;
+        grid-template-columns:
+            40px
+            1fr
+            42px;
+
     }
 
-    .other-type{
+    .project-item-type{
 
         display:none;
-    }
 
-    .other-title{
-
-        font-size:20px;
     }
 
     .contact-box{
 
-        padding:40px 25px;
+        padding:
+            40px 25px;
+
     }
 
     footer{
@@ -1300,6 +1340,7 @@ footer{
         flex-direction:column;
 
         gap:10px;
+
     }
 
 }
@@ -1329,26 +1370,41 @@ footer{
 
     <div class="nav-links">
 
-        <a href="#showreel">
+        <a
+            href="#showreel"
+            class="mono">
+
             SHOWREEL
+
         </a>
 
-        <a href="#selected">
+        <a
+            href="#work"
+            class="mono">
+
             WORK
+
         </a>
 
-        <a href="#process">
+        <a
+            href="#process"
+            class="mono">
+
             PROCESS
+
         </a>
 
-        <a href="#contact">
+        <a
+            href="#contact"
+            class="mono">
+
             CONTACT
+
         </a>
 
     </div>
 
 </nav>
-
 
 
 <!-- =========================================================
@@ -1361,8 +1417,7 @@ footer{
 
         <div class="hero-meta mono">
 
-            VIDEO EDITOR /
-            PUNE, INDIA
+            VIDEO EDITOR / PUNE, INDIA
 
         </div>
 
@@ -1395,7 +1450,6 @@ footer{
 </header>
 
 
-
 <!-- =========================================================
      TICKER
 ========================================================= -->
@@ -1404,59 +1458,58 @@ footer{
 
     <div class="ticker-track">
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             STORYTELLING
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             RHYTHM
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             SOUND DESIGN
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             COLOR
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             MOTION
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             TYPOGRAPHY
         </span>
 
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             STORYTELLING
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             RHYTHM
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             SOUND DESIGN
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             COLOR
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             MOTION
         </span>
 
-        <span class="ticker-item">
+        <span class="ticker-item mono">
             TYPOGRAPHY
         </span>
 
     </div>
 
 </div>
-
 
 
 <!-- =========================================================
@@ -1467,12 +1520,11 @@ footer{
 
     <div class="container">
 
-
         <div class="section-heading">
 
-            <div class="mono">
+            <div class="section-label mono">
 
-                01 / SHOWREELS
+                01 / SHOWREEL
 
             </div>
 
@@ -1488,18 +1540,19 @@ footer{
         </div>
 
 
-
         <div class="showreel-grid">
 
 
             <div class="showreel">
 
+                <!-- VIDEO LEFT FOR LATER -->
+
                 <video
-                    src="https://drive.google.com/uc?export=download&id=1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu"
+                    src="videos/showreel-01.mp4"
                     muted
-                    autoplay
                     loop
-                    playsinline>
+                    playsinline
+                    controls>
                 </video>
 
 
@@ -1514,9 +1567,7 @@ footer{
 
                     <div class="showreel-sub mono">
 
-                        STORY /
-                        RHYTHM /
-                        SOUND
+                        STORY / RHYTHM / SOUND
 
                     </div>
 
@@ -1525,15 +1576,16 @@ footer{
             </div>
 
 
-
             <div class="showreel">
 
+                <!-- VIDEO LEFT FOR LATER -->
+
                 <video
-                    src="https://drive.google.com/uc?export=download&id=1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5"
+                    src="videos/showreel-02.mp4"
                     muted
-                    autoplay
                     loop
-                    playsinline>
+                    playsinline
+                    controls>
                 </video>
 
 
@@ -1548,9 +1600,7 @@ footer{
 
                     <div class="showreel-sub mono">
 
-                        MOTION /
-                        COLOR /
-                        FINISH
+                        MOTION / COLOR / FINISH
 
                     </div>
 
@@ -1566,19 +1616,18 @@ footer{
 </section>
 
 
-
 <!-- =========================================================
      SELECTED WORK
 ========================================================= -->
 
-<section id="selected">
+<section id="work">
 
     <div class="container">
 
 
         <div class="section-heading">
 
-            <div class="mono">
+            <div class="section-label mono">
 
                 02 / SELECTED WORK
 
@@ -1596,30 +1645,24 @@ footer{
         </div>
 
 
-
         <div class="selected-grid">
 
 
-            <!-- =================================================
-                 01 DECORE
-            ================================================== -->
+            <!-- 01 -->
 
             <article class="work-card">
 
                 <div class="work-media">
 
                     <video
-                        src="https://drive.google.com/uc?export=download&id=1NhA4_vQ1w7XdMVNTuiK2gUx-ozq6JAu6"
+                        src="videos/decore.mp4"
                         controls
                         playsinline
                         preload="metadata">
                     </video>
 
-
-                    <div class="work-index mono">
-
+                    <div class="work-number mono">
                         01
-
                     </div>
 
                 </div>
@@ -1630,25 +1673,18 @@ footer{
                     <div>
 
                         <div class="work-name">
-
                             DECORE
-
                         </div>
 
-
                         <div class="work-type mono">
-
                             EVENT
-
                         </div>
 
                     </div>
 
 
-                    <div class="work-number mono">
-
+                    <div class="work-index mono">
                         01
-
                     </div>
 
                 </div>
@@ -1656,27 +1692,21 @@ footer{
             </article>
 
 
-
-            <!-- =================================================
-                 02 HOST
-            ================================================== -->
+            <!-- 02 -->
 
             <article class="work-card">
 
                 <div class="work-media">
 
                     <video
-                        src="https://drive.google.com/uc?export=download&id=1FankX8aN90RVXtLPBXxuByqXxaAcHGE2"
+                        src="videos/host.mp4"
                         controls
                         playsinline
                         preload="metadata">
                     </video>
 
-
-                    <div class="work-index mono">
-
+                    <div class="work-number mono">
                         02
-
                     </div>
 
                 </div>
@@ -1687,25 +1717,18 @@ footer{
                     <div>
 
                         <div class="work-name">
-
                             HOST
-
                         </div>
 
-
                         <div class="work-type mono">
-
                             EVENT
-
                         </div>
 
                     </div>
 
 
-                    <div class="work-number mono">
-
+                    <div class="work-index mono">
                         02
-
                     </div>
 
                 </div>
@@ -1713,27 +1736,21 @@ footer{
             </article>
 
 
-
-            <!-- =================================================
-                 03 BAAD MEIN
-            ================================================== -->
+            <!-- 03 -->
 
             <article class="work-card">
 
                 <div class="work-media">
 
                     <video
-                        src="https://drive.google.com/uc?export=download&id=1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo"
+                        src="videos/baad-mein.mp4"
                         controls
                         playsinline
                         preload="metadata">
                     </video>
 
-
-                    <div class="work-index mono">
-
+                    <div class="work-number mono">
                         03
-
                     </div>
 
                 </div>
@@ -1744,25 +1761,18 @@ footer{
                     <div>
 
                         <div class="work-name">
-
                             BAAD MEIN
-
                         </div>
 
-
                         <div class="work-type mono">
-
                             SOCIAL
-
                         </div>
 
                     </div>
 
 
-                    <div class="work-number mono">
-
+                    <div class="work-index mono">
                         03
-
                     </div>
 
                 </div>
@@ -1770,27 +1780,21 @@ footer{
             </article>
 
 
-
-            <!-- =================================================
-                 04 GOLDEN TRAILS
-            ================================================== -->
+            <!-- 04 -->
 
             <article class="work-card">
 
                 <div class="work-media">
 
                     <video
-                        src="https://drive.google.com/uc?export=download&id=1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu"
+                        src="videos/golden-trails.mp4"
                         controls
                         playsinline
                         preload="metadata">
                     </video>
 
-
-                    <div class="work-index mono">
-
+                    <div class="work-number mono">
                         04
-
                     </div>
 
                 </div>
@@ -1801,25 +1805,18 @@ footer{
                     <div>
 
                         <div class="work-name">
-
                             GOLDEN TRAILS
-
                         </div>
 
-
                         <div class="work-type mono">
-
                             HOSPITALITY
-
                         </div>
 
                     </div>
 
 
-                    <div class="work-number mono">
-
+                    <div class="work-index mono">
                         04
-
                     </div>
 
                 </div>
@@ -1827,27 +1824,21 @@ footer{
             </article>
 
 
-
-            <!-- =================================================
-                 05 AIR DROP
-            ================================================== -->
+            <!-- 05 -->
 
             <article class="work-card">
 
                 <div class="work-media">
 
                     <video
-                        src="https://drive.google.com/uc?export=download&id=1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT"
+                        src="videos/air-drop.mp4"
                         controls
                         playsinline
                         preload="metadata">
                     </video>
 
-
-                    <div class="work-index mono">
-
+                    <div class="work-number mono">
                         05
-
                     </div>
 
                 </div>
@@ -1858,25 +1849,18 @@ footer{
                     <div>
 
                         <div class="work-name">
-
                             AIR DROP
-
                         </div>
 
-
                         <div class="work-type mono">
-
                             SOCIAL
-
                         </div>
 
                     </div>
 
 
-                    <div class="work-number mono">
-
+                    <div class="work-index mono">
                         05
-
                     </div>
 
                 </div>
@@ -1884,27 +1868,21 @@ footer{
             </article>
 
 
-
-            <!-- =================================================
-                 06 REGAIN APP AI
-            ================================================== -->
+            <!-- 06 -->
 
             <article class="work-card">
 
                 <div class="work-media">
 
                     <video
-                        src="https://drive.google.com/uc?export=download&id=1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5"
+                        src="videos/regain-app-ai.mp4"
                         controls
                         playsinline
                         preload="metadata">
                     </video>
 
-
-                    <div class="work-index mono">
-
+                    <div class="work-number mono">
                         06
-
                     </div>
 
                 </div>
@@ -1915,25 +1893,18 @@ footer{
                     <div>
 
                         <div class="work-name">
-
                             REGAIN APP AI
-
                         </div>
 
-
                         <div class="work-type mono">
-
                             AI / APP
-
                         </div>
 
                     </div>
 
 
-                    <div class="work-number mono">
-
+                    <div class="work-index mono">
                         06
-
                     </div>
 
                 </div>
@@ -1941,27 +1912,21 @@ footer{
             </article>
 
 
-
-            <!-- =================================================
-                 07 NILESH AI
-            ================================================== -->
+            <!-- 07 -->
 
             <article class="work-card">
 
                 <div class="work-media">
 
                     <video
-                        src="https://drive.google.com/uc?export=download&id=1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ"
+                        src="videos/nilesh-ai.mp4"
                         controls
                         playsinline
                         preload="metadata">
                     </video>
 
-
-                    <div class="work-index mono">
-
+                    <div class="work-number mono">
                         07
-
                     </div>
 
                 </div>
@@ -1972,25 +1937,18 @@ footer{
                     <div>
 
                         <div class="work-name">
-
                             NILESH AI
-
                         </div>
 
-
                         <div class="work-type mono">
-
                             AI / VISUAL
-
                         </div>
 
                     </div>
 
 
-                    <div class="work-number mono">
-
+                    <div class="work-index mono">
                         07
-
                     </div>
 
                 </div>
@@ -1998,27 +1956,21 @@ footer{
             </article>
 
 
-
-            <!-- =================================================
-                 08 EXPORT
-            ================================================== -->
+            <!-- 08 -->
 
             <article class="work-card">
 
                 <div class="work-media">
 
                     <video
-                        src="https://drive.google.com/uc?export=download&id=17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr"
+                        src="videos/export.mp4"
                         controls
                         playsinline
                         preload="metadata">
                     </video>
 
-
-                    <div class="work-index mono">
-
+                    <div class="work-number mono">
                         08
-
                     </div>
 
                 </div>
@@ -2029,25 +1981,18 @@ footer{
                     <div>
 
                         <div class="work-name">
-
                             EXPORT
-
                         </div>
 
-
                         <div class="work-type mono">
-
                             SOCIAL
-
                         </div>
 
                     </div>
 
 
-                    <div class="work-number mono">
-
+                    <div class="work-index mono">
                         08
-
                     </div>
 
                 </div>
@@ -2062,9 +2007,8 @@ footer{
 </section>
 
 
-
 <!-- =========================================================
-     ARCHIVE
+     COMPLETE WORK
 ========================================================= -->
 
 <section class="archive">
@@ -2074,9 +2018,9 @@ footer{
 
         <div class="section-heading">
 
-            <div class="mono">
+            <div class="section-label mono">
 
-                03 / COMPLETE ARCHIVE
+                03 / COMPLETE WORK
 
             </div>
 
@@ -2092,145 +2036,348 @@ footer{
         </div>
 
 
+        <!-- =================================================
+             CORPORATE
+        ================================================== -->
 
-        <!-- CORPORATE -->
+        <div class="project-group">
 
-        <div class="archive-row">
+            <div
+                class="project-header"
+                data-target="corporate">
 
-            <div class="archive-number mono">
-
-                01
-
-            </div>
-
-
-            <div class="archive-name">
-
-                Corporate
-
-            </div>
+                <div class="project-number mono">
+                    01
+                </div>
 
 
-            <div class="archive-meta mono">
-
-                COMMERCIAL
-                <br>
-                02 VIDEOS
-
-            </div>
+                <div class="project-name">
+                    Corporate
+                </div>
 
 
-            <div class="archive-arrow">
+                <div class="project-meta mono">
 
-                ↗
+                    COMMERCIAL
+                    <br>
+                    PROJECTS
 
-            </div>
-
-        </div>
+                </div>
 
 
+                <div class="project-button">
 
-        <!-- BIRTHDAY -->
+                    <span class="project-plus">
+                        +
+                    </span>
 
-        <div class="archive-row">
-
-            <div class="archive-number mono">
-
-                02
+                </div>
 
             </div>
-
-
-            <div class="archive-name">
-
-                Birthday
-
-            </div>
-
-
-            <div class="archive-meta mono">
-
-                EVENTS
-                <br>
-                02 VIDEOS
-
-            </div>
-
-
-            <div class="archive-arrow">
-
-                ↗
-
-            </div>
-
-        </div>
-
-
-
-        <!-- BABY SHOWER -->
-
-        <div class="archive-row">
-
-            <div class="archive-number mono">
-
-                03
-
-            </div>
-
-
-            <div class="archive-name">
-
-                Baby Shower
-
-            </div>
-
-
-            <div class="archive-meta mono">
-
-                EVENTS
-                <br>
-                03 VIDEOS
-
-            </div>
-
-
-            <div class="archive-arrow">
-
-                ↗
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =====================================================
-             OTHER PROJECTS — SINGLE FOLDER/COLLECTION
-        ====================================================== -->
-
-        <div class="other-projects">
 
 
             <div
-                class="archive-row other-main"
-                id="otherToggle">
+                class="project-content"
+                id="corporate">
+
+                <div class="project-content-inner">
+
+                    <div class="project-inner">
 
 
-                <div class="archive-number mono">
+                        <div class="project-item">
 
+                            <div class="project-item-number mono">
+                                01
+                            </div>
+
+                            <div class="project-item-name">
+                                Corporate Project 01
+                            </div>
+
+                            <div class="project-item-type mono">
+                                COMMERCIAL
+                            </div>
+
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-item">
+
+                            <div class="project-item-number mono">
+                                02
+                            </div>
+
+                            <div class="project-item-name">
+                                Corporate Project 02
+                            </div>
+
+                            <div class="project-item-type mono">
+                                COMMERCIAL
+                            </div>
+
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BIRTHDAY
+        ================================================== -->
+
+        <div class="project-group">
+
+            <div
+                class="project-header"
+                data-target="birthday">
+
+                <div class="project-number mono">
+                    02
+                </div>
+
+
+                <div class="project-name">
+                    Birthday
+                </div>
+
+
+                <div class="project-meta mono">
+
+                    EVENTS
+                    <br>
+                    PROJECTS
+
+                </div>
+
+
+                <div class="project-button">
+
+                    <span class="project-plus">
+                        +
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="project-content"
+                id="birthday">
+
+                <div class="project-content-inner">
+
+                    <div class="project-inner">
+
+
+                        <div class="project-item">
+
+                            <div class="project-item-number mono">
+                                01
+                            </div>
+
+                            <div class="project-item-name">
+                                Birthday Project 01
+                            </div>
+
+                            <div class="project-item-type mono">
+                                EVENT
+                            </div>
+
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-item">
+
+                            <div class="project-item-number mono">
+                                02
+                            </div>
+
+                            <div class="project-item-name">
+                                Birthday Project 02
+                            </div>
+
+                            <div class="project-item-type mono">
+                                EVENT
+                            </div>
+
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BABY SHOWER
+        ================================================== -->
+
+        <div class="project-group">
+
+            <div
+                class="project-header"
+                data-target="baby-shower">
+
+                <div class="project-number mono">
+                    03
+                </div>
+
+
+                <div class="project-name">
+                    Baby Shower
+                </div>
+
+
+                <div class="project-meta mono">
+
+                    EVENTS
+                    <br>
+                    PROJECTS
+
+                </div>
+
+
+                <div class="project-button">
+
+                    <span class="project-plus">
+                        +
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="project-content"
+                id="baby-shower">
+
+                <div class="project-content-inner">
+
+                    <div class="project-inner">
+
+
+                        <div class="project-item">
+
+                            <div class="project-item-number mono">
+                                01
+                            </div>
+
+                            <div class="project-item-name">
+                                Baby Shower 01
+                            </div>
+
+                            <div class="project-item-type mono">
+                                EVENT
+                            </div>
+
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-item">
+
+                            <div class="project-item-number mono">
+                                02
+                            </div>
+
+                            <div class="project-item-name">
+                                Baby Shower 02
+                            </div>
+
+                            <div class="project-item-type mono">
+                                EVENT
+                            </div>
+
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-item">
+
+                            <div class="project-item-number mono">
+                                03
+                            </div>
+
+                            <div class="project-item-name">
+                                Baby Shower 03
+                            </div>
+
+                            <div class="project-item-type mono">
+                                EVENT
+                            </div>
+
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             OTHER PROJECTS
+        ================================================== -->
+
+        <div class="project-group">
+
+            <div
+                class="project-header"
+                data-target="other-projects">
+
+                <div class="project-number mono">
                     04
-
                 </div>
 
 
-                <div class="archive-name">
-
+                <div class="project-name">
                     Other Projects
-
                 </div>
 
 
-                <div class="archive-meta mono">
+                <div class="project-meta mono">
 
                     07 PROJECTS
                     <br>
@@ -2239,301 +2386,185 @@ footer{
                 </div>
 
 
-                <div class="other-toggle">
+                <div class="project-button">
 
-                    <span id="otherPlus">
-
+                    <span class="project-plus">
                         +
-
                     </span>
 
                 </div>
 
-
             </div>
 
 
-
             <div
-                class="other-content"
-                id="otherContent">
+                class="project-content"
+                id="other-projects">
 
+                <div class="project-content-inner">
 
-                <div class="other-header">
+                    <div class="project-inner">
 
 
-                    <div class="mono">
+                        <div class="project-item">
 
-                        OTHER PROJECTS / 07
+                            <div class="project-item-number mono">
+                                01
+                            </div>
 
-                    </div>
+                            <div class="project-item-name">
+                                Parachute Advansed
+                            </div>
 
+                            <div class="project-item-type mono">
+                                BRAND
+                            </div>
 
-                    <div class="other-header-text">
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
 
-                        Additional commercial,
-                        AI, music, brand and
-                        experimental work.
+                        </div>
 
-                    </div>
 
+                        <div class="project-item">
 
-                </div>
+                            <div class="project-item-number mono">
+                                02
+                            </div>
 
+                            <div class="project-item-name">
+                                EVM
+                            </div>
 
+                            <div class="project-item-type mono">
+                                COMMERCIAL
+                            </div>
 
-                <!-- 01 -->
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
 
-                <div class="other-item">
+                        </div>
 
-                    <div class="other-number mono">
 
-                        01
+                        <div class="project-item">
 
-                    </div>
+                            <div class="project-item-number mono">
+                                03
+                            </div>
 
+                            <div class="project-item-name">
+                                Flying Panda
+                            </div>
 
-                    <div class="other-title">
+                            <div class="project-item-type mono">
+                                BRAND
+                            </div>
 
-                        Parachute Advansed
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
 
-                    </div>
+                        </div>
 
 
-                    <div class="other-type mono">
+                        <div class="project-item">
 
-                        BRAND
+                            <div class="project-item-number mono">
+                                04
+                            </div>
 
-                    </div>
+                            <div class="project-item-name">
+                                Nilesh AI
+                            </div>
 
+                            <div class="project-item-type mono">
+                                AI / VISUAL
+                            </div>
 
-                    <div class="other-arrow">
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
 
-                        ↗
+                        </div>
 
-                    </div>
 
-                </div>
+                        <div class="project-item">
 
+                            <div class="project-item-number mono">
+                                05
+                            </div>
 
+                            <div class="project-item-name">
+                                Regain App AI
+                            </div>
 
-                <!-- 02 -->
+                            <div class="project-item-type mono">
+                                AI / APP
+                            </div>
 
-                <div class="other-item">
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
 
-                    <div class="other-number mono">
+                        </div>
 
-                        02
 
-                    </div>
+                        <div class="project-item">
 
+                            <div class="project-item-number mono">
+                                06
+                            </div>
 
-                    <div class="other-title">
+                            <div class="project-item-name">
+                                MAENZRAAT 3.0
+                            </div>
 
-                        EVM
+                            <div class="project-item-type mono">
+                                MUSIC / CULTURE
+                            </div>
 
-                    </div>
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
 
+                        </div>
 
-                    <div class="other-type mono">
 
-                        COMMERCIAL
+                        <div class="project-item">
 
-                    </div>
+                            <div class="project-item-number mono">
+                                07
+                            </div>
 
+                            <div class="project-item-name">
+                                MAENZRAAT V2
+                            </div>
 
-                    <div class="other-arrow">
+                            <div class="project-item-type mono">
+                                MUSIC / CULTURE
+                            </div>
 
-                        ↗
+                            <div class="project-item-arrow">
+                                ↗
+                            </div>
 
-                    </div>
+                        </div>
 
-                </div>
-
-
-
-                <!-- 03 -->
-
-                <div class="other-item">
-
-                    <div class="other-number mono">
-
-                        03
-
-                    </div>
-
-
-                    <div class="other-title">
-
-                        Flying Panda
-
-                    </div>
-
-
-                    <div class="other-type mono">
-
-                        BRAND
-
-                    </div>
-
-
-                    <div class="other-arrow">
-
-                        ↗
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- 04 -->
-
-                <div class="other-item">
-
-                    <div class="other-number mono">
-
-                        04
-
-                    </div>
-
-
-                    <div class="other-title">
-
-                        Nilesh AI
-
-                    </div>
-
-
-                    <div class="other-type mono">
-
-                        AI / VISUAL
-
-                    </div>
-
-
-                    <div class="other-arrow">
-
-                        ↗
 
                     </div>
 
                 </div>
-
-
-
-                <!-- 05 -->
-
-                <div class="other-item">
-
-                    <div class="other-number mono">
-
-                        05
-
-                    </div>
-
-
-                    <div class="other-title">
-
-                        Regain App AI
-
-                    </div>
-
-
-                    <div class="other-type mono">
-
-                        AI / APP
-
-                    </div>
-
-
-                    <div class="other-arrow">
-
-                        ↗
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- 06 -->
-
-                <div class="other-item">
-
-                    <div class="other-number mono">
-
-                        06
-
-                    </div>
-
-
-                    <div class="other-title">
-
-                        MAENZRAAT 3.0
-
-                    </div>
-
-
-                    <div class="other-type mono">
-
-                        MUSIC / CULTURE
-
-                    </div>
-
-
-                    <div class="other-arrow">
-
-                        ↗
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- 07 -->
-
-                <div class="other-item">
-
-                    <div class="other-number mono">
-
-                        07
-
-                    </div>
-
-
-                    <div class="other-title">
-
-                        MAENZRAAT V2
-
-                    </div>
-
-
-                    <div class="other-type mono">
-
-                        MUSIC / CULTURE
-
-                    </div>
-
-
-                    <div class="other-arrow">
-
-                        ↗
-
-                    </div>
-
-                </div>
-
 
             </div>
 
         </div>
 
+
     </div>
 
 </section>
-
 
 
 <!-- =========================================================
@@ -2547,7 +2578,7 @@ footer{
 
         <div class="section-heading">
 
-            <div class="mono">
+            <div class="section-label mono">
 
                 04 / PROCESS
 
@@ -2565,7 +2596,6 @@ footer{
         </div>
 
 
-
         <div class="process-grid">
 
 
@@ -2573,29 +2603,22 @@ footer{
 
             <div class="process-card">
 
-
                 <div class="process-number mono">
-
                     01
-
                 </div>
 
 
                 <div class="story-visual">
 
                     <i class="story-line"></i>
-
                     <i class="story-line"></i>
-
                     <i class="story-line"></i>
 
                 </div>
 
 
                 <div class="process-title">
-
                     STORY
-
                 </div>
 
 
@@ -2606,44 +2629,80 @@ footer{
 
                 </p>
 
-
             </div>
-
 
 
             <!-- RHYTHM -->
 
             <div class="process-card">
 
-
                 <div class="process-number mono">
-
                     02
-
                 </div>
 
 
                 <div class="wave">
 
-                    <i style="--height:18px"></i>
-                    <i style="--height:32px"></i>
-                    <i style="--height:48px"></i>
-                    <i style="--height:25px"></i>
-                    <i style="--height:55px"></i>
-                    <i style="--height:35px"></i>
-                    <i style="--height:45px"></i>
-                    <i style="--height:28px"></i>
-                    <i style="--height:50px"></i>
-                    <i style="--height:22px"></i>
-                    <i style="--height:38px"></i>
+                    <i
+                        class="wave-bar"
+                        style="--height:18px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:34px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:52px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:28px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:58px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:38px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:48px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:25px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:55px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:22px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:40px">
+                    </i>
 
                 </div>
 
 
                 <div class="process-title">
-
                     RHYTHM
-
                 </div>
 
 
@@ -2654,44 +2713,80 @@ footer{
 
                 </p>
 
-
             </div>
-
 
 
             <!-- SOUND -->
 
             <div class="process-card">
 
-
                 <div class="process-number mono">
-
                     03
-
                 </div>
 
 
                 <div class="wave">
 
-                    <i style="--height:12px"></i>
-                    <i style="--height:24px"></i>
-                    <i style="--height:42px"></i>
-                    <i style="--height:28px"></i>
-                    <i style="--height:50px"></i>
-                    <i style="--height:32px"></i>
-                    <i style="--height:45px"></i>
-                    <i style="--height:20px"></i>
-                    <i style="--height:36px"></i>
-                    <i style="--height:26px"></i>
-                    <i style="--height:48px"></i>
+                    <i
+                        class="wave-bar"
+                        style="--height:12px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:25px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:44px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:30px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:55px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:35px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:47px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:21px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:39px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:27px">
+                    </i>
+
+                    <i
+                        class="wave-bar"
+                        style="--height:50px">
+                    </i>
 
                 </div>
 
 
                 <div class="process-title">
-
                     SOUND
-
                 </div>
 
 
@@ -2702,20 +2797,15 @@ footer{
 
                 </p>
 
-
             </div>
-
 
 
             <!-- FINISH -->
 
             <div class="process-card">
 
-
                 <div class="process-number mono">
-
                     04
-
                 </div>
 
 
@@ -2723,9 +2813,7 @@ footer{
 
 
                 <div class="process-title">
-
                     FINISH
-
                 </div>
 
 
@@ -2735,7 +2823,6 @@ footer{
                     motion and final polish.
 
                 </p>
-
 
             </div>
 
@@ -2747,9 +2834,8 @@ footer{
 </section>
 
 
-
 <!-- =========================================================
-     HIRE ME
+     HIRE
 ========================================================= -->
 
 <section
@@ -2772,7 +2858,7 @@ footer{
 
             <br>
 
-            <span>
+            <span class="hire-outline">
 
                 SOMETHING GREAT.
 
@@ -2806,7 +2892,6 @@ footer{
 </section>
 
 
-
 <!-- =========================================================
      CONTACT MODAL
 ========================================================= -->
@@ -2828,16 +2913,14 @@ footer{
         </button>
 
 
-        <div
-            class="mono"
-            style="color:#555;margin-bottom:20px">
+        <div class="contact-small mono">
 
             LET'S WORK TOGETHER
 
         </div>
 
 
-        <h2 class="contact-heading">
+        <h2 class="contact-title">
 
             GET IN
             <br>
@@ -2846,48 +2929,35 @@ footer{
         </h2>
 
 
-
         <!-- EMAIL -->
 
         <a
             class="contact-link"
             href="mailto:surajsharmaedit31@gmail.com">
 
-
             <div class="contact-icon">
-
                 ✉
-
             </div>
 
 
             <div>
 
                 <div class="contact-label mono">
-
                     EMAIL
-
                 </div>
 
-
                 <div class="contact-value">
-
                     surajsharmaedit31@gmail.com
-
                 </div>
 
             </div>
 
 
             <div class="contact-arrow">
-
                 →
-
             </div>
 
-
         </a>
-
 
 
         <!-- PHONE -->
@@ -2896,41 +2966,29 @@ footer{
             class="contact-link"
             href="tel:+918446726785">
 
-
             <div class="contact-icon">
-
                 ☎
-
             </div>
 
 
             <div>
 
                 <div class="contact-label mono">
-
                     PHONE
-
                 </div>
 
-
                 <div class="contact-value">
-
                     +91 8446726785
-
                 </div>
 
             </div>
 
 
             <div class="contact-arrow">
-
                 →
-
             </div>
 
-
         </a>
-
 
 
         <!-- INSTAGRAM -->
@@ -2941,38 +2999,27 @@ footer{
             target="_blank"
             rel="noopener">
 
-
             <div class="contact-icon">
-
                 ◎
-
             </div>
 
 
             <div>
 
                 <div class="contact-label mono">
-
                     INSTAGRAM
-
                 </div>
 
-
                 <div class="contact-value">
-
                     @sharmasuraj31122003
-
                 </div>
 
             </div>
 
 
             <div class="contact-arrow">
-
                 →
-
             </div>
-
 
         </a>
 
@@ -2982,7 +3029,6 @@ footer{
 </div>
 
 
-
 <!-- =========================================================
      FOOTER
 ========================================================= -->
@@ -2990,67 +3036,132 @@ footer{
 <footer class="mono">
 
     <span>
-
         © 2026 SURAJ SHARMA
-
     </span>
 
 
     <span>
-
-        VIDEO EDITOR /
-        VISUAL STORYTELLER
-
+        VIDEO EDITOR / VISUAL STORYTELLER
     </span>
 
 </footer>
 
 
-
 <script>
 
 /* =========================================================
-   OTHER PROJECTS
+   EXPANDABLE WORK CATEGORIES
 ========================================================= */
 
-const otherToggle =
-    document.getElementById(
-        "otherToggle"
-    );
-
-const otherContent =
-    document.getElementById(
-        "otherContent"
-    );
-
-const otherPlus =
-    document.getElementById(
-        "otherPlus"
+const projectHeaders =
+    document.querySelectorAll(
+        ".project-header"
     );
 
 
-otherToggle.addEventListener(
-    "click",
-    function(){
+projectHeaders.forEach(
+    function(header){
 
-        const isOpen =
-            otherContent
-            .classList
-            .toggle("open");
+        header.addEventListener(
+            "click",
+            function(){
+
+                const targetId =
+                    header.dataset.target;
+
+                const target =
+                    document.getElementById(
+                        targetId
+                    );
 
 
-        otherToggle
-        .classList
-        .toggle(
-            "open",
-            isOpen
+                const wasOpen =
+                    target.classList.contains(
+                        "open"
+                    );
+
+
+                /*
+                 * Close all other categories
+                 */
+
+                document
+                    .querySelectorAll(
+                        ".project-content"
+                    )
+                    .forEach(
+                        function(content){
+
+                            content.classList.remove(
+                                "open"
+                            );
+
+                        }
+                    );
+
+
+                document
+                    .querySelectorAll(
+                        ".project-header"
+                    )
+                    .forEach(
+                        function(otherHeader){
+
+                            otherHeader.classList.remove(
+                                "open"
+                            );
+
+                        }
+                    );
+
+
+                /*
+                 * Open selected category
+                 */
+
+                if(!wasOpen){
+
+                    target.classList.add(
+                        "open"
+                    );
+
+                    header.classList.add(
+                        "open"
+                    );
+
+                }
+
+            }
         );
 
 
-        otherPlus.textContent =
-            isOpen
-            ? "×"
-            : "+";
+        /*
+         * Keyboard accessibility
+         */
+
+        header.setAttribute(
+            "tabindex",
+            "0"
+        );
+
+
+        header.addEventListener(
+            "keydown",
+            function(event){
+
+                if(
+                    event.key === "Enter" ||
+                    event.key === " "
+                ){
+
+                    event.preventDefault();
+
+                    header.click();
+
+                }
+
+            }
+        );
 
     }
 );
@@ -3080,13 +3191,13 @@ hireButton.addEventListener(
     "click",
     function(){
 
-        contactModal
-        .classList
-        .add("open");
+        contactModal.classList.add(
+            "open"
+        );
 
-        document.body
-        .classList
-        .add("lock");
+        document.body.classList.add(
+            "modal-open"
+        );
 
     }
 );
@@ -3096,19 +3207,22 @@ hireButton.addEventListener(
    CLOSE MODAL
 ========================================================= */
 
+function closeContact(){
+
+    contactModal.classList.remove(
+        "open"
+    );
+
+    document.body.classList.remove(
+        "modal-open"
+    );
+
+}
+
+
 contactClose.addEventListener(
     "click",
-    function(){
-
-        contactModal
-        .classList
-        .remove("open");
-
-        document.body
-        .classList
-        .remove("lock");
-
-    }
+    closeContact
 );
 
 
@@ -3125,13 +3239,7 @@ contactModal.addEventListener(
             contactModal
         ){
 
-            contactModal
-            .classList
-            .remove("open");
-
-            document.body
-            .classList
-            .remove("lock");
+            closeContact();
 
         }
 
@@ -3148,16 +3256,11 @@ document.addEventListener(
     function(event){
 
         if(
-            event.key === "Escape"
+            event.key ===
+            "Escape"
         ){
 
-            contactModal
-            .classList
-            .remove("open");
-
-            document.body
-            .classList
-            .remove("lock");
+            closeContact();
 
         }
 
@@ -3166,7 +3269,5 @@ document.addEventListener(
 
 </script>
 
-
 </body>
-
 </html>
