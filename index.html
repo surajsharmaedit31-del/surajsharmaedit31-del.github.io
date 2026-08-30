@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>SURAJ SHARMA — VIDEO EDITOR</title>
 
 <meta
-name="description"
-content="Suraj Sharma — Video Editor & Visual Storyteller."
+    name="description"
+    content="Suraj Sharma — Video Editor & Visual Storyteller."
 >
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap"
-rel="stylesheet"
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
 >
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+>
+
 
 <style>
 
@@ -43,7 +54,7 @@ body {
     overflow-x: hidden;
 }
 
-body.menu-open {
+body.lock {
     overflow: hidden;
 }
 
@@ -70,7 +81,9 @@ button {
     --black: #080808;
     --white: #f2f2f2;
     --grey: #777;
+    --muted: #444;
     --line: #242424;
+    --card: #111;
 }
 
 
@@ -479,7 +492,6 @@ body::after {
 ========================================================= */
 
 .section {
-
     padding: 170px 0;
 }
 
@@ -493,7 +505,6 @@ body::after {
 }
 
 .section-number {
-
     color: #555;
 }
 
@@ -516,12 +527,215 @@ body::after {
 
 
 /* =========================================================
-   FEATURED
+   SHOWREEL CAROUSEL
 ========================================================= */
 
-.featured-frame {
+.showreel-shell {
 
-    min-height: 70vh;
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #101010;
+
+    border: 1px solid #1d1d1d;
+}
+
+.showreel-track {
+
+    display: flex;
+
+    width: 100%;
+
+    transition:
+        transform .8s
+        cubic-bezier(.77,0,.18,1);
+}
+
+.showreel-slide {
+
+    min-width: 100%;
+
+    position: relative;
+
+    background: #101010;
+}
+
+.showreel-video {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.showreel-video iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+    display: block;
+}
+
+.showreel-label {
+
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 25px;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.showreel-label .title {
+
+    font-size: clamp(
+        25px,
+        4vw,
+        55px
+    );
+
+    font-weight: 800;
+
+    letter-spacing: -.06em;
+
+    text-transform: uppercase;
+}
+
+.showreel-label .sub {
+
+    margin-top: 7px;
+
+    color: #777;
+}
+
+.showreel-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 60px;
+    height: 60px;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.45);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
+
+    transition:
+        background .3s,
+        color .3s,
+        transform .3s;
+}
+
+.showreel-arrow:hover {
+
+    background: #fff;
+
+    color: #000;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+.showreel-arrow.left {
+    left: 25px;
+}
+
+.showreel-arrow.right {
+    right: 25px;
+}
+
+.showreel-controls {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 20px;
+
+    border-top: 1px solid #222;
+}
+
+.showreel-count {
+
+    color: #555;
+}
+
+.showreel-dots {
+
+    display: flex;
+
+    gap: 9px;
+}
+
+.showreel-dot {
+
+    width: 28px;
+
+    height: 2px;
+
+    border: 0;
+
+    background: #333;
+
+    cursor: pointer;
+
+    transition: background .3s;
+}
+
+.showreel-dot.active {
+    background: #fff;
+}
+
+
+/* =========================================================
+   SELECTED WORK
+========================================================= */
+
+.selected-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+.selected-card {
 
     background: #101010;
 
@@ -529,84 +743,88 @@ body::after {
 
     overflow: hidden;
 
-    display: flex;
+    border: 1px solid #1c1c1c;
 
-    align-items: center;
-
-    justify-content: center;
+    transition:
+        transform .4s,
+        border-color .4s;
 }
 
-.featured-placeholder {
+.selected-card:hover {
 
-    text-align: center;
+    transform: translateY(-8px);
 
-    color: #333;
+    border-color: #444;
 }
 
-.featured-placeholder .big {
+.selected-video {
 
-    font-size: clamp(
-        40px,
-        8vw,
-        110px
-    );
+    width: 100%;
 
-    line-height: .8;
+    aspect-ratio: 9 / 16;
 
-    letter-spacing: -.08em;
+    background: #111;
 
-    font-weight: 800;
+    position: relative;
+
+    overflow: hidden;
 }
 
-.featured-placeholder .small {
+.selected-video iframe {
 
-    margin-top: 25px;
+    width: 100%;
 
-    font-family: "DM Mono", monospace;
+    height: 100%;
 
-    font-size: 9px;
+    border: 0;
 
-    letter-spacing: 2px;
+    display: block;
 
-    color: #444;
+    pointer-events: none;
 }
 
-.featured-corner {
+.selected-cover {
 
     position: absolute;
 
-    font-family: "DM Mono", monospace;
+    inset: 0;
 
-    font-size: 8px;
+    background: transparent;
 
-    color: #444;
+    z-index: 5;
 
-    text-transform: uppercase;
+    cursor: pointer;
 }
 
-.featured-corner.tl {
-    top: 20px;
-    left: 20px;
+.selected-info {
+
+    padding: 18px 20px;
+
+    border-top: 1px solid #222;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
 }
 
-.featured-corner.tr {
-    top: 20px;
-    right: 20px;
+.selected-name {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: -.03em;
 }
 
-.featured-corner.bl {
-    bottom: 20px;
-    left: 20px;
-}
-
-.featured-corner.br {
-    bottom: 20px;
-    right: 20px;
+.selected-type {
+    color: #555;
 }
 
 
 /* =========================================================
-   VIEW ALL WORK
+   VIEW ALL BUTTON
 ========================================================= */
 
 .view-all-wrap {
@@ -669,7 +887,7 @@ body::after {
 
 
 /* =========================================================
-   ALL WORK ARCHIVE
+   ARCHIVE
 ========================================================= */
 
 .archive {
@@ -751,13 +969,12 @@ body::after {
 
 .filter:hover,
 .filter.active {
-
     color: #fff;
 }
 
 
 /* =========================================================
-   ARCHIVE PROJECTS
+   ARCHIVE LIST
 ========================================================= */
 
 .archive-list {
@@ -910,6 +1127,7 @@ body::after {
     position: fixed;
 
     top: 30px;
+
     right: 4%;
 
     width: 50px;
@@ -942,7 +1160,6 @@ body::after {
 }
 
 .detail-top {
-
     margin-bottom: 70px;
 }
 
@@ -985,7 +1202,7 @@ body::after {
 
 
 /* =========================================================
-   VIDEO GRID
+   PROJECT VIDEO GRID
 ========================================================= */
 
 .detail-videos {
@@ -1039,6 +1256,8 @@ body::after {
     border: 0;
 
     display: block;
+
+    pointer-events: none;
 }
 
 .video-number {
@@ -1282,7 +1501,7 @@ body::after {
 
 
 /* =========================================================
-   TOOLS
+   SOFTWARE
 ========================================================= */
 
 .tools {
@@ -1452,10 +1671,10 @@ footer {
 
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE
 ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
     .detail-videos {
         grid-template-columns:
@@ -1463,6 +1682,7 @@ footer {
     }
 
 }
+
 
 @media (max-width: 800px) {
 
@@ -1508,6 +1728,7 @@ footer {
     .hero-cta {
 
         width: 105px;
+
         height: 105px;
 
     }
@@ -1523,14 +1744,37 @@ footer {
         gap: 25px;
 
         margin-bottom: 55px;
+
     }
 
     .section-heading {
         font-size: 15vw;
     }
 
-    .featured-frame {
-        min-height: 60vh;
+    .selected-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .showreel-arrow {
+
+        width: 45px;
+        height: 45px;
+
+    }
+
+    .showreel-arrow.left {
+        left: 15px;
+    }
+
+    .showreel-arrow.right {
+        right: 15px;
+    }
+
+    .showreel-label {
+
+        left: 15px;
+        bottom: 15px;
+
     }
 
     .archive-header {
@@ -1547,6 +1791,7 @@ footer {
             40px 1fr 40px;
 
         padding: 30px 0;
+
     }
 
     .archive-meta {
@@ -1624,29 +1869,17 @@ footer {
 
 }
 
+
 @media (max-width: 500px) {
 
     .detail-videos {
         grid-template-columns: 1fr;
     }
 
-}
+    .showreel-label .title {
+        font-size: 22px;
+    }
 
-
-/* =========================================================
-   HIDE SCROLLBAR INSIDE PROJECT
-========================================================= */
-
-.project-overlay::-webkit-scrollbar {
-    width: 5px;
-}
-
-.project-overlay::-webkit-scrollbar-track {
-    background: #080808;
-}
-
-.project-overlay::-webkit-scrollbar-thumb {
-    background: #333;
 }
 
 </style>
@@ -1680,6 +1913,10 @@ footer {
 
 
         <div class="nav-links">
+
+            <a href="#showreel">
+                SHOWREEL
+            </a>
 
             <a href="#work">
                 WORK
@@ -1721,6 +1958,10 @@ footer {
     class="mobile-menu"
     id="mobileMenu"
 >
+
+    <a href="#showreel">
+        SHOWREEL
+    </a>
 
     <a href="#work">
         WORK
@@ -1795,15 +2036,15 @@ footer {
 
 
             <a
-                href="#work"
+                href="#showreel"
                 class="hero-cta"
             >
 
-                ENTER
+                WATCH
                 <br>
                 THE
                 <br>
-                WORK
+                REEL
 
             </a>
 
@@ -1884,6 +2125,202 @@ footer {
 
 
 <!-- =======================================================
+     SHOWREELS
+======================================================= -->
+
+<section
+    class="section"
+    id="showreel"
+>
+
+    <div class="container">
+
+
+        <div class="section-top reveal">
+
+            <div class="section-number mono">
+                01 / SHOWREELS
+            </div>
+
+
+            <h2 class="section-heading">
+
+                THE
+                <br>
+                REELS.
+
+            </h2>
+
+        </div>
+
+
+        <div
+            class="showreel-shell reveal"
+            id="showreelShell"
+        >
+
+
+            <div
+                class="showreel-track"
+                id="showreelTrack"
+            >
+
+
+                <!-- =========================================
+                     SHOWREEL 01
+                ========================================== -->
+
+                <div class="showreel-slide">
+
+                    <div class="showreel-video">
+
+                        <iframe
+                            src="https://drive.google.com/file/d/1FOBalR2kkWACMrxDvgnW_wS2UIvggTWW/preview"
+                            title="Suraj Sharma — Editing Showreel"
+                            allow="autoplay"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+
+                    <div class="corner tl">
+                        01 / 02
+                    </div>
+
+                    <div class="corner tr">
+                        EDITING SHOWREEL
+                    </div>
+
+
+                    <div class="showreel-label">
+
+                        <div class="title">
+                            EDITING SHOWREEL
+                        </div>
+
+                        <div class="sub mono">
+                            STORY / RHYTHM / SOUND / MOTION
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     SHOWREEL 02
+                ========================================== -->
+
+                <div class="showreel-slide">
+
+                    <div class="showreel-video">
+
+                        <iframe
+                            src="https://drive.google.com/file/d/1EdQs-iJTkL7YOXtV46_FTB2AGDPTGkUG/preview"
+                            title="Suraj Sharma — Color Grading Showreel"
+                            allow="autoplay"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+
+                    <div class="corner tl">
+                        02 / 02
+                    </div>
+
+                    <div class="corner tr">
+                        COLOR GRADING
+                    </div>
+
+
+                    <div class="showreel-label">
+
+                        <div class="title">
+                            COLOR GRADING
+                        </div>
+
+                        <div class="sub mono">
+                            COLOR / LOOK / ATMOSPHERE
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- LEFT -->
+
+            <button
+                class="showreel-arrow left"
+                id="showreelPrev"
+                aria-label="Previous showreel"
+            >
+                ←
+            </button>
+
+
+            <!-- RIGHT -->
+
+            <button
+                class="showreel-arrow right"
+                id="showreelNext"
+                aria-label="Next showreel"
+            >
+                →
+            </button>
+
+
+            <!-- CONTROLS -->
+
+            <div class="showreel-controls">
+
+                <div
+                    class="showreel-count mono"
+                    id="showreelCount"
+                >
+                    01 / 02
+                </div>
+
+
+                <div class="showreel-dots">
+
+                    <button
+                        class="showreel-dot active"
+                        data-slide="0"
+                        aria-label="Showreel 1"
+                    ></button>
+
+                    <button
+                        class="showreel-dot"
+                        data-slide="1"
+                        aria-label="Showreel 2"
+                    ></button>
+
+                </div>
+
+
+                <div class="mono">
+                    ← DRAG / SWIPE →
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =======================================================
      SELECTED WORK
 ======================================================= -->
 
@@ -1898,13 +2335,13 @@ footer {
         <div class="section-top reveal">
 
             <div class="section-number mono">
-                01 / SELECTED WORK
+                02 / SELECTED WORK
             </div>
 
 
             <h2 class="section-heading">
 
-                THE
+                BEST
                 <br>
                 CUTS.
 
@@ -1914,40 +2351,238 @@ footer {
 
 
 
-        <div class="featured-frame reveal">
-
-            <div class="featured-corner tl">
-                00:00:00:00
-            </div>
-
-            <div class="featured-corner tr">
-                FEATURED
-            </div>
-
-            <div class="featured-corner bl">
-                SURAJ SHARMA / EDITOR
-            </div>
-
-            <div class="featured-corner br">
-                SHOWREEL
-            </div>
+        <div class="selected-grid">
 
 
-            <div class="featured-placeholder">
+            <!-- GOLDEN TRAILS 01 -->
 
-                <div class="big">
-                    SHOWREEL
+            <article
+                class="selected-card reveal"
+            >
+
+                <div class="selected-video">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/kHF4eNcoZ68?enablejsapi=1&rel=0&modestbranding=1"
+                        title="Golden Trails — Video 01"
+                        loading="lazy"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="selected-cover"></div>
+
                 </div>
 
-                <div class="small">
-                    FEATURED VIDEO / COMING SOON
+
+                <div class="selected-info">
+
+                    <div>
+
+                        <div class="selected-name">
+                            GOLDEN TRAILS
+                        </div>
+
+                        <div class="selected-type mono">
+                            VIDEO 01 / HOSPITALITY
+                        </div>
+
+                    </div>
+
+                    <div class="mono">
+                        01
+                    </div>
+
                 </div>
 
-            </div>
+            </article>
+
+
+
+            <!-- GOLDEN TRAILS 02 -->
+
+            <article
+                class="selected-card reveal"
+            >
+
+                <div class="selected-video">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/57ZeI9pZSPk?enablejsapi=1&rel=0&modestbranding=1"
+                        title="Golden Trails — Video 02"
+                        loading="lazy"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="selected-cover"></div>
+
+                </div>
+
+
+                <div class="selected-info">
+
+                    <div>
+
+                        <div class="selected-name">
+                            GOLDEN TRAILS
+                        </div>
+
+                        <div class="selected-type mono">
+                            VIDEO 02 / HOSPITALITY
+                        </div>
+
+                    </div>
+
+                    <div class="mono">
+                        02
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- GOLDEN TRAILS 03 -->
+
+            <article
+                class="selected-card reveal"
+            >
+
+                <div class="selected-video">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/doUfGzefhsc?enablejsapi=1&rel=0&modestbranding=1"
+                        title="Golden Trails — Video 03"
+                        loading="lazy"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="selected-cover"></div>
+
+                </div>
+
+
+                <div class="selected-info">
+
+                    <div>
+
+                        <div class="selected-name">
+                            GOLDEN TRAILS
+                        </div>
+
+                        <div class="selected-type mono">
+                            VIDEO 03 / HOSPITALITY
+                        </div>
+
+                    </div>
+
+                    <div class="mono">
+                        03
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- EXPORT 01 -->
+
+            <article
+                class="selected-card reveal"
+            >
+
+                <div class="selected-video">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/GL6WYXPOcpc?enablejsapi=1&rel=0&modestbranding=1"
+                        title="Export — Reel 01"
+                        loading="lazy"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="selected-cover"></div>
+
+                </div>
+
+
+                <div class="selected-info">
+
+                    <div>
+
+                        <div class="selected-name">
+                            EXPORT
+                        </div>
+
+                        <div class="selected-type mono">
+                            REEL 01 / SOCIAL
+                        </div>
+
+                    </div>
+
+                    <div class="mono">
+                        04
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- EXPORT 02 -->
+
+            <article
+                class="selected-card reveal"
+            >
+
+                <div class="selected-video">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/sMXWJEPx0CQ?enablejsapi=1&rel=0&modestbranding=1"
+                        title="Export — Reel 02"
+                        loading="lazy"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="selected-cover"></div>
+
+                </div>
+
+
+                <div class="selected-info">
+
+                    <div>
+
+                        <div class="selected-name">
+                            EXPORT
+                        </div>
+
+                        <div class="selected-type mono">
+                            REEL 02 / SOCIAL
+                        </div>
+
+                    </div>
+
+                    <div class="mono">
+                        05
+                    </div>
+
+                </div>
+
+            </article>
+
 
         </div>
 
 
+
+        <!-- VIEW ALL -->
 
         <div class="view-all-wrap reveal">
 
@@ -1987,7 +2622,7 @@ footer {
         <div class="archive-header reveal">
 
             <div class="mono">
-                02 / COMPLETE ARCHIVE
+                03 / COMPLETE ARCHIVE
             </div>
 
 
@@ -2002,9 +2637,9 @@ footer {
 
             <p class="archive-subtitle">
 
-                A complete collection of commercial,
-                cinematic, social, event and
-                experimental work.
+                Explore the complete collection
+                of commercial, cinematic, social,
+                event and experimental work.
 
             </p>
 
@@ -2238,7 +2873,7 @@ footer {
                 </div>
 
                 <div class="archive-name">
-                    Parachute
+                    Parachute Advansed
                 </div>
 
                 <div class="archive-meta">
@@ -2379,9 +3014,7 @@ footer {
         <div
             class="detail-videos"
             id="detailVideos"
-        >
-
-        </div>
+        ></div>
 
     </div>
 
@@ -2404,7 +3037,7 @@ footer {
         <div class="section-top reveal">
 
             <div class="section-number mono">
-                03 / PROCESS
+                04 / PROCESS
             </div>
 
 
@@ -2531,7 +3164,7 @@ footer {
         <div class="section-top reveal">
 
             <div class="section-number mono">
-                04 / SKILLS
+                05 / SKILLS
             </div>
 
 
@@ -2552,7 +3185,9 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">01</div>
+                <div class="skill-index">
+                    01
+                </div>
 
                 <div class="skill-name">
                     Storytelling
@@ -2567,7 +3202,9 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">02</div>
+                <div class="skill-index">
+                    02
+                </div>
 
                 <div class="skill-name">
                     Fast Cuts
@@ -2582,7 +3219,9 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">03</div>
+                <div class="skill-index">
+                    03
+                </div>
 
                 <div class="skill-name">
                     Sound Design
@@ -2597,7 +3236,9 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">04</div>
+                <div class="skill-index">
+                    04
+                </div>
 
                 <div class="skill-name">
                     Color Grading
@@ -2612,7 +3253,9 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">05</div>
+                <div class="skill-index">
+                    05
+                </div>
 
                 <div class="skill-name">
                     Typography
@@ -2627,7 +3270,9 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">06</div>
+                <div class="skill-index">
+                    06
+                </div>
 
                 <div class="skill-name">
                     Motion Graphics
@@ -2642,7 +3287,9 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">07</div>
+                <div class="skill-index">
+                    07
+                </div>
 
                 <div class="skill-name">
                     Transitions
@@ -2657,7 +3304,9 @@ footer {
 
             <div class="skill-row reveal">
 
-                <div class="skill-index">08</div>
+                <div class="skill-index">
+                    08
+                </div>
 
                 <div class="skill-name">
                     Cinematic Editing
@@ -2693,7 +3342,7 @@ footer {
         <div class="section-top reveal">
 
             <div class="section-number mono">
-                05 / ABOUT
+                06 / ABOUT
             </div>
 
 
@@ -2829,7 +3478,7 @@ footer {
         <div class="section-top reveal">
 
             <div class="section-number mono">
-                06 / SOFTWARE
+                07 / SOFTWARE
             </div>
 
 
@@ -2882,7 +3531,7 @@ footer {
 
 
         <div class="contact-kicker mono">
-            07 / START A PROJECT
+            08 / START A PROJECT
         </div>
 
 
@@ -2906,21 +3555,17 @@ footer {
         <div class="contact-footer">
 
 
-            <!-- CHANGE YOUR EMAIL -->
+            <!-- CHANGE EMAIL -->
 
             <a
                 href="mailto:yourmail@gmail.com"
                 class="contact-email"
             >
-
                 yourmail@gmail.com
-
             </a>
 
 
             <div class="socials mono">
-
-                <!-- ADD YOUR REAL LINKS -->
 
                 <a href="#">
                     Instagram
@@ -2984,7 +3629,7 @@ menuButton.addEventListener(
         );
 
         document.body.classList.toggle(
-            "menu-open"
+            "lock"
         );
 
         menuButton.textContent =
@@ -3009,7 +3654,7 @@ mobileMenu
             );
 
             document.body.classList.remove(
-                "menu-open"
+                "lock"
             );
 
             menuButton.textContent =
@@ -3073,11 +3718,193 @@ revealElements.forEach(
 
 
 /* =========================================================
-   FILTER
+   SHOWREEL CAROUSEL
+========================================================= */
+
+const showreelTrack =
+    document.getElementById(
+        "showreelTrack"
+    );
+
+const showreelPrev =
+    document.getElementById(
+        "showreelPrev"
+    );
+
+const showreelNext =
+    document.getElementById(
+        "showreelNext"
+    );
+
+const showreelCount =
+    document.getElementById(
+        "showreelCount"
+    );
+
+const showreelDots =
+    document.querySelectorAll(
+        ".showreel-dot"
+    );
+
+
+let currentShowreel = 0;
+
+const totalShowreels = 2;
+
+
+function updateShowreel() {
+
+    showreelTrack.style.transform =
+        `translateX(-${currentShowreel * 100}%)`;
+
+
+    showreelCount.textContent =
+        `${String(currentShowreel + 1).padStart(2,"0")} / 02`;
+
+
+    showreelDots.forEach(
+        (dot,index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentShowreel
+            );
+
+        }
+    );
+
+}
+
+
+function nextShowreel() {
+
+    currentShowreel =
+        (currentShowreel + 1)
+        % totalShowreels;
+
+    updateShowreel();
+
+}
+
+
+function previousShowreel() {
+
+    currentShowreel =
+        (currentShowreel - 1 + totalShowreels)
+        % totalShowreels;
+
+    updateShowreel();
+
+}
+
+
+showreelNext.addEventListener(
+    "click",
+    nextShowreel
+);
+
+
+showreelPrev.addEventListener(
+    "click",
+    previousShowreel
+);
+
+
+showreelDots.forEach(
+    dot => {
+
+        dot.addEventListener(
+            "click",
+            () => {
+
+                currentShowreel =
+                    Number(
+                        dot.dataset.slide
+                    );
+
+                updateShowreel();
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   SHOWREEL DRAG / SWIPE
+========================================================= */
+
+let dragStartX = 0;
+
+let dragging = false;
+
+
+const showreelShell =
+    document.getElementById(
+        "showreelShell"
+    );
+
+
+showreelShell.addEventListener(
+    "pointerdown",
+    event => {
+
+        dragStartX =
+            event.clientX;
+
+        dragging = true;
+
+    }
+);
+
+
+showreelShell.addEventListener(
+    "pointerup",
+    event => {
+
+        if (!dragging) {
+            return;
+        }
+
+        const difference =
+            event.clientX - dragStartX;
+
+
+        if (Math.abs(difference) > 60) {
+
+            if (difference < 0) {
+                nextShowreel();
+            } else {
+                previousShowreel();
+            }
+
+        }
+
+        dragging = false;
+
+    }
+);
+
+
+showreelShell.addEventListener(
+    "pointerleave",
+    () => {
+
+        dragging = false;
+
+    }
+);
+
+
+/* =========================================================
+   FILTERS
 ========================================================= */
 
 const filters =
-    document.querySelectorAll(".filter");
+    document.querySelectorAll(
+        ".filter"
+    );
 
 const archiveProjects =
     document.querySelectorAll(
@@ -3085,59 +3912,63 @@ const archiveProjects =
     );
 
 
-filters.forEach(filter => {
+filters.forEach(
+    filter => {
 
-    filter.addEventListener(
-        "click",
-        () => {
+        filter.addEventListener(
+            "click",
+            () => {
 
-            const selected =
-                filter.dataset.filter;
+                const selected =
+                    filter.dataset.filter;
 
 
-            filters.forEach(button => {
+                filters.forEach(
+                    button => {
 
-                button.classList.remove(
+                        button.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                filter.classList.add(
                     "active"
                 );
 
-            });
+
+                archiveProjects.forEach(
+                    project => {
+
+                        const category =
+                            project.dataset.category;
 
 
-            filter.classList.add(
-                "active"
-            );
+                        if (
+                            selected === "all" ||
+                            selected === category
+                        ) {
 
+                            project.style.display =
+                                "grid";
 
-            archiveProjects.forEach(
-                project => {
+                        } else {
 
-                    const category =
-                        project.dataset.category;
+                            project.style.display =
+                                "none";
 
-
-                    if (
-                        selected === "all" ||
-                        selected === category
-                    ) {
-
-                        project.style.display =
-                            "grid";
-
-                    } else {
-
-                        project.style.display =
-                            "none";
+                        }
 
                     }
+                );
 
-                }
-            );
+            }
+        );
 
-        }
-    );
-
-});
+    }
+);
 
 
 /* =========================================================
@@ -3161,19 +3992,12 @@ const projectData = {
         videos: [
 
             "kHF4eNcoZ68",
-
             "57ZeI9pZSPk",
-
             "doUfGzefhsc",
-
             "FPL3qbc2TaM",
-
             "ua6jmbpWI3w",
-
             "39OttbiJbiE",
-
             "JUgAJNkmCTo",
-
             "LNoY798kMY0"
 
         ]
@@ -3195,13 +4019,9 @@ const projectData = {
         videos: [
 
             "GL6WYXPOcpc",
-
             "sMXWJEPx0CQ",
-
             "QzqoPL7FHUQ",
-
             "RKoW1EugwCM",
-
             "3-2nC5tUf7M"
 
         ]
@@ -3260,7 +4080,7 @@ const projectData = {
     parachute: {
 
         title:
-            "Parachute",
+            "Parachute Advansed",
 
         category:
             "Commercial / Brand",
@@ -3407,7 +4227,7 @@ archiveProjects.forEach(
 
 
                     data.videos.forEach(
-                        (videoId, index) => {
+                        (videoId,index) => {
 
                             const card =
                                 document.createElement(
@@ -3434,20 +4254,16 @@ archiveProjects.forEach(
 
                                 <iframe
 
-                                    src="https://www.youtube.com/embed/${videoId}"
+                                    src="https://www.youtube.com/embed/${videoId}?enablejsapi=1&rel=0&modestbranding=1"
 
                                     title="${data.title} — Video ${index + 1}"
 
                                     loading="lazy"
 
                                     allow="
-                                        accelerometer;
                                         autoplay;
-                                        clipboard-write;
                                         encrypted-media;
-                                        gyroscope;
-                                        picture-in-picture;
-                                        web-share
+                                        picture-in-picture
                                     "
 
                                     allowfullscreen>
@@ -3472,7 +4288,7 @@ archiveProjects.forEach(
                 );
 
                 document.body.classList.add(
-                    "menu-open"
+                    "lock"
                 );
 
                 projectOverlay.scrollTop = 0;
@@ -3490,25 +4306,28 @@ archiveProjects.forEach(
 
 projectClose.addEventListener(
     "click",
-    () => {
-
-        projectOverlay.classList.remove(
-            "active"
-        );
-
-        document.body.classList.remove(
-            "menu-open"
-        );
-
-        detailVideos.innerHTML =
-            "";
-
-    }
+    closeProject
 );
 
 
+function closeProject() {
+
+    projectOverlay.classList.remove(
+        "active"
+    );
+
+    document.body.classList.remove(
+        "lock"
+    );
+
+    detailVideos.innerHTML =
+        "";
+
+}
+
+
 /* =========================================================
-   ESCAPE KEY
+   ESCAPE
 ========================================================= */
 
 document.addEventListener(
@@ -3519,19 +4338,168 @@ document.addEventListener(
             event.key === "Escape"
         ) {
 
-            projectOverlay.classList.remove(
-                "active"
-            );
-
-            document.body.classList.remove(
-                "menu-open"
-            );
-
-            detailVideos.innerHTML =
-                "";
+            closeProject();
 
         }
 
+    }
+);
+
+
+/* =========================================================
+   YOUTUBE HOVER PREVIEW
+=========================================================
+
+   The preview uses YouTube's autoplay parameter.
+
+   On mouse enter:
+   - video iframe is replaced with autoplay=1
+   - muted autoplay is requested
+
+   On mouse leave:
+   - iframe is reset
+   - video returns to beginning
+
+========================================================= */
+
+const selectedCovers =
+    document.querySelectorAll(
+        ".selected-cover"
+    );
+
+
+selectedCovers.forEach(
+    cover => {
+
+        const iframe =
+            cover.parentElement
+            .querySelector("iframe");
+
+
+        const originalSrc =
+            iframe.getAttribute(
+                "src"
+            );
+
+
+        let previewTimer;
+
+
+        cover.addEventListener(
+            "mouseenter",
+            () => {
+
+                clearTimeout(
+                    previewTimer
+                );
+
+
+                previewTimer =
+                    setTimeout(
+                        () => {
+
+                            iframe.src =
+                                originalSrc
+                                +
+                                "&autoplay=1&mute=1";
+
+                        },
+                        120
+                    );
+
+            }
+        );
+
+
+        cover.addEventListener(
+            "mouseleave",
+            () => {
+
+                clearTimeout(
+                    previewTimer
+                );
+
+
+                iframe.src =
+                    originalSrc;
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PROJECT VIDEO HOVER PREVIEW
+========================================================= */
+
+function addProjectHoverPreview() {
+
+    const projectIframes =
+        document.querySelectorAll(
+            ".video-card iframe"
+        );
+
+
+    projectIframes.forEach(
+        iframe => {
+
+            const originalSrc =
+                iframe.getAttribute(
+                    "src"
+                );
+
+
+            const card =
+                iframe.closest(
+                    ".video-card"
+                );
+
+
+            card.addEventListener(
+                "mouseenter",
+                () => {
+
+                    iframe.src =
+                        originalSrc
+                        +
+                        "&autoplay=1&mute=1";
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    iframe.src =
+                        originalSrc;
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+const observer =
+    new MutationObserver(
+        () => {
+
+            addProjectHoverPreview();
+
+        }
+    );
+
+
+observer.observe(
+    detailVideos,
+    {
+        childList: true
     }
 );
 
@@ -3539,4 +4507,5 @@ document.addEventListener(
 
 
 </body>
+
 </html>
