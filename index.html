@@ -7,60 +7,35 @@
 <title>Suraj Sharma — Video Editor</title>
 
 <style>
-
 /* =========================================================
    RESET
 ========================================================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    background:#070707;
-    color:#f2f2f2;
-    font-family:Arial, Helvetica, sans-serif;
-    overflow-x:hidden;
+body {
+    background: #070707;
+    color: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
-body.modal-open{
-    overflow:hidden;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button{
-    font:inherit;
-    cursor:pointer;
-}
-
-::selection{
-    background:#fff;
-    color:#000;
-}
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-:root{
-    --bg:#070707;
-    --soft-bg:#0b0b0b;
-    --line:#202020;
-    --line-light:#292929;
-    --white:#f2f2f2;
-    --grey:#666;
-    --dark-grey:#414141;
+button {
+    font: inherit;
+    color: inherit;
 }
 
 
@@ -68,23 +43,15 @@ button{
    GLOBAL
 ========================================================= */
 
-.container{
-    width:min(90%,1400px);
-    margin:auto;
+.container {
+    width: calc(100% - 28vw);
+    margin-left: 14vw;
+    margin-right: 14vw;
 }
 
-.mono{
-    font-family:
-        "Courier New",
-        monospace;
-
-    font-size:9px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-}
-
-section{
-    padding:150px 0;
+.section {
+    position: relative;
+    border-top: 1px solid #242424;
 }
 
 
@@ -92,43 +59,48 @@ section{
    NAVIGATION
 ========================================================= */
 
-.nav{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
 
-    height:76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    padding:0 5%;
+    padding: 0 5vw;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    z-index: 1000;
 
-    z-index:1000;
-
-    mix-blend-mode:difference;
+    background: linear-gradient(
+        to bottom,
+        rgba(7,7,7,0.95),
+        rgba(7,7,7,0)
+    );
 }
 
-.logo{
-    font-size:13px;
-    font-weight:800;
-    letter-spacing:-.04em;
+.logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
 }
 
-.nav-links{
-    display:flex;
-    gap:30px;
+.nav-links {
+    display: flex;
+    gap: 34px;
 }
 
-.nav-links a{
-    color:#aaa;
-    transition:color .3s ease;
+.nav-links a {
+    font-size: 8px;
+    letter-spacing: 1.6px;
+    color: #777;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover{
-    color:#fff;
+.nav-links a:hover {
+    color: #fff;
 }
 
 
@@ -136,526 +108,316 @@ section{
    HERO
 ========================================================= */
 
-.hero{
-    min-height:100vh;
+.hero {
+    min-height: 100vh;
+    position: relative;
 
-    display:flex;
-    align-items:flex-end;
+    display: flex;
+    align-items: center;
 
-    padding-bottom:10vh;
+    padding-top: 80px;
 }
 
-.hero-meta{
-    color:#444;
-    margin-bottom:38px;
+.hero-inner {
+    width: calc(100% - 28vw);
+    margin-left: 14vw;
 }
 
-.hero-title{
-    font-size:clamp(85px,15vw,220px);
-    line-height:.67;
-    letter-spacing:-.11em;
-    font-weight:900;
+.hero-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #555;
+    margin-bottom: 22px;
+    text-transform: uppercase;
 }
 
-.hero-outline{
-    color:transparent;
-    -webkit-text-stroke:1px #444;
-    margin-left:7vw;
+.hero-title {
+    position: relative;
+    font-size: clamp(90px, 13vw, 210px);
+    line-height: 0.72;
+    letter-spacing: -0.075em;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-.hero-description{
-    max-width:520px;
-
-    margin-top:60px;
-
-    color:#666;
-
-    font-size:13px;
-    line-height:1.9;
+.hero-title .solid {
+    position: relative;
+    z-index: 2;
 }
 
+.hero-title .outline {
+    position: relative;
+    z-index: 1;
 
-/* =========================================================
-   TICKER
-========================================================= */
+    margin-left: 8vw;
+    margin-top: -2px;
 
-.ticker{
-    overflow:hidden;
-
-    white-space:nowrap;
-
-    padding:16px 0;
-
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
+    color: transparent;
+    -webkit-text-stroke: 1px #303030;
 }
 
-.ticker-track{
-    display:inline-flex;
-    gap:90px;
+.hero-description {
+    max-width: 470px;
 
-    animation:
-        tickerMove
-        40s
-        linear
-        infinite;
-}
+    margin-top: 65px;
 
-.ticker-item{
-    color:#444;
-}
-
-@keyframes tickerMove{
-
-    from{
-        transform:translateX(0);
-    }
-
-    to{
-        transform:translateX(-50%);
-    }
-
+    font-size: 13px;
+    line-height: 1.7;
+    color: #666;
 }
 
 
 /* =========================================================
-   SECTION HEADING
+   SECTION HEADINGS
 ========================================================= */
 
-.section-heading{
-    display:grid;
+.section-heading {
+    font-size: clamp(90px, 13vw, 200px);
+    line-height: 0.75;
+    letter-spacing: -0.075em;
+    font-weight: 700;
+    text-transform: uppercase;
 
-    grid-template-columns:
-        170px
-        1fr;
+    padding-top: 90px;
+    margin-left: 10vw;
 
-    gap:30px;
-
-    margin-bottom:65px;
+    overflow: hidden;
 }
 
-.section-label{
-    color:#444;
-}
+.section-number {
+    position: absolute;
+    left: 0;
+    top: 95px;
 
-.section-title{
-    font-size:clamp(65px,9vw,125px);
-
-    line-height:.76;
-
-    letter-spacing:-.09em;
-
-    font-weight:900;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #444;
 }
 
 
 /* =========================================================
-   SHOWREEL
+   THE CUTS
 ========================================================= */
 
-.showreel-grid{
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:22px;
+.cuts {
+    padding-bottom: 150px;
 }
 
-.showreel{
-    position:relative;
+.cuts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
 
-    aspect-ratio:16/9;
-
-    overflow:hidden;
-
-    background:#101010;
-
-    border:1px solid #1b1b1b;
+    margin-top: 120px;
 }
 
-.showreel video{
-    width:100%;
-    height:100%;
-
-    display:block;
-
-    object-fit:cover;
+.cut-card {
+    min-width: 0;
 }
 
-.showreel-info{
-    position:absolute;
-
-    left:24px;
-    bottom:22px;
-
-    z-index:5;
-
-    pointer-events:none;
-
-    text-shadow:
-        0 2px 25px #000;
-}
-
-.showreel-title{
-    font-size:22px;
-
-    font-weight:600;
-
-    letter-spacing:-.05em;
-}
-
-.showreel-sub{
-    margin-top:8px;
-    color:#aaa;
-}
-
-
-/* =========================================================
-   SELECTED WORK
-========================================================= */
-
-.selected-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:24px;
-}
-
-.work-card{
-    min-width:0;
-}
-
-.work-media{
-    position:relative;
-
-    width:100%;
-
-    aspect-ratio:9/16;
-
-    overflow:hidden;
-
-    background:#101010;
-
-    border:1px solid #1a1a1a;
-}
-
-.work-media video{
-    width:100%;
-    height:100%;
-
-    display:block;
-
-    object-fit:cover;
-
-    background:#101010;
-}
-
-.work-number{
-    position:absolute;
-
-    top:12px;
-    left:12px;
-
-    z-index:5;
-
-    padding:6px 8px;
+.cut-placeholder {
+    width: 100%;
+    aspect-ratio: 9 / 16;
 
     background:
-        rgba(0,0,0,.6);
-
-    color:#aaa;
-
-    pointer-events:none;
-}
-
-.work-caption{
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:20px;
-
-    padding:15px 0;
-
-    border-bottom:
-        1px solid var(--line);
-}
-
-.work-name{
-    font-size:12px;
-    font-weight:600;
-}
-
-.work-type{
-    color:#555;
-    margin-top:7px;
-}
-
-.work-index{
-    color:#444;
-}
-
-
-/* =========================================================
-   COMPLETE WORK
-========================================================= */
-
-.archive{
-
-    background:#0a0a0a;
-
-    border-top:
-        1px solid var(--line);
-
-    border-bottom:
-        1px solid var(--line);
-}
-
-
-/* =========================================================
-   CATEGORY HEADER
-========================================================= */
-
-.project-group{
-    border-bottom:
-        1px solid var(--line);
-}
-
-.project-header{
-
-    min-height:120px;
-
-    display:grid;
-
-    grid-template-columns:
-        70px
-        1fr
-        190px
-        50px;
-
-    align-items:center;
-
-    gap:20px;
-
-    cursor:pointer;
-
-    user-select:none;
-
-    transition:
-        background .35s ease,
-        padding .45s ease;
-}
-
-.project-header:hover{
-
-    background:#101010;
-
-    padding-left:18px;
-    padding-right:18px;
-}
-
-.project-number{
-    color:#444;
-}
-
-.project-name{
-
-    font-size:
-        clamp(
-            28px,
-            4vw,
-            58px
+        linear-gradient(
+            to bottom,
+            #202020 0%,
+            #151515 65%,
+            #090909 100%
         );
 
-    line-height:.9;
+    border: 1px solid #252525;
 
-    letter-spacing:-.07em;
+    position: relative;
 }
 
-.project-meta{
+.cut-number {
+    position: absolute;
 
-    color:#555;
+    top: 12px;
+    left: 12px;
 
-    line-height:1.7;
+    padding: 7px 9px;
+
+    background: #0b0b0b;
+
+    font-size: 7px;
+    letter-spacing: 2px;
+    color: #777;
 }
 
-.project-button{
+.cut-info {
+    display: flex;
+    justify-content: space-between;
 
-    width:44px;
-    height:44px;
+    padding: 13px 0 18px;
 
-    border:
-        1px solid #333;
-
-    border-radius:50%;
-
-    display:grid;
-
-    place-items:center;
-
-    color:#aaa;
-
-    transition:
-        background .35s ease,
-        color .35s ease;
+    border-bottom: 1px solid #242424;
 }
 
-.project-header.open
-.project-button{
-
-    background:#fff;
-    color:#000;
+.cut-name {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-.project-plus{
+.cut-type {
+    margin-top: 6px;
 
-    display:block;
-
-    font-size:20px;
-
-    line-height:1;
-
-    transition:
-        transform .45s
-        cubic-bezier(.2,.7,.2,1);
+    font-size: 7px;
+    letter-spacing: 2px;
+    color: #555;
+    text-transform: uppercase;
 }
 
-.project-header.open
-.project-plus{
-
-    transform:rotate(45deg);
+.cut-index {
+    font-size: 7px;
+    letter-spacing: 2px;
+    color: #444;
 }
 
 
 /* =========================================================
-   EXPANDED CONTENT
+   WORK
 ========================================================= */
 
-.project-content{
+.work {
+    padding-bottom: 150px;
+}
 
-    display:grid;
+.work-list {
+    margin-top: 120px;
+}
 
-    grid-template-rows:
-        0fr;
+.work-item {
+    border-bottom: 1px solid #252525;
+}
 
-    opacity:0;
+.work-trigger {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 80px 1fr 180px 60px;
+    align-items: center;
+
+    min-height: 125px;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: background 0.3s ease;
+}
+
+.work-trigger:hover {
+    background: #0b0b0b;
+}
+
+.work-number {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #444;
+}
+
+.work-title {
+    font-size: clamp(38px, 4vw, 62px);
+    letter-spacing: -0.06em;
+    font-weight: 400;
+}
+
+.work-meta {
+    font-size: 7px;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    color: #555;
+    text-transform: uppercase;
+}
+
+.work-icon {
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #333;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    font-weight: 200;
 
     transition:
-        grid-template-rows .7s
-        cubic-bezier(.2,.7,.2,1),
-        opacity .35s ease;
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-.project-content.open{
+.work-item.active .work-icon {
+    background: #fff;
+    color: #000;
 
-    grid-template-rows:
-        1fr;
-
-    opacity:1;
+    transform: rotate(45deg);
 }
 
-.project-content-inner{
 
-    overflow:hidden;
+/* =========================================================
+   EXPANSION AREA
+========================================================= */
 
+.work-content {
+    display: grid;
+    grid-template-rows: 0fr;
+
+    transition: grid-template-rows 0.5s ease;
 }
 
-.project-inner{
-
-    padding-left:70px;
-
-    padding-bottom:5px;
-}
-
-.project-item{
-
-    min-height:92px;
-
-    display:grid;
-
-    grid-template-columns:
-        60px
-        1fr
-        180px
-        44px;
-
-    align-items:center;
-
-    gap:20px;
-
-    border-bottom:
-        1px solid #181818;
+.work-content-inner {
+    overflow: hidden;
+    min-height: 0;
 
     transition:
-        background .3s ease,
-        padding .4s ease;
+        padding 0.5s ease,
+        opacity 0.4s ease;
+
+    opacity: 0;
 }
 
-.project-item:last-child{
-    border-bottom:none;
+.work-item.active .work-content {
+    grid-template-rows: 1fr;
 }
 
-.project-item:hover{
-
-    background:#101010;
-
-    padding-left:15px;
+.work-item.active .work-content-inner {
+    padding: 30px 0 55px 80px;
+    opacity: 1;
 }
 
-.project-item-number{
-    color:#444;
+.future-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
 }
 
-.project-item-name{
+.future-box {
+    aspect-ratio: 16 / 9;
 
-    font-size:
-        clamp(
-            18px,
-            2.5vw,
-            34px
-        );
+    border: 1px solid #1d1d1d;
 
-    letter-spacing:-.05em;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.project-item-type{
-    color:#444;
-}
+    color: #292929;
 
-.project-item-arrow{
-
-    width:38px;
-    height:38px;
-
-    display:grid;
-
-    place-items:center;
-
-    border:
-        1px solid #292929;
-
-    border-radius:50%;
-
-    color:#777;
-
-    transition:
-        background .3s ease,
-        color .3s ease,
-        transform .3s ease;
-}
-
-.project-item:hover
-.project-item-arrow{
-
-    background:#fff;
-
-    color:#000;
-
-    transform:
-        translate(2px,-2px);
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 
@@ -663,534 +425,98 @@ section{
    PROCESS
 ========================================================= */
 
-.process-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    border-top:
-        1px solid var(--line);
-
-    border-left:
-        1px solid var(--line);
+.process {
+    padding-bottom: 160px;
 }
 
-.process-card{
-
-    position:relative;
-
-    height:300px;
-
-    overflow:hidden;
-
-    padding:25px;
-
-    border-right:
-        1px solid var(--line);
-
-    border-bottom:
-        1px solid var(--line);
+.process-content {
+    margin-top: 120px;
 }
 
-.process-number{
-    color:#444;
+.process-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+
+    padding: 35px 0;
+
+    border-bottom: 1px solid #242424;
 }
 
-
-/* =========================================================
-   STORY
-========================================================= */
-
-.story-visual{
-
-    position:absolute;
-
-    left:25px;
-    right:25px;
-
-    top:50%;
-
-    transform:
-        translateY(-50%);
+.process-number {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #444;
 }
 
-.story-line{
-
-    display:block;
-
-    height:1px;
-
-    background:#888;
-
-    margin:13px 0;
-
-    transform-origin:left;
-
-    transition:
-        width 1s
-        cubic-bezier(.2,.7,.2,1);
+.process-title {
+    font-size: 28px;
+    letter-spacing: -0.04em;
 }
 
-.story-line:nth-child(1){
-    width:30%;
-}
+.process-description {
+    max-width: 360px;
 
-.story-line:nth-child(2){
-    width:65%;
-}
+    font-size: 11px;
+    line-height: 1.7;
 
-.story-line:nth-child(3){
-    width:45%;
-}
-
-.process-card:hover
-.story-line:nth-child(1){
-    width:60%;
-}
-
-.process-card:hover
-.story-line:nth-child(2){
-    width:100%;
-}
-
-.process-card:hover
-.story-line:nth-child(3){
-    width:75%;
+    color: #666;
 }
 
 
 /* =========================================================
-   WAVEFORM
+   CONTACT
 ========================================================= */
 
-.wave{
+.contact {
+    min-height: 80vh;
 
-    position:absolute;
+    display: flex;
+    align-items: flex-end;
 
-    left:25px;
-    right:25px;
-
-    top:50%;
-
-    transform:
-        translateY(-50%);
-
-    height:90px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:4px;
+    padding-bottom: 80px;
 }
 
-.wave-bar{
-
-    width:2px;
-
-    height:var(--height);
-
-    background:#888;
-
-    transform-origin:center;
-
-    animation:
-        waveform
-        1.1s
-        ease-in-out
-        infinite
-        alternate;
+.contact-inner {
+    width: calc(100% - 28vw);
+    margin-left: 14vw;
 }
 
-.wave-bar:nth-child(2n){
-    animation-delay:.12s;
+.contact-small {
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #555;
+
+    margin-bottom: 25px;
 }
 
-.wave-bar:nth-child(3n){
-    animation-delay:.24s;
+.contact-title {
+    font-size: clamp(70px, 11vw, 170px);
+    line-height: 0.8;
+    letter-spacing: -0.075em;
 }
 
-.wave-bar:nth-child(4n){
-    animation-delay:.36s;
+.contact-links {
+    display: flex;
+    gap: 35px;
+
+    margin-top: 60px;
 }
 
-@keyframes waveform{
+.contact-links a {
+    font-size: 9px;
+    letter-spacing: 2px;
 
-    from{
-        transform:scaleY(1);
-    }
+    color: #777;
 
-    to{
-        transform:scaleY(.25);
-    }
+    border-bottom: 1px solid #333;
 
+    padding-bottom: 7px;
+
+    transition: color 0.3s ease;
 }
 
-
-/* =========================================================
-   FINISH LIGHT
-========================================================= */
-
-.finish-light{
-
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    top:50%;
-    left:12%;
-
-    transform:
-        translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.18),
-            rgba(255,255,255,0)
-            70%
-        );
-
-    filter:blur(14px);
-
-    transition:
-        left 1.5s
-        cubic-bezier(.2,.7,.2,1),
-        transform 1.5s
-        cubic-bezier(.2,.7,.2,1);
-}
-
-.process-card:hover
-.finish-light{
-
-    left:88%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1.25);
-}
-
-
-/* =========================================================
-   PROCESS TEXT
-========================================================= */
-
-.process-title{
-
-    position:absolute;
-
-    left:25px;
-    bottom:62px;
-
-    font-size:25px;
-
-    font-weight:600;
-
-    letter-spacing:-.05em;
-}
-
-.process-description{
-
-    position:absolute;
-
-    left:25px;
-    right:25px;
-
-    bottom:25px;
-
-    color:#555;
-
-    font-size:11px;
-
-    line-height:1.6;
-}
-
-
-/* =========================================================
-   HIRE
-========================================================= */
-
-.hire{
-
-    min-height:85vh;
-
-    display:flex;
-
-    align-items:center;
-
-    border-top:
-        1px solid var(--line);
-}
-
-.hire-kicker{
-
-    color:#555;
-
-    margin-bottom:38px;
-}
-
-.hire-title{
-
-    font-size:
-        clamp(
-            65px,
-            10vw,
-            150px
-        );
-
-    line-height:.75;
-
-    letter-spacing:-.1em;
-
-    font-weight:900;
-}
-
-.hire-outline{
-
-    color:transparent;
-
-    -webkit-text-stroke:
-        1px #444;
-}
-
-.hire-description{
-
-    max-width:500px;
-
-    margin-top:50px;
-
-    color:#666;
-
-    font-size:13px;
-
-    line-height:1.8;
-}
-
-.hire-button{
-
-    margin-top:40px;
-
-    padding:
-        19px 28px;
-
-    border:
-        1px solid #444;
-
-    background:#0c0c0c;
-
-    color:#fff;
-
-    transition:
-        background .35s ease,
-        color .35s ease;
-}
-
-.hire-button:hover{
-
-    background:#fff;
-
-    color:#000;
-}
-
-
-/* =========================================================
-   CONTACT MODAL
-========================================================= */
-
-.contact-modal{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:5000;
-
-    display:none;
-
-    place-items:center;
-
-    padding:25px;
-
-    background:
-        rgba(0,0,0,.82);
-
-    backdrop-filter:
-        blur(18px);
-}
-
-.contact-modal.open{
-
-    display:grid;
-
-}
-
-.contact-box{
-
-    width:min(760px,100%);
-
-    position:relative;
-
-    padding:55px;
-
-    background:#0b0b0b;
-
-    border:
-        1px solid #292929;
-
-    animation:
-        contactIn
-        .45s
-        cubic-bezier(.2,.7,.2,1);
-}
-
-@keyframes contactIn{
-
-    from{
-        opacity:0;
-        transform:
-            translateY(20px)
-            scale(.98);
-    }
-
-    to{
-        opacity:1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-}
-
-.contact-close{
-
-    position:absolute;
-
-    top:20px;
-    right:20px;
-
-    width:44px;
-    height:44px;
-
-    border:
-        1px solid #333;
-
-    border-radius:50%;
-
-    background:none;
-
-    color:#fff;
-
-    font-size:20px;
-
-    transition:
-        background .3s ease,
-        color .3s ease;
-}
-
-.contact-close:hover{
-
-    background:#fff;
-    color:#000;
-}
-
-.contact-small{
-
-    color:#555;
-
-    margin-bottom:20px;
-}
-
-.contact-title{
-
-    font-size:
-        clamp(
-            55px,
-            8vw,
-            90px
-        );
-
-    line-height:.8;
-
-    letter-spacing:-.08em;
-
-    margin-bottom:40px;
-}
-
-.contact-link{
-
-    min-height:82px;
-
-    display:grid;
-
-    grid-template-columns:
-        55px
-        1fr
-        30px;
-
-    align-items:center;
-
-    border-top:
-        1px solid #222;
-
-    transition:
-        padding .35s ease;
-}
-
-.contact-link:hover{
-
-    padding-left:10px;
-}
-
-.contact-icon{
-
-    width:40px;
-    height:40px;
-
-    display:grid;
-
-    place-items:center;
-
-    border:
-        1px solid #333;
-
-    border-radius:50%;
-
-    color:#aaa;
-}
-
-.contact-label{
-
-    color:#444;
-
-    margin-bottom:6px;
-}
-
-.contact-value{
-
-    font-size:14px;
-}
-
-.contact-arrow{
-
-    color:#555;
-
-    transition:
-        transform .3s ease;
-}
-
-.contact-link:hover
-.contact-arrow{
-
-    transform:
-        translateX(5px);
-
+.contact-links a:hover {
+    color: #fff;
 }
 
 
@@ -1198,416 +524,408 @@ section{
    FOOTER
 ========================================================= */
 
-footer{
+.footer {
+    border-top: 1px solid #242424;
 
-    padding:
-        25px 5%;
+    padding: 25px 5vw;
 
-    border-top:
-        1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+}
 
-    display:flex;
-
-    justify-content:space-between;
-
-    color:#444;
+.footer span {
+    font-size: 7px;
+    letter-spacing: 2px;
+    color: #444;
 }
 
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE
 ========================================================= */
 
-@media(max-width:1000px){
+@media (max-width: 900px) {
 
-    .selected-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+    .container,
+    .hero-inner,
+    .contact-inner {
+        width: calc(100% - 12vw);
+        margin-left: 6vw;
+        margin-right: 6vw;
     }
 
-    .process-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+    .nav {
+        padding: 0 6vw;
     }
 
+    .nav-links {
+        gap: 16px;
+    }
+
+    .cuts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 80px;
+    }
+
+    .section-heading {
+        margin-left: 5vw;
+    }
+
+    .work-trigger {
+        grid-template-columns: 50px 1fr 45px;
+    }
+
+    .work-meta {
+        display: none;
+    }
+
+    .work-item.active .work-content-inner {
+        padding-left: 50px;
+    }
+
+    .future-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .process-row {
+        grid-template-columns: 50px 1fr;
+        gap: 20px;
+    }
+
+    .process-description {
+        grid-column: 2;
+    }
 }
 
 
-@media(max-width:650px){
+@media (max-width: 600px) {
 
-    section{
-
-        padding:100px 0;
-
+    .nav {
+        height: 70px;
     }
 
-    .nav-links{
-        display:none;
+    .nav-links {
+        display: none;
     }
 
-    .hero-title{
-
-        font-size:
-            21vw;
-
+    .hero {
+        min-height: 85vh;
     }
 
-    .hero-description{
-
-        margin-top:45px;
-
+    .hero-title {
+        font-size: 25vw;
     }
 
-    .section-heading{
-
-        grid-template-columns:
-            1fr;
-
+    .hero-title .outline {
+        margin-left: 5vw;
     }
 
-    .showreel-grid{
-
-        grid-template-columns:
-            1fr;
-
+    .hero-description {
+        margin-top: 45px;
+        font-size: 12px;
     }
 
-    .selected-grid{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
-        gap:14px;
-
+    .section-heading {
+        font-size: 25vw;
+        padding-top: 65px;
     }
 
-    .process-grid{
-
-        grid-template-columns:
-            1fr;
-
+    .section-number {
+        top: 70px;
     }
 
-    .project-header{
-
-        grid-template-columns:
-            45px
-            1fr
-            48px;
-
+    .cuts-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 70px;
     }
 
-    .project-meta{
-
-        display:none;
-
+    .cut-name {
+        font-size: 9px;
     }
 
-    .project-inner{
-
-        padding-left:20px;
-
+    .work-list {
+        margin-top: 70px;
     }
 
-    .project-item{
-
-        grid-template-columns:
-            40px
-            1fr
-            42px;
-
+    .work-trigger {
+        grid-template-columns: 35px 1fr 45px;
+        min-height: 95px;
     }
 
-    .project-item-type{
-
-        display:none;
-
+    .work-title {
+        font-size: 30px;
     }
 
-    .contact-box{
-
-        padding:
-            40px 25px;
-
+    .work-item.active .work-content-inner {
+        padding: 20px 0 35px 35px;
     }
 
-    footer{
-
-        flex-direction:column;
-
-        gap:10px;
-
+    .future-grid {
+        grid-template-columns: 1fr;
     }
 
+    .process-content {
+        margin-top: 70px;
+    }
+
+    .process-title {
+        font-size: 22px;
+    }
+
+    .contact {
+        min-height: 70vh;
+    }
+
+    .contact-title {
+        font-size: 20vw;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 40px;
+    }
 }
-
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
+<!-- =======================================================
      NAV
-========================================================= -->
+======================================================= -->
 
 <nav class="nav">
 
-    <a
-        href="#"
-        class="logo">
-
+    <a href="#home" class="logo">
         SURAJ SHARMA
-
     </a>
 
-
     <div class="nav-links">
-
-        <a
-            href="#showreel"
-            class="mono">
-
-            SHOWREEL
-
-        </a>
-
-        <a
-            href="#work"
-            class="mono">
-
-            WORK
-
-        </a>
-
-        <a
-            href="#process"
-            class="mono">
-
-            PROCESS
-
-        </a>
-
-        <a
-            href="#contact"
-            class="mono">
-
-            CONTACT
-
-        </a>
-
+        <a href="#cuts">SHOWREEL</a>
+        <a href="#work">WORK</a>
+        <a href="#process">PROCESS</a>
+        <a href="#contact">CONTACT</a>
     </div>
 
 </nav>
 
 
-<!-- =========================================================
+<!-- =======================================================
      HERO
-========================================================= -->
+======================================================= -->
 
-<header class="hero">
+<section class="hero" id="home">
 
-    <div class="container">
+    <div class="hero-inner">
 
-        <div class="hero-meta mono">
-
-            VIDEO EDITOR / PUNE, INDIA
-
+        <div class="hero-label">
+            Video Editor / Pune, India
         </div>
 
+        <div class="hero-title">
 
-        <h1 class="hero-title">
+            <div class="solid">
+                SURAJ
+            </div>
 
-            SURAJ
-
-            <br>
-
-            <span class="hero-outline">
-
+            <div class="outline">
                 SHARMA
+            </div>
 
-            </span>
-
-        </h1>
-
+        </div>
 
         <p class="hero-description">
-
-            Video editor and visual storyteller
-            focused on commercial, brand,
-            social, event and cinematic content.
-
+            Video editor and visual storyteller focused on
+            commercial, brand, social, event and cinematic content.
         </p>
 
     </div>
 
-</header>
+</section>
 
 
-<!-- =========================================================
-     TICKER
-========================================================= -->
+<!-- =======================================================
+     THE CUTS
+======================================================= -->
 
-<div class="ticker">
-
-    <div class="ticker-track">
-
-        <span class="ticker-item mono">
-            STORYTELLING
-        </span>
-
-        <span class="ticker-item mono">
-            RHYTHM
-        </span>
-
-        <span class="ticker-item mono">
-            SOUND DESIGN
-        </span>
-
-        <span class="ticker-item mono">
-            COLOR
-        </span>
-
-        <span class="ticker-item mono">
-            MOTION
-        </span>
-
-        <span class="ticker-item mono">
-            TYPOGRAPHY
-        </span>
-
-
-        <span class="ticker-item mono">
-            STORYTELLING
-        </span>
-
-        <span class="ticker-item mono">
-            RHYTHM
-        </span>
-
-        <span class="ticker-item mono">
-            SOUND DESIGN
-        </span>
-
-        <span class="ticker-item mono">
-            COLOR
-        </span>
-
-        <span class="ticker-item mono">
-            MOTION
-        </span>
-
-        <span class="ticker-item mono">
-            TYPOGRAPHY
-        </span>
-
-    </div>
-
-</div>
-
-
-<!-- =========================================================
-     SHOWREEL
-========================================================= -->
-
-<section id="showreel">
+<section class="section cuts" id="cuts">
 
     <div class="container">
 
-        <div class="section-heading">
-
-            <div class="section-label mono">
-
-                01 / SHOWREEL
-
-            </div>
-
-
-            <h2 class="section-title">
-
-                TWO
-                <br>
-                SIDES.
-
-            </h2>
-
+        <div class="section-number">
+            01 / SHOWREEL
         </div>
 
-
-        <div class="showreel-grid">
-
-
-            <div class="showreel">
-
-                <!-- VIDEO LEFT FOR LATER -->
-
-                <video
-                    src="videos/showreel-01.mp4"
-                    muted
-                    loop
-                    playsinline
-                    controls>
-                </video>
+        <h2 class="section-heading">
+            THE<br>
+            CUTS.
+        </h2>
 
 
-                <div class="showreel-info">
+        <div class="cuts-grid">
 
-                    <div class="showreel-title">
+            <div class="cut-card">
 
-                        EDITING SHOWREEL
+                <div class="cut-placeholder">
+                    <div class="cut-number">01</div>
+                </div>
 
+                <div class="cut-info">
+
+                    <div>
+                        <div class="cut-name">Decore</div>
+                        <div class="cut-type">Event</div>
                     </div>
 
-
-                    <div class="showreel-sub mono">
-
-                        STORY / RHYTHM / SOUND
-
-                    </div>
+                    <div class="cut-index">01</div>
 
                 </div>
 
             </div>
 
 
-            <div class="showreel">
+            <div class="cut-card">
 
-                <!-- VIDEO LEFT FOR LATER -->
+                <div class="cut-placeholder">
+                    <div class="cut-number">02</div>
+                </div>
 
-                <video
-                    src="videos/showreel-02.mp4"
-                    muted
-                    loop
-                    playsinline
-                    controls>
-                </video>
+                <div class="cut-info">
 
-
-                <div class="showreel-info">
-
-                    <div class="showreel-title">
-
-                        VISUAL SHOWREEL
-
+                    <div>
+                        <div class="cut-name">Host</div>
+                        <div class="cut-type">Event</div>
                     </div>
 
-
-                    <div class="showreel-sub mono">
-
-                        MOTION / COLOR / FINISH
-
-                    </div>
+                    <div class="cut-index">02</div>
 
                 </div>
 
             </div>
 
+
+            <div class="cut-card">
+
+                <div class="cut-placeholder">
+                    <div class="cut-number">03</div>
+                </div>
+
+                <div class="cut-info">
+
+                    <div>
+                        <div class="cut-name">Baad Mein</div>
+                        <div class="cut-type">Social</div>
+                    </div>
+
+                    <div class="cut-index">03</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="cut-card">
+
+                <div class="cut-placeholder">
+                    <div class="cut-number">04</div>
+                </div>
+
+                <div class="cut-info">
+
+                    <div>
+                        <div class="cut-name">Golden Trails</div>
+                        <div class="cut-type">Hospitality</div>
+                    </div>
+
+                    <div class="cut-index">04</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="cut-card">
+
+                <div class="cut-placeholder">
+                    <div class="cut-number">05</div>
+                </div>
+
+                <div class="cut-info">
+
+                    <div>
+                        <div class="cut-name">Air Drop</div>
+                        <div class="cut-type">Social</div>
+                    </div>
+
+                    <div class="cut-index">05</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="cut-card">
+
+                <div class="cut-placeholder">
+                    <div class="cut-number">06</div>
+                </div>
+
+                <div class="cut-info">
+
+                    <div>
+                        <div class="cut-name">Regain App AI</div>
+                        <div class="cut-type">AI / App</div>
+                    </div>
+
+                    <div class="cut-index">06</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="cut-card">
+
+                <div class="cut-placeholder">
+                    <div class="cut-number">07</div>
+                </div>
+
+                <div class="cut-info">
+
+                    <div>
+                        <div class="cut-name">Nilesh AI</div>
+                        <div class="cut-type">AI / Visual</div>
+                    </div>
+
+                    <div class="cut-index">07</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="cut-card">
+
+                <div class="cut-placeholder">
+                    <div class="cut-number">08</div>
+                </div>
+
+                <div class="cut-info">
+
+                    <div>
+                        <div class="cut-name">Export</div>
+                        <div class="cut-type">Social</div>
+                    </div>
+
+                    <div class="cut-index">08</div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -1616,388 +934,224 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     SELECTED WORK
-========================================================= -->
+<!-- =======================================================
+     WORK
+======================================================= -->
 
-<section id="work">
+<section class="section work" id="work">
 
     <div class="container">
 
-
-        <div class="section-heading">
-
-            <div class="section-label mono">
-
-                02 / SELECTED WORK
-
-            </div>
-
-
-            <h2 class="section-title">
-
-                THE
-                <br>
-                CUTS.
-
-            </h2>
-
+        <div class="section-number">
+            02 / WORK
         </div>
 
+        <h2 class="section-heading">
+            WORK.
+        </h2>
 
-        <div class="selected-grid">
+
+        <div class="work-list">
 
 
-            <!-- 01 -->
+            <!-- CORPORATE -->
 
-            <article class="work-card">
+            <div class="work-item">
 
-                <div class="work-media">
+                <button class="work-trigger" type="button">
 
-                    <video
-                        src="videos/decore.mp4"
-                        controls
-                        playsinline
-                        preload="metadata">
-                    </video>
-
-                    <div class="work-number mono">
+                    <span class="work-number">
                         01
+                    </span>
+
+                    <span class="work-title">
+                        Corporate
+                    </span>
+
+                    <span class="work-meta">
+                        Commercial<br>
+                        Projects
+                    </span>
+
+                    <span class="work-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="work-content">
+
+                    <div class="work-content-inner">
+
+                        <div class="future-grid">
+
+                            <div class="future-box">
+                                PROJECT
+                            </div>
+
+                            <div class="future-box">
+                                PROJECT
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
 
-
-                <div class="work-caption">
-
-                    <div>
-
-                        <div class="work-name">
-                            DECORE
-                        </div>
-
-                        <div class="work-type mono">
-                            EVENT
-                        </div>
-
-                    </div>
+            </div>
 
 
-                    <div class="work-index mono">
-                        01
-                    </div>
+            <!-- BIRTHDAY -->
 
-                </div>
+            <div class="work-item">
 
-            </article>
+                <button class="work-trigger" type="button">
 
-
-            <!-- 02 -->
-
-            <article class="work-card">
-
-                <div class="work-media">
-
-                    <video
-                        src="videos/host.mp4"
-                        controls
-                        playsinline
-                        preload="metadata">
-                    </video>
-
-                    <div class="work-number mono">
+                    <span class="work-number">
                         02
+                    </span>
+
+                    <span class="work-title">
+                        Birthday
+                    </span>
+
+                    <span class="work-meta">
+                        Events<br>
+                        Projects
+                    </span>
+
+                    <span class="work-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="work-content">
+
+                    <div class="work-content-inner">
+
+                        <div class="future-grid">
+
+                            <div class="future-box">
+                                PROJECT
+                            </div>
+
+                            <div class="future-box">
+                                PROJECT
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
 
-
-                <div class="work-caption">
-
-                    <div>
-
-                        <div class="work-name">
-                            HOST
-                        </div>
-
-                        <div class="work-type mono">
-                            EVENT
-                        </div>
-
-                    </div>
+            </div>
 
 
-                    <div class="work-index mono">
-                        02
-                    </div>
+            <!-- BABY SHOWER -->
 
-                </div>
+            <div class="work-item">
 
-            </article>
+                <button class="work-trigger" type="button">
 
-
-            <!-- 03 -->
-
-            <article class="work-card">
-
-                <div class="work-media">
-
-                    <video
-                        src="videos/baad-mein.mp4"
-                        controls
-                        playsinline
-                        preload="metadata">
-                    </video>
-
-                    <div class="work-number mono">
+                    <span class="work-number">
                         03
+                    </span>
+
+                    <span class="work-title">
+                        Baby Shower
+                    </span>
+
+                    <span class="work-meta">
+                        Events<br>
+                        Projects
+                    </span>
+
+                    <span class="work-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="work-content">
+
+                    <div class="work-content-inner">
+
+                        <div class="future-grid">
+
+                            <div class="future-box">
+                                PROJECT
+                            </div>
+
+                            <div class="future-box">
+                                PROJECT
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
 
-
-                <div class="work-caption">
-
-                    <div>
-
-                        <div class="work-name">
-                            BAAD MEIN
-                        </div>
-
-                        <div class="work-type mono">
-                            SOCIAL
-                        </div>
-
-                    </div>
+            </div>
 
 
-                    <div class="work-index mono">
-                        03
-                    </div>
+            <!-- OTHER PROJECTS -->
 
-                </div>
+            <div class="work-item">
 
-            </article>
+                <button class="work-trigger" type="button">
 
-
-            <!-- 04 -->
-
-            <article class="work-card">
-
-                <div class="work-media">
-
-                    <video
-                        src="videos/golden-trails.mp4"
-                        controls
-                        playsinline
-                        preload="metadata">
-                    </video>
-
-                    <div class="work-number mono">
+                    <span class="work-number">
                         04
-                    </div>
+                    </span>
 
-                </div>
+                    <span class="work-title">
+                        Other Projects
+                    </span>
 
+                    <span class="work-meta">
+                        07 Projects<br>
+                        One Collection
+                    </span>
 
-                <div class="work-caption">
+                    <span class="work-icon">
+                        +
+                    </span>
 
-                    <div>
-
-                        <div class="work-name">
-                            GOLDEN TRAILS
-                        </div>
-
-                        <div class="work-type mono">
-                            HOSPITALITY
-                        </div>
-
-                    </div>
+                </button>
 
 
-                    <div class="work-index mono">
-                        04
-                    </div>
+                <div class="work-content">
 
-                </div>
+                    <div class="work-content-inner">
 
-            </article>
+                        <div class="future-grid">
 
+                            <div class="future-box">
+                                PROJECT
+                            </div>
 
-            <!-- 05 -->
+                            <div class="future-box">
+                                PROJECT
+                            </div>
 
-            <article class="work-card">
+                            <div class="future-box">
+                                PROJECT
+                            </div>
 
-                <div class="work-media">
-
-                    <video
-                        src="videos/air-drop.mp4"
-                        controls
-                        playsinline
-                        preload="metadata">
-                    </video>
-
-                    <div class="work-number mono">
-                        05
-                    </div>
-
-                </div>
-
-
-                <div class="work-caption">
-
-                    <div>
-
-                        <div class="work-name">
-                            AIR DROP
-                        </div>
-
-                        <div class="work-type mono">
-                            SOCIAL
                         </div>
 
                     </div>
 
-
-                    <div class="work-index mono">
-                        05
-                    </div>
-
                 </div>
 
-            </article>
-
-
-            <!-- 06 -->
-
-            <article class="work-card">
-
-                <div class="work-media">
-
-                    <video
-                        src="videos/regain-app-ai.mp4"
-                        controls
-                        playsinline
-                        preload="metadata">
-                    </video>
-
-                    <div class="work-number mono">
-                        06
-                    </div>
-
-                </div>
-
-
-                <div class="work-caption">
-
-                    <div>
-
-                        <div class="work-name">
-                            REGAIN APP AI
-                        </div>
-
-                        <div class="work-type mono">
-                            AI / APP
-                        </div>
-
-                    </div>
-
-
-                    <div class="work-index mono">
-                        06
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- 07 -->
-
-            <article class="work-card">
-
-                <div class="work-media">
-
-                    <video
-                        src="videos/nilesh-ai.mp4"
-                        controls
-                        playsinline
-                        preload="metadata">
-                    </video>
-
-                    <div class="work-number mono">
-                        07
-                    </div>
-
-                </div>
-
-
-                <div class="work-caption">
-
-                    <div>
-
-                        <div class="work-name">
-                            NILESH AI
-                        </div>
-
-                        <div class="work-type mono">
-                            AI / VISUAL
-                        </div>
-
-                    </div>
-
-
-                    <div class="work-index mono">
-                        07
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- 08 -->
-
-            <article class="work-card">
-
-                <div class="work-media">
-
-                    <video
-                        src="videos/export.mp4"
-                        controls
-                        playsinline
-                        preload="metadata">
-                    </video>
-
-                    <div class="work-number mono">
-                        08
-                    </div>
-
-                </div>
-
-
-                <div class="work-caption">
-
-                    <div>
-
-                        <div class="work-name">
-                            EXPORT
-                        </div>
-
-                        <div class="work-type mono">
-                            SOCIAL
-                        </div>
-
-                    </div>
-
-
-                    <div class="work-index mono">
-                        08
-                    </div>
-
-                </div>
-
-            </article>
+            </div>
 
 
         </div>
@@ -2007,822 +1161,95 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     COMPLETE WORK
-========================================================= -->
-
-<section class="archive">
-
-    <div class="container">
-
-
-        <div class="section-heading">
-
-            <div class="section-label mono">
-
-                03 / COMPLETE WORK
-
-            </div>
-
-
-            <h2 class="section-title">
-
-                ALL
-                <br>
-                WORK.
-
-            </h2>
-
-        </div>
-
-
-        <!-- =================================================
-             CORPORATE
-        ================================================== -->
-
-        <div class="project-group">
-
-            <div
-                class="project-header"
-                data-target="corporate">
-
-                <div class="project-number mono">
-                    01
-                </div>
-
-
-                <div class="project-name">
-                    Corporate
-                </div>
-
-
-                <div class="project-meta mono">
-
-                    COMMERCIAL
-                    <br>
-                    PROJECTS
-
-                </div>
-
-
-                <div class="project-button">
-
-                    <span class="project-plus">
-                        +
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="project-content"
-                id="corporate">
-
-                <div class="project-content-inner">
-
-                    <div class="project-inner">
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                01
-                            </div>
-
-                            <div class="project-item-name">
-                                Corporate Project 01
-                            </div>
-
-                            <div class="project-item-type mono">
-                                COMMERCIAL
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                02
-                            </div>
-
-                            <div class="project-item-name">
-                                Corporate Project 02
-                            </div>
-
-                            <div class="project-item-type mono">
-                                COMMERCIAL
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             BIRTHDAY
-        ================================================== -->
-
-        <div class="project-group">
-
-            <div
-                class="project-header"
-                data-target="birthday">
-
-                <div class="project-number mono">
-                    02
-                </div>
-
-
-                <div class="project-name">
-                    Birthday
-                </div>
-
-
-                <div class="project-meta mono">
-
-                    EVENTS
-                    <br>
-                    PROJECTS
-
-                </div>
-
-
-                <div class="project-button">
-
-                    <span class="project-plus">
-                        +
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="project-content"
-                id="birthday">
-
-                <div class="project-content-inner">
-
-                    <div class="project-inner">
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                01
-                            </div>
-
-                            <div class="project-item-name">
-                                Birthday Project 01
-                            </div>
-
-                            <div class="project-item-type mono">
-                                EVENT
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                02
-                            </div>
-
-                            <div class="project-item-name">
-                                Birthday Project 02
-                            </div>
-
-                            <div class="project-item-type mono">
-                                EVENT
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             BABY SHOWER
-        ================================================== -->
-
-        <div class="project-group">
-
-            <div
-                class="project-header"
-                data-target="baby-shower">
-
-                <div class="project-number mono">
-                    03
-                </div>
-
-
-                <div class="project-name">
-                    Baby Shower
-                </div>
-
-
-                <div class="project-meta mono">
-
-                    EVENTS
-                    <br>
-                    PROJECTS
-
-                </div>
-
-
-                <div class="project-button">
-
-                    <span class="project-plus">
-                        +
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="project-content"
-                id="baby-shower">
-
-                <div class="project-content-inner">
-
-                    <div class="project-inner">
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                01
-                            </div>
-
-                            <div class="project-item-name">
-                                Baby Shower 01
-                            </div>
-
-                            <div class="project-item-type mono">
-                                EVENT
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                02
-                            </div>
-
-                            <div class="project-item-name">
-                                Baby Shower 02
-                            </div>
-
-                            <div class="project-item-type mono">
-                                EVENT
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                03
-                            </div>
-
-                            <div class="project-item-name">
-                                Baby Shower 03
-                            </div>
-
-                            <div class="project-item-type mono">
-                                EVENT
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             OTHER PROJECTS
-        ================================================== -->
-
-        <div class="project-group">
-
-            <div
-                class="project-header"
-                data-target="other-projects">
-
-                <div class="project-number mono">
-                    04
-                </div>
-
-
-                <div class="project-name">
-                    Other Projects
-                </div>
-
-
-                <div class="project-meta mono">
-
-                    07 PROJECTS
-                    <br>
-                    ONE COLLECTION
-
-                </div>
-
-
-                <div class="project-button">
-
-                    <span class="project-plus">
-                        +
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="project-content"
-                id="other-projects">
-
-                <div class="project-content-inner">
-
-                    <div class="project-inner">
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                01
-                            </div>
-
-                            <div class="project-item-name">
-                                Parachute Advansed
-                            </div>
-
-                            <div class="project-item-type mono">
-                                BRAND
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                02
-                            </div>
-
-                            <div class="project-item-name">
-                                EVM
-                            </div>
-
-                            <div class="project-item-type mono">
-                                COMMERCIAL
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                03
-                            </div>
-
-                            <div class="project-item-name">
-                                Flying Panda
-                            </div>
-
-                            <div class="project-item-type mono">
-                                BRAND
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                04
-                            </div>
-
-                            <div class="project-item-name">
-                                Nilesh AI
-                            </div>
-
-                            <div class="project-item-type mono">
-                                AI / VISUAL
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                05
-                            </div>
-
-                            <div class="project-item-name">
-                                Regain App AI
-                            </div>
-
-                            <div class="project-item-type mono">
-                                AI / APP
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                06
-                            </div>
-
-                            <div class="project-item-name">
-                                MAENZRAAT 3.0
-                            </div>
-
-                            <div class="project-item-type mono">
-                                MUSIC / CULTURE
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                        <div class="project-item">
-
-                            <div class="project-item-number mono">
-                                07
-                            </div>
-
-                            <div class="project-item-name">
-                                MAENZRAAT V2
-                            </div>
-
-                            <div class="project-item-type mono">
-                                MUSIC / CULTURE
-                            </div>
-
-                            <div class="project-item-arrow">
-                                ↗
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =======================================================
      PROCESS
-========================================================= -->
+======================================================= -->
 
-<section id="process">
+<section class="section process" id="process">
 
     <div class="container">
 
-
-        <div class="section-heading">
-
-            <div class="section-label mono">
-
-                04 / PROCESS
-
-            </div>
-
-
-            <h2 class="section-title">
-
-                HOW I
-                <br>
-                EDIT.
-
-            </h2>
-
+        <div class="section-number">
+            03 / PROCESS
         </div>
 
+        <h2 class="section-heading">
+            HOW I<br>
+            WORK.
+        </h2>
 
-        <div class="process-grid">
+
+        <div class="process-content">
 
 
-            <!-- STORY -->
+            <div class="process-row">
 
-            <div class="process-card">
-
-                <div class="process-number mono">
+                <div class="process-number">
                     01
                 </div>
 
-
-                <div class="story-visual">
-
-                    <i class="story-line"></i>
-                    <i class="story-line"></i>
-                    <i class="story-line"></i>
-
-                </div>
-
-
                 <div class="process-title">
-                    STORY
+                    Understand
                 </div>
 
-
-                <p class="process-description">
-
-                    Find the strongest story
-                    inside the footage.
-
-                </p>
+                <div class="process-description">
+                    Understanding the story, purpose, audience
+                    and visual direction before the edit begins.
+                </div>
 
             </div>
 
 
-            <!-- RHYTHM -->
+            <div class="process-row">
 
-            <div class="process-card">
-
-                <div class="process-number mono">
+                <div class="process-number">
                     02
                 </div>
 
-
-                <div class="wave">
-
-                    <i
-                        class="wave-bar"
-                        style="--height:18px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:34px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:52px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:28px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:58px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:38px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:48px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:25px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:55px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:22px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:40px">
-                    </i>
-
-                </div>
-
-
                 <div class="process-title">
-                    RHYTHM
+                    Build
                 </div>
 
-
-                <p class="process-description">
-
-                    Build pacing through cuts,
-                    music and timing.
-
-                </p>
+                <div class="process-description">
+                    Turning the footage into a clear visual story
+                    through pacing, structure and creative editing.
+                </div>
 
             </div>
 
 
-            <!-- SOUND -->
+            <div class="process-row">
 
-            <div class="process-card">
-
-                <div class="process-number mono">
+                <div class="process-number">
                     03
                 </div>
 
-
-                <div class="wave">
-
-                    <i
-                        class="wave-bar"
-                        style="--height:12px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:25px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:44px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:30px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:55px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:35px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:47px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:21px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:39px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:27px">
-                    </i>
-
-                    <i
-                        class="wave-bar"
-                        style="--height:50px">
-                    </i>
-
-                </div>
-
-
                 <div class="process-title">
-                    SOUND
+                    Refine
                 </div>
 
-
-                <p class="process-description">
-
-                    Shape emotion through music,
-                    ambience and SFX.
-
-                </p>
+                <div class="process-description">
+                    Typography, sound design, transitions,
+                    colour and finishing are refined together.
+                </div>
 
             </div>
 
 
-            <!-- FINISH -->
+            <div class="process-row">
 
-            <div class="process-card">
-
-                <div class="process-number mono">
+                <div class="process-number">
                     04
                 </div>
 
-
-                <div class="finish-light"></div>
-
-
                 <div class="process-title">
-                    FINISH
+                    Deliver
                 </div>
 
-
-                <p class="process-description">
-
-                    Color, typography,
-                    motion and final polish.
-
-                </p>
+                <div class="process-description">
+                    Final exports are prepared for the required
+                    platform, format and viewing experience.
+                </div>
 
             </div>
 
@@ -2834,438 +1261,94 @@ footer{
 </section>
 
 
-<!-- =========================================================
-     HIRE
-========================================================= -->
+<!-- =======================================================
+     CONTACT
+======================================================= -->
 
-<section
-    class="hire"
-    id="contact">
+<section class="section contact" id="contact">
 
-    <div class="container">
+    <div class="contact-inner">
 
-
-        <div class="hire-kicker mono">
-
-            HAVE A PROJECT IN MIND?
-
+        <div class="contact-small">
+            04 / CONTACT
         </div>
 
+        <div class="contact-title">
+            LET'S<br>
+            MAKE.
+        </div>
 
-        <h2 class="hire-title">
+        <div class="contact-links">
 
-            LET'S MAKE
+            <a href="mailto:yourmail@example.com">
+                EMAIL
+            </a>
 
-            <br>
+            <a href="#" target="_blank">
+                INSTAGRAM
+            </a>
 
-            <span class="hire-outline">
+            <a href="#" target="_blank">
+                LINKEDIN
+            </a>
 
-                SOMETHING GREAT.
-
-            </span>
-
-        </h2>
-
-
-        <p class="hire-description">
-
-            Whether it's a commercial,
-            social campaign, event film
-            or something completely different —
-            let's build something worth watching.
-
-        </p>
-
-
-        <button
-            class="hire-button"
-            id="hireButton">
-
-            CLICK HERE TO HIRE ME
-            &nbsp; →
-
-        </button>
-
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
-     CONTACT MODAL
-========================================================= -->
-
-<div
-    class="contact-modal"
-    id="contactModal">
-
-
-    <div class="contact-box">
-
-
-        <button
-            class="contact-close"
-            id="contactClose">
-
-            ×
-
-        </button>
-
-
-        <div class="contact-small mono">
-
-            LET'S WORK TOGETHER
-
-        </div>
-
-
-        <h2 class="contact-title">
-
-            GET IN
-            <br>
-            TOUCH.
-
-        </h2>
-
-
-        <!-- EMAIL -->
-
-        <a
-            class="contact-link"
-            href="mailto:surajsharmaedit31@gmail.com">
-
-            <div class="contact-icon">
-                ✉
-            </div>
-
-
-            <div>
-
-                <div class="contact-label mono">
-                    EMAIL
-                </div>
-
-                <div class="contact-value">
-                    surajsharmaedit31@gmail.com
-                </div>
-
-            </div>
-
-
-            <div class="contact-arrow">
-                →
-            </div>
-
-        </a>
-
-
-        <!-- PHONE -->
-
-        <a
-            class="contact-link"
-            href="tel:+918446726785">
-
-            <div class="contact-icon">
-                ☎
-            </div>
-
-
-            <div>
-
-                <div class="contact-label mono">
-                    PHONE
-                </div>
-
-                <div class="contact-value">
-                    +91 8446726785
-                </div>
-
-            </div>
-
-
-            <div class="contact-arrow">
-                →
-            </div>
-
-        </a>
-
-
-        <!-- INSTAGRAM -->
-
-        <a
-            class="contact-link"
-            href="https://instagram.com/sharmasuraj31122003"
-            target="_blank"
-            rel="noopener">
-
-            <div class="contact-icon">
-                ◎
-            </div>
-
-
-            <div>
-
-                <div class="contact-label mono">
-                    INSTAGRAM
-                </div>
-
-                <div class="contact-value">
-                    @sharmasuraj31122003
-                </div>
-
-            </div>
-
-
-            <div class="contact-arrow">
-                →
-            </div>
-
-        </a>
-
-
-    </div>
-
-</div>
-
-
-<!-- =========================================================
+<!-- =======================================================
      FOOTER
-========================================================= -->
+======================================================= -->
 
-<footer class="mono">
+<footer class="footer">
 
     <span>
-        © 2026 SURAJ SHARMA
+        SURAJ SHARMA
     </span>
-
 
     <span>
         VIDEO EDITOR / VISUAL STORYTELLER
     </span>
 
+    <span>
+        © 2026
+    </span>
+
 </footer>
 
 
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
 <script>
 
-/* =========================================================
-   EXPANDABLE WORK CATEGORIES
-========================================================= */
+const workItems = document.querySelectorAll(".work-item");
 
-const projectHeaders =
-    document.querySelectorAll(
-        ".project-header"
-    );
+workItems.forEach((item) => {
 
+    const button = item.querySelector(".work-trigger");
 
-projectHeaders.forEach(
-    function(header){
+    button.addEventListener("click", () => {
 
-        header.addEventListener(
-            "click",
-            function(){
+        const isOpen = item.classList.contains("active");
 
-                const targetId =
-                    header.dataset.target;
+        // Close every other category
+        workItems.forEach((otherItem) => {
+            otherItem.classList.remove("active");
+        });
 
-                const target =
-                    document.getElementById(
-                        targetId
-                    );
-
-
-                const wasOpen =
-                    target.classList.contains(
-                        "open"
-                    );
-
-
-                /*
-                 * Close all other categories
-                 */
-
-                document
-                    .querySelectorAll(
-                        ".project-content"
-                    )
-                    .forEach(
-                        function(content){
-
-                            content.classList.remove(
-                                "open"
-                            );
-
-                        }
-                    );
-
-
-                document
-                    .querySelectorAll(
-                        ".project-header"
-                    )
-                    .forEach(
-                        function(otherHeader){
-
-                            otherHeader.classList.remove(
-                                "open"
-                            );
-
-                        }
-                    );
-
-
-                /*
-                 * Open selected category
-                 */
-
-                if(!wasOpen){
-
-                    target.classList.add(
-                        "open"
-                    );
-
-                    header.classList.add(
-                        "open"
-                    );
-
-                }
-
-            }
-        );
-
-
-        /*
-         * Keyboard accessibility
-         */
-
-        header.setAttribute(
-            "tabindex",
-            "0"
-        );
-
-
-        header.addEventListener(
-            "keydown",
-            function(event){
-
-                if(
-                    event.key === "Enter" ||
-                    event.key === " "
-                ){
-
-                    event.preventDefault();
-
-                    header.click();
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   HIRE ME MODAL
-========================================================= */
-
-const hireButton =
-    document.getElementById(
-        "hireButton"
-    );
-
-const contactModal =
-    document.getElementById(
-        "contactModal"
-    );
-
-const contactClose =
-    document.getElementById(
-        "contactClose"
-    );
-
-
-hireButton.addEventListener(
-    "click",
-    function(){
-
-        contactModal.classList.add(
-            "open"
-        );
-
-        document.body.classList.add(
-            "modal-open"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   CLOSE MODAL
-========================================================= */
-
-function closeContact(){
-
-    contactModal.classList.remove(
-        "open"
-    );
-
-    document.body.classList.remove(
-        "modal-open"
-    );
-
-}
-
-
-contactClose.addEventListener(
-    "click",
-    closeContact
-);
-
-
-/* =========================================================
-   CLICK OUTSIDE MODAL
-========================================================= */
-
-contactModal.addEventListener(
-    "click",
-    function(event){
-
-        if(
-            event.target ===
-            contactModal
-        ){
-
-            closeContact();
-
+        // Open the clicked category
+        if (!isOpen) {
+            item.classList.add("active");
         }
 
-    }
-);
+    });
 
-
-/* =========================================================
-   ESCAPE KEY
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(
-            event.key ===
-            "Escape"
-        ){
-
-            closeContact();
-
-        }
-
-    }
-);
+});
 
 </script>
 
