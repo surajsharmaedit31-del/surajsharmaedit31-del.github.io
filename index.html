@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -45,17 +47,12 @@ button{
 
 :root{
     --bg:#070707;
-    --panel:#0b0b0b;
-    --line:#202020;
-    --line2:#2b2b2b;
     --white:#f4f4f4;
+    --line:#202020;
+    --line2:#303030;
     --grey:#666;
+    --gold:#c08d43;
 }
-
-
-/* =========================================================
-   GLOBAL
-========================================================= */
 
 .container{
     width:72%;
@@ -68,13 +65,9 @@ button{
     padding-bottom:150px;
 }
 
-.mono{
-    font-family:"Courier New", monospace;
-}
-
 
 /* =========================================================
-   NAVIGATION
+   NAV
 ========================================================= */
 
 .nav{
@@ -83,7 +76,7 @@ button{
     left:0;
 
     width:100%;
-    height:82px;
+    height:80px;
 
     padding:0 5vw;
 
@@ -96,7 +89,7 @@ button{
     background:
         linear-gradient(
             to bottom,
-            rgba(7,7,7,.96),
+            rgba(7,7,7,.97),
             rgba(7,7,7,0)
         );
 }
@@ -109,16 +102,16 @@ button{
 
 .nav-links{
     display:flex;
-    gap:32px;
+    gap:30px;
 }
 
 .nav-links a{
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:8px;
     letter-spacing:1.8px;
 
-    color:#777;
+    color:#666;
 
     transition:color .3s ease;
 }
@@ -149,14 +142,12 @@ button{
 .hero-label{
     margin-bottom:25px;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:9px;
     letter-spacing:3px;
 
     color:#555;
-
-    text-transform:uppercase;
 }
 
 .hero-title{
@@ -167,13 +158,6 @@ button{
     letter-spacing:-.09em;
 
     font-weight:800;
-
-    text-transform:uppercase;
-}
-
-.hero-solid{
-    position:relative;
-    z-index:2;
 }
 
 .hero-outline{
@@ -206,7 +190,7 @@ button{
     top:90px;
     left:0;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:8px;
     letter-spacing:2px;
@@ -232,34 +216,252 @@ button{
 
 
 /* =========================================================
-   SHOWREEL
+   PREMIUM SHOWREEL
 ========================================================= */
 
 .showreel{
-    padding-bottom:160px;
+    position:relative;
+
+    min-height:100vh;
+
+    padding-bottom:150px;
+
+    overflow:hidden;
 }
+
+.showreel .container{
+    position:relative;
+    z-index:2;
+}
+
+
+/* giant background word */
+
+.showreel::before{
+    content:"SHOWREEL";
+
+    position:absolute;
+
+    top:75px;
+    left:3vw;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            130px,
+            17vw,
+            280px
+        );
+
+    line-height:.72;
+
+    letter-spacing:-.09em;
+
+    color:#161616;
+
+    white-space:nowrap;
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+
+/* section number */
+
+.showreel .section-number{
+    position:relative;
+
+    top:auto;
+
+    padding-top:85px;
+
+    color:var(--gold);
+
+    letter-spacing:3px;
+
+    z-index:5;
+}
+
+
+/* heading */
+
+.showreel .section-heading{
+    position:relative;
+
+    z-index:3;
+
+    margin-left:0;
+
+    padding-top:45px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            95px,
+            13vw,
+            205px
+        );
+
+    line-height:.72;
+
+    letter-spacing:-.09em;
+
+    font-weight:400;
+
+    text-transform:none;
+
+    color:#f1eee8;
+}
+
+
+/* description */
+
+.showreel-description{
+    position:relative;
+
+    z-index:5;
+
+    width:230px;
+
+    margin-top:65px;
+
+    margin-left:3px;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    color:#777;
+}
+
+
+/* CTA */
+
+.showreel-cta{
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin-top:38px;
+}
+
+.showreel-cta-button{
+    width:54px;
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--gold);
+
+    border-radius:50%;
+
+    background:transparent;
+
+    color:var(--gold);
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        transform .45s ease;
+}
+
+.showreel-cta-button:hover{
+    background:var(--gold);
+
+    color:#050505;
+
+    transform:translateX(5px);
+}
+
+.showreel-cta-text{
+    font-family:"Courier New",monospace;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:var(--gold);
+}
+
+
+/* reels */
 
 .showreel-grid{
+    position:relative;
+
+    z-index:5;
+
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+        minmax(0,1fr)
+        245px;
 
-    gap:25px;
+    gap:22px;
 
-    margin-top:115px;
+    align-items:end;
+
+    margin-top:-155px;
+
+    margin-left:30%;
 }
+
+
+/* reel card */
 
 .reel-card{
     position:relative;
 
     overflow:hidden;
 
-    aspect-ratio:16/9;
+    background:#0b0b0b;
 
-    background:#0c0c0c;
+    border:1px solid #292929;
 
-    border:1px solid #242424;
+    transition:
+        transform .6s
+        cubic-bezier(.2,.7,.2,1),
+        border-color .4s ease;
 }
+
+
+/* main reel */
+
+.reel-card:first-child{
+    aspect-ratio:16/10;
+}
+
+
+/* second reel */
+
+.reel-card:last-child{
+    aspect-ratio:9/14;
+}
+
+
+/* drive video */
 
 .reel-video{
     position:absolute;
@@ -271,83 +473,206 @@ button{
 
     border:0;
 
-    opacity:.9;
+    background:#080808;
+
+    opacity:.94;
+
+    transition:
+        transform .8s
+        cubic-bezier(.2,.7,.2,1);
 }
+
+
+/* cinematic overlay */
+
+.reel-card::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.05) 58%,
+            rgba(0,0,0,0)
+        );
+
+    pointer-events:none;
+
+    z-index:2;
+}
+
+
+/* hover */
+
+.reel-card:hover{
+    transform:translateY(-7px);
+
+    border-color:#555;
+}
+
+.reel-card:hover .reel-video{
+    transform:scale(1.025);
+}
+
+
+/* info */
 
 .reel-info{
     position:absolute;
 
     left:25px;
-    bottom:25px;
+    right:25px;
+    bottom:20px;
 
-    z-index:5;
+    z-index:6;
 
     pointer-events:none;
-
-    text-shadow:
-        0 2px 10px #000;
 }
 
 .reel-number{
     margin-bottom:9px;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:8px;
-    letter-spacing:2px;
 
-    color:#aaa;
+    letter-spacing:2.5px;
+
+    color:var(--gold);
 }
 
 .reel-title{
-    font-size:25px;
+    font-size:17px;
 
-    letter-spacing:-.05em;
+    font-weight:500;
+
+    letter-spacing:-.035em;
+
+    color:#eee;
 }
+
+.reel-card:first-child .reel-title{
+    font-size:22px;
+}
+
+
+/* arrow */
 
 .reel-arrow{
     position:absolute;
 
-    right:25px;
-    bottom:25px;
+    right:20px;
+    bottom:17px;
 
-    width:55px;
-    height:55px;
+    z-index:8;
+
+    width:48px;
+    height:48px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    border:1px solid #777;
+    border:1px solid rgba(255,255,255,.5);
+
     border-radius:50%;
 
     background:rgba(0,0,0,.35);
 
-    font-size:20px;
+    backdrop-filter:blur(8px);
+
+    color:#fff;
+
+    font-size:18px;
 
     cursor:pointer;
-
-    z-index:10;
 
     transition:
         background .35s ease,
         color .35s ease,
-        transform .4s ease;
+        border-color .35s ease,
+        transform .5s
+        cubic-bezier(.2,.7,.2,1);
 }
 
 .reel-card:hover .reel-arrow{
-    background:#fff;
-    color:#000;
+    background:var(--gold);
+
+    color:#050505;
+
+    border-color:var(--gold);
 
     transform:
-        translate(4px,-4px);
+        translate(3px,-3px);
+}
+
+
+/* metadata */
+
+.showreel-meta{
+    position:relative;
+
+    z-index:5;
+
+    margin-top:42px;
+
+    margin-left:3px;
+
+    padding-left:25px;
+
+    border-left:2px solid var(--gold);
+
+    font-family:"Courier New",monospace;
+
+    font-size:8px;
+
+    line-height:1.8;
+
+    letter-spacing:2px;
+
+    color:#666;
+}
+
+
+/* labels */
+
+.showreel-reel-labels{
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:30px;
+
+    margin-top:25px;
+
+    margin-right:268px;
+
+    font-family:"Courier New",monospace;
+
+    font-size:7px;
+
+    letter-spacing:2px;
+
+    color:#555;
+}
+
+.showreel-reel-labels span:first-child{
+    color:var(--gold);
 }
 
 
 /* =========================================================
    THE CUTS
-   IMPORTANT:
-   NO VIDEO LINKS ADDED HERE
+   IMPORTANT: VIDEO LINKS NOT ADDED
 ========================================================= */
 
 .selected{
@@ -417,9 +742,10 @@ button{
 
     background:#090909;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:7px;
+
     letter-spacing:2px;
 
     color:#777;
@@ -446,18 +772,20 @@ button{
 .selected-type{
     margin-top:6px;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:7px;
+
     letter-spacing:2px;
 
     color:#555;
 }
 
 .selected-index{
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:7px;
+
     letter-spacing:2px;
 
     color:#444;
@@ -515,16 +843,22 @@ button{
 }
 
 .work-number{
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:8px;
+
     letter-spacing:2px;
 
     color:#444;
 }
 
 .work-title{
-    font-size:clamp(38px,4vw,62px);
+    font-size:
+        clamp(
+            38px,
+            4vw,
+            62px
+        );
 
     letter-spacing:-.065em;
 
@@ -532,9 +866,10 @@ button{
 }
 
 .work-meta{
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:7px;
+
     line-height:1.8;
 
     letter-spacing:2px;
@@ -575,7 +910,7 @@ button{
 
 
 /* =========================================================
-   WORK VIDEO EXPANSION
+   WORK CONTENT
 ========================================================= */
 
 .work-content{
@@ -646,9 +981,10 @@ button{
     padding:
         11px 12px;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:7px;
+
     letter-spacing:1.5px;
 
     color:#666;
@@ -674,6 +1010,7 @@ button{
         repeat(3,1fr);
 
     border-top:1px solid var(--line);
+
     border-left:1px solid var(--line);
 }
 
@@ -687,13 +1024,15 @@ button{
     padding:24px;
 
     border-right:1px solid var(--line);
+
     border-bottom:1px solid var(--line);
 }
 
 .process-number{
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:8px;
+
     letter-spacing:2px;
 
     color:#444;
@@ -747,8 +1086,6 @@ button{
 
     margin:14px 0;
 
-    transform-origin:left;
-
     transition:
         transform .8s
         cubic-bezier(.2,.7,.2,1),
@@ -771,23 +1108,26 @@ button{
 .process-card:hover
 .cut-line:nth-child(1){
     width:70%;
+
     transform:translateX(25px);
 }
 
 .process-card:hover
 .cut-line:nth-child(2){
     width:100%;
+
     transform:translateX(5px);
 }
 
 .process-card:hover
 .cut-line:nth-child(3){
     width:60%;
+
     transform:translateX(45px);
 }
 
 
-/* MUSIC / SOUND */
+/* WAVE */
 
 .wave{
     position:absolute;
@@ -804,6 +1144,7 @@ button{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     gap:4px;
@@ -903,8 +1244,7 @@ button{
     height:110px;
 
     transform:
-        translate(-50%,-50%)
-        rotate(0deg);
+        translate(-50%,-50%);
 
     border:1px solid #444;
 
@@ -993,9 +1333,10 @@ button{
 .contact-label{
     margin-bottom:25px;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:8px;
+
     letter-spacing:3px;
 
     color:#555;
@@ -1040,7 +1381,7 @@ button{
 
     color:#fff;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:8px;
 
@@ -1061,7 +1402,7 @@ button{
 
 
 /* =========================================================
-   MODAL
+   CONTACT MODAL
 ========================================================= */
 
 .modal{
@@ -1074,6 +1415,7 @@ button{
     display:none;
 
     align-items:center;
+
     justify-content:center;
 
     padding:25px;
@@ -1148,13 +1490,14 @@ button{
 
 .modal-close:hover{
     background:#fff;
+
     color:#000;
 }
 
 .modal-label{
     margin-bottom:20px;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:8px;
 
@@ -1200,7 +1543,7 @@ button{
 .contact-option-label{
     margin-bottom:7px;
 
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:7px;
 
@@ -1244,7 +1587,7 @@ button{
 }
 
 .footer span{
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
 
     font-size:7px;
 
@@ -1264,6 +1607,7 @@ button{
     .hero-inner,
     .contact-inner{
         width:88%;
+
         margin-left:6%;
     }
 
@@ -1271,13 +1615,23 @@ button{
         margin-left:5vw;
     }
 
+    .showreel-grid{
+        margin-top:70px;
+
+        margin-left:0;
+
+        grid-template-columns:
+            minmax(0,1fr)
+            200px;
+    }
+
+    .showreel-reel-labels{
+        margin-right:220px;
+    }
+
     .selected-grid{
         grid-template-columns:
             repeat(2,1fr);
-    }
-
-    .showreel-grid{
-        grid-template-columns:1fr;
     }
 
     .work-trigger{
@@ -1332,6 +1686,7 @@ button{
 
     .hero-inner{
         width:88%;
+
         margin-left:6%;
     }
 
@@ -1365,9 +1720,87 @@ button{
         top:68px;
     }
 
-    .showreel-grid{
-        margin-top:70px;
+
+    /* SHOWREEL */
+
+    .showreel{
+        min-height:auto;
+
+        padding-bottom:110px;
     }
+
+    .showreel::before{
+        top:85px;
+
+        left:-5px;
+
+        font-size:25vw;
+    }
+
+    .showreel .section-number{
+        padding-top:65px;
+    }
+
+    .showreel .section-heading{
+        padding-top:35px;
+
+        font-size:25vw;
+    }
+
+    .showreel-description{
+        width:220px;
+
+        margin-top:45px;
+    }
+
+    .showreel-grid{
+        display:grid;
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+        margin-top:60px;
+    }
+
+    .reel-card:first-child,
+    .reel-card:last-child{
+        aspect-ratio:16/9;
+    }
+
+    .reel-info{
+        left:17px;
+        right:17px;
+        bottom:15px;
+    }
+
+    .reel-card:first-child .reel-title,
+    .reel-title{
+        font-size:17px;
+    }
+
+    .reel-arrow{
+        right:13px;
+        bottom:13px;
+
+        width:42px;
+        height:42px;
+    }
+
+    .showreel-meta{
+        margin-top:35px;
+    }
+
+    .showreel-reel-labels{
+        justify-content:flex-start;
+
+        margin-top:25px;
+
+        margin-right:0;
+    }
+
+
+    /* CUTS */
 
     .selected-grid{
         grid-template-columns:
@@ -1385,6 +1818,9 @@ button{
     .selected-type{
         font-size:6px;
     }
+
+
+    /* WORK */
 
     .work-list{
         margin-top:70px;
@@ -1418,6 +1854,9 @@ button{
         grid-template-columns:1fr;
     }
 
+
+    /* PROCESS */
+
     .process-grid{
         grid-template-columns:1fr;
 
@@ -1427,6 +1866,9 @@ button{
     .process-card{
         height:290px;
     }
+
+
+    /* CONTACT */
 
     .contact{
         min-height:75vh;
@@ -1441,14 +1883,19 @@ button{
             40px 25px;
     }
 
+
+    /* FOOTER */
+
     .footer{
         flex-direction:column;
+
         align-items:flex-start;
     }
 
 }
 
 </style>
+
 </head>
 
 
@@ -1456,7 +1903,7 @@ button{
 
 
 <!-- =========================================================
-     NAV
+     NAVIGATION
 ========================================================= -->
 
 <nav class="nav">
@@ -1514,7 +1961,7 @@ button{
 
         <div class="hero-title">
 
-            <div class="hero-solid">
+            <div>
                 SURAJ
             </div>
 
@@ -1538,7 +1985,7 @@ button{
 
 
 <!-- =========================================================
-     01 SHOWREEL
+     01 / PREMIUM SHOWREEL
 ========================================================= -->
 
 <section
@@ -1547,23 +1994,58 @@ button{
 
     <div class="container">
 
+
         <div class="section-number">
             01 / SHOWREEL
         </div>
 
 
         <h2 class="section-heading">
-
-            SHOW<br>
-            REEL.
-
+            Showreel
         </h2>
+
+
+        <p class="showreel-description">
+
+            A collection of selected edits
+            that define my style.
+
+        </p>
+
+
+        <div class="showreel-cta">
+
+            <button
+                class="showreel-cta-button"
+                type="button"
+                onclick="
+                    document.querySelector('#reel01')
+                    .scrollIntoView({
+                        behavior:'smooth',
+                        block:'center'
+                    });
+                ">
+
+                →
+
+            </button>
+
+
+            <span class="showreel-cta-text">
+                PLAY SHOWREEL
+            </span>
+
+        </div>
 
 
         <div class="showreel-grid">
 
 
-            <div class="reel-card">
+            <!-- SHOWREEL 01 -->
+
+            <div
+                class="reel-card"
+                id="reel01">
 
                 <iframe
                     class="reel-video"
@@ -1576,11 +2058,11 @@ button{
                 <div class="reel-info">
 
                     <div class="reel-number">
-                        01 / REEL
+                        01 / EDITING REEL
                     </div>
 
                     <div class="reel-title">
-                        EDITING REEL
+                        SHOWREEL 01
                     </div>
 
                 </div>
@@ -1589,7 +2071,12 @@ button{
                 <button
                     class="reel-arrow"
                     type="button"
-                    aria-label="Open showreel">
+                    onclick="
+                        document
+                        .querySelector('#reel01 iframe')
+                        .focus();
+                    "
+                    aria-label="Open Showreel 01">
 
                     ↗
 
@@ -1598,7 +2085,11 @@ button{
             </div>
 
 
-            <div class="reel-card">
+            <!-- SHOWREEL 02 -->
+
+            <div
+                class="reel-card"
+                id="reel02">
 
                 <iframe
                     class="reel-video"
@@ -1611,11 +2102,11 @@ button{
                 <div class="reel-info">
 
                     <div class="reel-number">
-                        02 / REEL
+                        02 / VISUAL REEL
                     </div>
 
                     <div class="reel-title">
-                        VISUAL REEL
+                        SHOWREEL 02
                     </div>
 
                 </div>
@@ -1624,7 +2115,12 @@ button{
                 <button
                     class="reel-arrow"
                     type="button"
-                    aria-label="Open showreel">
+                    onclick="
+                        document
+                        .querySelector('#reel02 iframe')
+                        .focus();
+                    "
+                    aria-label="Open Showreel 02">
 
                     ↗
 
@@ -1635,14 +2131,35 @@ button{
 
         </div>
 
+
+        <div class="showreel-reel-labels">
+
+            <span>
+                01 / EDITING REEL
+            </span>
+
+            <span>
+                02 / VISUAL REEL
+            </span>
+
+        </div>
+
+
+        <div class="showreel-meta">
+
+            SELECTED EDITS / 2026
+
+        </div>
+
+
     </div>
 
 </section>
 
 
 <!-- =========================================================
-     02 THE CUTS
-     COMPLETELY UNTOUCHED
+     02 / THE CUTS
+     8 MAIN VIDEOS WILL BE ADDED LATER
 ========================================================= -->
 
 <section
@@ -1650,6 +2167,7 @@ button{
     id="selected">
 
     <div class="container">
+
 
         <div class="section-number">
             02 / SELECTED WORK
@@ -1668,130 +2186,266 @@ button{
 
 
             <div class="selected-card">
+
                 <div class="selected-placeholder">
-                    <div class="selected-placeholder-number">01</div>
+
+                    <div class="selected-placeholder-number">
+                        01
+                    </div>
+
                 </div>
 
                 <div class="selected-info">
+
                     <div>
-                        <div class="selected-name">DECORE</div>
-                        <div class="selected-type">EVENT</div>
+
+                        <div class="selected-name">
+                            DECORE
+                        </div>
+
+                        <div class="selected-type">
+                            EVENT
+                        </div>
+
                     </div>
 
-                    <div class="selected-index">01</div>
+                    <div class="selected-index">
+                        01
+                    </div>
+
                 </div>
+
             </div>
 
 
             <div class="selected-card">
+
                 <div class="selected-placeholder">
-                    <div class="selected-placeholder-number">02</div>
+
+                    <div class="selected-placeholder-number">
+                        02
+                    </div>
+
                 </div>
 
                 <div class="selected-info">
+
                     <div>
-                        <div class="selected-name">HOST</div>
-                        <div class="selected-type">EVENT</div>
+
+                        <div class="selected-name">
+                            HOST
+                        </div>
+
+                        <div class="selected-type">
+                            EVENT
+                        </div>
+
                     </div>
 
-                    <div class="selected-index">02</div>
+                    <div class="selected-index">
+                        02
+                    </div>
+
                 </div>
+
             </div>
 
 
             <div class="selected-card">
+
                 <div class="selected-placeholder">
-                    <div class="selected-placeholder-number">03</div>
+
+                    <div class="selected-placeholder-number">
+                        03
+                    </div>
+
                 </div>
 
                 <div class="selected-info">
+
                     <div>
-                        <div class="selected-name">BAAD MEIN</div>
-                        <div class="selected-type">SOCIAL</div>
+
+                        <div class="selected-name">
+                            BAAD MEIN
+                        </div>
+
+                        <div class="selected-type">
+                            SOCIAL
+                        </div>
+
                     </div>
 
-                    <div class="selected-index">03</div>
+                    <div class="selected-index">
+                        03
+                    </div>
+
                 </div>
+
             </div>
 
 
             <div class="selected-card">
+
                 <div class="selected-placeholder">
-                    <div class="selected-placeholder-number">04</div>
+
+                    <div class="selected-placeholder-number">
+                        04
+                    </div>
+
                 </div>
 
                 <div class="selected-info">
+
                     <div>
-                        <div class="selected-name">GOLDEN TRAILS</div>
-                        <div class="selected-type">HOSPITALITY</div>
+
+                        <div class="selected-name">
+                            GOLDEN TRAILS
+                        </div>
+
+                        <div class="selected-type">
+                            HOSPITALITY
+                        </div>
+
                     </div>
 
-                    <div class="selected-index">04</div>
+                    <div class="selected-index">
+                        04
+                    </div>
+
                 </div>
+
             </div>
 
 
             <div class="selected-card">
+
                 <div class="selected-placeholder">
-                    <div class="selected-placeholder-number">05</div>
+
+                    <div class="selected-placeholder-number">
+                        05
+                    </div>
+
                 </div>
 
                 <div class="selected-info">
+
                     <div>
-                        <div class="selected-name">AIR DROP</div>
-                        <div class="selected-type">SOCIAL</div>
+
+                        <div class="selected-name">
+                            AIR DROP
+                        </div>
+
+                        <div class="selected-type">
+                            SOCIAL
+                        </div>
+
                     </div>
 
-                    <div class="selected-index">05</div>
+                    <div class="selected-index">
+                        05
+                    </div>
+
                 </div>
+
             </div>
 
 
             <div class="selected-card">
+
                 <div class="selected-placeholder">
-                    <div class="selected-placeholder-number">06</div>
+
+                    <div class="selected-placeholder-number">
+                        06
+                    </div>
+
                 </div>
 
                 <div class="selected-info">
+
                     <div>
-                        <div class="selected-name">REGAIN APP AI</div>
-                        <div class="selected-type">AI / APP</div>
+
+                        <div class="selected-name">
+                            REGAIN APP AI
+                        </div>
+
+                        <div class="selected-type">
+                            AI / APP
+                        </div>
+
                     </div>
 
-                    <div class="selected-index">06</div>
+                    <div class="selected-index">
+                        06
+                    </div>
+
                 </div>
+
             </div>
 
 
             <div class="selected-card">
+
                 <div class="selected-placeholder">
-                    <div class="selected-placeholder-number">07</div>
+
+                    <div class="selected-placeholder-number">
+                        07
+                    </div>
+
                 </div>
 
                 <div class="selected-info">
+
                     <div>
-                        <div class="selected-name">NILESH AI</div>
-                        <div class="selected-type">AI / VISUAL</div>
+
+                        <div class="selected-name">
+                            NILESH AI
+                        </div>
+
+                        <div class="selected-type">
+                            AI / VISUAL
+                        </div>
+
                     </div>
 
-                    <div class="selected-index">07</div>
+                    <div class="selected-index">
+                        07
+                    </div>
+
                 </div>
+
             </div>
 
 
             <div class="selected-card">
+
                 <div class="selected-placeholder">
-                    <div class="selected-placeholder-number">08</div>
+
+                    <div class="selected-placeholder-number">
+                        08
+                    </div>
+
                 </div>
 
                 <div class="selected-info">
+
                     <div>
-                        <div class="selected-name">EXPORT</div>
-                        <div class="selected-type">SOCIAL</div>
+
+                        <div class="selected-name">
+                            EXPORT
+                        </div>
+
+                        <div class="selected-type">
+                            SOCIAL
+                        </div>
+
                     </div>
 
-                    <div class="selected-index">08</div>
+                    <div class="selected-index">
+                        08
+                    </div>
+
                 </div>
+
             </div>
 
 
@@ -1803,7 +2457,7 @@ button{
 
 
 <!-- =========================================================
-     03 WORK
+     03 / WORK
 ========================================================= -->
 
 <section
@@ -1811,6 +2465,7 @@ button{
     id="work">
 
     <div class="container">
+
 
         <div class="section-number">
             03 / WORK
@@ -1825,7 +2480,9 @@ button{
         <div class="work-list">
 
 
-            <!-- CORPORATE -->
+            <!-- =================================================
+                 CORPORATE
+            ================================================== -->
 
             <div class="work-item">
 
@@ -1858,6 +2515,7 @@ button{
 
                         <div class="category-area">
 
+
                             <div class="video-card">
 
                                 <iframe
@@ -1887,6 +2545,7 @@ button{
 
                             </div>
 
+
                         </div>
 
                     </div>
@@ -1896,7 +2555,9 @@ button{
             </div>
 
 
-            <!-- BIRTHDAY -->
+            <!-- =================================================
+                 BIRTHDAY
+            ================================================== -->
 
             <div class="work-item">
 
@@ -1929,6 +2590,7 @@ button{
 
                         <div class="category-area">
 
+
                             <div class="video-card">
 
                                 <iframe
@@ -1958,6 +2620,7 @@ button{
 
                             </div>
 
+
                         </div>
 
                     </div>
@@ -1967,7 +2630,9 @@ button{
             </div>
 
 
-            <!-- BABY SHOWER -->
+            <!-- =================================================
+                 BABY SHOWER
+            ================================================== -->
 
             <div class="work-item">
 
@@ -2019,7 +2684,7 @@ button{
                             <div class="video-card">
 
                                 <iframe
-                                   src="https://drive.google.com/file/d/1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5/preview"
+                                    src="https://drive.google.com/file/d/1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
@@ -2055,7 +2720,9 @@ button{
             </div>
 
 
-            <!-- GOLDEN TRAILS -->
+            <!-- =================================================
+                 GOLDEN TRAILS
+            ================================================== -->
 
             <div class="work-item">
 
@@ -2090,92 +2757,137 @@ button{
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Golden Trails 01</div>
+
+                                <div class="video-card-title">
+                                    Golden Trails 01
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Golden Trails 02</div>
+
+                                <div class="video-card-title">
+                                    Golden Trails 02
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1Q488We0910bmU4I-O-btnbv0DdBYLpY3/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Golden Trails 03</div>
+
+                                <div class="video-card-title">
+                                    Golden Trails 03
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Golden Trails 04</div>
+
+                                <div class="video-card-title">
+                                    Golden Trails 04
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/15cF3H8wz5jh_A_5qjfHz6nZduDWSJ3Jf/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Golden Trails 05</div>
+
+                                <div class="video-card-title">
+                                    Golden Trails 05
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1RZ758skTbdWhqllSI_mu7FiWwm3AjJYu/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Golden Trails 06</div>
+
+                                <div class="video-card-title">
+                                    Golden Trails 06
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1bMKq2XMh_c6lw1RtA-ki_DHhGYNO27kR/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Golden Trails 07</div>
+
+                                <div class="video-card-title">
+                                    Golden Trails 07
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1nP3BQm4dHPNnPeNT1fJP-A98Z3gTl3na/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Golden Trails 08</div>
+
+                                <div class="video-card-title">
+                                    Golden Trails 08
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1x5kEr5e60TXbwr4wbq_3d-CksDzyiuqF/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Golden Trails 09</div>
+
+                                <div class="video-card-title">
+                                    Golden Trails 09
+                                </div>
+
                             </div>
 
 
@@ -2188,7 +2900,9 @@ button{
             </div>
 
 
-            <!-- IMPORT & EXPORT -->
+            <!-- =================================================
+                 IMPORT & EXPORT
+            ================================================== -->
 
             <div class="work-item">
 
@@ -2223,52 +2937,77 @@ button{
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1El4SnzTe972RY_cfM8_GzZyowy5FMoa9/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Import &amp; Export Short 01</div>
+
+                                <div class="video-card-title">
+                                    Import &amp; Export Short 01
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/12YFXeBJyHOchslI2y4wsf6SrfWsd_O__/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Import &amp; Export Short 02</div>
+
+                                <div class="video-card-title">
+                                    Import &amp; Export Short 02
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Import &amp; Export Short 03</div>
+
+                                <div class="video-card-title">
+                                    Import &amp; Export Short 03
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1INmXfSUyyzw-n9OZqjn3ch1DF7PZ7wjl/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Import &amp; Export Short 04</div>
+
+                                <div class="video-card-title">
+                                    Import &amp; Export Short 04
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/12__b8E_MJ_z2ET58qIiGZqFtPpIBt-Bt/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Import &amp; Export Short 05</div>
+
+                                <div class="video-card-title">
+                                    Import &amp; Export Short 05
+                                </div>
+
                             </div>
 
 
@@ -2281,7 +3020,9 @@ button{
             </div>
 
 
-            <!-- PODCAST -->
+            <!-- =================================================
+                 PODCAST
+            ================================================== -->
 
             <div class="work-item">
 
@@ -2316,32 +3057,47 @@ button{
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/13iSBq_bT4--sQZn40SJ_HufzzPBUkEl7/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Podcast 01</div>
+
+                                <div class="video-card-title">
+                                    Podcast 01
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1KxSYq0W4cAmMocRTmWvn1VlAtgShkSuW/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Podcast 02</div>
+
+                                <div class="video-card-title">
+                                    Podcast 02
+                                </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/178s_-M5KxSU1JX6g3E7i-uORxOEhCJhP/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
-                                <div class="video-card-title">Podcast 03</div>
+
+                                <div class="video-card-title">
+                                    Podcast 03
+                                </div>
+
                             </div>
 
 
@@ -2354,7 +3110,9 @@ button{
             </div>
 
 
-            <!-- OTHER PROJECTS -->
+            <!-- =================================================
+                 OTHER PROJECTS
+            ================================================== -->
 
             <div class="work-item">
 
@@ -2389,86 +3147,107 @@ button{
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1CcB--lcE2IoBahqzcDFMB6H3Km-vfhfa/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
+
                                 <div class="video-card-title">
                                     Parachute Advansed
                                 </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
-                                   src="https://drive.google.com/file/d/1hwIPPyqqn-4aGyMEW-aWAZfbZbGOAXEF/preview"
+                                    src="https://drive.google.com/file/d/1hwIPPyqqn-4aGyMEW-aWAZfbZbGOAXEF/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
+
                                 <div class="video-card-title">
                                     EVM
                                 </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1RCmjBvQ21Wi9MvT7bcndw-QL_4N9kFQB/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
+
                                 <div class="video-card-title">
                                     Flying Panda
                                 </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
+
                                 <div class="video-card-title">
                                     Nilesh AI
                                 </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
+
                                 <div class="video-card-title">
                                     Regain App AI
                                 </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/1zN7Xvp3Hs4okbJ8w37K2Lmp5atRVRBI9/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
+
                                 <div class="video-card-title">
                                     MAENZRAAT 3.0
                                 </div>
+
                             </div>
 
 
                             <div class="video-card">
+
                                 <iframe
                                     src="https://drive.google.com/file/d/13PhokBp2J3GmeoPcZh80mnCuubwXMCVS/preview"
                                     allow="autoplay; fullscreen"
                                     allowfullscreen>
                                 </iframe>
+
                                 <div class="video-card-title">
                                     MAENZRAAT V2
                                 </div>
+
                             </div>
 
 
@@ -2489,7 +3268,7 @@ button{
 
 
 <!-- =========================================================
-     04 HOW I WORK
+     04 / HOW I WORK
 ========================================================= -->
 
 <section
@@ -2497,6 +3276,7 @@ button{
     id="process">
 
     <div class="container">
+
 
         <div class="section-number">
             04 / HOW I WORK
@@ -2535,9 +3315,11 @@ button{
                 </div>
 
                 <div class="process-description">
+
                     Every cut has a purpose.
                     I build the edit around story
                     and timing.
+
                 </div>
 
             </div>
@@ -2572,9 +3354,11 @@ button{
                 </div>
 
                 <div class="process-description">
+
                     Rhythm drives the edit.
                     Music and visuals are built
                     together.
+
                 </div>
 
             </div>
@@ -2608,8 +3392,10 @@ button{
                 </div>
 
                 <div class="process-description">
+
                     Sound design gives every moment
                     weight, texture and emotion.
+
                 </div>
 
             </div>
@@ -2630,8 +3416,10 @@ button{
                 </div>
 
                 <div class="process-description">
+
                     Colour creates consistency,
                     atmosphere and visual identity.
+
                 </div>
 
             </div>
@@ -2652,8 +3440,10 @@ button{
                 </div>
 
                 <div class="process-description">
+
                     Movement and transitions are
                     used when they help the story.
+
                 </div>
 
             </div>
@@ -2676,8 +3466,10 @@ button{
                 </div>
 
                 <div class="process-description">
+
                     Typography becomes part of
                     the visual language of the edit.
+
                 </div>
 
             </div>
@@ -2691,7 +3483,7 @@ button{
 
 
 <!-- =========================================================
-     05 CONTACT
+     05 / CONTACT
 ========================================================= -->
 
 <section
@@ -2699,6 +3491,7 @@ button{
     id="contact">
 
     <div class="contact-inner">
+
 
         <div class="contact-label">
             05 / CONTACT
@@ -2729,6 +3522,7 @@ button{
             HIRE ME →
 
         </button>
+
 
     </div>
 
@@ -2872,6 +3666,7 @@ button{
 
 <script>
 
+
 /* =========================================================
    WORK ACCORDION
 ========================================================= */
@@ -3007,37 +3802,9 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   SHOWREEL ARROWS
-========================================================= */
-
-document.querySelectorAll(".reel-arrow")
-.forEach(function(button){
-
-    button.addEventListener(
-        "click",
-        function(){
-
-            const card =
-                button.closest(".reel-card");
-
-            const iframe =
-                card.querySelector("iframe");
-
-            /*
-             * Focus the Drive player so the user
-             * can interact with the reel.
-             */
-
-            iframe.focus();
-
-        }
-    );
-
-});
-
 </script>
 
 
 </body>
+
 </html>
