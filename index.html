@@ -25,7 +25,7 @@ html{
 body{
     background:#070707;
     color:#f4f4f4;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     overflow-x:hidden;
 }
 
@@ -43,11 +43,6 @@ button{
     color:inherit;
 }
 
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
 :root{
     --bg:#070707;
     --panel:#0b0b0b;
@@ -55,8 +50,12 @@ button{
     --line2:#2b2b2b;
     --white:#f4f4f4;
     --grey:#666;
-    --dark:#3b3b3b;
 }
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 .container{
     width:72%;
@@ -70,7 +69,7 @@ button{
 }
 
 .mono{
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 }
 
 
@@ -114,7 +113,7 @@ button{
 }
 
 .nav-links a{
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:8px;
     letter-spacing:1.8px;
@@ -150,7 +149,7 @@ button{
 .hero-label{
     margin-bottom:25px;
 
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:9px;
     letter-spacing:3px;
@@ -198,7 +197,7 @@ button{
 
 
 /* =========================================================
-   SECTION TITLE
+   SECTION HEADINGS
 ========================================================= */
 
 .section-number{
@@ -207,7 +206,7 @@ button{
     top:90px;
     left:0;
 
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:8px;
     letter-spacing:2px;
@@ -262,33 +261,17 @@ button{
     border:1px solid #242424;
 }
 
-.reel-placeholder{
+.reel-video{
     position:absolute;
 
     inset:0;
 
-    display:flex;
+    width:100%;
+    height:100%;
 
-    align-items:center;
-    justify-content:center;
+    border:0;
 
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            #222 0%,
-            #111 45%,
-            #090909 100%
-        );
-}
-
-.reel-placeholder-text{
-    font-family:"Courier New",monospace;
-
-    font-size:8px;
-
-    letter-spacing:3px;
-
-    color:#3b3b3b;
+    opacity:.9;
 }
 
 .reel-info{
@@ -297,18 +280,23 @@ button{
     left:25px;
     bottom:25px;
 
-    z-index:3;
+    z-index:5;
+
+    pointer-events:none;
+
+    text-shadow:
+        0 2px 10px #000;
 }
 
 .reel-number{
     margin-bottom:9px;
 
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:8px;
     letter-spacing:2px;
 
-    color:#888;
+    color:#aaa;
 }
 
 .reel-title{
@@ -330,10 +318,16 @@ button{
     align-items:center;
     justify-content:center;
 
-    border:1px solid #555;
+    border:1px solid #777;
     border-radius:50%;
 
+    background:rgba(0,0,0,.35);
+
     font-size:20px;
+
+    cursor:pointer;
+
+    z-index:10;
 
     transition:
         background .35s ease,
@@ -351,7 +345,9 @@ button{
 
 
 /* =========================================================
-   SELECTED 8
+   THE CUTS
+   IMPORTANT:
+   NO VIDEO LINKS ADDED HERE
 ========================================================= */
 
 .selected{
@@ -406,8 +402,7 @@ button{
     transform:
         translate(-50%,-50%);
 
-    border:
-        1px solid #303030;
+    border:1px solid #303030;
 
     border-radius:50%;
 }
@@ -422,7 +417,7 @@ button{
 
     background:#090909;
 
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:7px;
     letter-spacing:2px;
@@ -451,7 +446,7 @@ button{
 .selected-type{
     margin-top:6px;
 
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:7px;
     letter-spacing:2px;
@@ -460,7 +455,7 @@ button{
 }
 
 .selected-index{
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:7px;
     letter-spacing:2px;
@@ -520,7 +515,7 @@ button{
 }
 
 .work-number{
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:8px;
     letter-spacing:2px;
@@ -537,7 +532,7 @@ button{
 }
 
 .work-meta{
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:7px;
     line-height:1.8;
@@ -558,6 +553,7 @@ button{
     border-radius:50%;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -579,7 +575,7 @@ button{
 
 
 /* =========================================================
-   CATEGORY VIDEO AREA
+   WORK VIDEO EXPANSION
 ========================================================= */
 
 .work-content{
@@ -624,27 +620,38 @@ button{
     gap:18px;
 }
 
-.category-placeholder{
+.video-card{
     position:relative;
+
+    overflow:hidden;
+
+    background:#0b0b0b;
+
+    border:1px solid #1d1d1d;
+}
+
+.video-card iframe{
+    display:block;
+
+    width:100%;
 
     aspect-ratio:16/9;
 
-    border:1px solid #1d1d1d;
+    border:0;
 
-    background:#0a0a0a;
+    background:#090909;
+}
 
-    display:flex;
+.video-card-title{
+    padding:
+        11px 12px;
 
-    align-items:center;
-    justify-content:center;
-
-    color:#292929;
-
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:7px;
+    letter-spacing:1.5px;
 
-    letter-spacing:2px;
+    color:#666;
 
     text-transform:uppercase;
 }
@@ -684,7 +691,7 @@ button{
 }
 
 .process-number{
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:8px;
     letter-spacing:2px;
@@ -718,9 +725,7 @@ button{
 }
 
 
-/* =========================================================
-   CUT ANIMATION
-========================================================= */
+/* CUT */
 
 .cut-visual{
     position:absolute;
@@ -782,9 +787,7 @@ button{
 }
 
 
-/* =========================================================
-   MUSIC / SOUND WAVE
-========================================================= */
+/* MUSIC / SOUND */
 
 .wave{
     position:absolute;
@@ -846,9 +849,7 @@ button{
 }
 
 
-/* =========================================================
-   COLOR ANIMATION
-========================================================= */
+/* COLOR */
 
 .color-visual{
     position:absolute;
@@ -890,9 +891,7 @@ button{
 }
 
 
-/* =========================================================
-   MOTION
-========================================================= */
+/* MOTION */
 
 .motion-visual{
     position:absolute;
@@ -907,8 +906,7 @@ button{
         translate(-50%,-50%)
         rotate(0deg);
 
-    border:
-        1px solid #444;
+    border:1px solid #444;
 
     transition:
         transform 1s
@@ -923,8 +921,7 @@ button{
 
     inset:15px;
 
-    border:
-        1px solid #333;
+    border:1px solid #333;
 }
 
 .motion-visual::after{
@@ -940,9 +937,7 @@ button{
 }
 
 
-/* =========================================================
-   TYPE
-========================================================= */
+/* TYPE */
 
 .type-visual{
     position:absolute;
@@ -998,7 +993,7 @@ button{
 .contact-label{
     margin-bottom:25px;
 
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:8px;
     letter-spacing:3px;
@@ -1039,16 +1034,16 @@ button{
     padding:
         17px 25px;
 
-    border:
-        1px solid #444;
+    border:1px solid #444;
 
     background:#0a0a0a;
 
     color:#fff;
 
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:8px;
+
     letter-spacing:2px;
 
     cursor:pointer;
@@ -1060,12 +1055,13 @@ button{
 
 .hire-button:hover{
     background:#fff;
+
     color:#000;
 }
 
 
 /* =========================================================
-   CONTACT MODAL
+   MODAL
 ========================================================= */
 
 .modal{
@@ -1148,8 +1144,6 @@ button{
     font-size:20px;
 
     cursor:pointer;
-
-    transition:.3s;
 }
 
 .modal-close:hover{
@@ -1160,9 +1154,10 @@ button{
 .modal-label{
     margin-bottom:20px;
 
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:8px;
+
     letter-spacing:3px;
 
     color:#555;
@@ -1205,9 +1200,10 @@ button{
 .contact-option-label{
     margin-bottom:7px;
 
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:7px;
+
     letter-spacing:2px;
 
     color:#555;
@@ -1248,9 +1244,10 @@ button{
 }
 
 .footer span{
-    font-family:"Courier New",monospace;
+    font-family:"Courier New", monospace;
 
     font-size:7px;
+
     letter-spacing:2px;
 
     color:#444;
@@ -1459,7 +1456,7 @@ button{
 
 
 <!-- =========================================================
-     NAVIGATION
+     NAV
 ========================================================= -->
 
 <nav class="nav">
@@ -1477,6 +1474,10 @@ button{
 
         <a href="#showreel">
             SHOWREEL
+        </a>
+
+        <a href="#selected">
+            SELECTED
         </a>
 
         <a href="#work">
@@ -1537,8 +1538,7 @@ button{
 
 
 <!-- =========================================================
-     SHOWREEL
-     2 REELS
+     01 SHOWREEL
 ========================================================= -->
 
 <section
@@ -1563,17 +1563,14 @@ button{
         <div class="showreel-grid">
 
 
-            <!-- REEL 01 -->
-
             <div class="reel-card">
 
-                <div class="reel-placeholder">
-
-                    <span class="reel-placeholder-text">
-                        SHOWREEL 01
-                    </span>
-
-                </div>
+                <iframe
+                    class="reel-video"
+                    src="https://drive.google.com/file/d/1FOBalR2kkWACMrxDvgnW_wS2UIvggTWW/preview"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
 
 
                 <div class="reel-info">
@@ -1601,17 +1598,14 @@ button{
             </div>
 
 
-            <!-- REEL 02 -->
-
             <div class="reel-card">
 
-                <div class="reel-placeholder">
-
-                    <span class="reel-placeholder-text">
-                        SHOWREEL 02
-                    </span>
-
-                </div>
+                <iframe
+                    class="reel-video"
+                    src="https://drive.google.com/file/d/1EdQs-iJTkL7YOXtV46_FTB2AGDPTGkUG/preview"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
 
 
                 <div class="reel-info">
@@ -1647,8 +1641,8 @@ button{
 
 
 <!-- =========================================================
-     SELECTED 8
-     VIDEO SOURCES INTENTIONALLY LEFT OUT
+     02 THE CUTS
+     COMPLETELY UNTOUCHED
 ========================================================= -->
 
 <section
@@ -1674,250 +1668,130 @@ button{
 
 
             <div class="selected-card">
-
                 <div class="selected-placeholder">
-
-                    <div class="selected-placeholder-number">
-                        01
-                    </div>
-
+                    <div class="selected-placeholder-number">01</div>
                 </div>
 
                 <div class="selected-info">
-
                     <div>
-                        <div class="selected-name">
-                            DECORE
-                        </div>
-
-                        <div class="selected-type">
-                            EVENT
-                        </div>
+                        <div class="selected-name">DECORE</div>
+                        <div class="selected-type">EVENT</div>
                     </div>
 
-                    <div class="selected-index">
-                        01
-                    </div>
-
+                    <div class="selected-index">01</div>
                 </div>
-
             </div>
 
 
             <div class="selected-card">
-
                 <div class="selected-placeholder">
-
-                    <div class="selected-placeholder-number">
-                        02
-                    </div>
-
+                    <div class="selected-placeholder-number">02</div>
                 </div>
 
                 <div class="selected-info">
-
                     <div>
-                        <div class="selected-name">
-                            HOST
-                        </div>
-
-                        <div class="selected-type">
-                            EVENT
-                        </div>
+                        <div class="selected-name">HOST</div>
+                        <div class="selected-type">EVENT</div>
                     </div>
 
-                    <div class="selected-index">
-                        02
-                    </div>
-
+                    <div class="selected-index">02</div>
                 </div>
-
             </div>
 
 
             <div class="selected-card">
-
                 <div class="selected-placeholder">
-
-                    <div class="selected-placeholder-number">
-                        03
-                    </div>
-
+                    <div class="selected-placeholder-number">03</div>
                 </div>
 
                 <div class="selected-info">
-
                     <div>
-                        <div class="selected-name">
-                            BAAD MEIN
-                        </div>
-
-                        <div class="selected-type">
-                            SOCIAL
-                        </div>
+                        <div class="selected-name">BAAD MEIN</div>
+                        <div class="selected-type">SOCIAL</div>
                     </div>
 
-                    <div class="selected-index">
-                        03
-                    </div>
-
+                    <div class="selected-index">03</div>
                 </div>
-
             </div>
 
 
             <div class="selected-card">
-
                 <div class="selected-placeholder">
-
-                    <div class="selected-placeholder-number">
-                        04
-                    </div>
-
+                    <div class="selected-placeholder-number">04</div>
                 </div>
 
                 <div class="selected-info">
-
                     <div>
-                        <div class="selected-name">
-                            GOLDEN TRAILS
-                        </div>
-
-                        <div class="selected-type">
-                            HOSPITALITY
-                        </div>
+                        <div class="selected-name">GOLDEN TRAILS</div>
+                        <div class="selected-type">HOSPITALITY</div>
                     </div>
 
-                    <div class="selected-index">
-                        04
-                    </div>
-
+                    <div class="selected-index">04</div>
                 </div>
-
             </div>
 
 
             <div class="selected-card">
-
                 <div class="selected-placeholder">
-
-                    <div class="selected-placeholder-number">
-                        05
-                    </div>
-
+                    <div class="selected-placeholder-number">05</div>
                 </div>
 
                 <div class="selected-info">
-
                     <div>
-                        <div class="selected-name">
-                            AIR DROP
-                        </div>
-
-                        <div class="selected-type">
-                            SOCIAL
-                        </div>
+                        <div class="selected-name">AIR DROP</div>
+                        <div class="selected-type">SOCIAL</div>
                     </div>
 
-                    <div class="selected-index">
-                        05
-                    </div>
-
+                    <div class="selected-index">05</div>
                 </div>
-
             </div>
 
 
             <div class="selected-card">
-
                 <div class="selected-placeholder">
-
-                    <div class="selected-placeholder-number">
-                        06
-                    </div>
-
+                    <div class="selected-placeholder-number">06</div>
                 </div>
 
                 <div class="selected-info">
-
                     <div>
-                        <div class="selected-name">
-                            REGAIN APP AI
-                        </div>
-
-                        <div class="selected-type">
-                            AI / APP
-                        </div>
+                        <div class="selected-name">REGAIN APP AI</div>
+                        <div class="selected-type">AI / APP</div>
                     </div>
 
-                    <div class="selected-index">
-                        06
-                    </div>
-
+                    <div class="selected-index">06</div>
                 </div>
-
             </div>
 
 
             <div class="selected-card">
-
                 <div class="selected-placeholder">
-
-                    <div class="selected-placeholder-number">
-                        07
-                    </div>
-
+                    <div class="selected-placeholder-number">07</div>
                 </div>
 
                 <div class="selected-info">
-
                     <div>
-                        <div class="selected-name">
-                            NILESH AI
-                        </div>
-
-                        <div class="selected-type">
-                            AI / VISUAL
-                        </div>
+                        <div class="selected-name">NILESH AI</div>
+                        <div class="selected-type">AI / VISUAL</div>
                     </div>
 
-                    <div class="selected-index">
-                        07
-                    </div>
-
+                    <div class="selected-index">07</div>
                 </div>
-
             </div>
 
 
             <div class="selected-card">
-
                 <div class="selected-placeholder">
-
-                    <div class="selected-placeholder-number">
-                        08
-                    </div>
-
+                    <div class="selected-placeholder-number">08</div>
                 </div>
 
                 <div class="selected-info">
-
                     <div>
-                        <div class="selected-name">
-                            EXPORT
-                        </div>
-
-                        <div class="selected-type">
-                            SOCIAL
-                        </div>
+                        <div class="selected-name">EXPORT</div>
+                        <div class="selected-type">SOCIAL</div>
                     </div>
 
-                    <div class="selected-index">
-                        08
-                    </div>
-
+                    <div class="selected-index">08</div>
                 </div>
-
             </div>
 
 
@@ -1929,7 +1803,7 @@ button{
 
 
 <!-- =========================================================
-     WORK
+     03 WORK
 ========================================================= -->
 
 <section
@@ -1968,8 +1842,7 @@ button{
                     </span>
 
                     <span class="work-meta">
-                        Commercial<br>
-                        Projects
+                        02 Videos
                     </span>
 
                     <span class="work-icon">
@@ -1985,16 +1858,33 @@ button{
 
                         <div class="category-area">
 
-                            <div class="category-placeholder">
-                                CORPORATE VIDEO
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1Jw_JfgYHXBfm9wlM25ux5bNk5z9LGg5K/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-card-title">
+                                    Corporate 01
+                                </div>
+
                             </div>
 
-                            <div class="category-placeholder">
-                                CORPORATE VIDEO
-                            </div>
 
-                            <div class="category-placeholder">
-                                CORPORATE VIDEO
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1yWwSVzbV3yWEOLKwVF-WEhlPLurSgOsS/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-card-title">
+                                    Corporate 02
+                                </div>
+
                             </div>
 
                         </div>
@@ -2023,8 +1913,7 @@ button{
                     </span>
 
                     <span class="work-meta">
-                        Events<br>
-                        Celebrations
+                        02 Videos
                     </span>
 
                     <span class="work-icon">
@@ -2040,16 +1929,33 @@ button{
 
                         <div class="category-area">
 
-                            <div class="category-placeholder">
-                                BIRTHDAY VIDEO
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/15j3QjuS40WvThjetPuag1Ju2m3vm3Q7E/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-card-title">
+                                    Birthday 01
+                                </div>
+
                             </div>
 
-                            <div class="category-placeholder">
-                                BIRTHDAY VIDEO
-                            </div>
 
-                            <div class="category-placeholder">
-                                BIRTHDAY VIDEO
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1aptuJ2x0KvlpJwJqH6KyQQK4ZBxJNrNC/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-card-title">
+                                    Birthday 02
+                                </div>
+
                             </div>
 
                         </div>
@@ -2078,8 +1984,7 @@ button{
                     </span>
 
                     <span class="work-meta">
-                        Events<br>
-                        Celebrations
+                        03 Videos
                     </span>
 
                     <span class="work-icon">
@@ -2095,17 +2000,350 @@ button{
 
                         <div class="category-area">
 
-                            <div class="category-placeholder">
-                                BABY SHOWER VIDEO
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1NhA4_vQ1w7XdMVNTuiK2gUx-ozq6JAu6/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-card-title">
+                                    Decore
+                                </div>
+
                             </div>
 
-                            <div class="category-placeholder">
-                                BABY SHOWER VIDEO
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1FankX8aN90RVXtLPBXxuByqXxaAcHGE2/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-card-title">
+                                    Host
+                                </div>
+
                             </div>
 
-                            <div class="category-placeholder">
-                                BABY SHOWER VIDEO
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1vg6urwBpK8GQylCEuAnaywXFPJ7ohA5W/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-card-title">
+                                    Video 03
+                                </div>
+
                             </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GOLDEN TRAILS -->
+
+            <div class="work-item">
+
+                <button
+                    class="work-trigger"
+                    type="button">
+
+                    <span class="work-number">
+                        04
+                    </span>
+
+                    <span class="work-title">
+                        Golden Trails
+                    </span>
+
+                    <span class="work-meta">
+                        09 Videos
+                    </span>
+
+                    <span class="work-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="work-content">
+
+                    <div class="work-content-inner">
+
+                        <div class="category-area">
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Golden Trails 01</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Golden Trails 02</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1Q488We0910bmU4I-O-btnbv0DdBYLpY3/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Golden Trails 03</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Golden Trails 04</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/15cF3H8wz5jh_A_5qjfHz6nZduDWSJ3Jf/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Golden Trails 05</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1RZ758skTbdWhqllSI_mu7FiWwm3AjJYu/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Golden Trails 06</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1bMKq2XMh_c6lw1RtA-ki_DHhGYNO27kR/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Golden Trails 07</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1nP3BQm4dHPNnPeNT1fJP-A98Z3gTl3na/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Golden Trails 08</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1x5kEr5e60TXbwr4wbq_3d-CksDzyiuqF/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Golden Trails 09</div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMPORT & EXPORT -->
+
+            <div class="work-item">
+
+                <button
+                    class="work-trigger"
+                    type="button">
+
+                    <span class="work-number">
+                        05
+                    </span>
+
+                    <span class="work-title">
+                        Import &amp; Export
+                    </span>
+
+                    <span class="work-meta">
+                        05 Shorts
+                    </span>
+
+                    <span class="work-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="work-content">
+
+                    <div class="work-content-inner">
+
+                        <div class="category-area">
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1El4SnzTe972RY_cfM8_GzZyowy5FMoa9/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Import &amp; Export Short 01</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/12YFXeBJyHOchslI2y4wsf6SrfWsd_O__/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Import &amp; Export Short 02</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Import &amp; Export Short 03</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1INmXfSUyyzw-n9OZqjn3ch1DF7PZ7wjl/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Import &amp; Export Short 04</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/12__b8E_MJ_z2ET58qIiGZqFtPpIBt-Bt/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Import &amp; Export Short 05</div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PODCAST -->
+
+            <div class="work-item">
+
+                <button
+                    class="work-trigger"
+                    type="button">
+
+                    <span class="work-number">
+                        06
+                    </span>
+
+                    <span class="work-title">
+                        Podcast
+                    </span>
+
+                    <span class="work-meta">
+                        03 Videos
+                    </span>
+
+                    <span class="work-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="work-content">
+
+                    <div class="work-content-inner">
+
+                        <div class="category-area">
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1RCdzKTuA9zlQPUq6rfDUKTlij_8sFaV8/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Podcast 01</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1KxSYq0W4cAmMocRTmWvn1VlAtgShkSuW/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Podcast 02</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/178s_-M5KxSU1JX6g3E7i-uORxOEhCJhP/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">Podcast 03</div>
+                            </div>
+
 
                         </div>
 
@@ -2125,7 +2363,7 @@ button{
                     type="button">
 
                     <span class="work-number">
-                        04
+                        07
                     </span>
 
                     <span class="work-title">
@@ -2133,8 +2371,7 @@ button{
                     </span>
 
                     <span class="work-meta">
-                        Mixed<br>
-                        Collection
+                        07 Projects
                     </span>
 
                     <span class="work-icon">
@@ -2150,29 +2387,90 @@ button{
 
                         <div class="category-area">
 
-                            <div class="category-placeholder">
-                                OTHER PROJECT
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1CcB--lcE2IoBahqzcDFMB6H3Km-vfhfa/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">
+                                    Parachute Advansed
+                                </div>
                             </div>
 
-                            <div class="category-placeholder">
-                                OTHER PROJECT
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1IeDfuj6Z6wvHuNqgBgR__TToTk99-k2y/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">
+                                    EVM
+                                </div>
                             </div>
 
-                            <div class="category-placeholder">
-                                OTHER PROJECT
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1RCmjBvQ21Wi9MvT7bcndw-QL_4N9kFQB/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">
+                                    Flying Panda
+                                </div>
                             </div>
 
-                            <div class="category-placeholder">
-                                OTHER PROJECT
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">
+                                    Nilesh AI
+                                </div>
                             </div>
 
-                            <div class="category-placeholder">
-                                OTHER PROJECT
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">
+                                    Regain App AI
+                                </div>
                             </div>
 
-                            <div class="category-placeholder">
-                                OTHER PROJECT
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/1zN7Xvp3Hs4okbJ8w37K2Lmp5atRVRBI9/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">
+                                    MAENZRAAT 3.0
+                                </div>
                             </div>
+
+
+                            <div class="video-card">
+                                <iframe
+                                    src="https://drive.google.com/file/d/13PhokBp2J3GmeoPcZh80mnCuubwXMCVS/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+                                <div class="video-card-title">
+                                    MAENZRAAT V2
+                                </div>
+                            </div>
+
 
                         </div>
 
@@ -2191,7 +2489,7 @@ button{
 
 
 <!-- =========================================================
-     HOW I WORK
+     04 HOW I WORK
 ========================================================= -->
 
 <section
@@ -2224,7 +2522,6 @@ button{
                     01
                 </div>
 
-
                 <div class="cut-visual">
 
                     <i class="cut-line"></i>
@@ -2233,11 +2530,9 @@ button{
 
                 </div>
 
-
                 <div class="process-name">
                     CUT
                 </div>
-
 
                 <div class="process-description">
                     Every cut has a purpose.
@@ -2256,7 +2551,6 @@ button{
                     02
                 </div>
 
-
                 <div class="wave">
 
                     <i class="wave-bar" style="--h:20px"></i>
@@ -2273,11 +2567,9 @@ button{
 
                 </div>
 
-
                 <div class="process-name">
                     MUSIC
                 </div>
-
 
                 <div class="process-description">
                     Rhythm drives the edit.
@@ -2296,7 +2588,6 @@ button{
                     03
                 </div>
 
-
                 <div class="wave">
 
                     <i class="wave-bar" style="--h:15px"></i>
@@ -2312,11 +2603,9 @@ button{
 
                 </div>
 
-
                 <div class="process-name">
                     SOUND
                 </div>
-
 
                 <div class="process-description">
                     Sound design gives every moment
@@ -2334,14 +2623,11 @@ button{
                     04
                 </div>
 
-
                 <div class="color-visual"></div>
-
 
                 <div class="process-name">
                     COLOR
                 </div>
-
 
                 <div class="process-description">
                     Colour creates consistency,
@@ -2359,14 +2645,11 @@ button{
                     05
                 </div>
 
-
                 <div class="motion-visual"></div>
-
 
                 <div class="process-name">
                     MOTION
                 </div>
-
 
                 <div class="process-description">
                     Movement and transitions are
@@ -2384,16 +2667,13 @@ button{
                     06
                 </div>
 
-
                 <div class="type-visual">
                     Aa
                 </div>
 
-
                 <div class="process-name">
                     TYPE
                 </div>
-
 
                 <div class="process-description">
                     Typography becomes part of
@@ -2411,7 +2691,7 @@ button{
 
 
 <!-- =========================================================
-     CONTACT
+     05 CONTACT
 ========================================================= -->
 
 <section
@@ -2731,26 +3011,25 @@ document.addEventListener(
    SHOWREEL ARROWS
 ========================================================= */
 
-const reelButtons =
-    document.querySelectorAll(
-        ".reel-arrow"
-    );
-
-
-reelButtons.forEach(function(button){
+document.querySelectorAll(".reel-arrow")
+.forEach(function(button){
 
     button.addEventListener(
         "click",
         function(){
 
+            const card =
+                button.closest(".reel-card");
+
+            const iframe =
+                card.querySelector("iframe");
+
             /*
-             * Actual showreel links will be
-             * connected later.
+             * Focus the Drive player so the user
+             * can interact with the reel.
              */
 
-            console.log(
-                "Showreel will be connected later."
-            );
+            iframe.focus();
 
         }
     );
