@@ -7,6 +7,7 @@
 <title>Suraj Sharma — Video Editor</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -49,13 +50,10 @@ button{
 .nav{
     position:fixed;
     z-index:1000;
-
     top:0;
     left:0;
-
     width:100%;
     height:72px;
-
     padding:0 5vw;
 
     display:flex;
@@ -65,7 +63,6 @@ button{
     border-bottom:1px solid rgba(255,255,255,.06);
 
     background:rgba(5,5,5,.72);
-
     backdrop-filter:blur(12px);
 }
 
@@ -83,9 +80,7 @@ button{
     font-family:"Courier New",monospace;
     font-size:8px;
     letter-spacing:2px;
-
     color:#777;
-
     transition:.3s;
 }
 
@@ -100,9 +95,7 @@ button{
 
 .hero{
     position:relative;
-
     min-height:100vh;
-
     overflow:hidden;
 
     display:flex;
@@ -111,27 +104,19 @@ button{
     padding-top:72px;
 }
 
-
-/* giant background name */
-
 .hero-bg-text{
     position:absolute;
-
     z-index:0;
 
     top:55px;
     left:2vw;
 
     font-family:Georgia,serif;
-
     font-size:25vw;
-
     line-height:.7;
-
     letter-spacing:-.1em;
 
     color:#0d0d0d;
-
     white-space:nowrap;
 
     pointer-events:none;
@@ -140,28 +125,23 @@ button{
 }
 
 
-/* timeline background */
+/* =========================================================
+   EDITING TIMELINE
+========================================================= */
 
 .timeline{
     position:absolute;
-
     z-index:1;
 
     top:29%;
-
     left:48%;
 
     width:52%;
-
     height:480px;
 
     opacity:.62;
-
     pointer-events:none;
 }
-
-
-/* timeline ruler */
 
 .timeline-ruler{
     position:absolute;
@@ -186,18 +166,13 @@ button{
 
 .time{
     position:absolute;
-
     top:12px;
 
     font-family:"Courier New",monospace;
-
     font-size:8px;
 
     color:#555;
 }
-
-
-/* tracks */
 
 .track{
     position:absolute;
@@ -217,36 +192,20 @@ button{
     top:12px;
 
     font-family:"Courier New",monospace;
-
     font-size:8px;
 
     color:#555;
 }
 
-.track-v2{
-    top:45px;
-}
-
-.track-v3{
-    top:135px;
-}
-
-.track-a1{
-    top:225px;
-}
-
-.track-a2{
-    top:315px;
-}
-
-
-/* video clips */
+.track-v2{top:45px;}
+.track-v3{top:135px;}
+.track-a1{top:225px;}
+.track-a2{top:315px;}
 
 .clip{
     position:absolute;
 
     top:17px;
-
     height:55px;
 
     border:1px solid #292929;
@@ -259,21 +218,6 @@ button{
         );
 
     overflow:hidden;
-}
-
-.clip::after{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(255,255,255,.03)
-        );
 }
 
 .clip-1{
@@ -303,7 +247,6 @@ button{
 
 .clip-thumb{
     position:absolute;
-
     inset:5px;
 
     opacity:.16;
@@ -324,16 +267,11 @@ button{
     bottom:5px;
 
     font-family:"Courier New",monospace;
-
     font-size:6px;
 
     color:#666;
-
     z-index:2;
 }
-
-
-/* waveform */
 
 .waveform{
     position:absolute;
@@ -342,7 +280,6 @@ button{
     right:0;
 
     top:25px;
-
     height:38px;
 
     opacity:.28;
@@ -387,7 +324,6 @@ button{
 
 .playhead{
     position:absolute;
-
     z-index:8;
 
     top:-20px;
@@ -449,11 +385,9 @@ button{
     white-space:nowrap;
 
     font-family:"Courier New",monospace;
-
     font-size:9px;
 
     color:var(--gold);
-
     letter-spacing:1px;
 }
 
@@ -480,11 +414,9 @@ button{
 
 .hero-content{
     position:relative;
-
     z-index:10;
 
     width:90%;
-
     max-width:1450px;
 
     margin:auto;
@@ -494,9 +426,7 @@ button{
     margin-bottom:25px;
 
     font-family:"Courier New",monospace;
-
     font-size:8px;
-
     letter-spacing:3px;
 
     color:var(--gold);
@@ -508,7 +438,6 @@ button{
     font-size:clamp(90px,13vw,205px);
 
     line-height:.67;
-
     letter-spacing:-.095em;
 
     font-weight:800;
@@ -516,7 +445,6 @@ button{
 
 .hero-name .solid{
     position:relative;
-
     z-index:3;
 
     display:block;
@@ -524,7 +452,6 @@ button{
 
 .hero-name .outline{
     position:relative;
-
     z-index:2;
 
     display:block;
@@ -538,17 +465,14 @@ button{
 
 .hero-description{
     position:relative;
-
     z-index:10;
 
     width:370px;
-
     max-width:90%;
 
     margin-top:60px;
 
     font-size:12px;
-
     line-height:1.8;
 
     color:#777;
@@ -556,24 +480,19 @@ button{
 
 
 /* =========================================================
-   SKILLS
+   HERO SKILLS
 ========================================================= */
 
 .hero-bottom{
     position:relative;
-
     z-index:10;
 
     display:flex;
-
     align-items:center;
-
-    gap:0;
 
     margin-top:42px;
 
     width:560px;
-
     max-width:100%;
 }
 
@@ -599,7 +518,6 @@ button{
     height:30px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -614,7 +532,6 @@ button{
     font-family:"Courier New",monospace;
 
     font-size:8px;
-
     letter-spacing:2px;
 }
 
@@ -625,15 +542,12 @@ button{
 
 .scroll{
     position:absolute;
-
     z-index:10;
 
     bottom:35px;
-
     left:5vw;
 
     display:flex;
-
     align-items:center;
 
     gap:18px;
@@ -641,7 +555,6 @@ button{
     font-family:"Courier New",monospace;
 
     font-size:8px;
-
     letter-spacing:2px;
 
     color:#aaa;
@@ -649,7 +562,6 @@ button{
 
 .scroll-arrow{
     color:var(--gold);
-
     font-size:18px;
 
     animation:
@@ -670,7 +582,7 @@ button{
 
 
 /* =========================================================
-   SECTION COMMON
+   COMMON
 ========================================================= */
 
 .section{
@@ -681,7 +593,6 @@ button{
 
 .container{
     width:90%;
-
     max-width:1450px;
 
     margin:auto;
@@ -691,7 +602,6 @@ button{
     font-family:"Courier New",monospace;
 
     font-size:8px;
-
     letter-spacing:3px;
 
     color:#555;
@@ -713,13 +623,39 @@ button{
 .showreel-layout{
     display:grid;
 
-    grid-template-columns:32% 68%;
+    grid-template-columns:
+        minmax(300px,.78fr)
+        minmax(0,1.72fr);
 
     align-items:center;
+
+    gap:clamp(35px,5vw,90px);
 }
 
 .showreel-info{
+    position:relative;
+    z-index:5;
+
+    min-width:0;
+
     padding-right:50px;
+}
+
+.showreel-videos{
+    position:relative;
+    z-index:4;
+
+    min-width:0;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        220px;
+
+    gap:20px;
+
+    align-items:center;
 }
 
 .showreel-title{
@@ -742,7 +678,6 @@ button{
 
 .gold-line{
     width:50px;
-
     height:2px;
 
     margin-top:45px;
@@ -752,26 +687,14 @@ button{
 
 .showreel-description{
     width:300px;
-
     max-width:100%;
 
     margin-top:35px;
 
     font-size:11px;
-
     line-height:1.8;
 
     color:#777;
-}
-
-.showreel-videos{
-    display:grid;
-
-    grid-template-columns:1fr 235px;
-
-    gap:18px;
-
-    align-items:center;
 }
 
 .showreel-card{
@@ -782,27 +705,70 @@ button{
     border:1px solid #292929;
 
     background:#090909;
+
+    transition:
+        transform .45s cubic-bezier(.2,.7,.2,1),
+        border-color .45s ease;
 }
 
 .showreel-card:first-child{
-    height:500px;
+    height:470px;
 }
 
 .showreel-card:last-child{
-    height:350px;
+    height:330px;
+}
+
+.showreel-card:hover{
+    border-color:rgba(214,161,58,.45);
+
+    transform:translateY(-5px);
 }
 
 .showreel-card iframe{
+    position:relative;
+    z-index:1;
+
     width:100%;
     height:100%;
 
     border:0;
+
+    display:block;
+}
+
+.showreel-overlay{
+    position:absolute;
+    z-index:2;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 55%,
+            rgba(0,0,0,.9)
+        );
+}
+
+.showreel-card::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    z-index:2;
+
+    pointer-events:none;
+
+    border:1px solid rgba(255,255,255,.06);
 }
 
 .showreel-card-info{
     position:absolute;
-
-    z-index:3;
+    z-index:4;
 
     left:20px;
     bottom:18px;
@@ -816,7 +782,6 @@ button{
     font-family:"Courier New",monospace;
 
     font-size:7px;
-
     letter-spacing:2px;
 
     color:var(--gold);
@@ -824,25 +789,7 @@ button{
 
 .showreel-card-info strong{
     font-size:18px;
-
     font-weight:400;
-}
-
-.showreel-overlay{
-    position:absolute;
-
-    z-index:2;
-
-    inset:0;
-
-    pointer-events:none;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent 55%,
-            rgba(0,0,0,.9)
-        );
 }
 
 
@@ -860,15 +807,12 @@ button{
     content:"";
 
     position:absolute;
-
     z-index:0;
 
-    right:-5%;
-
+    right:-2%;
     top:0;
 
-    width:62%;
-
+    width:68%;
     height:100%;
 
     background:
@@ -882,22 +826,22 @@ button{
         url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&q=85");
 
     background-size:cover;
+    background-position:center right;
 
-    background-position:center;
-
-    opacity:.7;
+    opacity:.82;
 
     pointer-events:none;
 }
 
 .work-inner{
     position:relative;
-
     z-index:2;
 
     display:grid;
 
-    grid-template-columns:28% 72%;
+    grid-template-columns:
+        minmax(280px,30%)
+        minmax(0,70%);
 }
 
 .work-intro{
@@ -924,7 +868,6 @@ button{
 
 .work-gold-line{
     width:65px;
-
     height:2px;
 
     margin-top:50px;
@@ -938,7 +881,6 @@ button{
     margin-top:40px;
 
     font-size:11px;
-
     line-height:1.9;
 
     color:#888;
@@ -946,22 +888,19 @@ button{
 
 .work-divider{
     position:absolute;
-
     z-index:3;
 
-    left:28%;
-
+    left:30%;
     top:0;
 
     width:1px;
-
     height:100%;
 
     background:var(--gold);
 }
 
 .project-list{
-    padding-left:55px;
+    padding-left:clamp(30px,4vw,65px);
 }
 
 .project{
@@ -973,13 +912,18 @@ button{
 }
 
 .project-button{
-    width:100%;
+    position:relative;
 
+    width:100%;
     min-height:95px;
 
     display:grid;
 
-    grid-template-columns:60px 1fr 120px 50px;
+    grid-template-columns:
+        60px
+        1fr
+        120px
+        50px;
 
     align-items:center;
 
@@ -998,6 +942,30 @@ button{
 
 .project-button:hover{
     padding-left:10px;
+}
+
+.project-button::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:-1px;
+
+    height:1px;
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    background:var(--gold);
+
+    transition:.5s ease;
+}
+
+.project-button:hover::after{
+    transform:scaleX(1);
 }
 
 .project-number{
@@ -1035,7 +1003,6 @@ button{
     height:38px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -1095,7 +1062,8 @@ button{
 .video-grid{
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:
+        repeat(2,1fr);
 
     gap:12px;
 }
@@ -1170,7 +1138,8 @@ button{
 .process-grid{
     display:grid;
 
-    grid-template-columns:repeat(6,1fr);
+    grid-template-columns:
+        repeat(6,1fr);
 
     gap:12px;
 
@@ -1239,9 +1208,6 @@ button{
     height:70px;
 }
 
-
-/* cut */
-
 .cut-lines span{
     display:block;
 
@@ -1270,9 +1236,6 @@ button{
     width:100%;
 }
 
-
-/* sound */
-
 .sound-wave{
     display:flex;
 
@@ -1289,7 +1252,8 @@ button{
 
     background:#777;
 
-    animation:sound 1s ease-in-out infinite alternate;
+    animation:
+        sound 1s ease-in-out infinite alternate;
 }
 
 .sound-wave span:nth-child(2n){
@@ -1307,9 +1271,6 @@ button{
     }
 
 }
-
-
-/* color */
 
 .color-circle{
     width:80px;
@@ -1336,9 +1297,6 @@ button{
     transform:scale(1.3);
 }
 
-
-/* motion */
-
 .motion-square{
     width:70px;
     height:70px;
@@ -1353,9 +1311,6 @@ button{
 .process-card:hover .motion-square{
     transform:rotate(45deg);
 }
-
-
-/* type */
 
 .type-graphic{
     text-align:center;
@@ -1410,13 +1365,11 @@ button{
 
 .contact-description{
     width:400px;
-
     max-width:100%;
 
     margin-bottom:40px;
 
     font-size:11px;
-
     line-height:1.8;
 
     color:#777;
@@ -1425,7 +1378,8 @@ button{
 .contact-grid{
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
 
     border-top:1px solid var(--line);
 }
@@ -1498,7 +1452,7 @@ footer{
    RESPONSIVE
 ========================================================= */
 
-@media(max-width:1000px){
+@media(max-width:1100px){
 
     .nav-links{
         gap:18px;
@@ -1517,6 +1471,8 @@ footer{
 
     .showreel-layout{
         grid-template-columns:1fr;
+
+        gap:60px;
     }
 
     .showreel-videos{
@@ -1546,7 +1502,8 @@ footer{
     }
 
     .process-grid{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:
+            repeat(3,1fr);
     }
 
     .contact-layout{
@@ -1558,6 +1515,7 @@ footer{
 
         margin-top:70px;
     }
+
 }
 
 
@@ -1577,17 +1535,13 @@ footer{
 
     .hero-bg-text{
         font-size:40vw;
-
         top:100px;
     }
 
     .timeline{
         top:45%;
-
         left:0;
-
         width:100%;
-
         opacity:.35;
     }
 
@@ -1605,13 +1559,11 @@ footer{
 
     .hero-bottom{
         width:100%;
-
         margin-top:40px;
     }
 
     .skill{
         width:25%;
-
         padding:0 8px;
     }
 
@@ -1637,13 +1589,15 @@ footer{
 
     .showreel-card:first-child,
     .showreel-card:last-child{
+
         height:auto;
 
         aspect-ratio:16/9;
     }
 
     .project-button{
-        grid-template-columns:40px 1fr 40px;
+        grid-template-columns:
+            40px 1fr 40px;
 
         min-height:85px;
     }
@@ -1665,7 +1619,8 @@ footer{
     }
 
     .process-grid{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
     .process-title{
@@ -1730,7 +1685,6 @@ footer{
 
 <section class="hero" id="home">
 
-
     <div
         class="hero-bg-text"
         id="heroBg">
@@ -1740,10 +1694,9 @@ footer{
     </div>
 
 
-    <!-- TIMELINE -->
+    <!-- EDITING TIMELINE -->
 
     <div class="timeline">
-
 
         <div class="timeline-ruler">
 
@@ -1845,19 +1798,16 @@ footer{
 
         </div>
 
-
     </div>
 
 
-    <!-- HERO CONTENT -->
+    <!-- HERO TEXT -->
 
     <div class="hero-content">
-
 
         <div class="hero-label">
             VIDEO EDITOR / PUNE, INDIA
         </div>
-
 
         <h1 class="hero-name">
 
@@ -1871,7 +1821,6 @@ footer{
 
         </h1>
 
-
         <p class="hero-description">
 
             Video editor and visual storyteller focused on
@@ -1882,7 +1831,6 @@ footer{
 
 
         <div class="hero-bottom">
-
 
             <div class="skill">
 
@@ -1935,7 +1883,6 @@ footer{
 
             </div>
 
-
         </div>
 
     </div>
@@ -1950,7 +1897,6 @@ footer{
         </span>
 
     </div>
-
 
 </section>
 
@@ -1991,10 +1937,12 @@ footer{
     <div class="showreel-videos">
 
 
+        <!-- SHOWREEL 01 -->
+
         <div class="showreel-card">
 
             <iframe
-                src="https://drive.google.com/file/d/1tfX3hO6qTFcrTpiRkanyjoFlA2VDl6e4/preview"
+                src="https://drive.google.com/file/d/1FOBalR2kkWACMrxDvgnW_wS2UIvggTWW/preview"
                 allow="autoplay; fullscreen"
                 allowfullscreen>
             </iframe>
@@ -2016,10 +1964,12 @@ footer{
         </div>
 
 
+        <!-- SHOWREEL 02 -->
+
         <div class="showreel-card">
 
             <iframe
-                src="https://drive.google.com/file/d/1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5/preview"
+                src="https://drive.google.com/file/d/1EdQs-iJTkL7YOXtV46_FTB2AGDPTGkUG/preview"
                 allow="autoplay; fullscreen"
                 allowfullscreen>
             </iframe>
@@ -2066,9 +2016,9 @@ footer{
         THE CUTS<span>.</span>
     </h2>
 
-    <div class="showreel-description">
+    <p class="showreel-description">
         Selected edits and visual experiments.
-    </div>
+    </p>
 
 </div>
 
@@ -2115,7 +2065,9 @@ footer{
     <div class="project-list">
 
 
-        <!-- CORPORATE -->
+        <!-- =================================================
+             CORPORATE
+        ================================================= -->
 
         <div class="project">
 
@@ -2123,7 +2075,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">01</span>
+                <span class="project-number">
+                    01
+                </span>
 
                 <span class="project-name">
                     Corporate
@@ -2145,7 +2099,6 @@ footer{
                 <div class="project-inner">
 
                     <div class="video-grid">
-
 
                         <div class="video-card">
 
@@ -2176,7 +2129,6 @@ footer{
 
                         </div>
 
-
                     </div>
 
                 </div>
@@ -2186,7 +2138,9 @@ footer{
         </div>
 
 
-        <!-- BIRTHDAY -->
+        <!-- =================================================
+             BIRTHDAY
+        ================================================= -->
 
         <div class="project">
 
@@ -2194,7 +2148,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">02</span>
+                <span class="project-number">
+                    02
+                </span>
 
                 <span class="project-name">
                     Birthday
@@ -2216,7 +2172,6 @@ footer{
                 <div class="project-inner">
 
                     <div class="video-grid">
-
 
                         <div class="video-card">
 
@@ -2247,7 +2202,6 @@ footer{
 
                         </div>
 
-
                     </div>
 
                 </div>
@@ -2257,7 +2211,9 @@ footer{
         </div>
 
 
-        <!-- BABY SHOWER -->
+        <!-- =================================================
+             BABY SHOWER
+        ================================================= -->
 
         <div class="project">
 
@@ -2265,7 +2221,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">03</span>
+                <span class="project-number">
+                    03
+                </span>
 
                 <span class="project-name">
                     Baby Shower
@@ -2287,7 +2245,6 @@ footer{
                 <div class="project-inner">
 
                     <div class="video-grid">
-
 
                         <div class="video-card">
 
@@ -2333,7 +2290,6 @@ footer{
 
                         </div>
 
-
                     </div>
 
                 </div>
@@ -2343,7 +2299,9 @@ footer{
         </div>
 
 
-        <!-- GOLDEN TRAILS -->
+        <!-- =================================================
+             GOLDEN TRAILS
+        ================================================= -->
 
         <div class="project">
 
@@ -2351,7 +2309,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">04</span>
+                <span class="project-number">
+                    04
+                </span>
 
                 <span class="project-name">
                     Golden Trails
@@ -2372,45 +2332,7 @@ footer{
 
                 <div class="project-inner">
 
-                    <div class="video-grid">
-
-
-                        <script>
-                        const goldenTrails = [
-                            ["1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT","GOLDEN TRAILS 01"],
-                            ["1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo","GOLDEN TRAILS 02"],
-                            ["1Q488We0910bmU4I-O-btnbv0DdBYLpY3","GOLDEN TRAILS 03"],
-                            ["1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu","GOLDEN TRAILS 04"],
-                            ["15cF3H8wz5jh_A_5qjfHz6nZduDWSJ3Jf","GOLDEN TRAILS 05"],
-                            ["1RZ758skTbdWhqllSI_mu7FiWwm3AjJYu","GOLDEN TRAILS 06"],
-                            ["1bMKq2XMh_c6lw1RtA-ki_DHhGYNO27kR","GOLDEN TRAILS 07"],
-                            ["1nP3BQm4dHPNnPeNT1fJP-A98Z3gTl3na","GOLDEN TRAILS 08"],
-                            ["1x5kEr5e60TXbwr4wbq_3d-CksDzyiuqF","GOLDEN TRAILS 09"]
-                        ];
-
-                        goldenTrails.forEach(video => {
-
-                            document.write(`
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/${video[0]}/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    ${video[1]}
-                                </div>
-
-                            </div>
-                            `);
-
-                        });
-                        </script>
-
-
-                    </div>
+                    <div class="video-grid" id="goldenTrailsGrid"></div>
 
                 </div>
 
@@ -2419,7 +2341,9 @@ footer{
         </div>
 
 
-        <!-- IMPORT & EXPORT -->
+        <!-- =================================================
+             IMPORT & EXPORT
+        ================================================= -->
 
         <div class="project">
 
@@ -2427,7 +2351,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">05</span>
+                <span class="project-number">
+                    05
+                </span>
 
                 <span class="project-name">
                     Import &amp; Export
@@ -2448,50 +2374,9 @@ footer{
 
                 <div class="project-inner">
 
-                    <div class="video-grid">
-
-
-                        <script>
-
-                        const importExport = [
-
-                            ["1El4SnzTe972RY_cfM8_GzZyowy5FMoa9","SHORT 01"],
-
-                            ["12YFXeBJyHOchslI2y4wsf6SrfWsd_O__","SHORT 02"],
-
-                            ["17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr","SHORT 03"],
-
-                            ["1INmXfSUyyzw-n9OZqjn3ch1DF7PZ7wjl","SHORT 04"],
-
-                            ["12__b8E_MJ_z2ET58qIiGZqFtPpIBt-Bt","SHORT 05"]
-
-                        ];
-
-                        importExport.forEach(video => {
-
-                            document.write(`
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/${video[0]}/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    ${video[1]}
-                                </div>
-
-                            </div>
-
-                            `);
-
-                        });
-
-                        </script>
-
-
+                    <div
+                        class="video-grid"
+                        id="importExportGrid">
                     </div>
 
                 </div>
@@ -2501,7 +2386,9 @@ footer{
         </div>
 
 
-        <!-- PODCAST -->
+        <!-- =================================================
+             PODCAST
+        ================================================= -->
 
         <div class="project">
 
@@ -2509,7 +2396,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">06</span>
+                <span class="project-number">
+                    06
+                </span>
 
                 <span class="project-name">
                     Podcast
@@ -2531,7 +2420,6 @@ footer{
                 <div class="project-inner">
 
                     <div class="video-grid">
-
 
                         <div class="video-card">
 
@@ -2577,7 +2465,6 @@ footer{
 
                         </div>
 
-
                     </div>
 
                 </div>
@@ -2587,7 +2474,9 @@ footer{
         </div>
 
 
-        <!-- OTHER PROJECTS -->
+        <!-- =================================================
+             OTHER PROJECTS
+        ================================================= -->
 
         <div class="project">
 
@@ -2595,7 +2484,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">07</span>
+                <span class="project-number">
+                    07
+                </span>
 
                 <span class="project-name">
                     Other Projects
@@ -2616,54 +2507,9 @@ footer{
 
                 <div class="project-inner">
 
-                    <div class="video-grid">
-
-
-                        <script>
-
-                        const otherProjects = [
-
-                            ["1CcB--lcE2IoBahqzcDFMB6H3Km-vfhfa","PARACHUTE ADVANSED"],
-
-                            ["1IeDfuj6Z6wvHuNqgBgR__TToTk99-k2y","EVM"],
-
-                            ["1RCmjBvQ21Wi9MvT7bcndw-QL_4N9kFQB","FLYING PANDA"],
-
-                            ["1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ","NILESH AI"],
-
-                            ["1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5","REGAIN APP AI"],
-
-                            ["1zN7Xvp3Hs4okbJ8w37K2Lmp5atRVRBI9","MAENZRAAT 3.0"],
-
-                            ["13PhokBp2J3GmeoPcZh80mnCuubwXMCVS","MAENZRAAT V2"]
-
-                        ];
-
-                        otherProjects.forEach(video => {
-
-                            document.write(`
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/${video[0]}/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    ${video[1]}
-                                </div>
-
-                            </div>
-
-                            `);
-
-                        });
-
-                        </script>
-
-
+                    <div
+                        class="video-grid"
+                        id="otherProjectsGrid">
                     </div>
 
                 </div>
@@ -2708,14 +2554,14 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">01</div>
+            <div class="process-number">
+                01
+            </div>
 
             <div class="graphic cut-lines">
-
                 <span></span>
                 <span></span>
                 <span></span>
-
             </div>
 
             <div class="process-name">
@@ -2732,7 +2578,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">02</div>
+            <div class="process-number">
+                02
+            </div>
 
             <div class="graphic sound-wave">
 
@@ -2759,7 +2607,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">03</div>
+            <div class="process-number">
+                03
+            </div>
 
             <div class="graphic color-circle"></div>
 
@@ -2776,7 +2626,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">04</div>
+            <div class="process-number">
+                04
+            </div>
 
             <div class="graphic motion-square"></div>
 
@@ -2793,7 +2645,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">05</div>
+            <div class="process-number">
+                05
+            </div>
 
             <div class="graphic type-graphic">
                 Aa
@@ -2812,14 +2666,14 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">06</div>
+            <div class="process-number">
+                06
+            </div>
 
             <div class="graphic cut-lines">
-
                 <span></span>
                 <span></span>
                 <span></span>
-
             </div>
 
             <div class="process-name">
@@ -2974,6 +2828,114 @@ footer{
 <script>
 
 /* =========================================================
+   GOLDEN TRAILS
+========================================================= */
+
+const goldenTrails = [
+
+    ["1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT","GOLDEN TRAILS 01"],
+    ["1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo","GOLDEN TRAILS 02"],
+    ["1Q488We0910bmU4I-O-btnbv0DdBYLpY3","GOLDEN TRAILS 03"],
+    ["1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu","GOLDEN TRAILS 04"],
+    ["15cF3H8wz5jh_A_5qjfHz6nZduDWSJ3Jf","GOLDEN TRAILS 05"],
+    ["1RZ758skTbdWhqllSI_mu7FiWwm3AjJYu","GOLDEN TRAILS 06"],
+    ["1bMKq2XMh_c6lw1RtA-ki_DHhGYNO27kR","GOLDEN TRAILS 07"],
+    ["1nP3BQm4dHPNnPeNT1fJP-A98Z3gTl3na","GOLDEN TRAILS 08"],
+    ["1x5kEr5e60TXbwr4wbq_3d-CksDzyiuqF","GOLDEN TRAILS 09"]
+
+];
+
+
+
+/* =========================================================
+   IMPORT & EXPORT
+========================================================= */
+
+const importExport = [
+
+    ["1El4SnzTe972RY_cfM8_GzZyowy5FMoa9","SHORT 01"],
+    ["12YFXeBJyHOchslI2y4wsf6SrfWsd_O__","SHORT 02"],
+    ["17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr","SHORT 03"],
+    ["1INmXfSUyyzw-n9OZqjn3ch1DF7PZ7wjl","SHORT 04"],
+    ["12__b8E_MJ_z2ET58qIiGZqFtPpIBt-Bt","SHORT 05"]
+
+];
+
+
+
+/* =========================================================
+   OTHER PROJECTS
+========================================================= */
+
+const otherProjects = [
+
+    ["1CcB--lcE2IoBahqzcDFMB6H3Km-vfhfa","PARACHUTE ADVANSED"],
+    ["1IeDfuj6Z6wvHuNqgBgR__TToTk99-k2y","EVM"],
+    ["1RCmjBvQ21Wi9MvT7bcndw-QL_4N9kFQB","FLYING PANDA"],
+    ["1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ","NILESH AI"],
+    ["1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5","REGAIN APP AI"],
+    ["1zN7Xvp3Hs4okbJ8w37K2Lmp5atRVRBI9","MAENZRAAT 3.0"],
+    ["13PhokBp2J3GmeoPcZh80mnCuubwXMCVS","MAENZRAAT V2"]
+
+];
+
+
+
+/* =========================================================
+   CREATE VIDEO CARDS
+========================================================= */
+
+function createVideoCards(array, containerId){
+
+    const container =
+        document.getElementById(containerId);
+
+    array.forEach(video => {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "video-card";
+
+        card.innerHTML = `
+
+            <iframe
+                src="https://drive.google.com/file/d/${video[0]}/preview"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+
+            <div class="video-title">
+                ${video[1]}
+            </div>
+
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+createVideoCards(
+    goldenTrails,
+    "goldenTrailsGrid"
+);
+
+createVideoCards(
+    importExport,
+    "importExportGrid"
+);
+
+createVideoCards(
+    otherProjects,
+    "otherProjectsGrid"
+);
+
+
+
+/* =========================================================
    PROJECT ACCORDION
 ========================================================= */
 
@@ -3004,6 +2966,7 @@ function toggleProject(button){
 }
 
 
+
 /* =========================================================
    HERO PARALLAX
 ========================================================= */
@@ -3015,31 +2978,38 @@ const heroBg =
     document.getElementById("heroBg");
 
 
-hero.addEventListener("mousemove",function(e){
+hero.addEventListener(
+    "mousemove",
+    function(e){
 
-    const x =
-        (e.clientX / window.innerWidth - .5) * 2;
+        const x =
+            (e.clientX / window.innerWidth - .5) * 2;
 
-    const y =
-        (e.clientY / window.innerHeight - .5) * 2;
-
-
-    heroBg.style.transform =
-        `translate(${x * 18}px, ${y * 10}px)`;
-
-});
+        const y =
+            (e.clientY / window.innerHeight - .5) * 2;
 
 
-hero.addEventListener("mouseleave",function(){
+        heroBg.style.transform =
+            `translate(${x * 18}px, ${y * 10}px)`;
 
-    heroBg.style.transform =
-        "translate(0,0)";
+    }
+);
 
-});
+
+hero.addEventListener(
+    "mouseleave",
+    function(){
+
+        heroBg.style.transform =
+            "translate(0,0)";
+
+    }
+);
+
 
 
 /* =========================================================
-   PAUSE TIMELINE WHEN TAB IS NOT ACTIVE
+   PAUSE TIMELINE WHEN TAB IS INACTIVE
 ========================================================= */
 
 document.addEventListener(
@@ -3048,6 +3018,7 @@ document.addEventListener(
 
         const playhead =
             document.querySelector(".playhead");
+
 
         if(document.hidden){
 
