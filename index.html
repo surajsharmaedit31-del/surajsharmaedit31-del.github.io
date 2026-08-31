@@ -24,8 +24,8 @@ html{
 
 body{
     background:#050505;
-    color:#f2f0ec;
-    font-family:Arial, Helvetica, sans-serif;
+    color:#f3f0eb;
+    font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
 }
 
@@ -34,16 +34,17 @@ button{
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 :root{
-    --gold:#b58a4b;
-    --white:#f2f0ec;
-    --dark:#050505;
+    --bg:#050505;
+    --white:#f3f0eb;
+    --gold:#d19a36;
     --line:#242424;
-    --muted:#5e5e5e;
+    --muted:#777;
+    --dark:#101010;
 }
 
 
@@ -52,31 +53,30 @@ a{
 ========================================================= */
 
 .container{
-    width:72%;
+    width:92%;
     max-width:1500px;
     margin:auto;
 }
 
 .section{
     position:relative;
-    padding:150px 0;
     border-top:1px solid var(--line);
 }
 
 .section-number{
-    position:absolute;
-    top:70px;
-    left:0;
-
-    font-family:"Courier New", monospace;
+    font-family:"Courier New",monospace;
     font-size:8px;
     letter-spacing:3px;
-    color:#444;
+    color:#555;
+}
+
+.gold{
+    color:var(--gold);
 }
 
 
 /* =========================================================
-   NAVIGATION
+   NAV
 ========================================================= */
 
 .nav{
@@ -87,9 +87,9 @@ a{
     left:0;
 
     width:100%;
-    height:80px;
+    height:72px;
 
-    padding:0 5vw;
+    padding:0 4.5vw;
 
     display:flex;
     align-items:center;
@@ -97,33 +97,60 @@ a{
 
     background:linear-gradient(
         to bottom,
-        rgba(5,5,5,.95),
-        rgba(5,5,5,0)
+        rgba(5,5,5,.98),
+        rgba(5,5,5,.75),
+        transparent
     );
+
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo{
-    font-size:11px;
+    font-size:12px;
     font-weight:bold;
-    letter-spacing:.5px;
+    letter-spacing:.3px;
 }
 
 .nav-links{
     display:flex;
-    gap:30px;
+    align-items:center;
+    gap:38px;
 }
 
 .nav-links a{
+    position:relative;
+
     font-family:"Courier New",monospace;
     font-size:8px;
     letter-spacing:2px;
-    color:#555;
 
-    transition:.3s ease;
+    color:#777;
+
+    transition:.3s;
 }
 
 .nav-links a:hover{
     color:#fff;
+}
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-9px;
+
+    width:0;
+    height:1px;
+
+    background:var(--gold);
+
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
 }
 
 
@@ -137,24 +164,56 @@ a{
     display:flex;
     align-items:center;
 
-    position:relative;
+    padding-top:72px;
+
+    overflow:hidden;
 }
 
-.hero-label{
+.hero::before{
+    content:"SURAJ";
+
+    position:absolute;
+
+    top:5vh;
+    left:2vw;
+
+    font-family:Georgia,serif;
+    font-size:25vw;
+    line-height:.7;
+
+    letter-spacing:-.1em;
+
+    color:#0e0e0e;
+
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero-small{
     margin-bottom:35px;
 
     font-family:"Courier New",monospace;
     font-size:8px;
     letter-spacing:3px;
 
-    color:#555;
+    color:var(--gold);
 }
 
 .hero-title{
-    font-size:clamp(90px,13vw,210px);
-    line-height:.68;
+    font-size:clamp(100px,14vw,210px);
+    line-height:.65;
+
     letter-spacing:-.1em;
+
     font-weight:800;
+}
+
+.hero-title span{
+    display:block;
 }
 
 .hero-title .outline{
@@ -162,17 +221,17 @@ a{
 
     color:transparent;
 
-    -webkit-text-stroke:1px #3b3b3b;
+    -webkit-text-stroke:1px #3c3c3c;
 }
 
 .hero-description{
-    width:420px;
+    width:410px;
     max-width:100%;
 
-    margin-top:65px;
+    margin-top:70px;
 
     font-size:12px;
-    line-height:1.8;
+    line-height:1.9;
 
     color:#666;
 }
@@ -184,6 +243,9 @@ a{
 
 .showreel{
     min-height:100vh;
+
+    padding:120px 0 130px;
+
     overflow:hidden;
 }
 
@@ -192,90 +254,142 @@ a{
 
     position:absolute;
 
-    top:80px;
-    left:3vw;
+    top:55px;
+    left:2vw;
 
     font-family:Georgia,serif;
-    font-size:clamp(150px,18vw,300px);
+    font-size:17vw;
     line-height:.7;
 
     letter-spacing:-.1em;
 
     color:#101010;
 
+    white-space:nowrap;
+
     pointer-events:none;
 }
 
-.showreel-title{
+.showreel-layout{
     position:relative;
     z-index:2;
 
-    margin-top:50px;
+    display:grid;
 
+    grid-template-columns:
+        32%
+        68%;
+
+    min-height:650px;
+}
+
+
+/* LEFT SHOWREEL */
+
+.showreel-info{
+    padding-top:45px;
+    padding-right:70px;
+}
+
+.showreel-number{
+    margin-bottom:25px;
+
+    font-family:"Courier New",monospace;
+    font-size:8px;
+    letter-spacing:3px;
+
+    color:#777;
+}
+
+.showreel-number span{
+    color:var(--gold);
+}
+
+.showreel-title{
     font-family:Georgia,serif;
-    font-size:clamp(90px,13vw,200px);
+
+    font-size:clamp(80px,9vw,145px);
+
     line-height:.72;
 
     letter-spacing:-.09em;
+
     font-weight:400;
+
+    white-space:nowrap;
 }
 
-.showreel-text{
-    position:relative;
-    z-index:2;
+.showreel-title .dot{
+    color:var(--gold);
+}
 
-    width:250px;
+.gold-line{
+    width:48px;
+    height:2px;
 
-    margin-top:50px;
+    margin-top:45px;
+
+    background:var(--gold);
+}
+
+.showreel-description{
+    width:300px;
+    max-width:100%;
+
+    margin-top:35px;
 
     font-size:11px;
     line-height:1.8;
 
-    color:#666;
+    color:#777;
 }
 
-.reel-grid{
+
+/* RIGHT SHOWREEL */
+
+.showreel-videos{
     position:relative;
-    z-index:3;
 
     display:grid;
-    grid-template-columns:minmax(0,1fr) 250px;
 
-    gap:20px;
+    grid-template-columns:
+        minmax(0,1fr)
+        235px;
 
-    margin-left:30%;
-    margin-top:-150px;
+    gap:18px;
 
-    align-items:end;
+    align-items:center;
+
+    padding:50px 0 0 20px;
 }
 
-.reel{
+.showreel-card{
     position:relative;
 
     overflow:hidden;
 
-    background:#0b0b0b;
+    background:#0a0a0a;
 
-    border:1px solid #242424;
+    border:1px solid #303030;
 
-    transition:.5s ease;
+    transition:.5s;
 }
 
-.reel:first-child{
-    aspect-ratio:16/10;
+.showreel-card:first-child{
+    height:500px;
 }
 
-.reel:last-child{
-    aspect-ratio:9/14;
+.showreel-card:last-child{
+    height:350px;
 }
 
-.reel:hover{
-    transform:translateY(-7px);
+.showreel-card:hover{
+    transform:translateY(-8px);
 
-    border-color:#444;
+    border-color:#666;
 }
 
-.reel iframe{
+.showreel-card iframe{
     position:absolute;
 
     inset:0;
@@ -286,21 +400,24 @@ a{
     border:0;
 }
 
-.reel::after{
-    content:"";
-
+.showreel-overlay{
     position:absolute;
+
+    z-index:3;
+
     inset:0;
 
-    background:linear-gradient(
-        transparent 40%,
-        rgba(0,0,0,.8)
-    );
-
     pointer-events:none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 45%,
+            rgba(0,0,0,.9)
+        );
 }
 
-.reel-info{
+.showreel-card-info{
     position:absolute;
 
     z-index:4;
@@ -309,10 +426,10 @@ a{
     bottom:18px;
 }
 
-.reel-info small{
+.showreel-card-info small{
     display:block;
 
-    margin-bottom:7px;
+    margin-bottom:8px;
 
     font-family:"Courier New",monospace;
     font-size:7px;
@@ -321,64 +438,64 @@ a{
     color:var(--gold);
 }
 
-.reel-info strong{
-    font-size:20px;
+.showreel-card-info strong{
+    font-size:19px;
     font-weight:400;
 }
 
-.reel-arrow{
+.external{
     position:absolute;
 
     z-index:5;
 
-    right:18px;
-    bottom:18px;
+    top:15px;
+    right:15px;
 
-    width:45px;
-    height:45px;
+    width:35px;
+    height:35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     border:1px solid #777;
-    border-radius:50%;
 
-    background:#0008;
+    background:#0009;
 
-    color:white;
+    color:#fff;
 
-    cursor:pointer;
-
-    transition:.4s;
-}
-
-.reel:hover .reel-arrow{
-    background:var(--gold);
-    border-color:var(--gold);
-    color:#000;
+    font-size:16px;
 }
 
 
 /* =========================================================
-   SELECTED / THE CUTS
+   SELECTED WORK
 ========================================================= */
 
-.cuts{
-    overflow:hidden;
+.selected{
+    padding:150px 0;
 }
 
-.cuts-title{
-    margin-left:8vw;
+.selected-title{
     margin-top:35px;
+    margin-left:8vw;
 
     font-family:Georgia,serif;
-    font-size:clamp(90px,12vw,185px);
-    line-height:.7;
+
+    font-size:clamp(90px,12vw,180px);
+
+    line-height:.68;
 
     letter-spacing:-.09em;
-    font-weight:400;
 }
 
-.cuts-note{
+.selected-title .dot{
+    color:var(--gold);
+}
+
+.selected-sub{
     margin-left:8vw;
-    margin-top:45px;
+    margin-top:40px;
 
     font-family:"Courier New",monospace;
     font-size:8px;
@@ -389,9 +506,10 @@ a{
 
 .cuts-grid{
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
 
-    gap:15px;
+    gap:14px;
 
     margin-top:100px;
 }
@@ -401,24 +519,24 @@ a{
 
     aspect-ratio:9/14;
 
-    overflow:hidden;
-
     background:
-        linear-gradient(
-            135deg,
-            #151515,
-            #080808
+        radial-gradient(
+            circle at center,
+            #191919,
+            #080808 60%
         );
 
-    border:1px solid #222;
+    border:1px solid #242424;
+
+    overflow:hidden;
 
     transition:.5s;
 }
 
 .cut:hover{
-    transform:translateY(-7px);
+    transform:translateY(-6px);
 
-    border-color:#444;
+    border-color:#555;
 }
 
 .cut-number{
@@ -428,7 +546,7 @@ a{
     left:15px;
 
     font-family:"Courier New",monospace;
-    font-size:7px;
+    font-size:8px;
     letter-spacing:2px;
 
     color:#555;
@@ -437,23 +555,24 @@ a{
 .cut-circle{
     position:absolute;
 
-    width:55px;
-    height:55px;
-
     left:50%;
     top:50%;
+
+    width:55px;
+    height:55px;
 
     transform:translate(-50%,-50%);
 
     border:1px solid #333;
+
     border-radius:50%;
 }
 
 .cut-name{
     position:absolute;
 
-    left:15px;
     bottom:15px;
+    left:15px;
 
     font-family:"Courier New",monospace;
     font-size:7px;
@@ -468,84 +587,93 @@ a{
 ========================================================= */
 
 .work{
+    min-height:900px;
+
+    padding:130px 0;
+
     overflow:hidden;
 }
 
-.work::before{
-    content:"WORK";
+
+/* CAMERA BACKGROUND */
+
+.work::after{
+    content:"";
 
     position:absolute;
 
-    right:-60px;
-    top:60px;
+    z-index:0;
 
-    font-family:Georgia,serif;
+    right:-2%;
+    top:0;
 
-    font-size:clamp(180px,25vw,430px);
+    width:63%;
+    height:100%;
 
-    line-height:.7;
+    background-image:
+        linear-gradient(
+            to right,
+            #050505 0%,
+            rgba(5,5,5,.88) 15%,
+            rgba(5,5,5,.25) 55%,
+            rgba(5,5,5,.45) 100%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(5,5,5,.2),
+            rgba(5,5,5,.7)
+        ),
+        url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&q=85");
 
-    letter-spacing:-.1em;
+    background-size:cover;
+    background-position:center;
 
-    color:#101010;
+    opacity:.7;
 
     pointer-events:none;
 }
 
-.work-layout{
+.work-inner{
     position:relative;
+
     z-index:2;
 
     display:grid;
 
-    grid-template-columns:32% 1fr;
+    grid-template-columns:
+        27%
+        73%;
 
-    gap:80px;
-
-    margin-top:100px;
+    min-height:640px;
 }
 
 
-/* =========================================================
-   WORK INTRO
-========================================================= */
+/* LEFT WORK INTRO */
 
 .work-intro{
-    position:sticky;
+    padding-top:25px;
 
-    top:120px;
-
-    height:max-content;
+    padding-right:50px;
 }
 
-.work-label{
-    display:flex;
-    align-items:center;
-
-    gap:12px;
-
-    margin-bottom:30px;
+.work-number{
+    margin-bottom:55px;
 
     font-family:"Courier New",monospace;
-    font-size:8px;
+    font-size:9px;
     letter-spacing:3px;
 
-    color:var(--gold);
+    color:#777;
 }
 
-.work-label::before{
-    content:"";
-
-    width:30px;
-    height:1px;
-
-    background:var(--gold);
+.work-number span{
+    color:var(--gold);
 }
 
 .work-title{
     font-family:Georgia,serif;
 
-    font-size:clamp(75px,8vw,125px);
+    font-size:clamp(85px,8vw,135px);
 
     line-height:.72;
 
@@ -554,77 +682,123 @@ a{
     font-weight:400;
 }
 
+.work-title .dot{
+    color:var(--gold);
+}
+
+.work-gold-line{
+    width:68px;
+    height:2px;
+
+    margin-top:55px;
+
+    background:var(--gold);
+}
+
 .work-description{
-    width:270px;
+    width:260px;
     max-width:100%;
 
-    margin-top:40px;
+    margin-top:45px;
 
-    font-size:11px;
-    line-height:1.8;
+    font-size:12px;
+    line-height:1.9;
 
-    color:#666;
+    color:#999;
 }
 
-.work-meta{
-    margin-top:70px;
+.view-all{
+    display:flex;
+    align-items:center;
 
-    padding-left:18px;
+    gap:18px;
 
-    border-left:1px solid var(--gold);
+    margin-top:85px;
 
     font-family:"Courier New",monospace;
-
-    font-size:7px;
-    line-height:2;
-
+    font-size:9px;
     letter-spacing:2px;
 
-    color:#555;
+    color:#aaa;
+}
+
+.view-all-arrow{
+    width:45px;
+    height:45px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--gold);
+
+    border-radius:50%;
+
+    color:var(--gold);
+
+    transition:.4s;
+}
+
+.view-all:hover .view-all-arrow{
+    background:var(--gold);
+
+    color:#000;
+
+    transform:translateX(5px);
 }
 
 
-/* =========================================================
-   PROJECT LIST
-========================================================= */
+/* GOLD DIVIDER */
 
-.projects{
-    border-top:1px solid var(--line);
+.work-divider{
+    position:absolute;
+
+    left:27%;
+
+    top:0;
+
+    width:2px;
+
+    height:100%;
+
+    background:var(--gold);
+
+    opacity:.9;
+}
+
+
+/* PROJECT LIST */
+
+.project-list{
+    padding-left:55px;
+
+    padding-right:4%;
+
+    align-self:center;
 }
 
 .project{
     position:relative;
 
-    border-bottom:1px solid var(--line);
+    border-top:1px solid rgba(255,255,255,.15);
 }
 
-.project::before{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:1px;
-    height:0;
-
-    background:var(--gold);
-
-    transition:.6s ease;
-}
-
-.project.active::before{
-    height:100%;
+.project:last-child{
+    border-bottom:1px solid rgba(255,255,255,.15);
 }
 
 .project-button{
     width:100%;
-    min-height:125px;
+
+    min-height:92px;
 
     display:grid;
 
-    grid-template-columns:55px 1fr 110px 50px;
+    grid-template-columns:
+        60px
+        1fr
+        120px
+        50px;
 
     align-items:center;
 
@@ -638,39 +812,29 @@ a{
 
     cursor:pointer;
 
-    transition:.45s ease;
+    transition:.35s;
 }
 
 .project-button:hover{
-    padding-left:15px;
-    padding-right:15px;
+    padding-left:12px;
 }
 
 .project-number{
     font-family:"Courier New",monospace;
 
-    font-size:8px;
-    letter-spacing:2px;
+    font-size:17px;
 
-    color:#444;
-}
-
-.project.active .project-number{
     color:var(--gold);
 }
 
 .project-name{
-    font-size:clamp(29px,3.5vw,55px);
+    font-family:Georgia,serif;
+
+    font-size:clamp(23px,2.2vw,36px);
+
+    letter-spacing:-.04em;
 
     font-weight:400;
-
-    letter-spacing:-.065em;
-
-    transition:.4s ease;
-}
-
-.project-button:hover .project-name{
-    transform:translateX(7px);
 }
 
 .project-count{
@@ -679,52 +843,48 @@ a{
     font-family:"Courier New",monospace;
 
     font-size:7px;
-    line-height:1.8;
-
     letter-spacing:2px;
 
-    color:#555;
-
-    text-transform:uppercase;
+    color:#aaa;
 }
 
 .project-arrow{
-    width:44px;
-    height:44px;
-
-    margin-left:auto;
+    width:38px;
+    height:38px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border:1px solid #333;
+    margin-left:auto;
+
+    border:1px solid var(--gold);
+
     border-radius:50%;
 
-    color:#777;
+    color:var(--gold);
 
-    transition:.45s ease;
+    transition:.4s;
 }
 
 .project-button:hover .project-arrow{
-    border-color:var(--gold);
-    color:var(--gold);
+    background:var(--gold);
+
+    color:#000;
+
+    transform:translateX(4px);
 }
 
 .project.active .project-arrow{
     background:var(--gold);
 
-    border-color:var(--gold);
-
     color:#000;
 
-    transform:rotate(45deg);
+    transform:rotate(90deg);
 }
 
 
-/* =========================================================
-   PROJECT VIDEOS
-========================================================= */
+/* PROJECT CONTENT */
 
 .project-content{
     display:grid;
@@ -747,17 +907,17 @@ a{
 
     opacity:0;
 
-    transition:.4s ease;
+    transition:.35s;
 }
 
 .project.active .project-inner{
     opacity:1;
 
     padding:
-        5px
+        15px
         0
-        60px
-        55px;
+        40px
+        60px;
 }
 
 .video-grid{
@@ -765,23 +925,23 @@ a{
 
     grid-template-columns:repeat(2,1fr);
 
-    gap:15px;
+    gap:12px;
 }
 
 .video-card{
+    background:#080808;
+
+    border:1px solid #292929;
+
     overflow:hidden;
 
-    background:#0b0b0b;
-
-    border:1px solid #202020;
-
-    transition:.45s ease;
+    transition:.4s;
 }
 
 .video-card:hover{
-    transform:translateY(-5px);
+    border-color:#666;
 
-    border-color:#444;
+    transform:translateY(-4px);
 }
 
 .video-card iframe{
@@ -793,19 +953,17 @@ a{
 
     border:0;
 
-    background:#080808;
+    background:#000;
 }
 
 .video-title{
-    padding:12px;
+    padding:11px;
 
     font-family:"Courier New",monospace;
-
     font-size:7px;
-
     letter-spacing:2px;
 
-    color:#555;
+    color:#777;
 
     text-transform:uppercase;
 }
@@ -815,88 +973,96 @@ a{
    HOW I WORK
 ========================================================= */
 
-.process-title{
-    margin-left:8vw;
+.process{
+    padding:130px 0;
+}
+
+.process-heading{
     margin-top:35px;
+    margin-left:8vw;
 
     font-family:Georgia,serif;
 
-    font-size:clamp(80px,11vw,175px);
+    font-size:clamp(80px,10vw,160px);
 
     line-height:.7;
 
     letter-spacing:-.09em;
+}
 
-    font-weight:400;
+.process-heading .dot{
+    color:var(--gold);
 }
 
 .process-grid{
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(6,1fr);
+
+    gap:12px;
 
     margin-top:100px;
-
-    border-top:1px solid var(--line);
-    border-left:1px solid var(--line);
 }
 
-.process{
+.process-card{
     position:relative;
 
     height:300px;
 
-    padding:20px;
+    padding:18px;
+
+    border:1px solid #252525;
 
     overflow:hidden;
 
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
+    transition:.4s;
+}
+
+.process-card:hover{
+    border-color:#555;
+
+    transform:translateY(-5px);
 }
 
 .process-number{
     font-family:"Courier New",monospace;
     font-size:8px;
 
-    color:#444;
+    color:var(--gold);
 }
 
 .process-name{
     position:absolute;
 
-    left:20px;
+    left:18px;
     bottom:50px;
 
-    font-size:25px;
-
-    letter-spacing:-.05em;
+    font-size:18px;
 }
 
 .process-description{
     position:absolute;
 
-    left:20px;
-    right:20px;
-    bottom:20px;
+    left:18px;
+    right:18px;
+    bottom:18px;
 
-    font-size:9px;
-    line-height:1.5;
+    font-size:8px;
+    line-height:1.6;
 
-    color:#555;
+    color:#666;
 }
 
 
-/* CUT ANIMATION */
+/* CUT GRAPHIC */
 
 .cut-lines{
     position:absolute;
 
-    left:25px;
-    right:25px;
+    left:18px;
+    right:18px;
 
-    top:50%;
-
-    transform:translateY(-50%);
+    top:48%;
 }
 
 .cut-lines span{
@@ -904,15 +1070,15 @@ a{
 
     height:1px;
 
-    margin:15px 0;
+    margin:12px 0;
 
     background:#777;
 
-    transition:.8s ease;
+    transition:.7s;
 }
 
 .cut-lines span:nth-child(1){
-    width:35%;
+    width:40%;
 }
 
 .cut-lines span:nth-child(2){
@@ -920,52 +1086,49 @@ a{
 }
 
 .cut-lines span:nth-child(3){
-    width:50%;
+    width:55%;
 }
 
-.process:hover .cut-lines span:nth-child(1){
-    width:70%;
+.process-card:hover .cut-lines span:nth-child(1){
+    width:75%;
 }
 
-.process:hover .cut-lines span:nth-child(2){
+.process-card:hover .cut-lines span:nth-child(2){
     width:100%;
 }
 
-.process:hover .cut-lines span:nth-child(3){
-    width:60%;
+.process-card:hover .cut-lines span:nth-child(3){
+    width:65%;
 }
 
 
-/* SOUND */
+/* WAVE GRAPHIC */
 
 .wave{
     position:absolute;
 
-    left:30px;
-    right:30px;
+    top:42%;
+    left:15px;
+    right:15px;
 
-    top:50%;
-
-    height:80px;
-
-    transform:translateY(-50%);
+    height:75px;
 
     display:flex;
 
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
-    gap:5px;
+    gap:4px;
 }
 
 .wave span{
     width:2px;
 
-    height:var(--height);
+    height:var(--h);
 
     background:#777;
 
-    animation:soundwave 1s ease-in-out infinite alternate;
+    animation:pulse 1s ease-in-out infinite alternate;
 }
 
 .wave span:nth-child(2n){
@@ -976,7 +1139,7 @@ a{
     animation-delay:.3s;
 }
 
-@keyframes soundwave{
+@keyframes pulse{
     from{
         transform:scaleY(.35);
     }
@@ -992,11 +1155,11 @@ a{
 .color-ball{
     position:absolute;
 
-    width:120px;
-    height:120px;
+    width:100px;
+    height:100px;
 
-    left:20%;
-    top:50%;
+    left:50%;
+    top:43%;
 
     transform:translate(-50%,-50%);
 
@@ -1005,18 +1168,17 @@ a{
     background:
         radial-gradient(
             circle,
-            #777,
-            #111 65%,
-            transparent
+            #b38a48,
+            #251b0c 55%,
+            transparent 70%
         );
 
-    filter:blur(14px);
+    filter:blur(7px);
 
-    transition:1s ease;
+    transition:1s;
 }
 
-.process:hover .color-ball{
-    left:80%;
+.process-card:hover .color-ball{
     transform:
         translate(-50%,-50%)
         scale(1.4);
@@ -1028,41 +1190,43 @@ a{
 .motion-box{
     position:absolute;
 
-    width:100px;
-    height:100px;
+    width:90px;
+    height:90px;
 
     left:50%;
-    top:50%;
+    top:42%;
 
     transform:translate(-50%,-50%);
 
-    border:1px solid #444;
+    border:1px solid var(--gold);
 
-    transition:1s ease;
+    transition:.8s;
 }
 
-.motion-box::before,
+.motion-box::before{
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    border:1px solid #555;
+}
+
 .motion-box::after{
     content:"";
 
     position:absolute;
 
-    border:1px solid #333;
-}
-
-.motion-box::before{
-    inset:15px;
-}
-
-.motion-box::after{
     inset:30px;
+
+    border:1px solid var(--gold);
 }
 
-.process:hover .motion-box{
+.process-card:hover .motion-box{
     transform:
         translate(-50%,-50%)
-        rotate(90deg)
-        scale(1.15);
+        rotate(90deg);
 }
 
 
@@ -1072,23 +1236,23 @@ a{
     position:absolute;
 
     left:50%;
-    top:50%;
+    top:42%;
 
     transform:translate(-50%,-50%);
 
-    font-size:65px;
+    font-size:60px;
 
-    font-weight:bold;
+    color:#444;
 
-    letter-spacing:-.1em;
+    letter-spacing:-.12em;
 
-    color:#292929;
-
-    transition:.7s ease;
+    transition:.6s;
 }
 
-.process:hover .type{
-    letter-spacing:.03em;
+.process-card:hover .type{
+    color:var(--gold);
+
+    letter-spacing:.02em;
 
     transform:
         translate(-50%,-50%)
@@ -1101,61 +1265,142 @@ a{
 ========================================================= */
 
 .contact{
-    min-height:85vh;
+    padding:140px 0 100px;
+}
 
-    display:flex;
-    align-items:flex-end;
+.contact-layout{
+    display:grid;
 
-    overflow:hidden;
+    grid-template-columns:35% 65%;
+
+    align-items:end;
 }
 
 .contact-title{
-    font-size:clamp(80px,11vw,170px);
+    margin-top:35px;
+
+    font-family:Georgia,serif;
+
+    font-size:clamp(80px,10vw,155px);
 
     line-height:.7;
 
     letter-spacing:-.09em;
+}
 
-    font-weight:800;
+.contact-title .dot{
+    color:var(--gold);
+}
+
+.contact-right{
+    padding-left:70px;
 }
 
 .contact-description{
-    width:450px;
+    width:400px;
     max-width:100%;
 
-    margin-top:50px;
+    margin-bottom:40px;
 
     font-size:12px;
     line-height:1.8;
 
-    color:#666;
+    color:#777;
 }
 
-.hire-button{
-    margin-top:35px;
+.contact-grid{
+    display:grid;
 
-    padding:16px 25px;
+    grid-template-columns:repeat(3,1fr);
+
+    border-top:1px solid var(--line);
+}
+
+.contact-item{
+    min-height:140px;
+
+    padding:25px;
+
+    border-right:1px solid var(--line);
+}
+
+.contact-item:last-child{
+    border-right:0;
+}
+
+.contact-icon{
+    font-size:23px;
+
+    color:var(--gold);
+
+    margin-bottom:20px;
+}
+
+.contact-item small{
+    display:block;
+
+    margin-bottom:8px;
+
+    font-family:"Courier New",monospace;
+    font-size:7px;
+    letter-spacing:2px;
+
+    color:var(--gold);
+}
+
+.contact-item span{
+    font-size:10px;
+
+    color:#aaa;
+}
+
+.hire{
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:15px 24px;
+
+    border:1px solid var(--gold);
 
     background:none;
-
-    border:1px solid #444;
 
     color:#fff;
 
     font-family:"Courier New",monospace;
-
     font-size:8px;
-
     letter-spacing:2px;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.35s;
 }
 
-.hire-button:hover{
-    background:#fff;
+.hire:hover{
+    background:var(--gold);
+
     color:#000;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:25px 4.5vw;
+
+    display:flex;
+    justify-content:space-between;
+
+    border-top:1px solid var(--line);
+
+    font-family:"Courier New",monospace;
+
+    font-size:7px;
+    letter-spacing:2px;
+
+    color:#444;
 }
 
 
@@ -1189,26 +1434,26 @@ a{
 .modal-box{
     position:relative;
 
-    width:700px;
+    width:650px;
     max-width:100%;
 
     padding:50px;
 
-    background:#0c0c0c;
+    background:#0b0b0b;
 
-    border:1px solid #292929;
+    border:1px solid #333;
 }
 
 .modal-close{
     position:absolute;
 
-    top:15px;
     right:15px;
+    top:15px;
 
-    width:40px;
-    height:40px;
+    width:38px;
+    height:38px;
 
-    border:1px solid #333;
+    border:1px solid #444;
 
     border-radius:50%;
 
@@ -1223,74 +1468,50 @@ a{
     margin-bottom:20px;
 
     font-family:"Courier New",monospace;
-
     font-size:8px;
     letter-spacing:3px;
 
-    color:#555;
+    color:var(--gold);
 }
 
 .modal-title{
-    margin-bottom:40px;
+    margin-bottom:35px;
+
+    font-family:Georgia,serif;
 
     font-size:75px;
 
-    line-height:.75;
+    line-height:.7;
 
     letter-spacing:-.08em;
 }
 
-.contact-link{
-    min-height:70px;
-
+.modal-link{
     display:grid;
 
     grid-template-columns:1fr 30px;
 
     align-items:center;
 
+    min-height:70px;
+
     border-top:1px solid var(--line);
 }
 
-.contact-link small{
+.modal-link small{
     display:block;
 
-    margin-bottom:6px;
+    margin-bottom:7px;
 
     font-family:"Courier New",monospace;
-
     font-size:7px;
-
     letter-spacing:2px;
 
     color:#555;
 }
 
-.contact-link span{
+.modal-link span{
     font-size:12px;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:25px 5vw;
-
-    border-top:1px solid var(--line);
-
-    font-family:"Courier New",monospace;
-
-    font-size:7px;
-
-    letter-spacing:2px;
-
-    color:#444;
 }
 
 
@@ -1298,44 +1519,59 @@ footer{
    TABLET
 ========================================================= */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
     .container{
         width:88%;
     }
 
-    .work-layout{
+    .showreel-layout{
         grid-template-columns:1fr;
+    }
 
-        gap:70px;
+    .showreel-info{
+        padding-right:0;
+    }
+
+    .showreel-videos{
+        padding-left:0;
+
+        margin-top:70px;
+    }
+
+    .work-inner{
+        grid-template-columns:1fr;
+    }
+
+    .work::after{
+        width:100%;
+        opacity:.25;
+    }
+
+    .work-divider{
+        display:none;
     }
 
     .work-intro{
-        position:relative;
-        top:auto;
+        padding-right:0;
+        margin-bottom:70px;
     }
 
-    .work-meta{
-        display:none;
-    }
-
-    .project-button{
-        grid-template-columns:
-            45px
-            1fr
-            50px;
-    }
-
-    .project-count{
-        display:none;
-    }
-
-    .project.active .project-inner{
-        padding-left:45px;
+    .project-list{
+        padding-left:0;
     }
 
     .process-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .contact-layout{
+        grid-template-columns:1fr;
+    }
+
+    .contact-right{
+        padding-left:0;
+        margin-top:70px;
     }
 }
 
@@ -1346,20 +1582,16 @@ footer{
 
 @media(max-width:600px){
 
+    .nav{
+        height:65px;
+    }
+
     .nav-links{
         display:none;
     }
 
-    .container{
-        width:88%;
-    }
-
-    .section{
-        padding:100px 0;
-    }
-
-    .section-number{
-        top:60px;
+    .hero{
+        min-height:90vh;
     }
 
     .hero-title{
@@ -1367,43 +1599,44 @@ footer{
     }
 
     .hero-description{
-        margin-top:45px;
+        margin-top:50px;
+    }
+
+    .showreel{
+        padding:100px 0;
     }
 
     .showreel-title{
         font-size:25vw;
     }
 
-    .showreel::before{
-        font-size:30vw;
-    }
-
-    .reel-grid{
+    .showreel-videos{
         grid-template-columns:1fr;
 
-        margin:70px 0 0;
+        margin-top:60px;
     }
 
-    .reel:first-child,
-    .reel:last-child{
+    .showreel-card:first-child,
+    .showreel-card:last-child{
+        height:auto;
+
         aspect-ratio:16/9;
     }
 
-    .cuts-title{
-        margin-left:3vw;
+    .selected-title{
         font-size:25vw;
     }
 
     .cuts-grid{
         grid-template-columns:1fr 1fr;
 
-        gap:10px;
+        gap:9px;
 
         margin-top:70px;
     }
 
-    .work::before{
-        font-size:40vw;
+    .work{
+        padding:100px 0;
     }
 
     .work-title{
@@ -1411,49 +1644,55 @@ footer{
     }
 
     .project-button{
-        min-height:100px;
+        min-height:85px;
 
         grid-template-columns:
-            35px
+            40px
             1fr
-            42px;
+            40px;
+    }
+
+    .project-count{
+        display:none;
     }
 
     .project-name{
-        font-size:28px;
+        font-size:25px;
     }
 
     .project.active .project-inner{
-        padding-left:35px;
+        padding-left:0;
     }
 
     .video-grid{
         grid-template-columns:1fr;
     }
 
-    .process-title{
-        margin-left:3vw;
+    .process-heading{
         font-size:24vw;
     }
 
     .process-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
     }
 
     .contact-title{
-        font-size:23vw;
+        font-size:24vw;
     }
 
-    .modal-box{
-        padding:40px 25px;
+    .contact-grid{
+        grid-template-columns:1fr;
     }
 
-    .modal-title{
-        font-size:55px;
+    .contact-item{
+        border-right:0;
+
+        border-bottom:1px solid var(--line);
     }
 
     footer{
         flex-direction:column;
+
         gap:10px;
     }
 
@@ -1478,15 +1717,25 @@ footer{
 
     <div class="nav-links">
 
-        <a href="#showreel">SHOWREEL</a>
+        <a href="#showreel">
+            SHOWREEL
+        </a>
 
-        <a href="#cuts">SELECTED</a>
+        <a href="#selected">
+            SELECTED
+        </a>
 
-        <a href="#work">WORK</a>
+        <a href="#work">
+            WORK
+        </a>
 
-        <a href="#process">HOW I WORK</a>
+        <a href="#process">
+            HOW I WORK
+        </a>
 
-        <a href="#contact">CONTACT</a>
+        <a href="#contact">
+            CONTACT
+        </a>
 
     </div>
 
@@ -1501,27 +1750,33 @@ footer{
 
 <div class="container">
 
-    <div class="hero-label">
-        VIDEO EDITOR / PUNE, INDIA
-    </div>
+    <div class="hero-content">
 
-    <h1 class="hero-title">
-
-        <div>SURAJ</div>
-
-        <div class="outline">
-            SHARMA
+        <div class="hero-small">
+            VIDEO EDITOR / PUNE, INDIA
         </div>
 
-    </h1>
+        <h1 class="hero-title">
 
-    <p class="hero-description">
+            <span>
+                SURAJ
+            </span>
 
-        Video editor and visual storyteller focused on
-        commercial, brand, social, event and cinematic
-        content.
+            <span class="outline">
+                SHARMA
+            </span>
 
-    </p>
+        </h1>
+
+        <p class="hero-description">
+
+            Video editor and visual storyteller focused on
+            commercial, brand, social, event and cinematic
+            content.
+
+        </p>
+
+    </div>
 
 </div>
 
@@ -1536,28 +1791,51 @@ footer{
 
 <div class="container">
 
-    <div class="section-number">
-        01 / SHOWREEL
+<div class="showreel-layout">
+
+
+    <!-- LEFT -->
+
+    <div class="showreel-info">
+
+        <div class="showreel-number">
+
+            <span>
+                01
+            </span>
+            &nbsp; / &nbsp; SHOWREEL
+
+        </div>
+
+
+        <h2 class="showreel-title">
+
+            Showreel<span class="dot">.</span>
+
+        </h2>
+
+
+        <div class="gold-line"></div>
+
+
+        <p class="showreel-description">
+
+            A collection of selected edits that define
+            my style, rhythm and visual language.
+
+        </p>
+
     </div>
 
-    <h2 class="showreel-title">
-        Showreel
-    </h2>
 
-    <p class="showreel-text">
+    <!-- RIGHT -->
 
-        A collection of selected edits that define
-        my style, rhythm and visual language.
-
-    </p>
+    <div class="showreel-videos">
 
 
-    <div class="reel-grid">
+        <!-- REEL 01 -->
 
-
-        <!-- SHOWREEL 01 -->
-
-        <div class="reel">
+        <div class="showreel-card">
 
             <iframe
                 src="https://drive.google.com/file/d/1FOBalR2kkWACMrxDvgnW_wS2UIvggTWW/preview"
@@ -1565,7 +1843,13 @@ footer{
                 allowfullscreen>
             </iframe>
 
-            <div class="reel-info">
+            <div class="showreel-overlay"></div>
+
+            <div class="external">
+                ↗
+            </div>
+
+            <div class="showreel-card-info">
 
                 <small>
                     01 / EDITING REEL
@@ -1580,9 +1864,9 @@ footer{
         </div>
 
 
-        <!-- SHOWREEL 02 -->
+        <!-- REEL 02 -->
 
-        <div class="reel">
+        <div class="showreel-card">
 
             <iframe
                 src="https://drive.google.com/file/d/1EdQs-iJTkL7YOXtV46_FTB2AGDPTGkUG/preview"
@@ -1590,7 +1874,13 @@ footer{
                 allowfullscreen>
             </iframe>
 
-            <div class="reel-info">
+            <div class="showreel-overlay"></div>
+
+            <div class="external">
+                ↗
+            </div>
+
+            <div class="showreel-card-info">
 
                 <small>
                     02 / VISUAL REEL
@@ -1609,14 +1899,16 @@ footer{
 
 </div>
 
+</div>
+
 </section>
 
 
 <!-- =========================================================
-     SELECTED WORK
+     SELECTED
 ========================================================= -->
 
-<section class="section cuts" id="cuts">
+<section class="section selected" id="selected">
 
 <div class="container">
 
@@ -1624,12 +1916,14 @@ footer{
         02 / SELECTED WORK
     </div>
 
-    <h2 class="cuts-title">
+    <h2 class="selected-title">
+
         THE<br>
-        CUTS.
+        CUTS<span class="dot">.</span>
+
     </h2>
 
-    <div class="cuts-note">
+    <div class="selected-sub">
         SELECTED EDITS / 08 PIECES
     </div>
 
@@ -1708,116 +2002,200 @@ footer{
 
 <div class="container">
 
-    <div class="section-number">
-        03 / WORK
+<div class="work-inner">
+
+
+    <!-- CAMERA BACKGROUND -->
+
+    <div class="work-divider"></div>
+
+
+    <!-- LEFT -->
+
+    <div class="work-intro">
+
+        <div class="work-number">
+
+            <span>
+                03
+            </span>
+
+            &nbsp; / &nbsp; WORK
+
+        </div>
+
+
+        <h2 class="work-title">
+
+            Work<span class="dot">.</span>
+
+        </h2>
+
+
+        <div class="work-gold-line"></div>
+
+
+        <p class="work-description">
+
+            A collection of projects across events,
+            brands, social content, podcasts and
+            visual campaigns.
+
+        </p>
+
+
+        <a href="#work" class="view-all">
+
+            VIEW ALL
+
+            <span class="view-all-arrow">
+                →
+            </span>
+
+        </a>
+
     </div>
 
 
-    <div class="work-layout">
+    <!-- PROJECTS -->
+
+    <div class="project-list">
 
 
-        <!-- LEFT -->
+        <!-- =================================================
+             CORPORATE
+        ================================================== -->
 
-        <div class="work-intro">
+        <div class="project">
 
-            <div class="work-label">
-                SELECTED PROJECTS
-            </div>
+            <button
+                class="project-button"
+                onclick="toggleProject(this)">
 
-            <h2 class="work-title">
-                Work.
-            </h2>
+                <span class="project-number">
+                    01
+                </span>
 
-            <p class="work-description">
+                <span class="project-name">
+                    Corporate
+                </span>
 
-                A selection of projects across events,
-                brands, social content, podcasts and
-                visual campaigns.
+                <span class="project-count">
+                    02 VIDEOS
+                </span>
 
-            </p>
+                <span class="project-arrow">
+                    →
+                </span>
 
-            <div class="work-meta">
+            </button>
 
-                VIDEO EDITOR<br>
-                VISUAL STORYTELLING<br>
-                MOTION / SOUND / COLOR<br>
-                PUNE — INDIA
+
+            <div class="project-content">
+
+                <div class="project-inner">
+
+                    <div class="video-grid">
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1Jw_JfgYHXBfm9wlM25ux5bNk5z9LGg5K/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Corporate 01
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1yWwSVzbV3yWEOLKwVF-WEhlPLurSgOsS/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Corporate 02
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </div>
 
 
-        <!-- RIGHT -->
+        <!-- =================================================
+             BIRTHDAY
+        ================================================== -->
 
-        <div class="projects">
+        <div class="project">
 
+            <button
+                class="project-button"
+                onclick="toggleProject(this)">
 
-            <!-- =================================================
-                 01 CORPORATE
-            ================================================== -->
+                <span class="project-number">
+                    02
+                </span>
 
-            <div class="project">
+                <span class="project-name">
+                    Birthday
+                </span>
 
-                <button
-                    class="project-button"
-                    onclick="toggleProject(this)">
+                <span class="project-count">
+                    02 VIDEOS
+                </span>
 
-                    <span class="project-number">
-                        01
-                    </span>
+                <span class="project-arrow">
+                    →
+                </span>
 
-                    <span class="project-name">
-                        Corporate
-                    </span>
-
-                    <span class="project-count">
-                        02 Videos
-                    </span>
-
-                    <span class="project-arrow">
-                        →
-                    </span>
-
-                </button>
+            </button>
 
 
-                <div class="project-content">
+            <div class="project-content">
 
-                    <div class="project-inner">
+                <div class="project-inner">
 
-                        <div class="video-grid">
+                    <div class="video-grid">
 
+                        <div class="video-card">
 
-                            <div class="video-card">
+                            <iframe
+                                src="https://drive.google.com/file/d/1tfX3hO6qTFcrTpiRkanyjoFlA2VDl6e4/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
 
-                                <iframe
-                                    src="https://drive.google.com/file/d/1Jw_JfgYHXBfm9wlM25ux5bNk5z9LGg5K/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Corporate 01
-                                </div>
-
+                            <div class="video-title">
+                                Birthday 01
                             </div>
 
+                        </div>
 
-                            <div class="video-card">
 
-                                <iframe
-                                    src="https://drive.google.com/file/d/1yWwSVzbV3yWEOLKwVF-WEhlPLurSgOsS/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
+                        <div class="video-card">
 
-                                <div class="video-title">
-                                    Corporate 02
-                                </div>
+                            <iframe
+                                src="https://drive.google.com/file/d/1aptuJ2x0KvlpJwJqH6KyQQK4ZBxJNrNC/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
 
+                            <div class="video-title">
+                                Birthday 02
                             </div>
-
 
                         </div>
 
@@ -1826,590 +2204,517 @@ footer{
                 </div>
 
             </div>
-
-
-            <!-- =================================================
-                 02 BIRTHDAY
-            ================================================== -->
-
-            <div class="project">
-
-                <button
-                    class="project-button"
-                    onclick="toggleProject(this)">
-
-                    <span class="project-number">
-                        02
-                    </span>
-
-                    <span class="project-name">
-                        Birthday
-                    </span>
-
-                    <span class="project-count">
-                        02 Videos
-                    </span>
-
-                    <span class="project-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-                <div class="project-content">
-
-                    <div class="project-inner">
-
-                        <div class="video-grid">
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1tfX3hO6qTFcrTpiRkanyjoFlA2VDl6e4/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Birthday 01
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1aptuJ2x0KvlpJwJqH6KyQQK4ZBxJNrNC/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Birthday 02
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
-                 03 BABY SHOWER
-            ================================================== -->
-
-            <div class="project">
-
-                <button
-                    class="project-button"
-                    onclick="toggleProject(this)">
-
-                    <span class="project-number">
-                        03
-                    </span>
-
-                    <span class="project-name">
-                        Baby Shower
-                    </span>
-
-                    <span class="project-count">
-                        03 Videos
-                    </span>
-
-                    <span class="project-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-                <div class="project-content">
-
-                    <div class="project-inner">
-
-                        <div class="video-grid">
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1NhA4_vQ1w7XdMVNTuiK2gUx-ozq6JAu6/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Decore
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Host
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1vg6urwBpK8GQylCEuAnaywXFPJ7ohA5W/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Video 03
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
-                 04 GOLDEN TRAILS
-            ================================================== -->
-
-            <div class="project">
-
-                <button
-                    class="project-button"
-                    onclick="toggleProject(this)">
-
-                    <span class="project-number">
-                        04
-                    </span>
-
-                    <span class="project-name">
-                        Golden Trails
-                    </span>
-
-                    <span class="project-count">
-                        09 Videos
-                    </span>
-
-                    <span class="project-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-                <div class="project-content">
-
-                    <div class="project-inner">
-
-                        <div class="video-grid">
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Golden Trails 01</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Golden Trails 02</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1Q488We0910bmU4I-O-btnbv0DdBYLpY3/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Golden Trails 03</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Golden Trails 04</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/15cF3H8wz5jh_A_5qjfHz6nZduDWSJ3Jf/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Golden Trails 05</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1RZ758skTbdWhqllSI_mu7FiWwm3AjJYu/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Golden Trails 06</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1bMKq2XMh_c6lw1RtA-ki_DHhGYNO27kR/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Golden Trails 07</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1nP3BQm4dHPNnPeNT1fJP-A98Z3gTl3na/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Golden Trails 08</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1x5kEr5e60TXbwr4wbq_3d-CksDzyiuqF/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Golden Trails 09</div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
-                 05 IMPORT & EXPORT
-            ================================================== -->
-
-            <div class="project">
-
-                <button
-                    class="project-button"
-                    onclick="toggleProject(this)">
-
-                    <span class="project-number">
-                        05
-                    </span>
-
-                    <span class="project-name">
-                        Import &amp; Export
-                    </span>
-
-                    <span class="project-count">
-                        05 Shorts
-                    </span>
-
-                    <span class="project-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-                <div class="project-content">
-
-                    <div class="project-inner">
-
-                        <div class="video-grid">
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1El4SnzTe972RY_cfM8_GzZyowy5FMoa9/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Short 01</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/12YFXeBJyHOchslI2y4wsf6SrfWsd_O__/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Short 02</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Short 03</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/1INmXfSUyyzw-n9OZqjn3ch1DF7PZ7wjl/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Short 04</div>
-                            </div>
-
-
-                            <div class="video-card">
-                                <iframe src="https://drive.google.com/file/d/12__b8E_MJ_z2ET58qIiGZqFtPpIBt-Bt/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                <div class="video-title">Short 05</div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
-                 06 PODCAST
-            ================================================== -->
-
-            <div class="project">
-
-                <button
-                    class="project-button"
-                    onclick="toggleProject(this)">
-
-                    <span class="project-number">
-                        06
-                    </span>
-
-                    <span class="project-name">
-                        Podcast
-                    </span>
-
-                    <span class="project-count">
-                        03 Videos
-                    </span>
-
-                    <span class="project-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-                <div class="project-content">
-
-                    <div class="project-inner">
-
-                        <div class="video-grid">
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/13iSBq_bT4--sQZn40SJ_HufzzPBUkEl7/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Podcast 01
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1KxSYq0W4cAmMocRTmWvn1VlAtgShkSuW/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Podcast 02
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/178s_-M5KxSU1JX6g3E7i-uORxOEhCJhP/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Podcast 03
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
-                 07 OTHER PROJECTS
-            ================================================== -->
-
-            <div class="project">
-
-                <button
-                    class="project-button"
-                    onclick="toggleProject(this)">
-
-                    <span class="project-number">
-                        07
-                    </span>
-
-                    <span class="project-name">
-                        Other Projects
-                    </span>
-
-                    <span class="project-count">
-                        07 Projects
-                    </span>
-
-                    <span class="project-arrow">
-                        →
-                    </span>
-
-                </button>
-
-
-                <div class="project-content">
-
-                    <div class="project-inner">
-
-                        <div class="video-grid">
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1CcB--lcE2IoBahqzcDFMB6H3Km-vfhfa/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Parachute Advansed
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1hwIPPyqqn-4aGyMEW-aWAZfbZbGOAXEF/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    EVM
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1RCmjBvQ21Wi9MvT7bcndw-QL_4N9kFQB/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Flying Panda
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Nilesh AI
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    Regain App AI
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/1zN7Xvp3Hs4okbJ8w37K2Lmp5atRVRBI9/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    MAENZRAAT 3.0
-                                </div>
-
-                            </div>
-
-
-                            <div class="video-card">
-
-                                <iframe
-                                    src="https://drive.google.com/file/d/13PhokBp2J3GmeoPcZh80mnCuubwXMCVS/preview"
-                                    allow="autoplay; fullscreen"
-                                    allowfullscreen>
-                                </iframe>
-
-                                <div class="video-title">
-                                    MAENZRAAT V2
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
 
         </div>
 
+
+        <!-- =================================================
+             BABY SHOWER
+        ================================================== -->
+
+        <div class="project">
+
+            <button
+                class="project-button"
+                onclick="toggleProject(this)">
+
+                <span class="project-number">
+                    03
+                </span>
+
+                <span class="project-name">
+                    Baby Shower
+                </span>
+
+                <span class="project-count">
+                    03 VIDEOS
+                </span>
+
+                <span class="project-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <div class="project-content">
+
+                <div class="project-inner">
+
+                    <div class="video-grid">
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1NhA4_vQ1w7XdMVNTuiK2gUx-ozq6JAu6/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Decore
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Host
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1vg6urwBpK8GQylCEuAnaywXFPJ7ohA5W/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Video 03
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             GOLDEN TRAILS
+        ================================================== -->
+
+        <div class="project">
+
+            <button
+                class="project-button"
+                onclick="toggleProject(this)">
+
+                <span class="project-number">
+                    04
+                </span>
+
+                <span class="project-name">
+                    Golden Trails
+                </span>
+
+                <span class="project-count">
+                    09 VIDEOS
+                </span>
+
+                <span class="project-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <div class="project-content">
+
+                <div class="project-inner">
+
+                    <div class="video-grid">
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Golden Trails 01</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Golden Trails 02</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1Q488We0910bmU4I-O-btnbv0DdBYLpY3/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Golden Trails 03</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Golden Trails 04</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/15cF3H8wz5jh_A_5qjfHz6nZduDWSJ3Jf/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Golden Trails 05</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1RZ758skTbdWhqllSI_mu7FiWwm3AjJYu/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Golden Trails 06</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1bMKq2XMh_c6lw1RtA-ki_DHhGYNO27kR/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Golden Trails 07</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1nP3BQm4dHPNnPeNT1fJP-A98Z3gTl3na/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Golden Trails 08</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1x5kEr5e60TXbwr4wbq_3d-CksDzyiuqF/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Golden Trails 09</div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             IMPORT & EXPORT
+        ================================================== -->
+
+        <div class="project">
+
+            <button
+                class="project-button"
+                onclick="toggleProject(this)">
+
+                <span class="project-number">
+                    05
+                </span>
+
+                <span class="project-name">
+                    Import &amp; Export
+                </span>
+
+                <span class="project-count">
+                    05 SHORTS
+                </span>
+
+                <span class="project-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <div class="project-content">
+
+                <div class="project-inner">
+
+                    <div class="video-grid">
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1El4SnzTe972RY_cfM8_GzZyowy5FMoa9/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Short 01</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/12YFXeBJyHOchslI2y4wsf6SrfWsd_O__/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Short 02</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Short 03</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/1INmXfSUyyzw-n9OZqjn3ch1DF7PZ7wjl/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Short 04</div>
+                        </div>
+
+
+                        <div class="video-card">
+                            <iframe src="https://drive.google.com/file/d/12__b8E_MJ_z2ET58qIiGZqFtPpIBt-Bt/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                            <div class="video-title">Short 05</div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PODCAST
+        ================================================== -->
+
+        <div class="project">
+
+            <button
+                class="project-button"
+                onclick="toggleProject(this)">
+
+                <span class="project-number">
+                    06
+                </span>
+
+                <span class="project-name">
+                    Podcast
+                </span>
+
+                <span class="project-count">
+                    03 VIDEOS
+                </span>
+
+                <span class="project-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <div class="project-content">
+
+                <div class="project-inner">
+
+                    <div class="video-grid">
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/13iSBq_bT4--sQZn40SJ_HufzzPBUkEl7/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Podcast 01
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1KxSYq0W4cAmMocRTmWvn1VlAtgShkSuW/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Podcast 02
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/178s_-M5KxSU1JX6g3E7i-uORxOEhCJhP/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Podcast 03
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             OTHER PROJECTS
+        ================================================== -->
+
+        <div class="project">
+
+            <button
+                class="project-button"
+                onclick="toggleProject(this)">
+
+                <span class="project-number">
+                    07
+                </span>
+
+                <span class="project-name">
+                    Other Projects
+                </span>
+
+                <span class="project-count">
+                    07 PROJECTS
+                </span>
+
+                <span class="project-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <div class="project-content">
+
+                <div class="project-inner">
+
+                    <div class="video-grid">
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1CcB--lcE2IoBahqzcDFMB6H3Km-vfhfa/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Parachute Advansed
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1hwIPPyqqn-4aGyMEW-aWAZfbZbGOAXEF/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                EVM
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1RCmjBvQ21Wi9MvT7bcndw-QL_4N9kFQB/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Flying Panda
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Nilesh AI
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                Regain App AI
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/1zN7Xvp3Hs4okbJ8w37K2Lmp5atRVRBI9/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                MAENZRAAT 3.0
+                            </div>
+
+                        </div>
+
+
+                        <div class="video-card">
+
+                            <iframe
+                                src="https://drive.google.com/file/d/13PhokBp2J3GmeoPcZh80mnCuubwXMCVS/preview"
+                                allow="autoplay; fullscreen"
+                                allowfullscreen>
+                            </iframe>
+
+                            <div class="video-title">
+                                MAENZRAAT V2
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
     </div>
+
+</div>
 
 </div>
 
@@ -2420,7 +2725,7 @@ footer{
      HOW I WORK
 ========================================================= -->
 
-<section class="section" id="process">
+<section class="section process" id="process">
 
 <div class="container">
 
@@ -2428,16 +2733,18 @@ footer{
         04 / HOW I WORK
     </div>
 
-    <h2 class="process-title">
+    <h2 class="process-heading">
+
         HOW I<br>
-        WORK.
+        WORK<span class="dot">.</span>
+
     </h2>
 
 
     <div class="process-grid">
 
 
-        <div class="process">
+        <div class="process-card">
 
             <div class="process-number">
                 01
@@ -2461,7 +2768,7 @@ footer{
         </div>
 
 
-        <div class="process">
+        <div class="process-card">
 
             <div class="process-number">
                 02
@@ -2469,15 +2776,13 @@ footer{
 
             <div class="wave">
 
-                <span style="--height:20px"></span>
-                <span style="--height:45px"></span>
-                <span style="--height:60px"></span>
-                <span style="--height:30px"></span>
-                <span style="--height:70px"></span>
-                <span style="--height:40px"></span>
-                <span style="--height:55px"></span>
-                <span style="--height:25px"></span>
-                <span style="--height:65px"></span>
+                <span style="--h:20px"></span>
+                <span style="--h:45px"></span>
+                <span style="--h:60px"></span>
+                <span style="--h:30px"></span>
+                <span style="--h:70px"></span>
+                <span style="--h:40px"></span>
+                <span style="--h:55px"></span>
 
             </div>
 
@@ -2493,7 +2798,7 @@ footer{
         </div>
 
 
-        <div class="process">
+        <div class="process-card">
 
             <div class="process-number">
                 03
@@ -2501,13 +2806,12 @@ footer{
 
             <div class="wave">
 
-                <span style="--height:15px"></span>
-                <span style="--height:35px"></span>
-                <span style="--height:55px"></span>
-                <span style="--height:25px"></span>
-                <span style="--height:65px"></span>
-                <span style="--height:40px"></span>
-                <span style="--height:50px"></span>
+                <span style="--h:15px"></span>
+                <span style="--h:35px"></span>
+                <span style="--h:55px"></span>
+                <span style="--h:25px"></span>
+                <span style="--h:65px"></span>
+                <span style="--h:40px"></span>
 
             </div>
 
@@ -2523,7 +2827,7 @@ footer{
         </div>
 
 
-        <div class="process">
+        <div class="process-card">
 
             <div class="process-number">
                 04
@@ -2543,7 +2847,7 @@ footer{
         </div>
 
 
-        <div class="process">
+        <div class="process-card">
 
             <div class="process-number">
                 05
@@ -2563,7 +2867,7 @@ footer{
         </div>
 
 
-        <div class="process">
+        <div class="process-card">
 
             <div class="process-number">
                 06
@@ -2600,30 +2904,111 @@ footer{
 
 <div class="container">
 
-    <div class="section-number">
-        05 / CONTACT
+    <div class="contact-layout">
+
+
+        <div>
+
+            <div class="section-number">
+                05 / CONTACT
+            </div>
+
+            <h2 class="contact-title">
+
+                LET'S<br>
+                MAKE<span class="dot">.</span>
+
+            </h2>
+
+        </div>
+
+
+        <div class="contact-right">
+
+            <p class="contact-description">
+
+                Have a project, campaign, event film or
+                social video in mind? Let's make something
+                worth watching.
+
+            </p>
+
+
+            <div class="contact-grid">
+
+
+                <a
+                    class="contact-item"
+                    href="mailto:surajsharmaedit31@gmail.com">
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <small>
+                        EMAIL
+                    </small>
+
+                    <span>
+                        surajsharmaedit31@gmail.com
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="contact-item"
+                    href="tel:+918446726785">
+
+                    <div class="contact-icon">
+                        ◇
+                    </div>
+
+                    <small>
+                        PHONE
+                    </small>
+
+                    <span>
+                        +91 8446726785
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="contact-item"
+                    href="https://instagram.com/sharmasuraj31122003"
+                    target="_blank">
+
+                    <div class="contact-icon">
+                        ◎
+                    </div>
+
+                    <small>
+                        INSTAGRAM
+                    </small>
+
+                    <span>
+                        @sharmasuraj31122003
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            <button
+                class="hire"
+                onclick="openModal()">
+
+                HIRE ME →
+
+            </button>
+
+        </div>
+
     </div>
-
-    <h2 class="contact-title">
-        LET'S<br>
-        MAKE.
-    </h2>
-
-    <p class="contact-description">
-
-        Have a project, campaign, event film or
-        social video in mind? Let's make something
-        worth watching.
-
-    </p>
-
-    <button
-        class="hire-button"
-        onclick="openContact()">
-
-        HIRE ME →
-
-    </button>
 
 </div>
 
@@ -2631,16 +3016,16 @@ footer{
 
 
 <!-- =========================================================
-     CONTACT MODAL
+     MODAL
 ========================================================= -->
 
-<div class="modal" id="contactModal">
+<div class="modal" id="modal">
 
 <div class="modal-box">
 
     <button
         class="modal-close"
-        onclick="closeContact()">
+        onclick="closeModal()">
 
         ×
 
@@ -2653,13 +3038,15 @@ footer{
 
 
     <h2 class="modal-title">
+
         GET IN<br>
         TOUCH.
+
     </h2>
 
 
     <a
-        class="contact-link"
+        class="modal-link"
         href="mailto:surajsharmaedit31@gmail.com">
 
         <div>
@@ -2680,7 +3067,7 @@ footer{
 
 
     <a
-        class="contact-link"
+        class="modal-link"
         href="tel:+918446726785">
 
         <div>
@@ -2701,7 +3088,7 @@ footer{
 
 
     <a
-        class="contact-link"
+        class="modal-link"
         href="https://instagram.com/sharmasuraj31122003"
         target="_blank">
 
@@ -2720,7 +3107,6 @@ footer{
         <div>→</div>
 
     </a>
-
 
 </div>
 
@@ -2763,13 +3149,9 @@ function toggleProject(button){
     const project =
         button.closest(".project");
 
-    const isActive =
+    const alreadyOpen =
         project.classList.contains("active");
 
-
-    /*
-       Close every project
-    */
 
     document
         .querySelectorAll(".project")
@@ -2780,12 +3162,7 @@ function toggleProject(button){
         });
 
 
-    /*
-       Open clicked project
-       unless it was already open
-    */
-
-    if(!isActive){
+    if(!alreadyOpen){
 
         project.classList.add("active");
 
@@ -2798,10 +3175,10 @@ function toggleProject(button){
    CONTACT MODAL
 ========================================================= */
 
-function openContact(){
+function openModal(){
 
     document
-        .getElementById("contactModal")
+        .getElementById("modal")
         .classList.add("show");
 
     document.body.style.overflow="hidden";
@@ -2809,10 +3186,10 @@ function openContact(){
 }
 
 
-function closeContact(){
+function closeModal(){
 
     document
-        .getElementById("contactModal")
+        .getElementById("modal")
         .classList.remove("show");
 
     document.body.style.overflow="";
@@ -2820,17 +3197,17 @@ function closeContact(){
 }
 
 
-/* Close modal by clicking outside */
+/* CLICK OUTSIDE */
 
 document
-    .getElementById("contactModal")
+    .getElementById("modal")
     .addEventListener(
         "click",
-        function(event){
+        function(e){
 
-            if(event.target === this){
+            if(e.target === this){
 
-                closeContact();
+                closeModal();
 
             }
 
@@ -2838,15 +3215,15 @@ document
     );
 
 
-/* Close modal with ESC */
+/* ESC */
 
 document.addEventListener(
     "keydown",
-    function(event){
+    function(e){
 
-        if(event.key === "Escape"){
+        if(e.key === "Escape"){
 
-            closeContact();
+            closeModal();
 
         }
 
@@ -2854,7 +3231,6 @@ document.addEventListener(
 );
 
 </script>
-
 
 </body>
 </html>
