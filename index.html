@@ -3,49 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Suraj Sharma — Video Editor</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
     background:#050505;
     color:#f4f1ec;
     font-family:Arial,Helvetica,sans-serif;
-    overflow-x:hidden;
+    overflow-x:hidden
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button{
-    font:inherit;
-}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
 
 :root{
     --bg:#050505;
     --white:#f4f1ec;
     --gold:#d6a13a;
     --line:#242424;
-    --muted:#707070;
+    --muted:#707070
 }
 
 
-/* =========================================================
+/* =========================
    NAV
-========================================================= */
+========================= */
 
 .nav{
     position:fixed;
@@ -55,25 +41,22 @@ button{
     width:100%;
     height:72px;
     padding:0 5vw;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     border-bottom:1px solid rgba(255,255,255,.06);
-
     background:rgba(5,5,5,.72);
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(12px)
 }
 
 .logo{
     font-size:12px;
-    font-weight:bold;
+    font-weight:bold
 }
 
 .nav-links{
     display:flex;
-    gap:38px;
+    gap:38px
 }
 
 .nav-links a{
@@ -81,209 +64,143 @@ button{
     font-size:8px;
     letter-spacing:2px;
     color:#777;
-    transition:.3s;
+    transition:.3s
 }
 
-.nav-links a:hover{
-    color:var(--gold);
-}
+.nav-links a:hover{color:var(--gold)}
 
 
-/* =========================================================
+/* =========================
    HERO
-========================================================= */
+========================= */
 
 .hero{
     position:relative;
     min-height:100vh;
     overflow:hidden;
-
     display:flex;
     align-items:center;
-
-    padding-top:72px;
+    padding-top:72px
 }
 
 .hero-bg-text{
     position:absolute;
     z-index:0;
-
     top:55px;
     left:2vw;
-
     font-family:Georgia,serif;
     font-size:25vw;
     line-height:.7;
     letter-spacing:-.1em;
-
     color:#0d0d0d;
     white-space:nowrap;
-
     pointer-events:none;
-
-    transition:transform 1.2s cubic-bezier(.2,.7,.2,1);
+    transition:transform 1.2s cubic-bezier(.2,.7,.2,1)
 }
 
 
-/* =========================================================
-   EDITING TIMELINE
-========================================================= */
+/* TIMELINE */
 
 .timeline{
     position:absolute;
     z-index:1;
-
     top:29%;
     left:48%;
-
     width:52%;
     height:480px;
-
     opacity:.62;
-    pointer-events:none;
+    pointer-events:none
 }
 
 .timeline-ruler{
     position:absolute;
-
     top:0;
     left:0;
     right:0;
-
     height:45px;
-
     border-bottom:1px solid #252525;
-
-    background:
-        repeating-linear-gradient(
-            to right,
-            transparent 0,
-            transparent 38px,
-            #242424 39px,
-            transparent 40px
-        );
+    background:repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent 38px,
+        #242424 39px,
+        transparent 40px
+    )
 }
 
 .time{
     position:absolute;
     top:12px;
-
     font-family:"Courier New",monospace;
     font-size:8px;
-
-    color:#555;
+    color:#555
 }
 
 .track{
     position:absolute;
-
     left:55px;
     right:0;
-
     height:90px;
-
-    border-bottom:1px solid rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.05)
 }
 
 .track-label{
     position:absolute;
-
     left:-35px;
     top:12px;
-
     font-family:"Courier New",monospace;
     font-size:8px;
-
-    color:#555;
+    color:#555
 }
 
-.track-v2{top:45px;}
-.track-v3{top:135px;}
-.track-a1{top:225px;}
-.track-a2{top:315px;}
+.track-v2{top:45px}
+.track-v3{top:135px}
+.track-a1{top:225px}
+.track-a2{top:315px}
 
 .clip{
     position:absolute;
-
     top:17px;
     height:55px;
-
     border:1px solid #292929;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(255,255,255,.04),
-            rgba(0,0,0,.4)
-        );
-
-    overflow:hidden;
+    background:linear-gradient(
+        to bottom,
+        rgba(255,255,255,.04),
+        rgba(0,0,0,.4)
+    );
+    overflow:hidden
 }
 
-.clip-1{
-    left:5%;
-    width:18%;
-}
-
-.clip-2{
-    left:26%;
-    width:13%;
-}
-
-.clip-3{
-    left:42%;
-    width:19%;
-}
-
-.clip-4{
-    left:64%;
-    width:14%;
-}
-
-.clip-5{
-    left:80%;
-    width:17%;
-}
+.clip-1{left:5%;width:18%}
+.clip-2{left:26%;width:13%}
+.clip-3{left:42%;width:19%}
+.clip-4{left:64%;width:14%}
+.clip-5{left:80%;width:17%}
 
 .clip-thumb{
     position:absolute;
     inset:5px;
-
     opacity:.16;
-
-    background:
-        linear-gradient(
-            135deg,
-            #777,
-            #111 55%,
-            #555
-        );
+    background:linear-gradient(135deg,#777,#111 55%,#555)
 }
 
 .clip-name{
     position:absolute;
-
     left:7px;
     bottom:5px;
-
     font-family:"Courier New",monospace;
     font-size:6px;
-
     color:#666;
-    z-index:2;
+    z-index:2
 }
 
 .waveform{
     position:absolute;
-
     left:0;
     right:0;
-
     top:25px;
     height:38px;
-
     opacity:.28;
-
     background:
         linear-gradient(
             transparent 48%,
@@ -297,12 +214,11 @@ button{
             transparent 3px,
             #555 4px,
             transparent 5px
-        );
+        )
 }
 
 .wave-gold{
     opacity:.35;
-
     background:
         linear-gradient(
             transparent 48%,
@@ -316,505 +232,345 @@ button{
             transparent 2px,
             var(--gold) 3px,
             transparent 5px
-        );
+        )
 }
 
 
-/* GOLD PLAYHEAD */
+/* PLAYHEAD */
 
 .playhead{
     position:absolute;
     z-index:8;
-
     top:-20px;
     bottom:0;
-
     left:43%;
-
     width:1px;
-
     background:var(--gold);
-
-    box-shadow:
-        0 0 18px rgba(214,161,58,.4);
-
-    animation:
-        playheadMove 8s ease-in-out infinite;
+    box-shadow:0 0 18px rgba(214,161,58,.4);
+    animation:playheadMove 8s ease-in-out infinite
 }
 
 .playhead::before{
     content:"";
-
     position:absolute;
-
     top:10px;
     left:50%;
-
     width:9px;
     height:9px;
-
     transform:translateX(-50%);
-
     background:var(--gold);
-
-    box-shadow:
-        0 0 15px rgba(214,161,58,.6);
+    box-shadow:0 0 15px rgba(214,161,58,.6)
 }
 
 .playhead::after{
     content:"";
-
     position:absolute;
-
     top:-3px;
     left:50%;
-
     transform:translateX(-50%);
-
     border-left:5px solid transparent;
     border-right:5px solid transparent;
-    border-top:7px solid var(--gold);
+    border-top:7px solid var(--gold)
 }
 
 .playhead-time{
     position:absolute;
-
     top:-27px;
     left:10px;
-
     white-space:nowrap;
-
     font-family:"Courier New",monospace;
     font-size:9px;
-
     color:var(--gold);
-    letter-spacing:1px;
+    letter-spacing:1px
 }
 
 @keyframes playheadMove{
-
-    0%{
-        left:28%;
-    }
-
-    50%{
-        left:65%;
-    }
-
-    100%{
-        left:28%;
-    }
-
+    0%{left:28%}
+    50%{left:65%}
+    100%{left:28%}
 }
 
 
-/* =========================================================
-   HERO CONTENT
-========================================================= */
+/* HERO CONTENT */
 
 .hero-content{
     position:relative;
     z-index:10;
-
     width:90%;
     max-width:1450px;
-
-    margin:auto;
+    margin:auto
 }
 
 .hero-label{
     margin-bottom:25px;
-
     font-family:"Courier New",monospace;
     font-size:8px;
     letter-spacing:3px;
-
-    color:var(--gold);
+    color:var(--gold)
 }
 
 .hero-name{
     position:relative;
-
     font-size:clamp(90px,13vw,205px);
-
     line-height:.67;
     letter-spacing:-.095em;
-
-    font-weight:800;
+    font-weight:800
 }
 
 .hero-name .solid{
     position:relative;
     z-index:3;
-
-    display:block;
+    display:block
 }
 
 .hero-name .outline{
     position:relative;
     z-index:2;
-
     display:block;
-
     margin-left:9vw;
-
     color:transparent;
-
-    -webkit-text-stroke:1px #373737;
+    -webkit-text-stroke:1px #373737
 }
 
 .hero-description{
     position:relative;
     z-index:10;
-
     width:370px;
     max-width:90%;
-
     margin-top:60px;
-
     font-size:12px;
     line-height:1.8;
-
-    color:#777;
+    color:#777
 }
 
 
-/* =========================================================
-   HERO SKILLS
-========================================================= */
+/* HERO SKILLS */
 
 .hero-bottom{
     position:relative;
     z-index:10;
-
     display:flex;
     align-items:center;
-
     margin-top:42px;
-
     width:560px;
-    max-width:100%;
+    max-width:100%
 }
 
 .skill{
     width:140px;
-
     padding:0 22px;
-
     border-right:1px solid #292929;
-
-    text-align:center;
+    text-align:center
 }
 
-.skill:first-child{
-    padding-left:0;
-}
-
-.skill:last-child{
-    border-right:0;
-}
+.skill:first-child{padding-left:0}
+.skill:last-child{border-right:0}
 
 .skill-icon{
     height:30px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     margin-bottom:8px;
-
     color:var(--gold);
-
-    font-size:21px;
+    font-size:21px
 }
 
 .skill-name{
     font-family:"Courier New",monospace;
-
     font-size:8px;
-    letter-spacing:2px;
+    letter-spacing:2px
 }
 
 
-/* =========================================================
-   SCROLL
-========================================================= */
+/* SCROLL */
 
 .scroll{
     position:absolute;
     z-index:10;
-
     bottom:35px;
     left:5vw;
-
     display:flex;
     align-items:center;
-
     gap:18px;
-
     font-family:"Courier New",monospace;
-
     font-size:8px;
     letter-spacing:2px;
-
-    color:#aaa;
+    color:#aaa
 }
 
 .scroll-arrow{
     color:var(--gold);
     font-size:18px;
-
-    animation:
-        scrollBounce 1.5s ease-in-out infinite;
+    animation:scrollBounce 1.5s ease-in-out infinite
 }
 
 @keyframes scrollBounce{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(5px);
-    }
-
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(5px)}
 }
 
 
-/* =========================================================
+/* =========================
    COMMON
-========================================================= */
+========================= */
 
 .section{
     position:relative;
-
-    border-top:1px solid var(--line);
+    border-top:1px solid var(--line)
 }
 
 .container{
     width:90%;
     max-width:1450px;
-
-    margin:auto;
+    margin:auto
 }
 
 .section-number{
     font-family:"Courier New",monospace;
-
     font-size:8px;
     letter-spacing:3px;
-
-    color:#555;
+    color:#555
 }
 
 
-/* =========================================================
+/* =========================
    SHOWREEL
-========================================================= */
+========================= */
 
 .showreel{
     min-height:100vh;
-
     padding:150px 0;
-
-    overflow:hidden;
+    overflow:hidden
 }
 
 .showreel-layout{
     display:grid;
-
-    grid-template-columns:
-        minmax(300px,.78fr)
-        minmax(0,1.72fr);
-
+    grid-template-columns:minmax(300px,.78fr) minmax(0,1.72fr);
     align-items:center;
-
-    gap:clamp(35px,5vw,90px);
+    gap:clamp(35px,5vw,90px)
 }
 
 .showreel-info{
     position:relative;
     z-index:5;
-
     min-width:0;
-
-    padding-right:50px;
-}
-
-.showreel-videos{
-    position:relative;
-    z-index:4;
-
-    min-width:0;
-
-    display:grid;
-
-    grid-template-columns:
-        minmax(0,1fr)
-        220px;
-
-    gap:20px;
-
-    align-items:center;
+    padding-right:50px
 }
 
 .showreel-title{
     margin-top:35px;
-
     font-family:Georgia,serif;
-
     font-size:clamp(80px,9vw,145px);
-
     line-height:.7;
-
     letter-spacing:-.09em;
-
-    font-weight:400;
+    font-weight:400
 }
 
-.showreel-title span{
-    color:var(--gold);
-}
+.showreel-title span{color:var(--gold)}
 
 .gold-line{
     width:50px;
     height:2px;
-
     margin-top:45px;
-
-    background:var(--gold);
+    background:var(--gold)
 }
 
 .showreel-description{
     width:300px;
     max-width:100%;
-
     margin-top:35px;
-
     font-size:11px;
     line-height:1.8;
+    color:#777
+}
 
-    color:#777;
+.showreel-videos{
+    position:relative;
+    z-index:4;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 220px;
+    gap:20px;
+    min-width:0;
+    align-items:center
 }
 
 .showreel-card{
     position:relative;
-
     overflow:hidden;
-
     border:1px solid #292929;
-
     background:#090909;
-
-    transition:
-        transform .45s cubic-bezier(.2,.7,.2,1),
-        border-color .45s ease;
+    transition:.5s
 }
 
-.showreel-card:first-child{
-    height:470px;
-}
-
-.showreel-card:last-child{
-    height:330px;
-}
+.showreel-card:first-child{height:470px}
+.showreel-card:last-child{height:330px}
 
 .showreel-card:hover{
     border-color:rgba(214,161,58,.45);
-
-    transform:translateY(-5px);
+    transform:translateY(-5px)
 }
 
 .showreel-card iframe{
     position:relative;
     z-index:1;
-
     width:100%;
     height:100%;
-
     border:0;
-
-    display:block;
+    display:block
 }
 
 .showreel-overlay{
     position:absolute;
     z-index:2;
-
     inset:0;
-
     pointer-events:none;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent 55%,
-            rgba(0,0,0,.9)
-        );
-}
-
-.showreel-card::before{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    z-index:2;
-
-    pointer-events:none;
-
-    border:1px solid rgba(255,255,255,.06);
+    background:linear-gradient(
+        to bottom,
+        transparent 55%,
+        rgba(0,0,0,.9)
+    )
 }
 
 .showreel-card-info{
     position:absolute;
     z-index:4;
-
     left:20px;
-    bottom:18px;
+    bottom:18px
 }
 
 .showreel-card-info small{
     display:block;
-
     margin-bottom:7px;
-
     font-family:"Courier New",monospace;
-
     font-size:7px;
     letter-spacing:2px;
-
-    color:var(--gold);
+    color:var(--gold)
 }
 
 .showreel-card-info strong{
     font-size:18px;
-    font-weight:400;
+    font-weight:400
 }
 
 
-/* =========================================================
+/* =========================
    WORK
-========================================================= */
+========================= */
 
 .work{
     padding:150px 0;
-
-    overflow:hidden;
+    overflow:hidden
 }
 
 .work::after{
     content:"";
-
     position:absolute;
     z-index:0;
-
     right:-2%;
     top:0;
-
     width:68%;
     height:100%;
-
     background:
         linear-gradient(
             to right,
@@ -824,841 +580,575 @@ button{
             rgba(5,5,5,.6)
         ),
         url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&q=85");
-
     background-size:cover;
     background-position:center right;
-
     opacity:.82;
-
-    pointer-events:none;
+    pointer-events:none
 }
 
 .work-inner{
     position:relative;
     z-index:2;
-
     display:grid;
-
-    grid-template-columns:
-        minmax(280px,30%)
-        minmax(0,70%);
+    grid-template-columns:minmax(280px,30%) minmax(0,70%)
 }
 
-.work-intro{
-    padding-right:50px;
-}
+.work-intro{padding-right:50px}
 
 .work-title{
     margin-top:35px;
-
     font-family:Georgia,serif;
-
     font-size:clamp(85px,9vw,140px);
-
     line-height:.7;
-
     letter-spacing:-.09em;
-
-    font-weight:400;
+    font-weight:400
 }
 
-.work-title span{
-    color:var(--gold);
-}
+.work-title span{color:var(--gold)}
 
 .work-gold-line{
     width:65px;
     height:2px;
-
     margin-top:50px;
-
-    background:var(--gold);
+    background:var(--gold)
 }
 
 .work-description{
     width:260px;
-
     margin-top:40px;
-
     font-size:11px;
     line-height:1.9;
-
-    color:#888;
+    color:#888
 }
 
 .work-divider{
     position:absolute;
     z-index:3;
-
     left:30%;
     top:0;
-
     width:1px;
     height:100%;
-
-    background:var(--gold);
+    background:var(--gold)
 }
 
 .project-list{
-    padding-left:clamp(30px,4vw,65px);
+    padding-left:clamp(30px,4vw,65px)
 }
 
 .project{
-    border-top:1px solid rgba(255,255,255,.14);
+    border-top:1px solid rgba(255,255,255,.14)
 }
 
 .project:last-child{
-    border-bottom:1px solid rgba(255,255,255,.14);
+    border-bottom:1px solid rgba(255,255,255,.14)
 }
 
 .project-button{
     position:relative;
-
     width:100%;
     min-height:95px;
-
     display:grid;
-
-    grid-template-columns:
-        60px
-        1fr
-        120px
-        50px;
-
+    grid-template-columns:60px 1fr 120px 50px;
     align-items:center;
-
     border:0;
-
     background:none;
-
     color:#fff;
-
     text-align:left;
-
     cursor:pointer;
-
-    transition:.3s;
+    transition:.3s
 }
 
-.project-button:hover{
-    padding-left:10px;
-}
-
-.project-button::after{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    right:0;
-    bottom:-1px;
-
-    height:1px;
-
-    transform:scaleX(0);
-
-    transform-origin:left;
-
-    background:var(--gold);
-
-    transition:.5s ease;
-}
-
-.project-button:hover::after{
-    transform:scaleX(1);
-}
+.project-button:hover{padding-left:10px}
 
 .project-number{
     font-family:"Courier New",monospace;
-
     font-size:16px;
-
-    color:var(--gold);
+    color:var(--gold)
 }
 
 .project-name{
     font-family:Georgia,serif;
-
     font-size:clamp(23px,2.3vw,37px);
-
     font-weight:400;
-
-    letter-spacing:-.04em;
+    letter-spacing:-.04em
 }
 
 .project-count{
     text-align:right;
-
     font-family:"Courier New",monospace;
-
     font-size:7px;
-
     letter-spacing:2px;
-
-    color:#999;
+    color:#999
 }
 
 .project-arrow{
     width:38px;
     height:38px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     margin-left:auto;
-
     border:1px solid var(--gold);
-
     border-radius:50%;
-
     color:var(--gold);
-
-    transition:.4s;
+    transition:.4s
 }
 
 .project.active .project-arrow{
     background:var(--gold);
-
     color:#000;
-
-    transform:rotate(90deg);
+    transform:rotate(90deg)
 }
 
 .project-content{
     display:grid;
-
     grid-template-rows:0fr;
-
-    transition:
-        grid-template-rows .65s
-        cubic-bezier(.2,.7,.2,1);
+    transition:grid-template-rows .65s cubic-bezier(.2,.7,.2,1)
 }
 
 .project.active .project-content{
-    grid-template-rows:1fr;
+    grid-template-rows:1fr
 }
 
 .project-inner{
     min-height:0;
-
     overflow:hidden;
-
     opacity:0;
-
-    transition:.3s;
+    transition:.3s
 }
 
 .project.active .project-inner{
     opacity:1;
-
-    padding:
-        15px
-        0
-        40px
-        60px;
+    padding:15px 0 40px 60px
 }
 
 .video-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:12px;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px
 }
 
 .video-card{
     border:1px solid #292929;
-
     background:#080808;
-
     overflow:hidden;
-
-    transition:.4s;
+    transition:.4s
 }
 
 .video-card:hover{
     border-color:#666;
-
-    transform:translateY(-4px);
+    transform:translateY(-4px)
 }
 
 .video-card iframe{
     display:block;
-
     width:100%;
-
     aspect-ratio:16/9;
-
     border:0;
-
-    background:#000;
+    background:#000
 }
 
 .video-title{
     padding:11px;
-
     font-family:"Courier New",monospace;
-
     font-size:7px;
-
     letter-spacing:2px;
-
-    color:#666;
+    color:#666
 }
 
 
-/* =========================================================
+/* =========================
    HOW I WORK
-========================================================= */
+========================= */
 
 .process{
-    padding:150px 0;
+    padding:150px 0
 }
 
 .process-title{
     margin-top:35px;
-
     font-family:Georgia,serif;
-
     font-size:clamp(80px,10vw,155px);
-
     line-height:.7;
-
     letter-spacing:-.09em;
-
-    font-weight:400;
+    font-weight:400
 }
 
-.process-title span{
-    color:var(--gold);
-}
+.process-title span{color:var(--gold)}
 
 .process-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(6,1fr);
-
+    grid-template-columns:repeat(6,1fr);
     gap:12px;
-
-    margin-top:100px;
+    margin-top:100px
 }
 
 .process-card{
     position:relative;
-
     height:300px;
-
     padding:18px;
-
     border:1px solid #242424;
-
     overflow:hidden;
-
-    transition:.4s;
+    transition:.4s
 }
 
 .process-card:hover{
     border-color:#555;
-
-    transform:translateY(-5px);
+    transform:translateY(-5px)
 }
 
 .process-number{
     font-family:"Courier New",monospace;
-
     font-size:8px;
-
-    color:var(--gold);
+    color:var(--gold)
 }
 
 .process-name{
     position:absolute;
-
     left:18px;
     bottom:48px;
-
-    font-size:17px;
+    font-size:17px
 }
 
 .process-description{
     position:absolute;
-
     left:18px;
     right:18px;
     bottom:18px;
-
     font-size:8px;
-
     line-height:1.5;
-
-    color:#666;
+    color:#666
 }
 
 .graphic{
     position:absolute;
-
     left:15px;
     right:15px;
-
     top:42%;
-
-    height:70px;
+    height:70px
 }
 
 .cut-lines span{
     display:block;
-
     height:1px;
-
     margin:12px 0;
-
     background:#666;
-
-    transition:.6s;
+    transition:.6s
 }
 
-.cut-lines span:nth-child(1){
-    width:40%;
-}
+.cut-lines span:nth-child(1){width:40%}
+.cut-lines span:nth-child(2){width:80%}
+.cut-lines span:nth-child(3){width:55%}
 
-.cut-lines span:nth-child(2){
-    width:80%;
-}
-
-.cut-lines span:nth-child(3){
-    width:55%;
-}
-
-.process-card:hover .cut-lines span{
-    width:100%;
-}
+.process-card:hover .cut-lines span{width:100%}
 
 .sound-wave{
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    gap:4px;
+    gap:4px
 }
 
 .sound-wave span{
     width:2px;
-
     height:var(--height);
-
     background:#777;
-
-    animation:
-        sound 1s ease-in-out infinite alternate;
+    animation:sound 1s ease-in-out infinite alternate
 }
 
-.sound-wave span:nth-child(2n){
-    animation-delay:.2s;
-}
+.sound-wave span:nth-child(2n){animation-delay:.2s}
 
 @keyframes sound{
-
-    from{
-        transform:scaleY(.3);
-    }
-
-    to{
-        transform:scaleY(1);
-    }
-
+    from{transform:scaleY(.3)}
+    to{transform:scaleY(1)}
 }
 
 .color-circle{
     width:80px;
     height:80px;
-
     margin:auto;
-
     border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #b18a48,
-            #30200c 45%,
-            transparent 70%
-        );
-
+    background:radial-gradient(
+        circle,
+        #b18a48,
+        #30200c 45%,
+        transparent 70%
+    );
     filter:blur(5px);
-
-    transition:.6s;
+    transition:.6s
 }
 
 .process-card:hover .color-circle{
-    transform:scale(1.3);
+    transform:scale(1.3)
 }
 
 .motion-square{
     width:70px;
     height:70px;
-
     margin:auto;
-
     border:1px solid var(--gold);
-
-    transition:.7s;
+    transition:.7s
 }
 
 .process-card:hover .motion-square{
-    transform:rotate(45deg);
+    transform:rotate(45deg)
 }
 
 .type-graphic{
     text-align:center;
-
     font-size:65px;
-
     color:#444;
-
-    transition:.5s;
+    transition:.5s
 }
 
 .process-card:hover .type-graphic{
     color:var(--gold);
-
-    transform:scale(1.1);
+    transform:scale(1.1)
 }
 
 
-/* =========================================================
+/* =========================
    CONTACT
-========================================================= */
+========================= */
 
 .contact{
-    padding:150px 0 100px;
+    padding:150px 0 100px
 }
 
 .contact-layout{
     display:grid;
-
-    grid-template-columns:35% 65%;
+    grid-template-columns:35% 65%
 }
 
 .contact-title{
     margin-top:35px;
-
     font-family:Georgia,serif;
-
     font-size:clamp(80px,10vw,150px);
-
     line-height:.7;
-
-    letter-spacing:-.09em;
+    letter-spacing:-.09em
 }
 
-.contact-title span{
-    color:var(--gold);
-}
+.contact-title span{color:var(--gold)}
 
-.contact-right{
-    padding-left:60px;
-}
+.contact-right{padding-left:60px}
 
 .contact-description{
     width:400px;
     max-width:100%;
-
     margin-bottom:40px;
-
     font-size:11px;
     line-height:1.8;
-
-    color:#777;
+    color:#777
 }
 
 .contact-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    border-top:1px solid var(--line);
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line)
 }
 
 .contact-item{
     min-height:140px;
-
     padding:25px;
-
-    border-right:1px solid var(--line);
+    border-right:1px solid var(--line)
 }
 
-.contact-item:last-child{
-    border-right:0;
-}
+.contact-item:last-child{border-right:0}
 
 .contact-icon{
     margin-bottom:20px;
-
     font-size:20px;
-
-    color:var(--gold);
+    color:var(--gold)
 }
 
 .contact-item small{
     display:block;
-
     margin-bottom:8px;
-
     font-family:"Courier New",monospace;
-
     font-size:7px;
-
     letter-spacing:2px;
-
-    color:var(--gold);
+    color:var(--gold)
 }
 
 .contact-item span{
     font-size:10px;
-
-    color:#aaa;
+    color:#aaa
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 footer{
     display:flex;
-
     justify-content:space-between;
-
     padding:25px 5vw;
-
     border-top:1px solid var(--line);
-
     font-family:"Courier New",monospace;
-
     font-size:7px;
-
     letter-spacing:2px;
-
-    color:#444;
+    color:#444
 }
 
 
-/* =========================================================
+/* =========================
    RESPONSIVE
-========================================================= */
+========================= */
 
 @media(max-width:1100px){
 
-    .nav-links{
-        gap:18px;
-    }
+    .nav-links{gap:18px}
 
-    .hero{
-        min-height:850px;
-    }
+    .hero{min-height:850px}
 
     .timeline{
         left:30%;
         width:70%;
-
-        opacity:.4;
+        opacity:.4
     }
 
     .showreel-layout{
-        grid-template-columns:1fr;
-
-        gap:60px;
+        grid-template-columns:1fr
     }
 
     .showreel-videos{
-        margin-top:70px;
+        margin-top:70px
     }
 
     .work-inner{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
     .work::after{
         width:100%;
-
-        opacity:.25;
+        opacity:.25
     }
 
-    .work-divider{
-        display:none;
-    }
+    .work-divider{display:none}
 
-    .work-intro{
-        margin-bottom:70px;
-    }
+    .work-intro{margin-bottom:70px}
 
-    .project-list{
-        padding-left:0;
-    }
+    .project-list{padding-left:0}
 
     .process-grid{
-        grid-template-columns:
-            repeat(3,1fr);
+        grid-template-columns:repeat(3,1fr)
     }
 
     .contact-layout{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
     .contact-right{
         padding-left:0;
-
-        margin-top:70px;
+        margin-top:70px
     }
-
 }
 
 
 @media(max-width:600px){
 
-    .nav{
-        height:65px;
-    }
+    .nav{height:65px}
 
-    .nav-links{
-        display:none;
-    }
+    .nav-links{display:none}
 
-    .hero{
-        min-height:850px;
-    }
+    .hero{min-height:850px}
 
     .hero-bg-text{
         font-size:40vw;
-        top:100px;
+        top:100px
     }
 
     .timeline{
         top:45%;
         left:0;
         width:100%;
-        opacity:.35;
+        opacity:.35
     }
 
-    .hero-name{
-        font-size:24vw;
-    }
+    .hero-name{font-size:24vw}
 
-    .hero-name .outline{
-        margin-left:5vw;
-    }
+    .hero-name .outline{margin-left:5vw}
 
-    .hero-description{
-        margin-top:50px;
-    }
+    .hero-description{margin-top:50px}
 
     .hero-bottom{
         width:100%;
-        margin-top:40px;
+        margin-top:40px
     }
 
     .skill{
         width:25%;
-        padding:0 8px;
+        padding:0 8px
     }
 
-    .skill-name{
-        font-size:6px;
-    }
+    .skill-name{font-size:6px}
 
-    .scroll{
-        bottom:20px;
-    }
+    .scroll{bottom:20px}
 
-    .showreel{
-        padding:100px 0;
-    }
+    .showreel{padding:100px 0}
 
-    .showreel-title{
-        font-size:25vw;
-    }
+    .showreel-title{font-size:25vw}
 
     .showreel-videos{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
     .showreel-card:first-child,
     .showreel-card:last-child{
-
         height:auto;
-
-        aspect-ratio:16/9;
+        aspect-ratio:16/9
     }
 
     .project-button{
-        grid-template-columns:
-            40px 1fr 40px;
-
-        min-height:85px;
+        grid-template-columns:40px 1fr 40px;
+        min-height:85px
     }
 
-    .project-count{
-        display:none;
-    }
+    .project-count{display:none}
 
-    .project-name{
-        font-size:23px;
-    }
+    .project-name{font-size:23px}
 
     .project.active .project-inner{
-        padding-left:0;
+        padding-left:0
     }
 
     .video-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
     .process-grid{
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr
     }
 
-    .process-title{
-        font-size:24vw;
-    }
+    .process-title{font-size:24vw}
 
-    .contact-title{
-        font-size:24vw;
-    }
+    .contact-title{font-size:24vw}
 
     .contact-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr
     }
 
     .contact-item{
         border-right:0;
-
-        border-bottom:1px solid var(--line);
+        border-bottom:1px solid var(--line)
     }
 
     footer{
         flex-direction:column;
-
-        gap:10px;
+        gap:10px
     }
-
 }
 
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
+<!-- =========================
+     NAV
+========================= -->
 
 <nav class="nav">
 
@@ -1667,58 +1157,36 @@ footer{
     </a>
 
     <div class="nav-links">
-
         <a href="#showreel">SHOWREEL</a>
         <a href="#selected">SELECTED</a>
         <a href="#work">WORK</a>
         <a href="#process">HOW I WORK</a>
         <a href="#contact">CONTACT</a>
-
     </div>
 
 </nav>
 
 
-<!-- =========================================================
+<!-- =========================
      HERO
-========================================================= -->
+========================= -->
 
 <section class="hero" id="home">
 
-    <div
-        class="hero-bg-text"
-        id="heroBg">
-
+    <div class="hero-bg-text" id="heroBg">
         SURAJ
-
     </div>
 
-
-    <!-- EDITING TIMELINE -->
 
     <div class="timeline">
 
         <div class="timeline-ruler">
 
-            <span class="time" style="left:2%">
-                00:00:00
-            </span>
-
-            <span class="time" style="left:25%">
-                00:00:10
-            </span>
-
-            <span class="time" style="left:48%">
-                00:00:20
-            </span>
-
-            <span class="time" style="left:72%">
-                00:00:30
-            </span>
-
-            <span class="time" style="left:92%">
-                00:00:40
-            </span>
+            <span class="time" style="left:2%">00:00:00</span>
+            <span class="time" style="left:25%">00:00:10</span>
+            <span class="time" style="left:48%">00:00:20</span>
+            <span class="time" style="left:72%">00:00:30</span>
+            <span class="time" style="left:92%">00:00:40</span>
 
         </div>
 
@@ -1775,7 +1243,6 @@ footer{
         <div class="track track-a1">
 
             <span class="track-label">A1</span>
-
             <div class="waveform"></div>
 
         </div>
@@ -1784,7 +1251,6 @@ footer{
         <div class="track track-a2">
 
             <span class="track-label">A2</span>
-
             <div class="waveform wave-gold"></div>
 
         </div>
@@ -1800,8 +1266,6 @@ footer{
 
     </div>
 
-
-    <!-- HERO TEXT -->
 
     <div class="hero-content">
 
@@ -1821,6 +1285,7 @@ footer{
 
         </h1>
 
+
         <p class="hero-description">
 
             Video editor and visual storyteller focused on
@@ -1833,54 +1298,23 @@ footer{
         <div class="hero-bottom">
 
             <div class="skill">
-
-                <div class="skill-icon">
-                    ✂
-                </div>
-
-                <div class="skill-name">
-                    CUT
-                </div>
-
+                <div class="skill-icon">✂</div>
+                <div class="skill-name">CUT</div>
             </div>
 
-
             <div class="skill">
-
-                <div class="skill-icon">
-                    ≋
-                </div>
-
-                <div class="skill-name">
-                    SOUND
-                </div>
-
+                <div class="skill-icon">≋</div>
+                <div class="skill-name">SOUND</div>
             </div>
 
-
             <div class="skill">
-
-                <div class="skill-icon">
-                    ◉
-                </div>
-
-                <div class="skill-name">
-                    COLOR
-                </div>
-
+                <div class="skill-icon">◉</div>
+                <div class="skill-name">COLOR</div>
             </div>
 
-
             <div class="skill">
-
-                <div class="skill-icon">
-                    ◌
-                </div>
-
-                <div class="skill-name">
-                    MOTION
-                </div>
-
+                <div class="skill-icon">◌</div>
+                <div class="skill-name">MOTION</div>
             </div>
 
         </div>
@@ -1901,9 +1335,9 @@ footer{
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      SHOWREEL
-========================================================= -->
+========================= -->
 
 <section class="section showreel" id="showreel">
 
@@ -1925,10 +1359,8 @@ footer{
         <div class="gold-line"></div>
 
         <p class="showreel-description">
-
             A collection of selected edits that define
             my style, rhythm and visual language.
-
         </p>
 
     </div>
@@ -2000,9 +1432,9 @@ footer{
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      SELECTED
-========================================================= -->
+========================= -->
 
 <section class="section showreel" id="selected">
 
@@ -2025,9 +1457,9 @@ footer{
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      WORK
-========================================================= -->
+========================= -->
 
 <section class="section work" id="work">
 
@@ -2065,19 +1497,13 @@ footer{
     <div class="project-list">
 
 
-        <!-- =================================================
-             CORPORATE
-        ================================================= -->
+        <!-- CORPORATE -->
 
         <div class="project">
 
-            <button
-                class="project-button"
-                onclick="toggleProject(this)">
+            <button class="project-button" onclick="toggleProject(this)">
 
-                <span class="project-number">
-                    01
-                </span>
+                <span class="project-number">01</span>
 
                 <span class="project-name">
                     Corporate
@@ -2138,19 +1564,13 @@ footer{
         </div>
 
 
-        <!-- =================================================
-             BIRTHDAY
-        ================================================= -->
+        <!-- BIRTHDAY -->
 
         <div class="project">
 
-            <button
-                class="project-button"
-                onclick="toggleProject(this)">
+            <button class="project-button" onclick="toggleProject(this)">
 
-                <span class="project-number">
-                    02
-                </span>
+                <span class="project-number">02</span>
 
                 <span class="project-name">
                     Birthday
@@ -2211,19 +1631,13 @@ footer{
         </div>
 
 
-        <!-- =================================================
-             BABY SHOWER
-        ================================================= -->
+        <!-- BABY SHOWER -->
 
         <div class="project">
 
-            <button
-                class="project-button"
-                onclick="toggleProject(this)">
+            <button class="project-button" onclick="toggleProject(this)">
 
-                <span class="project-number">
-                    03
-                </span>
+                <span class="project-number">03</span>
 
                 <span class="project-name">
                     Baby Shower
@@ -2246,20 +1660,25 @@ footer{
 
                     <div class="video-grid">
 
+
+                        <!-- DECORE -->
+
                         <div class="video-card">
 
                             <iframe
-                                src="https://drive.google.com/file/d/13iSBq_bT4--sQZn40SJ_HufzzPBUkEl7/preview"
+                                src="https://drive.google.com/file/d/1NhA4_vQ1w7XdMVNTuiK2gUx-ozq6JAu6/preview"
                                 allow="autoplay; fullscreen"
                                 allowfullscreen>
                             </iframe>
 
                             <div class="video-title">
-                                BABY SHOWER 01
+                                DECORE
                             </div>
 
                         </div>
 
+
+                        <!-- HOST -->
 
                         <div class="video-card">
 
@@ -2270,16 +1689,18 @@ footer{
                             </iframe>
 
                             <div class="video-title">
-                                BABY SHOWER 02
+                                HOST
                             </div>
 
                         </div>
 
 
+                        <!-- VIDEO 03 -->
+
                         <div class="video-card">
 
                             <iframe
-                                src="https://drive.google.com/file/d/13iSBq_bT4--sQZn40SJ_HufzzPBUkEl7/preview"
+                                src="https://drive.google.com/file/d/1vg6urwBpK8GQylCEuAnaywXFPJ7ohA5W/preview"
                                 allow="autoplay; fullscreen"
                                 allowfullscreen>
                             </iframe>
@@ -2290,6 +1711,7 @@ footer{
 
                         </div>
 
+
                     </div>
 
                 </div>
@@ -2299,19 +1721,13 @@ footer{
         </div>
 
 
-        <!-- =================================================
-             GOLDEN TRAILS
-        ================================================= -->
+        <!-- GOLDEN TRAILS -->
 
         <div class="project">
 
-            <button
-                class="project-button"
-                onclick="toggleProject(this)">
+            <button class="project-button" onclick="toggleProject(this)">
 
-                <span class="project-number">
-                    04
-                </span>
+                <span class="project-number">04</span>
 
                 <span class="project-name">
                     Golden Trails
@@ -2341,19 +1757,13 @@ footer{
         </div>
 
 
-        <!-- =================================================
-             IMPORT & EXPORT
-        ================================================= -->
+        <!-- IMPORT & EXPORT -->
 
         <div class="project">
 
-            <button
-                class="project-button"
-                onclick="toggleProject(this)">
+            <button class="project-button" onclick="toggleProject(this)">
 
-                <span class="project-number">
-                    05
-                </span>
+                <span class="project-number">05</span>
 
                 <span class="project-name">
                     Import &amp; Export
@@ -2374,10 +1784,7 @@ footer{
 
                 <div class="project-inner">
 
-                    <div
-                        class="video-grid"
-                        id="importExportGrid">
-                    </div>
+                    <div class="video-grid" id="importExportGrid"></div>
 
                 </div>
 
@@ -2386,19 +1793,13 @@ footer{
         </div>
 
 
-        <!-- =================================================
-             PODCAST
-        ================================================= -->
+        <!-- PODCAST -->
 
         <div class="project">
 
-            <button
-                class="project-button"
-                onclick="toggleProject(this)">
+            <button class="project-button" onclick="toggleProject(this)">
 
-                <span class="project-number">
-                    06
-                </span>
+                <span class="project-number">06</span>
 
                 <span class="project-name">
                     Podcast
@@ -2474,19 +1875,13 @@ footer{
         </div>
 
 
-        <!-- =================================================
-             OTHER PROJECTS
-        ================================================= -->
+        <!-- OTHER PROJECTS -->
 
         <div class="project">
 
-            <button
-                class="project-button"
-                onclick="toggleProject(this)">
+            <button class="project-button" onclick="toggleProject(this)">
 
-                <span class="project-number">
-                    07
-                </span>
+                <span class="project-number">07</span>
 
                 <span class="project-name">
                     Other Projects
@@ -2507,10 +1902,7 @@ footer{
 
                 <div class="project-inner">
 
-                    <div
-                        class="video-grid"
-                        id="otherProjectsGrid">
-                    </div>
+                    <div class="video-grid" id="otherProjectsGrid"></div>
 
                 </div>
 
@@ -2528,9 +1920,9 @@ footer{
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      HOW I WORK
-========================================================= -->
+========================= -->
 
 <section class="section process" id="process">
 
@@ -2540,12 +1932,9 @@ footer{
         04 / HOW I WORK
     </div>
 
-
     <h2 class="process-title">
-
         HOW I<br>
         WORK<span>.</span>
-
     </h2>
 
 
@@ -2554,9 +1943,7 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">
-                01
-            </div>
+            <div class="process-number">01</div>
 
             <div class="graphic cut-lines">
                 <span></span>
@@ -2578,9 +1965,7 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">
-                02
-            </div>
+            <div class="process-number">02</div>
 
             <div class="graphic sound-wave">
 
@@ -2607,9 +1992,7 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">
-                03
-            </div>
+            <div class="process-number">03</div>
 
             <div class="graphic color-circle"></div>
 
@@ -2626,9 +2009,7 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">
-                04
-            </div>
+            <div class="process-number">04</div>
 
             <div class="graphic motion-square"></div>
 
@@ -2645,9 +2026,7 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">
-                05
-            </div>
+            <div class="process-number">05</div>
 
             <div class="graphic type-graphic">
                 Aa
@@ -2666,9 +2045,7 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">
-                06
-            </div>
+            <div class="process-number">06</div>
 
             <div class="graphic cut-lines">
                 <span></span>
@@ -2694,9 +2071,9 @@ footer{
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      CONTACT
-========================================================= -->
+========================= -->
 
 <section class="section contact" id="contact">
 
@@ -2712,10 +2089,8 @@ footer{
         </div>
 
         <h2 class="contact-title">
-
             LET'S<br>
             MAKE<span>.</span>
-
         </h2>
 
     </div>
@@ -2804,9 +2179,9 @@ footer{
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      FOOTER
-========================================================= -->
+========================= -->
 
 <footer>
 
@@ -2827,9 +2202,9 @@ footer{
 
 <script>
 
-/* =========================================================
+/* =========================
    GOLDEN TRAILS
-========================================================= */
+========================= */
 
 const goldenTrails = [
 
@@ -2846,10 +2221,9 @@ const goldenTrails = [
 ];
 
 
-
-/* =========================================================
+/* =========================
    IMPORT & EXPORT
-========================================================= */
+========================= */
 
 const importExport = [
 
@@ -2862,10 +2236,9 @@ const importExport = [
 ];
 
 
-
-/* =========================================================
+/* =========================
    OTHER PROJECTS
-========================================================= */
+========================= */
 
 const otherProjects = [
 
@@ -2880,12 +2253,11 @@ const otherProjects = [
 ];
 
 
-
-/* =========================================================
+/* =========================
    CREATE VIDEO CARDS
-========================================================= */
+========================= */
 
-function createVideoCards(array, containerId){
+function createVideoCards(array,containerId){
 
     const container =
         document.getElementById(containerId);
@@ -2918,6 +2290,7 @@ function createVideoCards(array, containerId){
 
 }
 
+
 createVideoCards(
     goldenTrails,
     "goldenTrailsGrid"
@@ -2934,10 +2307,9 @@ createVideoCards(
 );
 
 
-
-/* =========================================================
+/* =========================
    PROJECT ACCORDION
-========================================================= */
+========================= */
 
 function toggleProject(button){
 
@@ -2966,10 +2338,9 @@ function toggleProject(button){
 }
 
 
-
-/* =========================================================
+/* =========================
    HERO PARALLAX
-========================================================= */
+========================= */
 
 const hero =
     document.querySelector(".hero");
@@ -3007,10 +2378,9 @@ hero.addEventListener(
 );
 
 
-
-/* =========================================================
-   PAUSE TIMELINE WHEN TAB IS INACTIVE
-========================================================= */
+/* =========================
+   PAUSE TIMELINE
+========================= */
 
 document.addEventListener(
     "visibilitychange",
@@ -3036,7 +2406,6 @@ document.addEventListener(
 );
 
 </script>
-
 
 </body>
 </html>
