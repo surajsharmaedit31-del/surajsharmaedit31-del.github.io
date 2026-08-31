@@ -2,86 +2,129 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Suraj Sharma — Video Editor</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-    background:#070707;
-    color:#f3f1ed;
-    font-family:Arial,Helvetica,sans-serif;
-    overflow-x:hidden
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-button{font:inherit}
-a{color:inherit;text-decoration:none}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:#f2f0ec;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+button{
+    font:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
 :root{
-    --gold:#b98a45;
-    --bg:#070707;
+    --gold:#b58a4b;
+    --white:#f2f0ec;
+    --dark:#050505;
     --line:#242424;
-    --muted:#626262;
-    --soft:#111;
-}
-
-.container{
-    width:72%;
-    margin:auto
-}
-
-.section{
-    position:relative;
-    border-top:1px solid var(--line);
-    padding:150px 0
-}
-
-.section-number{
-    position:absolute;
-    top:90px;
-    left:0;
-    font:8px "Courier New",monospace;
-    letter-spacing:3px;
-    color:#444
+    --muted:#5e5e5e;
 }
 
 
 /* =========================================================
-   NAV
+   GLOBAL
+========================================================= */
+
+.container{
+    width:72%;
+    max-width:1500px;
+    margin:auto;
+}
+
+.section{
+    position:relative;
+    padding:150px 0;
+    border-top:1px solid var(--line);
+}
+
+.section-number{
+    position:absolute;
+    top:70px;
+    left:0;
+
+    font-family:"Courier New", monospace;
+    font-size:8px;
+    letter-spacing:3px;
+    color:#444;
+}
+
+
+/* =========================================================
+   NAVIGATION
 ========================================================= */
 
 .nav{
     position:fixed;
+    z-index:1000;
+
     top:0;
     left:0;
+
     width:100%;
     height:80px;
+
     padding:0 5vw;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    z-index:1000;
-    background:linear-gradient(#070707ee,transparent)
+
+    background:linear-gradient(
+        to bottom,
+        rgba(5,5,5,.95),
+        rgba(5,5,5,0)
+    );
 }
 
 .logo{
-    font-size:12px;
-    font-weight:bold
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:.5px;
 }
 
 .nav-links{
     display:flex;
-    gap:30px
+    gap:30px;
 }
 
 .nav-links a{
-    font:8px "Courier New",monospace;
+    font-family:"Courier New",monospace;
+    font-size:8px;
     letter-spacing:2px;
     color:#555;
-    transition:.3s
+
+    transition:.3s ease;
 }
 
-.nav-links a:hover{color:#fff}
+.nav-links a:hover{
+    color:#fff;
+}
 
 
 /* =========================================================
@@ -90,37 +133,48 @@ a{color:inherit;text-decoration:none}
 
 .hero{
     min-height:100vh;
+
     display:flex;
-    align-items:center
+    align-items:center;
+
+    position:relative;
 }
 
 .hero-label{
-    margin-bottom:30px;
-    font:8px "Courier New",monospace;
+    margin-bottom:35px;
+
+    font-family:"Courier New",monospace;
+    font-size:8px;
     letter-spacing:3px;
-    color:#555
+
+    color:#555;
 }
 
 .hero-title{
     font-size:clamp(90px,13vw,210px);
-    line-height:.7;
-    letter-spacing:-.09em;
-    font-weight:800
+    line-height:.68;
+    letter-spacing:-.1em;
+    font-weight:800;
 }
 
 .hero-title .outline{
     margin-left:8vw;
+
     color:transparent;
-    -webkit-text-stroke:1px #3a3a3a
+
+    -webkit-text-stroke:1px #3b3b3b;
 }
 
-.hero-desc{
+.hero-description{
     width:420px;
     max-width:100%;
-    margin-top:60px;
+
+    margin-top:65px;
+
     font-size:12px;
     line-height:1.8;
-    color:#666
+
+    color:#666;
 }
 
 
@@ -130,455 +184,630 @@ a{color:inherit;text-decoration:none}
 
 .showreel{
     min-height:100vh;
-    overflow:hidden
+    overflow:hidden;
 }
 
-.showreel:before{
+.showreel::before{
     content:"SHOWREEL";
-    position:absolute;
-    top:80px;
-    left:2vw;
-    font:400 clamp(130px,17vw,280px)/.7 Georgia,serif;
-    letter-spacing:-.1em;
-    color:#121212;
-    white-space:nowrap;
-    pointer-events:none
-}
 
-.showreel .section-number{
-    position:relative;
-    top:auto;
-    color:var(--gold)
+    position:absolute;
+
+    top:80px;
+    left:3vw;
+
+    font-family:Georgia,serif;
+    font-size:clamp(150px,18vw,300px);
+    line-height:.7;
+
+    letter-spacing:-.1em;
+
+    color:#101010;
+
+    pointer-events:none;
 }
 
 .showreel-title{
     position:relative;
     z-index:2;
-    margin-top:45px;
-    font:400 clamp(90px,13vw,205px)/.72 Georgia,serif;
-    letter-spacing:-.09em
+
+    margin-top:50px;
+
+    font-family:Georgia,serif;
+    font-size:clamp(90px,13vw,200px);
+    line-height:.72;
+
+    letter-spacing:-.09em;
+    font-weight:400;
 }
 
-.showreel-copy{
+.showreel-text{
     position:relative;
-    z-index:3;
-    width:220px;
-    margin-top:55px;
+    z-index:2;
+
+    width:250px;
+
+    margin-top:50px;
+
     font-size:11px;
     line-height:1.8;
-    color:#666
+
+    color:#666;
 }
 
-.showreel-play{
+.reel-grid{
     position:relative;
     z-index:3;
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-top:30px
-}
 
-.showreel-play button{
-    width:52px;
-    height:52px;
-    border:1px solid var(--gold);
-    border-radius:50%;
-    background:none;
-    color:var(--gold);
-    cursor:pointer;
-    transition:.35s
-}
-
-.showreel-play button:hover{
-    background:var(--gold);
-    color:#000;
-    transform:translateX(5px)
-}
-
-.showreel-play span{
-    font:8px "Courier New",monospace;
-    letter-spacing:3px;
-    color:var(--gold)
-}
-
-.reels{
-    position:relative;
-    z-index:5;
     display:grid;
-    grid-template-columns:minmax(0,1fr) 245px;
+    grid-template-columns:minmax(0,1fr) 250px;
+
     gap:20px;
+
     margin-left:30%;
     margin-top:-150px;
-    align-items:end
+
+    align-items:end;
 }
 
 .reel{
     position:relative;
+
     overflow:hidden;
+
     background:#0b0b0b;
-    border:1px solid #292929;
-    transition:.5s
+
+    border:1px solid #242424;
+
+    transition:.5s ease;
 }
 
-.reel:first-child{aspect-ratio:16/10}
-.reel:last-child{aspect-ratio:9/14}
+.reel:first-child{
+    aspect-ratio:16/10;
+}
+
+.reel:last-child{
+    aspect-ratio:9/14;
+}
 
 .reel:hover{
     transform:translateY(-7px);
-    border-color:#555
+
+    border-color:#444;
 }
 
 .reel iframe{
+    position:absolute;
+
+    inset:0;
+
     width:100%;
     height:100%;
+
+    border:0;
+}
+
+.reel::after{
+    content:"";
+
     position:absolute;
     inset:0;
-    border:0
+
+    background:linear-gradient(
+        transparent 40%,
+        rgba(0,0,0,.8)
+    );
+
+    pointer-events:none;
 }
 
 .reel-info{
     position:absolute;
+
     z-index:4;
+
     left:20px;
-    bottom:18px
+    bottom:18px;
 }
 
 .reel-info small{
     display:block;
+
     margin-bottom:7px;
-    font:7px "Courier New",monospace;
+
+    font-family:"Courier New",monospace;
+    font-size:7px;
     letter-spacing:2px;
-    color:var(--gold)
+
+    color:var(--gold);
 }
 
 .reel-info strong{
     font-size:20px;
-    font-weight:500
+    font-weight:400;
 }
 
 .reel-arrow{
     position:absolute;
+
     z-index:5;
+
     right:18px;
-    bottom:16px;
-    width:46px;
-    height:46px;
+    bottom:18px;
+
+    width:45px;
+    height:45px;
+
     border:1px solid #777;
     border-radius:50%;
-    background:#0007;
-    color:#fff;
+
+    background:#0008;
+
+    color:white;
+
     cursor:pointer;
-    transition:.4s
+
+    transition:.4s;
 }
 
 .reel:hover .reel-arrow{
     background:var(--gold);
+    border-color:var(--gold);
     color:#000;
-    border-color:var(--gold)
 }
-
-.reel:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(transparent 45%,#000d);
-    pointer-events:none
-}
-
-.reel-labels{
-    display:flex;
-    justify-content:flex-end;
-    gap:25px;
-    margin-top:20px;
-    margin-right:265px;
-    font:7px "Courier New",monospace;
-    letter-spacing:2px;
-    color:#444
-}
-
-.reel-labels span:first-child{color:var(--gold)}
 
 
 /* =========================================================
-   THE CUTS
+   SELECTED / THE CUTS
 ========================================================= */
+
+.cuts{
+    overflow:hidden;
+}
 
 .cuts-title{
     margin-left:8vw;
-    padding-top:35px;
-    font-size:clamp(80px,12vw,185px);
+    margin-top:35px;
+
+    font-family:Georgia,serif;
+    font-size:clamp(90px,12vw,185px);
     line-height:.7;
-    letter-spacing:-.09em
+
+    letter-spacing:-.09em;
+    font-weight:400;
+}
+
+.cuts-note{
+    margin-left:8vw;
+    margin-top:45px;
+
+    font-family:"Courier New",monospace;
+    font-size:8px;
+    letter-spacing:2px;
+
+    color:#555;
 }
 
 .cuts-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    margin-top:110px
+
+    gap:15px;
+
+    margin-top:100px;
 }
 
-.cut-card{
-    aspect-ratio:9/14;
+.cut{
     position:relative;
+
+    aspect-ratio:9/14;
+
+    overflow:hidden;
+
     background:
-        linear-gradient(145deg,#171717,#090909);
+        linear-gradient(
+            135deg,
+            #151515,
+            #080808
+        );
+
     border:1px solid #222;
-    overflow:hidden
+
+    transition:.5s;
 }
 
-.cut-card:after{
-    content:"";
+.cut:hover{
+    transform:translateY(-7px);
+
+    border-color:#444;
+}
+
+.cut-number{
     position:absolute;
+
+    top:15px;
+    left:15px;
+
+    font-family:"Courier New",monospace;
+    font-size:7px;
+    letter-spacing:2px;
+
+    color:#555;
+}
+
+.cut-circle{
+    position:absolute;
+
     width:55px;
     height:55px;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%);
-    border:1px solid #333;
-    border-radius:50%
-}
 
-.cut-num{
-    position:absolute;
-    top:12px;
-    left:12px;
-    font:7px "Courier New",monospace;
-    letter-spacing:2px;
-    color:#777
+    transform:translate(-50%,-50%);
+
+    border:1px solid #333;
+    border-radius:50%;
 }
 
 .cut-name{
     position:absolute;
-    bottom:16px;
+
     left:15px;
-    font:10px "Courier New",monospace;
+    bottom:15px;
+
+    font-family:"Courier New",monospace;
+    font-size:7px;
     letter-spacing:2px;
-    color:#666
+
+    color:#555;
 }
 
 
 /* =========================================================
-   WORK
+   WORK SECTION
 ========================================================= */
 
 .work{
-    overflow:hidden
+    overflow:hidden;
 }
 
-.work:before{
+.work::before{
     content:"WORK";
+
     position:absolute;
-    right:-50px;
-    top:50px;
-    font:400 clamp(180px,25vw,430px)/.7 Georgia,serif;
+
+    right:-60px;
+    top:60px;
+
+    font-family:Georgia,serif;
+
+    font-size:clamp(180px,25vw,430px);
+
+    line-height:.7;
+
     letter-spacing:-.1em;
+
     color:#101010;
-    pointer-events:none
+
+    pointer-events:none;
 }
 
 .work-layout{
     position:relative;
     z-index:2;
+
     display:grid;
+
     grid-template-columns:32% 1fr;
-    gap:75px;
-    margin-top:105px
+
+    gap:80px;
+
+    margin-top:100px;
 }
+
+
+/* =========================================================
+   WORK INTRO
+========================================================= */
 
 .work-intro{
     position:sticky;
+
     top:120px;
-    height:max-content
+
+    height:max-content;
 }
 
 .work-label{
     display:flex;
     align-items:center;
+
     gap:12px;
+
     margin-bottom:30px;
-    font:8px "Courier New",monospace;
+
+    font-family:"Courier New",monospace;
+    font-size:8px;
     letter-spacing:3px;
-    color:var(--gold)
+
+    color:var(--gold);
 }
 
-.work-label:before{
+.work-label::before{
     content:"";
+
     width:30px;
     height:1px;
-    background:var(--gold)
+
+    background:var(--gold);
 }
 
-.work-heading{
-    font:400 clamp(75px,8vw,125px)/.75 Georgia,serif;
-    letter-spacing:-.09em
+.work-title{
+    font-family:Georgia,serif;
+
+    font-size:clamp(75px,8vw,125px);
+
+    line-height:.72;
+
+    letter-spacing:-.09em;
+
+    font-weight:400;
 }
 
 .work-description{
-    width:260px;
+    width:270px;
     max-width:100%;
+
     margin-top:40px;
+
     font-size:11px;
     line-height:1.8;
-    color:#666
+
+    color:#666;
 }
 
 .work-meta{
     margin-top:70px;
+
     padding-left:18px;
+
     border-left:1px solid var(--gold);
-    font:7px/2 "Courier New",monospace;
+
+    font-family:"Courier New",monospace;
+
+    font-size:7px;
+    line-height:2;
+
     letter-spacing:2px;
-    color:#555
+
+    color:#555;
 }
 
+
+/* =========================================================
+   PROJECT LIST
+========================================================= */
+
 .projects{
-    border-top:1px solid var(--line)
+    border-top:1px solid var(--line);
 }
 
 .project{
     position:relative;
-    border-bottom:1px solid var(--line)
+
+    border-bottom:1px solid var(--line);
 }
 
-.project:before{
+.project::before{
     content:"";
+
     position:absolute;
+
     left:0;
     top:0;
+
     width:1px;
     height:0;
+
     background:var(--gold);
-    transition:.6s
+
+    transition:.6s ease;
 }
 
-.project.open:before{height:100%}
+.project.active::before{
+    height:100%;
+}
 
 .project-button{
     width:100%;
-    min-height:120px;
-    border:0;
-    background:none;
-    color:#fff;
+    min-height:125px;
+
     display:grid;
+
     grid-template-columns:55px 1fr 110px 50px;
+
     align-items:center;
+
+    border:0;
+
+    background:none;
+
+    color:#fff;
+
     text-align:left;
+
     cursor:pointer;
-    transition:.4s
+
+    transition:.45s ease;
 }
 
 .project-button:hover{
     padding-left:15px;
-    padding-right:15px
+    padding-right:15px;
 }
 
 .project-number{
-    font:8px "Courier New",monospace;
+    font-family:"Courier New",monospace;
+
+    font-size:8px;
     letter-spacing:2px;
-    color:#444
+
+    color:#444;
 }
 
-.project.open .project-number{color:var(--gold)}
+.project.active .project-number{
+    color:var(--gold);
+}
 
-.project-title{
-    font-size:clamp(28px,3.3vw,52px);
+.project-name{
+    font-size:clamp(29px,3.5vw,55px);
+
     font-weight:400;
-    letter-spacing:-.06em;
-    transition:.4s
+
+    letter-spacing:-.065em;
+
+    transition:.4s ease;
 }
 
-.project-button:hover .project-title{
-    transform:translateX(7px)
+.project-button:hover .project-name{
+    transform:translateX(7px);
 }
 
 .project-count{
-    font:7px/1.8 "Courier New",monospace;
-    letter-spacing:2px;
-    color:#555;
     text-align:right;
-    text-transform:uppercase
+
+    font-family:"Courier New",monospace;
+
+    font-size:7px;
+    line-height:1.8;
+
+    letter-spacing:2px;
+
+    color:#555;
+
+    text-transform:uppercase;
 }
 
 .project-arrow{
-    width:42px;
-    height:42px;
+    width:44px;
+    height:44px;
+
     margin-left:auto;
-    border:1px solid #333;
-    border-radius:50%;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
+    border:1px solid #333;
+    border-radius:50%;
+
     color:#777;
-    transition:.45s
+
+    transition:.45s ease;
 }
 
 .project-button:hover .project-arrow{
     border-color:var(--gold);
-    color:var(--gold)
+    color:var(--gold);
 }
 
-.project.open .project-arrow{
+.project.active .project-arrow{
     background:var(--gold);
-    color:#000;
+
     border-color:var(--gold);
-    transform:rotate(45deg)
+
+    color:#000;
+
+    transform:rotate(45deg);
 }
+
+
+/* =========================================================
+   PROJECT VIDEOS
+========================================================= */
 
 .project-content{
     display:grid;
+
     grid-template-rows:0fr;
-    transition:.7s cubic-bezier(.2,.7,.2,1)
+
+    transition:
+        grid-template-rows .7s
+        cubic-bezier(.2,.7,.2,1);
 }
 
-.project.open .project-content{
-    grid-template-rows:1fr
+.project.active .project-content{
+    grid-template-rows:1fr;
 }
 
 .project-inner{
     min-height:0;
+
     overflow:hidden;
+
     opacity:0;
-    transition:.4s
+
+    transition:.4s ease;
 }
 
-.project.open .project-inner{
+.project.active .project-inner{
     opacity:1;
-    padding:5px 0 60px 55px
+
+    padding:
+        5px
+        0
+        60px
+        55px;
 }
 
 .video-grid{
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
-    gap:15px
+
+    gap:15px;
 }
 
 .video-card{
-    background:#0b0b0b;
-    border:1px solid #202020;
     overflow:hidden;
-    transition:.4s
+
+    background:#0b0b0b;
+
+    border:1px solid #202020;
+
+    transition:.45s ease;
 }
 
 .video-card:hover{
     transform:translateY(-5px);
-    border-color:#444
+
+    border-color:#444;
 }
 
 .video-card iframe{
     display:block;
+
     width:100%;
+
     aspect-ratio:16/9;
+
     border:0;
-    background:#090909
+
+    background:#080808;
 }
 
-.video-name{
-    padding:11px;
-    font:7px "Courier New",monospace;
+.video-title{
+    padding:12px;
+
+    font-family:"Courier New",monospace;
+
+    font-size:7px;
+
     letter-spacing:2px;
+
     color:#555;
-    text-transform:uppercase
+
+    text-transform:uppercase;
 }
 
 
@@ -586,166 +815,284 @@ a{color:inherit;text-decoration:none}
    HOW I WORK
 ========================================================= */
 
-.process-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    margin-top:110px;
-    border-top:1px solid var(--line);
-    border-left:1px solid var(--line)
+.process-title{
+    margin-left:8vw;
+    margin-top:35px;
+
+    font-family:Georgia,serif;
+
+    font-size:clamp(80px,11vw,175px);
+
+    line-height:.7;
+
+    letter-spacing:-.09em;
+
+    font-weight:400;
 }
 
-.process-card{
+.process-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    margin-top:100px;
+
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+}
+
+.process{
     position:relative;
+
     height:300px;
+
+    padding:20px;
+
     overflow:hidden;
-    padding:22px;
+
     border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line)
+    border-bottom:1px solid var(--line);
 }
 
 .process-number{
-    font:8px "Courier New",monospace;
-    color:#444
+    font-family:"Courier New",monospace;
+    font-size:8px;
+
+    color:#444;
 }
 
 .process-name{
     position:absolute;
-    left:22px;
-    bottom:55px;
+
+    left:20px;
+    bottom:50px;
+
     font-size:25px;
-    letter-spacing:-.05em
+
+    letter-spacing:-.05em;
 }
 
-.process-desc{
+.process-description{
     position:absolute;
-    left:22px;
-    right:22px;
+
+    left:20px;
+    right:20px;
     bottom:20px;
+
     font-size:9px;
     line-height:1.5;
-    color:#555
+
+    color:#555;
 }
 
-/* CUT */
+
+/* CUT ANIMATION */
 
 .cut-lines{
     position:absolute;
-    left:22px;
-    right:22px;
+
+    left:25px;
+    right:25px;
+
     top:50%;
-    transform:translateY(-50%)
+
+    transform:translateY(-50%);
 }
 
-.cut-lines i{
+.cut-lines span{
     display:block;
+
     height:1px;
-    background:#777;
+
     margin:15px 0;
-    transition:.8s
+
+    background:#777;
+
+    transition:.8s ease;
 }
 
-.cut-lines i:nth-child(1){width:35%}
-.cut-lines i:nth-child(2){width:75%}
-.cut-lines i:nth-child(3){width:50%}
+.cut-lines span:nth-child(1){
+    width:35%;
+}
 
-.process-card:hover .cut-lines i:nth-child(1){width:70%}
-.process-card:hover .cut-lines i:nth-child(2){width:100%}
-.process-card:hover .cut-lines i:nth-child(3){width:60%}
+.cut-lines span:nth-child(2){
+    width:75%;
+}
 
-/* WAVE */
+.cut-lines span:nth-child(3){
+    width:50%;
+}
+
+.process:hover .cut-lines span:nth-child(1){
+    width:70%;
+}
+
+.process:hover .cut-lines span:nth-child(2){
+    width:100%;
+}
+
+.process:hover .cut-lines span:nth-child(3){
+    width:60%;
+}
+
+
+/* SOUND */
 
 .wave{
     position:absolute;
-    left:25px;
-    right:25px;
+
+    left:30px;
+    right:30px;
+
     top:50%;
+
     height:80px;
+
     transform:translateY(-50%);
+
     display:flex;
+
     justify-content:center;
     align-items:center;
-    gap:4px
+
+    gap:5px;
 }
 
-.wave i{
+.wave span{
     width:2px;
-    height:var(--h);
+
+    height:var(--height);
+
     background:#777;
-    animation:wave 1s ease-in-out infinite alternate
+
+    animation:soundwave 1s ease-in-out infinite alternate;
 }
 
-.wave i:nth-child(2n){animation-delay:.15s}
-.wave i:nth-child(3n){animation-delay:.3s}
-
-@keyframes wave{
-    from{transform:scaleY(.4)}
-    to{transform:scaleY(1)}
+.wave span:nth-child(2n){
+    animation-delay:.15s;
 }
+
+.wave span:nth-child(3n){
+    animation-delay:.3s;
+}
+
+@keyframes soundwave{
+    from{
+        transform:scaleY(.35);
+    }
+
+    to{
+        transform:scaleY(1);
+    }
+}
+
 
 /* COLOR */
 
 .color-ball{
     position:absolute;
+
     width:120px;
     height:120px;
+
     left:20%;
     top:50%;
+
     transform:translate(-50%,-50%);
+
     border-radius:50%;
-    background:radial-gradient(circle,#777,#111 65%,transparent);
+
+    background:
+        radial-gradient(
+            circle,
+            #777,
+            #111 65%,
+            transparent
+        );
+
     filter:blur(14px);
-    transition:1s
+
+    transition:1s ease;
 }
 
-.process-card:hover .color-ball{
+.process:hover .color-ball{
     left:80%;
-    transform:translate(-50%,-50%) scale(1.4)
+    transform:
+        translate(-50%,-50%)
+        scale(1.4);
 }
+
 
 /* MOTION */
 
 .motion-box{
     position:absolute;
+
     width:100px;
     height:100px;
+
     left:50%;
     top:50%;
+
     transform:translate(-50%,-50%);
+
     border:1px solid #444;
-    transition:1s
+
+    transition:1s ease;
 }
 
-.motion-box:before,
-.motion-box:after{
+.motion-box::before,
+.motion-box::after{
     content:"";
+
     position:absolute;
-    border:1px solid #333
+
+    border:1px solid #333;
 }
 
-.motion-box:before{inset:15px}
-.motion-box:after{inset:30px}
-
-.process-card:hover .motion-box{
-    transform:translate(-50%,-50%) rotate(90deg) scale(1.15)
+.motion-box::before{
+    inset:15px;
 }
+
+.motion-box::after{
+    inset:30px;
+}
+
+.process:hover .motion-box{
+    transform:
+        translate(-50%,-50%)
+        rotate(90deg)
+        scale(1.15);
+}
+
 
 /* TYPE */
 
 .type{
     position:absolute;
+
     left:50%;
     top:50%;
+
     transform:translate(-50%,-50%);
+
     font-size:65px;
+
     font-weight:bold;
+
     letter-spacing:-.1em;
+
     color:#292929;
-    transition:.7s
+
+    transition:.7s ease;
 }
 
-.process-card:hover .type{
-    letter-spacing:.04em;
-    transform:translate(-50%,-50%) scale(1.1)
+.process:hover .type{
+    letter-spacing:.03em;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.1);
 }
 
 
@@ -754,117 +1101,173 @@ a{color:inherit;text-decoration:none}
 ========================================================= */
 
 .contact{
-    min-height:80vh;
+    min-height:85vh;
+
     display:flex;
-    align-items:flex-end
+    align-items:flex-end;
+
+    overflow:hidden;
 }
 
 .contact-title{
-    font-size:clamp(75px,11vw,170px);
-    line-height:.72;
+    font-size:clamp(80px,11vw,170px);
+
+    line-height:.7;
+
     letter-spacing:-.09em;
-    font-weight:800
+
+    font-weight:800;
 }
 
-.contact-copy{
+.contact-description{
     width:450px;
     max-width:100%;
-    margin-top:45px;
+
+    margin-top:50px;
+
     font-size:12px;
     line-height:1.8;
-    color:#666
+
+    color:#666;
 }
 
-.hire{
+.hire-button{
     margin-top:35px;
-    padding:16px 23px;
-    border:1px solid #444;
+
+    padding:16px 25px;
+
     background:none;
+
+    border:1px solid #444;
+
     color:#fff;
-    font:8px "Courier New",monospace;
+
+    font-family:"Courier New",monospace;
+
+    font-size:8px;
+
     letter-spacing:2px;
+
     cursor:pointer;
-    transition:.3s
+
+    transition:.3s;
 }
 
-.hire:hover{
+.hire-button:hover{
     background:#fff;
-    color:#000
+    color:#000;
 }
 
 
 /* =========================================================
-   MODAL
+   CONTACT MODAL
 ========================================================= */
 
 .modal{
     position:fixed;
-    inset:0;
+
     z-index:5000;
+
+    inset:0;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
+    padding:20px;
+
     background:#000e;
+
     backdrop-filter:blur(15px);
-    padding:20px
 }
 
-.modal.show{display:flex}
+.modal.show{
+    display:flex;
+}
 
 .modal-box{
     position:relative;
+
     width:700px;
     max-width:100%;
+
     padding:50px;
+
     background:#0c0c0c;
-    border:1px solid #292929
+
+    border:1px solid #292929;
 }
 
-.close{
+.modal-close{
     position:absolute;
+
     top:15px;
     right:15px;
+
     width:40px;
     height:40px;
+
     border:1px solid #333;
+
     border-radius:50%;
+
     background:none;
+
     color:#fff;
-    cursor:pointer
+
+    cursor:pointer;
 }
 
 .modal-label{
-    font:8px "Courier New",monospace;
+    margin-bottom:20px;
+
+    font-family:"Courier New",monospace;
+
+    font-size:8px;
     letter-spacing:3px;
+
     color:#555;
-    margin-bottom:20px
 }
 
 .modal-title{
+    margin-bottom:40px;
+
     font-size:75px;
+
     line-height:.75;
+
     letter-spacing:-.08em;
-    margin-bottom:40px
 }
 
 .contact-link{
     min-height:70px;
+
     display:grid;
+
     grid-template-columns:1fr 30px;
+
     align-items:center;
-    border-top:1px solid var(--line)
+
+    border-top:1px solid var(--line);
 }
 
 .contact-link small{
     display:block;
+
     margin-bottom:6px;
-    font:7px "Courier New",monospace;
+
+    font-family:"Courier New",monospace;
+
+    font-size:7px;
+
     letter-spacing:2px;
-    color:#555
+
+    color:#555;
 }
 
 .contact-link span{
-    font-size:12px
+    font-size:12px;
 }
 
 
@@ -873,164 +1276,189 @@ a{color:inherit;text-decoration:none}
 ========================================================= */
 
 footer{
-    border-top:1px solid var(--line);
-    padding:25px 5vw;
     display:flex;
+
     justify-content:space-between;
-    font:7px "Courier New",monospace;
+
+    padding:25px 5vw;
+
+    border-top:1px solid var(--line);
+
+    font-family:"Courier New",monospace;
+
+    font-size:7px;
+
     letter-spacing:2px;
-    color:#444
+
+    color:#444;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
 ========================================================= */
 
 @media(max-width:900px){
 
     .container{
-        width:88%
+        width:88%;
     }
 
     .work-layout{
-        grid-template-columns:1fr
+        grid-template-columns:1fr;
+
+        gap:70px;
     }
 
     .work-intro{
         position:relative;
-        top:auto
+        top:auto;
     }
 
-    .work-meta{display:none}
+    .work-meta{
+        display:none;
+    }
 
     .project-button{
-        grid-template-columns:45px 1fr 50px
+        grid-template-columns:
+            45px
+            1fr
+            50px;
     }
 
-    .project-count{display:none}
+    .project-count{
+        display:none;
+    }
 
-    .project.open .project-inner{
-        padding-left:45px
+    .project.active .project-inner{
+        padding-left:45px;
     }
 
     .process-grid{
-        grid-template-columns:repeat(2,1fr)
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-width:600px){
 
-    .nav-links{display:none}
+    .nav-links{
+        display:none;
+    }
 
     .container{
-        width:88%
+        width:88%;
     }
 
     .section{
-        padding:100px 0
+        padding:100px 0;
     }
 
     .section-number{
-        top:65px
+        top:60px;
     }
 
     .hero-title{
-        font-size:25vw
+        font-size:25vw;
     }
 
-    .hero-desc{
-        margin-top:45px
-    }
-
-    .showreel:before{
-        font-size:27vw
+    .hero-description{
+        margin-top:45px;
     }
 
     .showreel-title{
-        font-size:25vw
+        font-size:25vw;
     }
 
-    .reels{
+    .showreel::before{
+        font-size:30vw;
+    }
+
+    .reel-grid{
         grid-template-columns:1fr;
-        margin:60px 0 0;
+
+        margin:70px 0 0;
     }
 
     .reel:first-child,
     .reel:last-child{
-        aspect-ratio:16/9
-    }
-
-    .reel-labels{
-        justify-content:flex-start;
-        margin:20px 0 0
+        aspect-ratio:16/9;
     }
 
     .cuts-title{
+        margin-left:3vw;
         font-size:25vw;
-        margin-left:3vw
     }
 
     .cuts-grid{
         grid-template-columns:1fr 1fr;
+
+        gap:10px;
+
         margin-top:70px;
-        gap:10px
     }
 
-    .work{
-        padding-top:100px
+    .work::before{
+        font-size:40vw;
     }
 
-    .work:before{
-        font-size:40vw
-    }
-
-    .work-layout{
-        margin-top:70px
-    }
-
-    .work-heading{
-        font-size:24vw
+    .work-title{
+        font-size:25vw;
     }
 
     .project-button{
-        min-height:95px;
-        grid-template-columns:35px 1fr 42px
+        min-height:100px;
+
+        grid-template-columns:
+            35px
+            1fr
+            42px;
     }
 
-    .project-title{
-        font-size:28px
+    .project-name{
+        font-size:28px;
     }
 
-    .project.open .project-inner{
-        padding-left:35px
+    .project.active .project-inner{
+        padding-left:35px;
     }
 
     .video-grid{
-        grid-template-columns:1fr
+        grid-template-columns:1fr;
+    }
+
+    .process-title{
+        margin-left:3vw;
+        font-size:24vw;
     }
 
     .process-grid{
-        grid-template-columns:1fr
+        grid-template-columns:1fr;
     }
 
     .contact-title{
-        font-size:22vw
+        font-size:23vw;
     }
 
     .modal-box{
-        padding:40px 25px
+        padding:40px 25px;
     }
 
     .modal-title{
-        font-size:55px
+        font-size:55px;
     }
 
     footer{
         flex-direction:column;
-        gap:10px
+        gap:10px;
     }
+
 }
+
 </style>
 </head>
 
@@ -1039,20 +1467,28 @@ footer{
 
 
 <!-- =========================================================
-     NAV
+     NAVIGATION
 ========================================================= -->
 
 <nav class="nav">
 
-<a class="logo" href="#home">SURAJ SHARMA</a>
+    <a href="#home" class="logo">
+        SURAJ SHARMA
+    </a>
 
-<div class="nav-links">
-<a href="#showreel">SHOWREEL</a>
-<a href="#cuts">SELECTED</a>
-<a href="#work">WORK</a>
-<a href="#process">HOW I WORK</a>
-<a href="#contact">CONTACT</a>
-</div>
+    <div class="nav-links">
+
+        <a href="#showreel">SHOWREEL</a>
+
+        <a href="#cuts">SELECTED</a>
+
+        <a href="#work">WORK</a>
+
+        <a href="#process">HOW I WORK</a>
+
+        <a href="#contact">CONTACT</a>
+
+    </div>
 
 </nav>
 
@@ -1065,19 +1501,27 @@ footer{
 
 <div class="container">
 
-<div class="hero-label">
-VIDEO EDITOR / PUNE, INDIA
-</div>
+    <div class="hero-label">
+        VIDEO EDITOR / PUNE, INDIA
+    </div>
 
-<div class="hero-title">
-<div>SURAJ</div>
-<div class="outline">SHARMA</div>
-</div>
+    <h1 class="hero-title">
 
-<p class="hero-desc">
-Video editor and visual storyteller focused on
-commercial, brand, social, event and cinematic content.
-</p>
+        <div>SURAJ</div>
+
+        <div class="outline">
+            SHARMA
+        </div>
+
+    </h1>
+
+    <p class="hero-description">
+
+        Video editor and visual storyteller focused on
+        commercial, brand, social, event and cinematic
+        content.
+
+    </p>
 
 </div>
 
@@ -1092,78 +1536,76 @@ commercial, brand, social, event and cinematic content.
 
 <div class="container">
 
-<div class="section-number">
-01 / SHOWREEL
-</div>
+    <div class="section-number">
+        01 / SHOWREEL
+    </div>
 
-<h2 class="showreel-title">
-Showreel
-</h2>
+    <h2 class="showreel-title">
+        Showreel
+    </h2>
 
-<p class="showreel-copy">
-A collection of selected edits that define
-my style, rhythm and visual language.
-</p>
+    <p class="showreel-text">
 
-<div class="showreel-play">
+        A collection of selected edits that define
+        my style, rhythm and visual language.
 
-<button onclick="scrollToReel()">→</button>
-
-<span>PLAY SHOWREEL</span>
-
-</div>
+    </p>
 
 
-<div class="reels">
-
-<div class="reel" id="reel01">
-
-<iframe
-src="https://drive.google.com/file/d/1FOBalR2kkWACMrxDvgnW_wS2UIvggTWW/preview"
-allow="autoplay; fullscreen"
-allowfullscreen>
-</iframe>
-
-<div class="reel-info">
-<small>01 / EDITING REEL</small>
-<strong>SHOWREEL 01</strong>
-</div>
-
-<button class="reel-arrow"
-onclick="focusReel('reel01')">
-↗
-</button>
-
-</div>
+    <div class="reel-grid">
 
 
-<div class="reel" id="reel02">
+        <!-- SHOWREEL 01 -->
 
-<iframe
-src="https://drive.google.com/file/d/1EdQs-iJTkL7YOXtV46_FTB2AGDPTGkUG/preview"
-allow="autoplay; fullscreen"
-allowfullscreen>
-</iframe>
+        <div class="reel">
 
-<div class="reel-info">
-<small>02 / VISUAL REEL</small>
-<strong>SHOWREEL 02</strong>
-</div>
+            <iframe
+                src="https://drive.google.com/file/d/1FOBalR2kkWACMrxDvgnW_wS2UIvggTWW/preview"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
 
-<button class="reel-arrow"
-onclick="focusReel('reel02')">
-↗
-</button>
+            <div class="reel-info">
 
-</div>
+                <small>
+                    01 / EDITING REEL
+                </small>
 
-</div>
+                <strong>
+                    SHOWREEL 01
+                </strong>
+
+            </div>
+
+        </div>
 
 
-<div class="reel-labels">
-<span>01 / EDITING REEL</span>
-<span>02 / VISUAL REEL</span>
-</div>
+        <!-- SHOWREEL 02 -->
+
+        <div class="reel">
+
+            <iframe
+                src="https://drive.google.com/file/d/1EdQs-iJTkL7YOXtV46_FTB2AGDPTGkUG/preview"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+
+            <div class="reel-info">
+
+                <small>
+                    02 / VISUAL REEL
+                </small>
+
+                <strong>
+                    SHOWREEL 02
+                </strong>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </div>
 
@@ -1171,23 +1613,87 @@ onclick="focusReel('reel02')">
 
 
 <!-- =========================================================
-     THE CUTS
-     8 MAIN VIDEOS — LINKS WILL BE ADDED LATER
+     SELECTED WORK
 ========================================================= -->
 
-<section class="section" id="cuts">
+<section class="section cuts" id="cuts">
 
 <div class="container">
 
-<div class="section-number">
-02 / SELECTED WORK
-</div>
+    <div class="section-number">
+        02 / SELECTED WORK
+    </div>
 
-<h2 class="cuts-title">
-THE<br>CUTS.
-</h2>
+    <h2 class="cuts-title">
+        THE<br>
+        CUTS.
+    </h2>
 
-<div class="cuts-grid" id="cutsGrid"></div>
+    <div class="cuts-note">
+        SELECTED EDITS / 08 PIECES
+    </div>
+
+
+    <div class="cuts-grid">
+
+
+        <div class="cut">
+            <span class="cut-number">01</span>
+            <span class="cut-circle"></span>
+            <span class="cut-name">CUT 01</span>
+        </div>
+
+
+        <div class="cut">
+            <span class="cut-number">02</span>
+            <span class="cut-circle"></span>
+            <span class="cut-name">CUT 02</span>
+        </div>
+
+
+        <div class="cut">
+            <span class="cut-number">03</span>
+            <span class="cut-circle"></span>
+            <span class="cut-name">CUT 03</span>
+        </div>
+
+
+        <div class="cut">
+            <span class="cut-number">04</span>
+            <span class="cut-circle"></span>
+            <span class="cut-name">CUT 04</span>
+        </div>
+
+
+        <div class="cut">
+            <span class="cut-number">05</span>
+            <span class="cut-circle"></span>
+            <span class="cut-name">CUT 05</span>
+        </div>
+
+
+        <div class="cut">
+            <span class="cut-number">06</span>
+            <span class="cut-circle"></span>
+            <span class="cut-name">CUT 06</span>
+        </div>
+
+
+        <div class="cut">
+            <span class="cut-number">07</span>
+            <span class="cut-circle"></span>
+            <span class="cut-name">CUT 07</span>
+        </div>
+
+
+        <div class="cut">
+            <span class="cut-number">08</span>
+            <span class="cut-circle"></span>
+            <span class="cut-name">CUT 08</span>
+        </div>
+
+
+    </div>
 
 </div>
 
@@ -1202,44 +1708,708 @@ THE<br>CUTS.
 
 <div class="container">
 
-<div class="section-number">
-03 / WORK
-</div>
+    <div class="section-number">
+        03 / WORK
+    </div>
 
 
-<div class="work-layout">
+    <div class="work-layout">
 
 
-<div class="work-intro">
+        <!-- LEFT -->
 
-<div class="work-label">
-SELECTED PROJECTS
-</div>
+        <div class="work-intro">
 
-<h2 class="work-heading">
-Work.
-</h2>
+            <div class="work-label">
+                SELECTED PROJECTS
+            </div>
 
-<p class="work-description">
-A selection of projects across events,
-brands, social content, podcasts and
-visual campaigns.
-</p>
+            <h2 class="work-title">
+                Work.
+            </h2>
 
-<div class="work-meta">
-VIDEO EDITOR<br>
-VISUAL STORYTELLING<br>
-MOTION / SOUND / COLOR<br>
-PUNE — INDIA
-</div>
+            <p class="work-description">
 
-</div>
+                A selection of projects across events,
+                brands, social content, podcasts and
+                visual campaigns.
+
+            </p>
+
+            <div class="work-meta">
+
+                VIDEO EDITOR<br>
+                VISUAL STORYTELLING<br>
+                MOTION / SOUND / COLOR<br>
+                PUNE — INDIA
+
+            </div>
+
+        </div>
 
 
-<div class="projects" id="projects"></div>
+        <!-- RIGHT -->
+
+        <div class="projects">
 
 
-</div>
+            <!-- =================================================
+                 01 CORPORATE
+            ================================================== -->
+
+            <div class="project">
+
+                <button
+                    class="project-button"
+                    onclick="toggleProject(this)">
+
+                    <span class="project-number">
+                        01
+                    </span>
+
+                    <span class="project-name">
+                        Corporate
+                    </span>
+
+                    <span class="project-count">
+                        02 Videos
+                    </span>
+
+                    <span class="project-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="project-content">
+
+                    <div class="project-inner">
+
+                        <div class="video-grid">
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1Jw_JfgYHXBfm9wlM25ux5bNk5z9LGg5K/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Corporate 01
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1yWwSVzbV3yWEOLKwVF-WEhlPLurSgOsS/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Corporate 02
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 02 BIRTHDAY
+            ================================================== -->
+
+            <div class="project">
+
+                <button
+                    class="project-button"
+                    onclick="toggleProject(this)">
+
+                    <span class="project-number">
+                        02
+                    </span>
+
+                    <span class="project-name">
+                        Birthday
+                    </span>
+
+                    <span class="project-count">
+                        02 Videos
+                    </span>
+
+                    <span class="project-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="project-content">
+
+                    <div class="project-inner">
+
+                        <div class="video-grid">
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1tfX3hO6qTFcrTpiRkanyjoFlA2VDl6e4/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Birthday 01
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1aptuJ2x0KvlpJwJqH6KyQQK4ZBxJNrNC/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Birthday 02
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 03 BABY SHOWER
+            ================================================== -->
+
+            <div class="project">
+
+                <button
+                    class="project-button"
+                    onclick="toggleProject(this)">
+
+                    <span class="project-number">
+                        03
+                    </span>
+
+                    <span class="project-name">
+                        Baby Shower
+                    </span>
+
+                    <span class="project-count">
+                        03 Videos
+                    </span>
+
+                    <span class="project-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="project-content">
+
+                    <div class="project-inner">
+
+                        <div class="video-grid">
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1NhA4_vQ1w7XdMVNTuiK2gUx-ozq6JAu6/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Decore
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Host
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1vg6urwBpK8GQylCEuAnaywXFPJ7ohA5W/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Video 03
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 04 GOLDEN TRAILS
+            ================================================== -->
+
+            <div class="project">
+
+                <button
+                    class="project-button"
+                    onclick="toggleProject(this)">
+
+                    <span class="project-number">
+                        04
+                    </span>
+
+                    <span class="project-name">
+                        Golden Trails
+                    </span>
+
+                    <span class="project-count">
+                        09 Videos
+                    </span>
+
+                    <span class="project-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="project-content">
+
+                    <div class="project-inner">
+
+                        <div class="video-grid">
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Golden Trails 01</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Golden Trails 02</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1Q488We0910bmU4I-O-btnbv0DdBYLpY3/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Golden Trails 03</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Golden Trails 04</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/15cF3H8wz5jh_A_5qjfHz6nZduDWSJ3Jf/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Golden Trails 05</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1RZ758skTbdWhqllSI_mu7FiWwm3AjJYu/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Golden Trails 06</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1bMKq2XMh_c6lw1RtA-ki_DHhGYNO27kR/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Golden Trails 07</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1nP3BQm4dHPNnPeNT1fJP-A98Z3gTl3na/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Golden Trails 08</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1x5kEr5e60TXbwr4wbq_3d-CksDzyiuqF/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Golden Trails 09</div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 05 IMPORT & EXPORT
+            ================================================== -->
+
+            <div class="project">
+
+                <button
+                    class="project-button"
+                    onclick="toggleProject(this)">
+
+                    <span class="project-number">
+                        05
+                    </span>
+
+                    <span class="project-name">
+                        Import &amp; Export
+                    </span>
+
+                    <span class="project-count">
+                        05 Shorts
+                    </span>
+
+                    <span class="project-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="project-content">
+
+                    <div class="project-inner">
+
+                        <div class="video-grid">
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1El4SnzTe972RY_cfM8_GzZyowy5FMoa9/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Short 01</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/12YFXeBJyHOchslI2y4wsf6SrfWsd_O__/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Short 02</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Short 03</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/1INmXfSUyyzw-n9OZqjn3ch1DF7PZ7wjl/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Short 04</div>
+                            </div>
+
+
+                            <div class="video-card">
+                                <iframe src="https://drive.google.com/file/d/12__b8E_MJ_z2ET58qIiGZqFtPpIBt-Bt/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                <div class="video-title">Short 05</div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 06 PODCAST
+            ================================================== -->
+
+            <div class="project">
+
+                <button
+                    class="project-button"
+                    onclick="toggleProject(this)">
+
+                    <span class="project-number">
+                        06
+                    </span>
+
+                    <span class="project-name">
+                        Podcast
+                    </span>
+
+                    <span class="project-count">
+                        03 Videos
+                    </span>
+
+                    <span class="project-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="project-content">
+
+                    <div class="project-inner">
+
+                        <div class="video-grid">
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/13iSBq_bT4--sQZn40SJ_HufzzPBUkEl7/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Podcast 01
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1KxSYq0W4cAmMocRTmWvn1VlAtgShkSuW/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Podcast 02
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/178s_-M5KxSU1JX6g3E7i-uORxOEhCJhP/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Podcast 03
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 07 OTHER PROJECTS
+            ================================================== -->
+
+            <div class="project">
+
+                <button
+                    class="project-button"
+                    onclick="toggleProject(this)">
+
+                    <span class="project-number">
+                        07
+                    </span>
+
+                    <span class="project-name">
+                        Other Projects
+                    </span>
+
+                    <span class="project-count">
+                        07 Projects
+                    </span>
+
+                    <span class="project-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <div class="project-content">
+
+                    <div class="project-inner">
+
+                        <div class="video-grid">
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1CcB--lcE2IoBahqzcDFMB6H3Km-vfhfa/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Parachute Advansed
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1hwIPPyqqn-4aGyMEW-aWAZfbZbGOAXEF/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    EVM
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1RCmjBvQ21Wi9MvT7bcndw-QL_4N9kFQB/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Flying Panda
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Nilesh AI
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    Regain App AI
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/1zN7Xvp3Hs4okbJ8w37K2Lmp5atRVRBI9/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    MAENZRAAT 3.0
+                                </div>
+
+                            </div>
+
+
+                            <div class="video-card">
+
+                                <iframe
+                                    src="https://drive.google.com/file/d/13PhokBp2J3GmeoPcZh80mnCuubwXMCVS/preview"
+                                    allow="autoplay; fullscreen"
+                                    allowfullscreen>
+                                </iframe>
+
+                                <div class="video-title">
+                                    MAENZRAAT V2
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -1254,135 +2424,168 @@ PUNE — INDIA
 
 <div class="container">
 
-<div class="section-number">
-04 / HOW I WORK
-</div>
+    <div class="section-number">
+        04 / HOW I WORK
+    </div>
 
-<h2 class="cuts-title">
-HOW I<br>WORK.
-</h2>
-
-<div class="process-grid">
-
-
-<div class="process-card">
-
-<div class="process-number">01</div>
-
-<div class="cut-lines">
-<i></i><i></i><i></i>
-</div>
-
-<div class="process-name">CUT</div>
-
-<div class="process-desc">
-Every cut has a purpose.
-Story comes first.
-</div>
-
-</div>
+    <h2 class="process-title">
+        HOW I<br>
+        WORK.
+    </h2>
 
 
-<div class="process-card">
-
-<div class="process-number">02</div>
-
-<div class="wave">
-<i style="--h:20px"></i>
-<i style="--h:45px"></i>
-<i style="--h:60px"></i>
-<i style="--h:30px"></i>
-<i style="--h:70px"></i>
-<i style="--h:40px"></i>
-<i style="--h:55px"></i>
-<i style="--h:25px"></i>
-<i style="--h:65px"></i>
-</div>
-
-<div class="process-name">MUSIC</div>
-
-<div class="process-desc">
-Rhythm drives the edit.
-Music and visuals work together.
-</div>
-
-</div>
+    <div class="process-grid">
 
 
-<div class="process-card">
+        <div class="process">
 
-<div class="process-number">03</div>
+            <div class="process-number">
+                01
+            </div>
 
-<div class="wave">
-<i style="--h:15px"></i>
-<i style="--h:35px"></i>
-<i style="--h:55px"></i>
-<i style="--h:25px"></i>
-<i style="--h:65px"></i>
-<i style="--h:40px"></i>
-<i style="--h:50px"></i>
-<i style="--h:20px"></i>
-</div>
+            <div class="cut-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-<div class="process-name">SOUND</div>
+            <div class="process-name">
+                CUT
+            </div>
 
-<div class="process-desc">
-Sound design gives every moment
-weight and texture.
-</div>
+            <div class="process-description">
+                Every cut has a purpose.
+                Story comes first.
+            </div>
 
-</div>
-
-
-<div class="process-card">
-
-<div class="process-number">04</div>
-
-<div class="color-ball"></div>
-
-<div class="process-name">COLOR</div>
-
-<div class="process-desc">
-Colour creates atmosphere,
-consistency and identity.
-</div>
-
-</div>
+        </div>
 
 
-<div class="process-card">
+        <div class="process">
 
-<div class="process-number">05</div>
+            <div class="process-number">
+                02
+            </div>
 
-<div class="motion-box"></div>
+            <div class="wave">
 
-<div class="process-name">MOTION</div>
+                <span style="--height:20px"></span>
+                <span style="--height:45px"></span>
+                <span style="--height:60px"></span>
+                <span style="--height:30px"></span>
+                <span style="--height:70px"></span>
+                <span style="--height:40px"></span>
+                <span style="--height:55px"></span>
+                <span style="--height:25px"></span>
+                <span style="--height:65px"></span>
 
-<div class="process-desc">
-Movement is used when it
-helps the story.
-</div>
+            </div>
 
-</div>
+            <div class="process-name">
+                MUSIC
+            </div>
 
+            <div class="process-description">
+                Rhythm drives the edit.
+                Music and visuals work together.
+            </div>
 
-<div class="process-card">
-
-<div class="process-number">06</div>
-
-<div class="type">Aa</div>
-
-<div class="process-name">TYPE</div>
-
-<div class="process-desc">
-Typography becomes part of
-the visual language.
-</div>
-
-</div>
+        </div>
 
 
-</div>
+        <div class="process">
+
+            <div class="process-number">
+                03
+            </div>
+
+            <div class="wave">
+
+                <span style="--height:15px"></span>
+                <span style="--height:35px"></span>
+                <span style="--height:55px"></span>
+                <span style="--height:25px"></span>
+                <span style="--height:65px"></span>
+                <span style="--height:40px"></span>
+                <span style="--height:50px"></span>
+
+            </div>
+
+            <div class="process-name">
+                SOUND
+            </div>
+
+            <div class="process-description">
+                Sound design gives every
+                moment weight and texture.
+            </div>
+
+        </div>
+
+
+        <div class="process">
+
+            <div class="process-number">
+                04
+            </div>
+
+            <div class="color-ball"></div>
+
+            <div class="process-name">
+                COLOR
+            </div>
+
+            <div class="process-description">
+                Colour creates atmosphere,
+                consistency and identity.
+            </div>
+
+        </div>
+
+
+        <div class="process">
+
+            <div class="process-number">
+                05
+            </div>
+
+            <div class="motion-box"></div>
+
+            <div class="process-name">
+                MOTION
+            </div>
+
+            <div class="process-description">
+                Movement is used when
+                it helps the story.
+            </div>
+
+        </div>
+
+
+        <div class="process">
+
+            <div class="process-number">
+                06
+            </div>
+
+            <div class="type">
+                Aa
+            </div>
+
+            <div class="process-name">
+                TYPE
+            </div>
+
+            <div class="process-description">
+                Typography becomes part
+                of the visual language.
+            </div>
+
+        </div>
+
+
+    </div>
 
 </div>
 
@@ -1397,23 +2600,30 @@ the visual language.
 
 <div class="container">
 
-<div class="section-number">
-05 / CONTACT
-</div>
+    <div class="section-number">
+        05 / CONTACT
+    </div>
 
-<h2 class="contact-title">
-LET'S<br>MAKE.
-</h2>
+    <h2 class="contact-title">
+        LET'S<br>
+        MAKE.
+    </h2>
 
-<p class="contact-copy">
-Have a project, campaign, event film or
-social video in mind? Let's make something
-worth watching.
-</p>
+    <p class="contact-description">
 
-<button class="hire" onclick="openModal()">
-HIRE ME →
-</button>
+        Have a project, campaign, event film or
+        social video in mind? Let's make something
+        worth watching.
+
+    </p>
+
+    <button
+        class="hire-button"
+        onclick="openContact()">
+
+        HIRE ME →
+
+    </button>
 
 </div>
 
@@ -1424,304 +2634,162 @@ HIRE ME →
      CONTACT MODAL
 ========================================================= -->
 
-<div class="modal" id="modal">
+<div class="modal" id="contactModal">
 
 <div class="modal-box">
 
-<button class="close" onclick="closeModal()">×</button>
+    <button
+        class="modal-close"
+        onclick="closeContact()">
 
-<div class="modal-label">
-LET'S WORK TOGETHER
+        ×
+
+    </button>
+
+
+    <div class="modal-label">
+        LET'S WORK TOGETHER
+    </div>
+
+
+    <h2 class="modal-title">
+        GET IN<br>
+        TOUCH.
+    </h2>
+
+
+    <a
+        class="contact-link"
+        href="mailto:surajsharmaedit31@gmail.com">
+
+        <div>
+
+            <small>
+                EMAIL
+            </small>
+
+            <span>
+                surajsharmaedit31@gmail.com
+            </span>
+
+        </div>
+
+        <div>→</div>
+
+    </a>
+
+
+    <a
+        class="contact-link"
+        href="tel:+918446726785">
+
+        <div>
+
+            <small>
+                PHONE
+            </small>
+
+            <span>
+                +91 8446726785
+            </span>
+
+        </div>
+
+        <div>→</div>
+
+    </a>
+
+
+    <a
+        class="contact-link"
+        href="https://instagram.com/sharmasuraj31122003"
+        target="_blank">
+
+        <div>
+
+            <small>
+                INSTAGRAM
+            </small>
+
+            <span>
+                @sharmasuraj31122003
+            </span>
+
+        </div>
+
+        <div>→</div>
+
+    </a>
+
+
 </div>
 
-<h2 class="modal-title">
-GET IN<br>TOUCH.
-</h2>
-
-<a class="contact-link"
-href="mailto:surajsharmaedit31@gmail.com">
-
-<div>
-<small>EMAIL</small>
-<span>surajsharmaedit31@gmail.com</span>
 </div>
 
-<div>→</div>
 
-</a>
-
-
-<a class="contact-link"
-href="tel:+918446726785">
-
-<div>
-<small>PHONE</small>
-<span>+91 8446726785</span>
-</div>
-
-<div>→</div>
-
-</a>
-
-
-<a class="contact-link"
-href="https://instagram.com/sharmasuraj31122003"
-target="_blank">
-
-<div>
-<small>INSTAGRAM</small>
-<span>@sharmasuraj31122003</span>
-</div>
-
-<div>→</div>
-
-</a>
-
-</div>
-
-</div>
-
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
 
-<span>SURAJ SHARMA</span>
-<span>VIDEO EDITOR / VISUAL STORYTELLER</span>
-<span>© 2026</span>
+    <span>
+        SURAJ SHARMA
+    </span>
+
+    <span>
+        VIDEO EDITOR / VISUAL STORYTELLER
+    </span>
+
+    <span>
+        © 2026
+    </span>
 
 </footer>
 
 
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
 
 /* =========================================================
-   THE CUTS
-   NO VIDEO LINKS YET
+   PROJECT ACCORDION
 ========================================================= */
 
-const cuts = [
-    "CUT 01",
-    "CUT 02",
-    "CUT 03",
-    "CUT 04",
-    "CUT 05",
-    "CUT 06",
-    "CUT 07",
-    "CUT 08"
-];
+function toggleProject(button){
 
-document.getElementById("cutsGrid").innerHTML =
-cuts.map((name,i)=>`
-<div class="cut-card">
-    <div class="cut-num">
-        ${String(i+1).padStart(2,"0")}
-    </div>
-    <div class="cut-name">
-        ${name}
-    </div>
-</div>
-`).join("");
+    const project =
+        button.closest(".project");
+
+    const isActive =
+        project.classList.contains("active");
 
 
-/* =========================================================
-   WORK DATA
-========================================================= */
+    /*
+       Close every project
+    */
 
-const projects = [
+    document
+        .querySelectorAll(".project")
+        .forEach(function(item){
 
-{
-    number:"01",
-    title:"Corporate",
-    count:"02 Videos",
-    videos:[
-        ["Corporate 01","1Jw_JfgYHXBfm9wlM25ux5bNk5z9LGg5K"],
-        ["Corporate 02","1yWwSVzbV3yWEOLKwVF-WEhlPLurSgOsS"]
-    ]
-},
+            item.classList.remove("active");
 
-{
-    number:"02",
-    title:"Birthday",
-    count:"02 Videos",
-    videos:[
-        ["Birthday 01","1tfX3hO6qTFcrTpiRkanyjoFlA2VDl6e4"],
-        ["Birthday 02","1aptuJ2x0KvlpJwJqH6KyQQK4ZBxJNrNC"]
-    ]
-},
-
-{
-    number:"03",
-    title:"Baby Shower",
-    count:"03 Videos",
-    videos:[
-        ["Decore","1NhA4_vQ1w7XdMVNTuiK2gUx-ozq6JAu6"],
-        ["Host","1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5"],
-        ["Video 03","1vg6urwBpK8GQylCEuAnaywXFPJ7ohA5W"]
-    ]
-},
-
-{
-    number:"04",
-    title:"Golden Trails",
-    count:"09 Videos",
-    videos:[
-        ["Golden Trails 01","1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT"],
-        ["Golden Trails 02","1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo"],
-        ["Golden Trails 03","1Q488We0910bmU4I-O-btnbv0DdBYLpY3"],
-        ["Golden Trails 04","1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu"],
-        ["Golden Trails 05","15cF3H8wz5jh_A_5qjfHz6nZduDWSJ3Jf"],
-        ["Golden Trails 06","1RZ758skTbdWhqllSI_mu7FiWwm3AjJYu"],
-        ["Golden Trails 07","1bMKq2XMh_c6lw1RtA-ki_DHhGYNO27kR"],
-        ["Golden Trails 08","1nP3BQm4dHPNnPeNT1fJP-A98Z3gTl3na"],
-        ["Golden Trails 09","1x5kEr5e60TXbwr4wbq_3d-CksDzyiuqF"]
-    ]
-},
-
-{
-    number:"05",
-    title:"Import & Export",
-    count:"05 Shorts",
-    videos:[
-        ["Short 01","1El4SnzTe972RY_cfM8_GzZyowy5FMoa9"],
-        ["Short 02","12YFXeBJyHOchslI2y4wsf6SrfWsd_O__"],
-        ["Short 03","17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr"],
-        ["Short 04","1INmXfSUyyzw-n9OZqjn3ch1DF7PZ7wjl"],
-        ["Short 05","12__b8E_MJ_z2ET58qIiGZqFtPpIBt-Bt"]
-    ]
-},
-
-{
-    number:"06",
-    title:"Podcast",
-    count:"03 Videos",
-    videos:[
-        ["Podcast 01","13iSBq_bT4--sQZn40SJ_HufzzPBUkEl7"],
-        ["Podcast 02","1KxSYq0W4cAmMocRTmWvn1VlAtgShkSuW"],
-        ["Podcast 03","178s_-M5KxSU1JX6g3E7i-uORxOEhCJhP"]
-    ]
-},
-
-{
-    number:"07",
-    title:"Other Projects",
-    count:"07 Projects",
-    videos:[
-        ["Parachute Advansed","1CcB--lcE2IoBahqzcDFMB6H3Km-vfhfa"],
-        ["EVM","1hwIPPyqqn-4aGyMEW-aWAZfbZbGOAXEF"],
-        ["Flying Panda","1RCmjBvQ21Wi9MvT7bcndw-QL_4N9kFQB"],
-        ["Nilesh AI","1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ"],
-        ["Regain App AI","1hThP3rfY-mzKqwkMk0CL1iH4pvewp2N5"],
-        ["MAENZRAAT 3.0","1zN7Xvp3Hs4okbJ8w37K2Lmp5atRVRBI9"],
-        ["MAENZRAAT V2","13PhokBp2J3GmeoPcZh80mnCuubwXMCVS"]
-    ]
-};
+        });
 
 
-/* =========================================================
-   BUILD WORK
-========================================================= */
+    /*
+       Open clicked project
+       unless it was already open
+    */
 
-const projectsBox =
-document.getElementById("projects");
+    if(!isActive){
 
-projectsBox.innerHTML = projects.map((p,index)=>`
+        project.classList.add("active");
 
-<div class="project">
-
-<button class="project-button"
-onclick="toggleProject(this.parentElement)">
-
-<span class="project-number">
-${p.number}
-</span>
-
-<span class="project-title">
-${p.title}
-</span>
-
-<span class="project-count">
-${p.count}
-</span>
-
-<span class="project-arrow">
-→
-</span>
-
-</button>
-
-<div class="project-content">
-
-<div class="project-inner">
-
-<div class="video-grid">
-
-${p.videos.map(v=>`
-
-<div class="video-card">
-
-<iframe
-src="https://drive.google.com/file/d/${v[1]}/preview"
-allow="autoplay; fullscreen"
-allowfullscreen>
-</iframe>
-
-<div class="video-name">
-${v[0]}
-</div>
-
-</div>
-
-`).join("")}
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-`).join("");
-
-
-/* =========================================================
-   ACCORDION
-========================================================= */
-
-function toggleProject(project){
-
-const wasOpen =
-project.classList.contains("open");
-
-document.querySelectorAll(".project")
-.forEach(p=>p.classList.remove("open"));
-
-if(!wasOpen)
-project.classList.add("open");
-
-}
-
-
-/* =========================================================
-   SHOWREEL
-========================================================= */
-
-function scrollToReel(){
-
-document.getElementById("reel01")
-.scrollIntoView({
-    behavior:"smooth",
-    block:"center"
-});
-
-}
-
-function focusReel(id){
-
-document.getElementById(id)
-.scrollIntoView({
-    behavior:"smooth",
-    block:"center"
-});
+    }
 
 }
 
@@ -1730,40 +2798,63 @@ document.getElementById(id)
    CONTACT MODAL
 ========================================================= */
 
-function openModal(){
+function openContact(){
 
-document.getElementById("modal")
-.classList.add("show");
+    document
+        .getElementById("contactModal")
+        .classList.add("show");
 
-document.body.style.overflow="hidden";
-
-}
-
-function closeModal(){
-
-document.getElementById("modal")
-.classList.remove("show");
-
-document.body.style.overflow="";
+    document.body.style.overflow="hidden";
 
 }
 
-document.getElementById("modal")
-.addEventListener("click",function(e){
 
-if(e.target===this)
-closeModal();
+function closeContact(){
 
-});
+    document
+        .getElementById("contactModal")
+        .classList.remove("show");
 
-document.addEventListener("keydown",function(e){
+    document.body.style.overflow="";
 
-if(e.key==="Escape")
-closeModal();
+}
 
-});
+
+/* Close modal by clicking outside */
+
+document
+    .getElementById("contactModal")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === this){
+
+                closeContact();
+
+            }
+
+        }
+    );
+
+
+/* Close modal with ESC */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeContact();
+
+        }
+
+    }
+);
 
 </script>
+
 
 </body>
 </html>
