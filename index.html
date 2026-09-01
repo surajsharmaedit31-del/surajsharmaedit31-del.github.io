@@ -7,6 +7,7 @@
 <title>Suraj Sharma — Video Editor</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -49,13 +50,10 @@ button{
 .nav{
     position:fixed;
     z-index:1000;
-
     top:0;
     left:0;
-
     width:100%;
     height:72px;
-
     padding:0 5vw;
 
     display:flex;
@@ -83,9 +81,7 @@ button{
     font-family:"Courier New",monospace;
     font-size:8px;
     letter-spacing:2px;
-
     color:#777;
-
     transition:.3s;
 }
 
@@ -100,9 +96,7 @@ button{
 
 .hero{
     position:relative;
-
     min-height:100vh;
-
     overflow:hidden;
 
     display:flex;
@@ -111,57 +105,43 @@ button{
     padding-top:72px;
 }
 
-
-/* giant background name */
-
 .hero-bg-text{
     position:absolute;
-
     z-index:0;
 
     top:55px;
     left:2vw;
 
     font-family:Georgia,serif;
-
     font-size:25vw;
-
     line-height:.7;
-
     letter-spacing:-.1em;
 
     color:#0d0d0d;
 
     white-space:nowrap;
-
     pointer-events:none;
 
     transition:transform 1.2s cubic-bezier(.2,.7,.2,1);
 }
 
 
-/* timeline background */
+/* TIMELINE */
 
 .timeline{
     position:absolute;
-
     z-index:1;
 
     top:29%;
-
     left:48%;
 
     width:52%;
-
     height:480px;
 
     opacity:.62;
 
     pointer-events:none;
 }
-
-
-/* timeline ruler */
 
 .timeline-ruler{
     position:absolute;
@@ -186,18 +166,16 @@ button{
 
 .time{
     position:absolute;
-
     top:12px;
 
     font-family:"Courier New",monospace;
-
     font-size:8px;
 
     color:#555;
 }
 
 
-/* tracks */
+/* TRACKS */
 
 .track{
     position:absolute;
@@ -217,7 +195,6 @@ button{
     top:12px;
 
     font-family:"Courier New",monospace;
-
     font-size:8px;
 
     color:#555;
@@ -240,7 +217,7 @@ button{
 }
 
 
-/* video clips */
+/* VIDEO CLIPS */
 
 .clip{
     position:absolute;
@@ -265,7 +242,6 @@ button{
     content:"";
 
     position:absolute;
-
     inset:0;
 
     background:
@@ -324,7 +300,6 @@ button{
     bottom:5px;
 
     font-family:"Courier New",monospace;
-
     font-size:6px;
 
     color:#666;
@@ -333,7 +308,7 @@ button{
 }
 
 
-/* waveform */
+/* WAVEFORM */
 
 .waveform{
     position:absolute;
@@ -449,7 +424,6 @@ button{
     white-space:nowrap;
 
     font-family:"Courier New",monospace;
-
     font-size:9px;
 
     color:var(--gold);
@@ -484,7 +458,6 @@ button{
     z-index:10;
 
     width:90%;
-
     max-width:1450px;
 
     margin:auto;
@@ -542,7 +515,6 @@ button{
     z-index:10;
 
     width:370px;
-
     max-width:90%;
 
     margin-top:60px;
@@ -573,7 +545,6 @@ button{
     margin-top:42px;
 
     width:560px;
-
     max-width:100%;
 }
 
@@ -629,7 +600,6 @@ button{
     z-index:10;
 
     bottom:35px;
-
     left:5vw;
 
     display:flex;
@@ -712,13 +682,11 @@ button{
 
 .showreel-layout{
     display:grid;
-    grid-template-columns:minmax(300px, 0.78fr) minmax(0, 1.72fr);
-    align-items:center;
-    gap:clamp(35px, 5vw, 90px);
-}
 
-.showreel-info{position:relative;z-index:5;min-width:0;}
-.showreel-videos{position:relative;z-index:4;min-width:0;}
+    grid-template-columns:32% 68%;
+
+    align-items:center;
+}
 
 .showreel-info{
     padding-right:50px;
@@ -769,9 +737,9 @@ button{
 .showreel-videos{
     display:grid;
 
-    grid-template-columns:minmax(0, 1fr) 220px;
-    gap:20px;
-    min-width:0;
+    grid-template-columns:1fr 235px;
+
+    gap:18px;
 
     align-items:center;
 }
@@ -787,20 +755,18 @@ button{
 }
 
 .showreel-card:first-child{
-    height:470px;
+    height:500px;
 }
 
 .showreel-card:last-child{
-    height:330px;
+    height:350px;
 }
 
 .showreel-card iframe{
-    position:relative;
-    z-index:1;
     width:100%;
     height:100%;
+
     border:0;
-    display:block;
 }
 
 .showreel-card-info{
@@ -850,43 +816,6 @@ button{
 }
 
 
-
-/* Premium micro-interactions */
-.showreel-card::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:2;
-    pointer-events:none;
-    border:1px solid rgba(255,255,255,.06);
-}
-.showreel-card:hover{
-    border-color:rgba(214,161,58,.45);
-    transform:translateY(-5px);
-}
-.showreel-card{
-    transition:transform .45s cubic-bezier(.2,.7,.2,1), border-color .45s ease;
-}
-
-.work .project-button{
-    position:relative;
-}
-.work .project-button::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:-1px;
-    height:1px;
-    transform:scaleX(0);
-    transform-origin:left;
-    background:var(--gold);
-    transition:transform .5s ease;
-}
-.work .project-button:hover::after{
-    transform:scaleX(1);
-}
-
 /* =========================================================
    WORK
 ========================================================= */
@@ -904,9 +833,10 @@ button{
 
     z-index:0;
 
-    right:-2%;
+    right:-5%;
     top:0;
-    width:68%;
+
+    width:62%;
     height:100%;
 
     background:
@@ -921,8 +851,9 @@ button{
 
     background-size:cover;
 
-    background-position:center right;
-    opacity:.82;
+    background-position:center;
+
+    opacity:.7;
 
     pointer-events:none;
 }
@@ -934,7 +865,7 @@ button{
 
     display:grid;
 
-    grid-template-columns:minmax(280px, 30%) minmax(0, 70%);
+    grid-template-columns:28% 72%;
 }
 
 .work-intro{
@@ -986,18 +917,17 @@ button{
 
     z-index:3;
 
-    left:30%;
+    left:28%;
     top:0;
 
     width:1px;
-
     height:100%;
 
     background:var(--gold);
 }
 
 .project-list{
-    padding-left:clamp(30px, 4vw, 65px);
+    padding-left:55px;
 }
 
 .project{
@@ -1276,7 +1206,7 @@ button{
 }
 
 
-/* cut */
+/* CUT */
 
 .cut-lines span{
     display:block;
@@ -1307,7 +1237,7 @@ button{
 }
 
 
-/* sound */
+/* SOUND */
 
 .sound-wave{
     display:flex;
@@ -1325,7 +1255,8 @@ button{
 
     background:#777;
 
-    animation:sound 1s ease-in-out infinite alternate;
+    animation:
+        sound 1s ease-in-out infinite alternate;
 }
 
 .sound-wave span:nth-child(2n){
@@ -1345,7 +1276,7 @@ button{
 }
 
 
-/* color */
+/* COLOR */
 
 .color-circle{
     width:80px;
@@ -1373,7 +1304,7 @@ button{
 }
 
 
-/* motion */
+/* MOTION */
 
 .motion-square{
     width:70px;
@@ -1391,7 +1322,7 @@ button{
 }
 
 
-/* type */
+/* TYPE */
 
 .type-graphic{
     text-align:center;
@@ -1449,7 +1380,7 @@ button{
 
     max-width:100%;
 
-    margin-bottom:40px;
+    margin-bottom:35px;
 
     font-size:11px;
 
@@ -1458,12 +1389,102 @@ button{
     color:#777;
 }
 
+
+/* =========================================================
+   HIRE ME BUTTON
+========================================================= */
+
+.hire-button{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:25px;
+
+    min-width:165px;
+
+    padding:15px 25px;
+
+    border:0;
+
+    border-radius:999px;
+
+    background:var(--gold);
+
+    color:#050505;
+
+    font-family:"Courier New",monospace;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.hire-button span{
+    font-family:Arial,Helvetica,sans-serif;
+
+    font-size:18px;
+
+    line-height:1;
+}
+
+.hire-button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(214,161,58,.18);
+
+    background:#e2b34f;
+}
+
+
+/* =========================================================
+   CONTACT OPTIONS
+========================================================= */
+
 .contact-grid{
     display:grid;
 
     grid-template-columns:repeat(3,1fr);
 
     border-top:1px solid var(--line);
+
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:
+        max-height .7s cubic-bezier(.2,.7,.2,1),
+        opacity .45s ease,
+        transform .6s cubic-bezier(.2,.7,.2,1),
+        margin-top .6s ease;
+
+    margin-top:0;
+}
+
+.contact-grid.visible{
+    max-height:180px;
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    margin-top:40px;
 }
 
 .contact-item{
@@ -1472,10 +1493,22 @@ button{
     padding:25px;
 
     border-right:1px solid var(--line);
+
+    display:block;
+
+    transition:
+        background .35s ease,
+        padding-left .35s ease;
 }
 
 .contact-item:last-child{
     border-right:0;
+}
+
+.contact-item:hover{
+    background:rgba(255,255,255,.025);
+
+    padding-left:30px;
 }
 
 .contact-icon{
@@ -1534,7 +1567,7 @@ footer{
    RESPONSIVE
 ========================================================= */
 
-@media(max-width:1100px){
+@media(max-width:1000px){
 
     .nav-links{
         gap:18px;
@@ -1547,13 +1580,11 @@ footer{
     .timeline{
         left:30%;
         width:70%;
-
         opacity:.4;
     }
 
     .showreel-layout{
         grid-template-columns:1fr;
-        gap:60px;
     }
 
     .showreel-videos{
@@ -1566,7 +1597,6 @@ footer{
 
     .work::after{
         width:100%;
-
         opacity:.25;
     }
 
@@ -1595,6 +1625,7 @@ footer{
 
         margin-top:70px;
     }
+
 }
 
 
@@ -1717,6 +1748,10 @@ footer{
         grid-template-columns:1fr;
     }
 
+    .contact-grid.visible{
+        max-height:500px;
+    }
+
     .contact-item{
         border-right:0;
 
@@ -1750,11 +1785,25 @@ footer{
 
     <div class="nav-links">
 
-        <a href="#showreel">SHOWREEL</a>
-        <a href="#selected">SELECTED</a>
-        <a href="#work">WORK</a>
-        <a href="#process">HOW I WORK</a>
-        <a href="#contact">CONTACT</a>
+        <a href="#showreel">
+            SHOWREEL
+        </a>
+
+        <a href="#selected">
+            SELECTED
+        </a>
+
+        <a href="#work">
+            WORK
+        </a>
+
+        <a href="#process">
+            HOW I WORK
+        </a>
+
+        <a href="#contact">
+            CONTACT
+        </a>
 
     </div>
 
@@ -1809,26 +1858,40 @@ footer{
 
         <div class="track track-v2">
 
-            <span class="track-label">V2</span>
+            <span class="track-label">
+                V2
+            </span>
 
             <div class="clip clip-1">
                 <div class="clip-thumb"></div>
-                <span class="clip-name">C001.MP4</span>
+
+                <span class="clip-name">
+                    C001.MP4
+                </span>
             </div>
 
             <div class="clip clip-2">
                 <div class="clip-thumb"></div>
-                <span class="clip-name">C002.MP4</span>
+
+                <span class="clip-name">
+                    C002.MP4
+                </span>
             </div>
 
             <div class="clip clip-3">
                 <div class="clip-thumb"></div>
-                <span class="clip-name">C003.MP4</span>
+
+                <span class="clip-name">
+                    C003.MP4
+                </span>
             </div>
 
             <div class="clip clip-4">
                 <div class="clip-thumb"></div>
-                <span class="clip-name">C004.MP4</span>
+
+                <span class="clip-name">
+                    C004.MP4
+                </span>
             </div>
 
         </div>
@@ -1836,21 +1899,32 @@ footer{
 
         <div class="track track-v3">
 
-            <span class="track-label">V3</span>
+            <span class="track-label">
+                V3
+            </span>
 
             <div class="clip clip-2">
                 <div class="clip-thumb"></div>
-                <span class="clip-name">C005.MP4</span>
+
+                <span class="clip-name">
+                    C005.MP4
+                </span>
             </div>
 
             <div class="clip clip-3">
                 <div class="clip-thumb"></div>
-                <span class="clip-name">C006.MP4</span>
+
+                <span class="clip-name">
+                    C006.MP4
+                </span>
             </div>
 
             <div class="clip clip-5">
                 <div class="clip-thumb"></div>
-                <span class="clip-name">C007.MP4</span>
+
+                <span class="clip-name">
+                    C007.MP4
+                </span>
             </div>
 
         </div>
@@ -1858,7 +1932,9 @@ footer{
 
         <div class="track track-a1">
 
-            <span class="track-label">A1</span>
+            <span class="track-label">
+                A1
+            </span>
 
             <div class="waveform"></div>
 
@@ -1867,7 +1943,9 @@ footer{
 
         <div class="track track-a2">
 
-            <span class="track-label">A2</span>
+            <span class="track-label">
+                A2
+            </span>
 
             <div class="waveform wave-gold"></div>
 
@@ -1885,8 +1963,6 @@ footer{
 
     </div>
 
-
-    <!-- HERO CONTENT -->
 
     <div class="hero-content">
 
@@ -1975,6 +2051,7 @@ footer{
 
         </div>
 
+
     </div>
 
 
@@ -2031,7 +2108,7 @@ footer{
         <div class="showreel-card">
 
             <iframe
-                src="https://drive.google.com/file/d/1FOBalR2kkWACMrxDvgnW_wS2UIvggTWW/preview"
+                src="https://drive.google.com/file/d/1tfX3hO6qTFcrTpiRkanyjoFlA2VDl6e4/preview"
                 allow="autoplay; fullscreen"
                 allowfullscreen>
             </iframe>
@@ -2056,7 +2133,7 @@ footer{
         <div class="showreel-card">
 
             <iframe
-                src="https://drive.google.com/file/d/1EdQs-iJTkL7YOXtV46_FTB2AGDPTGkUG/preview"
+                src="https://drive.google.com/file/d/1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5/preview"
                 allow="autoplay; fullscreen"
                 allowfullscreen>
             </iframe>
@@ -2079,6 +2156,7 @@ footer{
 
 
     </div>
+
 
 </div>
 
@@ -2160,7 +2238,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">01</span>
+                <span class="project-number">
+                    01
+                </span>
 
                 <span class="project-name">
                     Corporate
@@ -2231,7 +2311,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">02</span>
+                <span class="project-number">
+                    02
+                </span>
 
                 <span class="project-name">
                     Birthday
@@ -2302,7 +2384,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">03</span>
+                <span class="project-number">
+                    03
+                </span>
 
                 <span class="project-name">
                     Baby Shower
@@ -2388,7 +2472,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">04</span>
+                <span class="project-number">
+                    04
+                </span>
 
                 <span class="project-name">
                     Golden Trails
@@ -2411,23 +2497,35 @@ footer{
 
                     <div class="video-grid">
 
-
                         <script>
+
                         const goldenTrails = [
+
                             ["1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT","GOLDEN TRAILS 01"],
+
                             ["1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo","GOLDEN TRAILS 02"],
+
                             ["1Q488We0910bmU4I-O-btnbv0DdBYLpY3","GOLDEN TRAILS 03"],
+
                             ["1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu","GOLDEN TRAILS 04"],
+
                             ["15cF3H8wz5jh_A_5qjfHz6nZduDWSJ3Jf","GOLDEN TRAILS 05"],
+
                             ["1RZ758skTbdWhqllSI_mu7FiWwm3AjJYu","GOLDEN TRAILS 06"],
+
                             ["1bMKq2XMh_c6lw1RtA-ki_DHhGYNO27kR","GOLDEN TRAILS 07"],
+
                             ["1nP3BQm4dHPNnPeNT1fJP-A98Z3gTl3na","GOLDEN TRAILS 08"],
+
                             ["1x5kEr5e60TXbwr4wbq_3d-CksDzyiuqF","GOLDEN TRAILS 09"]
+
                         ];
+
 
                         goldenTrails.forEach(video => {
 
                             document.write(`
+
                             <div class="video-card">
 
                                 <iframe
@@ -2441,11 +2539,12 @@ footer{
                                 </div>
 
                             </div>
+
                             `);
 
                         });
-                        </script>
 
+                        </script>
 
                     </div>
 
@@ -2464,7 +2563,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">05</span>
+                <span class="project-number">
+                    05
+                </span>
 
                 <span class="project-name">
                     Import &amp; Export
@@ -2487,7 +2588,6 @@ footer{
 
                     <div class="video-grid">
 
-
                         <script>
 
                         const importExport = [
@@ -2503,6 +2603,7 @@ footer{
                             ["12__b8E_MJ_z2ET58qIiGZqFtPpIBt-Bt","SHORT 05"]
 
                         ];
+
 
                         importExport.forEach(video => {
 
@@ -2528,7 +2629,6 @@ footer{
 
                         </script>
 
-
                     </div>
 
                 </div>
@@ -2546,7 +2646,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">06</span>
+                <span class="project-number">
+                    06
+                </span>
 
                 <span class="project-name">
                     Podcast
@@ -2632,7 +2734,9 @@ footer{
                 class="project-button"
                 onclick="toggleProject(this)">
 
-                <span class="project-number">07</span>
+                <span class="project-number">
+                    07
+                </span>
 
                 <span class="project-name">
                     Other Projects
@@ -2655,7 +2759,6 @@ footer{
 
                     <div class="video-grid">
 
-
                         <script>
 
                         const otherProjects = [
@@ -2675,6 +2778,7 @@ footer{
                             ["13PhokBp2J3GmeoPcZh80mnCuubwXMCVS","MAENZRAAT V2"]
 
                         ];
+
 
                         otherProjects.forEach(video => {
 
@@ -2699,7 +2803,6 @@ footer{
                         });
 
                         </script>
-
 
                     </div>
 
@@ -2745,7 +2848,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">01</div>
+            <div class="process-number">
+                01
+            </div>
 
             <div class="graphic cut-lines">
 
@@ -2760,8 +2865,10 @@ footer{
             </div>
 
             <div class="process-description">
+
                 Every cut has a purpose.
                 Story comes first.
+
             </div>
 
         </div>
@@ -2769,7 +2876,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">02</div>
+            <div class="process-number">
+                02
+            </div>
 
             <div class="graphic sound-wave">
 
@@ -2796,7 +2905,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">03</div>
+            <div class="process-number">
+                03
+            </div>
 
             <div class="graphic color-circle"></div>
 
@@ -2813,7 +2924,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">04</div>
+            <div class="process-number">
+                04
+            </div>
 
             <div class="graphic motion-square"></div>
 
@@ -2830,7 +2943,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">05</div>
+            <div class="process-number">
+                05
+            </div>
 
             <div class="graphic type-graphic">
                 Aa
@@ -2849,7 +2964,9 @@ footer{
 
         <div class="process-card">
 
-            <div class="process-number">06</div>
+            <div class="process-number">
+                06
+            </div>
 
             <div class="graphic cut-lines">
 
@@ -2906,6 +3023,7 @@ footer{
 
     <div class="contact-right">
 
+
         <p class="contact-description">
 
             Have a project, campaign, event film or
@@ -2915,70 +3033,118 @@ footer{
         </p>
 
 
-        <div class="contact-grid">
+        <!-- HIRE ME BUTTON -->
 
+        <button
+            class="hire-button"
+            type="button"
+            onclick="toggleContact()">
+
+            HIRE ME
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+
+        <!-- CONTACT OPTIONS -->
+
+        <div
+            class="contact-grid"
+            id="contactGrid">
+
+
+            <!-- WHATSAPP -->
 
             <a
                 class="contact-item"
-                href="mailto:surajsharmaedit31@gmail.com">
 
-                <div class="contact-icon">
-                    ✉
-                </div>
+                href="https://wa.me/918446726785"
 
-                <small>
-                    EMAIL
-                </small>
+                target="_blank"
 
-                <span>
-                    surajsharmaedit31@gmail.com
-                </span>
+                rel="noopener">
 
-            </a>
-
-
-            <a
-                class="contact-item"
-                href="tel:+918446726785">
 
                 <div class="contact-icon">
                     ◇
                 </div>
 
+
                 <small>
-                    PHONE
+                    WHATSAPP
                 </small>
+
 
                 <span>
                     +91 8446726785
                 </span>
 
+
             </a>
 
 
+            <!-- EMAIL -->
+
             <a
-                class="contact-item"
-                href="https://instagram.com/sharmasuraj31122003"
-                target="_blank">
+                 class="contact-item"
+                 href="mailto:surajsharmaedit31@gmail.com"
+                 target="_blank">
+
+
+                <div class="contact-icon">
+                    ✉
+                </div>
+
+
+                <small>
+                    EMAIL
+                </small>
+
+
+                <span>
+                    surajsharmaedit31@gmail.com
+                </span>
+
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                <a
+                 class="contact-item"
+                href="https://www.instagram.com/sharmasuraj31122003/"
+                target="_blank"
+                rel="noopener">
+
 
                 <div class="contact-icon">
                     ◎
                 </div>
 
+
                 <small>
                     INSTAGRAM
                 </small>
 
+
                 <span>
                     @sharmasuraj31122003
                 </span>
+
 
             </a>
 
 
         </div>
 
+
     </div>
+
 
 </div>
 
@@ -3009,6 +3175,21 @@ footer{
 
 
 <script>
+
+
+/* =========================================================
+   CONTACT TOGGLE
+========================================================= */
+
+function toggleContact(){
+
+    const grid =
+        document.getElementById("contactGrid");
+
+    grid.classList.toggle("visible");
+
+}
+
 
 /* =========================================================
    PROJECT ACCORDION
@@ -3052,27 +3233,33 @@ const heroBg =
     document.getElementById("heroBg");
 
 
-hero.addEventListener("mousemove",function(e){
+hero.addEventListener(
+    "mousemove",
+    function(e){
 
-    const x =
-        (e.clientX / window.innerWidth - .5) * 2;
+        const x =
+            (e.clientX / window.innerWidth - .5) * 2;
 
-    const y =
-        (e.clientY / window.innerHeight - .5) * 2;
-
-
-    heroBg.style.transform =
-        `translate(${x * 18}px, ${y * 10}px)`;
-
-});
+        const y =
+            (e.clientY / window.innerHeight - .5) * 2;
 
 
-hero.addEventListener("mouseleave",function(){
+        heroBg.style.transform =
+            `translate(${x * 18}px, ${y * 10}px)`;
 
-    heroBg.style.transform =
-        "translate(0,0)";
+    }
+);
 
-});
+
+hero.addEventListener(
+    "mouseleave",
+    function(){
+
+        heroBg.style.transform =
+            "translate(0,0)";
+
+    }
+);
 
 
 /* =========================================================
@@ -3085,6 +3272,7 @@ document.addEventListener(
 
         const playhead =
             document.querySelector(".playhead");
+
 
         if(document.hidden){
 
@@ -3100,6 +3288,7 @@ document.addEventListener(
 
     }
 );
+
 
 </script>
 
