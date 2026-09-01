@@ -940,30 +940,75 @@ button{
 
 .project-button{
     width:100%;
-
     min-height:95px;
 
     display:grid;
-
     grid-template-columns:60px 1fr 120px 50px;
 
     align-items:center;
-
     border:0;
-
     background:none;
-
     color:#fff;
-
     text-align:left;
-
     cursor:pointer;
 
-    transition:.3s;
+    position:relative;
+    overflow:hidden;
+
+    transition:
+        padding-left .55s cubic-bezier(.2,.7,.2,1),
+        background-color .55s ease;
+}
+
+.project-button::after{
+    content:"";
+
+    position:absolute;
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:1px;
+
+    background:var(--gold);
+
+    transition:
+        width .65s cubic-bezier(.2,.7,.2,1);
 }
 
 .project-button:hover{
-    padding-left:10px;
+    padding-left:14px;
+    background:rgba(255,255,255,.018);
+}
+
+.project-button:hover::after{
+    width:100%;
+}
+
+.project-name{
+    transition:
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        letter-spacing .55s ease;
+}
+
+.project-button:hover .project-name{
+    transform:translateX(8px);
+    letter-spacing:-.02em;
+}
+
+.project-arrow{
+    transition:
+        transform .55s cubic-bezier(.2,.7,.2,1),
+        background-color .4s ease,
+        color .4s ease;
+}
+
+.project-button:hover .project-arrow{
+    transform:translateX(-3px) rotate(45deg);
+}
+
+.project-button:hover .project-arrow::first-letter{
+    display:inline-block;
 }
 
 .project-number{
