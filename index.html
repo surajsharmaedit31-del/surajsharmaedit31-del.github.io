@@ -2118,94 +2118,477 @@ footer{
      SHOWREEL
 ========================================================= -->
 
-<section class="section showreel" id="showreel">
+<!-- =========================================================
+     SHOWREEL
+========================================================= -->
 
-<div class="container">
+<section class="section premium-showreel" id="showreel">
 
-<div class="showreel-layout">
+    <style>
+        .premium-showreel{
+            position:relative;
+            min-height:100vh;
+            overflow:hidden;
+            padding:150px 0 180px;
+            background:#050505;
+        }
+
+        .premium-showreel::before{
+            content:"SHOWREEL";
+            position:absolute;
+            top:8%;
+            right:-5%;
+            font-family:Georgia,serif;
+            font-size:clamp(180px,25vw,420px);
+            line-height:.7;
+            letter-spacing:-.07em;
+            color:rgba(255,255,255,.025);
+            white-space:nowrap;
+            pointer-events:none;
+        }
+
+        .premium-showreel::after{
+            content:"";
+            position:absolute;
+            width:600px;
+            height:600px;
+            right:-180px;
+            bottom:-200px;
+            border-radius:50%;
+            background:radial-gradient(
+                circle,
+                rgba(210,158,43,.09) 0%,
+                rgba(210,158,43,.035) 35%,
+                transparent 70%
+            );
+            pointer-events:none;
+        }
+
+        .premium-showreel-inner{
+            position:relative;
+            z-index:2;
+        }
+
+        .premium-showreel-header{
+            display:grid;
+            grid-template-columns:42% 58%;
+            align-items:end;
+            margin-bottom:90px;
+        }
+
+        .premium-showreel-number{
+            margin-bottom:24px;
+            color:var(--gold);
+            font-family:"Courier New",monospace;
+            font-size:8px;
+            letter-spacing:3px;
+        }
+
+        .premium-showreel-title{
+            margin:0;
+            font-family:Georgia,serif;
+            font-size:clamp(75px,10vw,150px);
+            font-weight:400;
+            line-height:.78;
+            letter-spacing:-.065em;
+            color:#f4f1ec;
+        }
+
+        .premium-showreel-title span{
+            color:var(--gold);
+        }
+
+        .premium-showreel-copy{
+            max-width:430px;
+            margin-left:auto;
+            padding-bottom:8px;
+            color:#777;
+            font-size:13px;
+            line-height:1.8;
+        }
+
+        .premium-showreel-line{
+            width:55px;
+            height:1px;
+            margin:30px 0;
+            background:var(--gold);
+        }
+
+        /* VIDEO STAGE */
+
+        .premium-showreel-stage{
+            position:relative;
+            display:grid;
+            grid-template-columns:minmax(0,1fr) 245px;
+            gap:28px;
+            align-items:end;
+            max-width:1180px;
+            margin:0 auto;
+        }
+
+        .premium-video-main{
+            position:relative;
+            aspect-ratio:16 / 9;
+            overflow:hidden;
+            background:#0a0a0a;
+            border:1px solid rgba(255,255,255,.14);
+            box-shadow:
+                0 35px 100px rgba(0,0,0,.65);
+            transform:translateY(0);
+            transition:
+                transform .8s cubic-bezier(.2,.7,.2,1),
+                border-color .5s ease,
+                box-shadow .8s ease;
+        }
+
+        .premium-video-main:hover{
+            transform:translateY(-8px);
+            border-color:rgba(211,160,45,.6);
+            box-shadow:
+                0 50px 120px rgba(0,0,0,.75);
+        }
+
+        .premium-video-main iframe{
+            position:absolute;
+            inset:0;
+            width:100%;
+            height:100%;
+            border:0;
+        }
+
+        .premium-video-side{
+            position:relative;
+            aspect-ratio:9 / 14;
+            overflow:hidden;
+            background:#0a0a0a;
+            border:1px solid rgba(255,255,255,.14);
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.55);
+            transform:translateY(55px);
+            transition:
+                transform .8s cubic-bezier(.2,.7,.2,1),
+                border-color .5s ease,
+                box-shadow .8s ease;
+        }
+
+        .premium-video-side:hover{
+            transform:translateY(45px);
+            border-color:rgba(211,160,45,.6);
+            box-shadow:
+                0 40px 90px rgba(0,0,0,.7);
+        }
+
+        .premium-video-side iframe{
+            position:absolute;
+            inset:0;
+            width:100%;
+            height:100%;
+            border:0;
+        }
+
+        /* CINEMATIC OVERLAYS */
+
+        .premium-video-main::after,
+        .premium-video-side::after{
+            content:"";
+            position:absolute;
+            inset:0;
+            pointer-events:none;
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent 55%,
+                    rgba(0,0,0,.7) 100%
+                );
+        }
+
+        .premium-video-meta{
+            position:absolute;
+            left:25px;
+            bottom:23px;
+            z-index:5;
+            pointer-events:none;
+        }
+
+        .premium-video-meta small{
+            display:block;
+            margin-bottom:8px;
+            color:var(--gold);
+            font-family:"Courier New",monospace;
+            font-size:7px;
+            letter-spacing:3px;
+        }
+
+        .premium-video-meta strong{
+            display:block;
+            color:#fff;
+            font-family:Georgia,serif;
+            font-size:26px;
+            font-weight:400;
+            letter-spacing:-.02em;
+        }
+
+        .premium-side-meta{
+            position:absolute;
+            left:16px;
+            right:16px;
+            bottom:16px;
+            z-index:5;
+            pointer-events:none;
+        }
+
+        .premium-side-meta small{
+            display:block;
+            margin-bottom:7px;
+            color:var(--gold);
+            font-family:"Courier New",monospace;
+            font-size:6px;
+            letter-spacing:2px;
+        }
+
+        .premium-side-meta strong{
+            display:block;
+            color:#fff;
+            font-family:Georgia,serif;
+            font-size:19px;
+            font-weight:400;
+        }
+
+        /* CORNER MARKERS */
+
+        .premium-marker{
+            position:absolute;
+            top:18px;
+            left:18px;
+            z-index:6;
+            width:34px;
+            height:34px;
+            border:1px solid rgba(255,255,255,.35);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#fff;
+            font-family:"Courier New",monospace;
+            font-size:8px;
+            background:rgba(0,0,0,.25);
+            backdrop-filter:blur(8px);
+            transition:
+                border-color .4s ease,
+                color .4s ease,
+                transform .5s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .premium-video-main:hover .premium-marker,
+        .premium-video-side:hover .premium-marker{
+            border-color:var(--gold);
+            color:var(--gold);
+            transform:rotate(45deg);
+        }
+
+        /* BOTTOM LABEL */
+
+        .premium-showreel-footer{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            max-width:1180px;
+            margin:70px auto 0;
+            padding-top:20px;
+            border-top:1px solid rgba(255,255,255,.12);
+        }
+
+        .premium-showreel-footer span{
+            color:#555;
+            font-family:"Courier New",monospace;
+            font-size:7px;
+            letter-spacing:2.5px;
+        }
+
+        .premium-showreel-footer span:last-child{
+            color:var(--gold);
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .premium-showreel{
+                padding:110px 0 130px;
+            }
+
+            .premium-showreel-header{
+                grid-template-columns:1fr;
+                gap:35px;
+                margin-bottom:65px;
+            }
+
+            .premium-showreel-copy{
+                margin-left:0;
+            }
+
+            .premium-showreel-stage{
+                grid-template-columns:1fr 190px;
+                gap:18px;
+            }
+
+            .premium-video-side{
+                transform:translateY(35px);
+            }
+
+            .premium-video-side:hover{
+                transform:translateY(25px);
+            }
+        }
+
+        @media(max-width:600px){
+
+            .premium-showreel{
+                padding:90px 0 110px;
+            }
+
+            .premium-showreel-title{
+                font-size:72px;
+            }
+
+            .premium-showreel-stage{
+                display:flex;
+                flex-direction:column;
+                align-items:stretch;
+            }
+
+            .premium-video-main{
+                width:100%;
+            }
+
+            .premium-video-side{
+                width:52%;
+                margin-left:auto;
+                transform:translateY(0);
+            }
+
+            .premium-video-side:hover{
+                transform:translateY(-6px);
+            }
+
+            .premium-showreel-footer{
+                margin-top:55px;
+            }
+        }
+    </style>
 
 
-    <div class="showreel-info">
+    <div class="container premium-showreel-inner">
 
-        <div class="section-number">
-            01 / SHOWREEL
-        </div>
+        <!-- HEADER -->
 
-        <h2 class="showreel-title">
-            Showreel<span>.</span>
-        </h2>
+        <div class="premium-showreel-header">
 
-        <div class="gold-line"></div>
+            <div>
 
-        <p class="showreel-description">
+                <div class="premium-showreel-number">
+                    01 / SHOWREEL
+                </div>
 
-            A collection of selected edits that define
-            my style, rhythm and visual language.
+                <h2 class="premium-showreel-title">
+                    Showreel<span>.</span>
+                </h2>
 
-        </p>
+                <div class="premium-showreel-line"></div>
 
-    </div>
-
-
-    <div class="showreel-videos">
+            </div>
 
 
-        <div class="showreel-card">
+            <div class="premium-showreel-copy">
 
-            <iframe
-                src="https://drive.google.com/file/d/1tfX3hO6qTFcrTpiRkanyjoFlA2VDl6e4/preview"
-                allow="autoplay; fullscreen"
-                allowfullscreen>
-            </iframe>
-
-            <div class="showreel-overlay"></div>
-
-            <div class="showreel-card-info">
-
-                <small>
-                    01 / EDITING REEL
-                </small>
-
-                <strong>
-                    SHOWREEL 01
-                </strong>
+                A collection of selected edits that define
+                my style, rhythm and visual language.
 
             </div>
 
         </div>
 
 
-        <div class="showreel-card">
+        <!-- VIDEO STAGE -->
 
-            <iframe
-                src="https://drive.google.com/file/d/1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5/preview"
-                allow="autoplay; fullscreen"
-                allowfullscreen>
-            </iframe>
+        <div class="premium-showreel-stage">
 
-            <div class="showreel-overlay"></div>
 
-            <div class="showreel-card-info">
+            <!-- MAIN SHOWREEL -->
 
-                <small>
-                    02 / VISUAL REEL
-                </small>
+            <div class="premium-video-main">
 
-                <strong>
-                    SHOWREEL 02
-                </strong>
+                <iframe
+                    src="https://drive.google.com/file/d/1FOBalR2kkWACMrxDvgnW_wS2UIvggTWW/preview"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="premium-marker">
+                    01
+                </div>
+
+                <div class="premium-video-meta">
+
+                    <small>
+                        EDITING REEL
+                    </small>
+
+                    <strong>
+                        SHOWREEL 01
+                    </strong>
+
+                </div>
 
             </div>
+
+
+            <!-- SECOND SHOWREEL -->
+
+            <div class="premium-video-side">
+
+                <iframe
+                    src="https://drive.google.com/file/d/1EdQs-iJTkL7YOXtV46_FTB2AGDPTGkUG/preview"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="premium-marker">
+                    02
+                </div>
+
+                <div class="premium-side-meta">
+
+                    <small>
+                        VISUAL REEL
+                    </small>
+
+                    <strong>
+                        SHOWREEL 02
+                    </strong>
+
+                </div>
+
+            </div>
+
 
         </div>
 
 
+        <!-- FOOTER -->
+
+        <div class="premium-showreel-footer">
+
+            <span>
+                SELECTED WORK / 01—02
+            </span>
+
+            <span>
+                VIDEO EDITOR / VISUAL STORYTELLER
+            </span>
+
+        </div>
+
     </div>
-
-
-</div>
-
-</div>
 
 </section>
 
