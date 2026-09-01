@@ -2214,23 +2214,524 @@ footer{
      SELECTED
 ========================================================= -->
 
-<section class="section showreel" id="selected">
+<!-- =========================================================
+     SELECTED / THE CUTS
+========================================================= -->
 
-<div class="container">
+<section class="section cuts-section" id="selected">
 
-    <div class="section-number">
-        02 / SELECTED
+    <style>
+        .cuts-section{
+            position:relative;
+            overflow:hidden;
+            padding-top:140px;
+            padding-bottom:180px;
+        }
+
+        .cuts-section .container{
+            position:relative;
+            z-index:2;
+        }
+
+        .cuts-heading{
+            margin-bottom:90px;
+        }
+
+        .cuts-section .section-number{
+            margin-bottom:22px;
+        }
+
+        .cuts-title{
+            margin:0;
+            font-family:Georgia,serif;
+            font-size:clamp(80px,10vw,150px);
+            font-weight:400;
+            line-height:.82;
+            letter-spacing:-.055em;
+        }
+
+        .cuts-title span{
+            color:var(--gold);
+        }
+
+        .cuts-description{
+            margin-top:28px;
+            max-width:420px;
+            color:#777;
+            font-size:13px;
+            line-height:1.7;
+        }
+
+        /* VIDEO GALLERY */
+
+        .cuts-gallery{
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:90px 34px;
+            align-items:start;
+            max-width:1120px;
+            margin:0 auto;
+        }
+
+        .cut-item{
+            position:relative;
+            width:100%;
+        }
+
+        /* CENTER OFFSET */
+
+        .cut-item:nth-child(2),
+        .cut-item:nth-child(5){
+            transform:translateY(-75px);
+        }
+
+        .cut-item:nth-child(3),
+        .cut-item:nth-child(6){
+            transform:translateY(35px);
+        }
+
+        .cut-number{
+            margin-bottom:13px;
+            color:var(--gold);
+            font-family:"Courier New",monospace;
+            font-size:8px;
+            letter-spacing:3px;
+        }
+
+        .cut-video{
+            position:relative;
+            width:100%;
+            aspect-ratio:9 / 16;
+            overflow:hidden;
+
+            background:#090909;
+            border:1px solid rgba(255,255,255,.13);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.45);
+
+            transition:
+                transform .7s cubic-bezier(.2,.7,.2,1),
+                border-color .5s ease,
+                box-shadow .7s ease;
+        }
+
+        .cut-video::before{
+            content:"";
+            position:absolute;
+            inset:0;
+            z-index:2;
+            pointer-events:none;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0) 55%,
+                    rgba(0,0,0,.75) 100%
+                );
+
+            opacity:.8;
+            transition:opacity .5s ease;
+        }
+
+        .cut-video iframe{
+            position:absolute;
+            inset:0;
+
+            width:100%;
+            height:100%;
+
+            border:0;
+
+            object-fit:cover;
+        }
+
+        .cut-item:hover .cut-video{
+            transform:translateY(-10px) scale(1.015);
+            border-color:rgba(220,164,42,.7);
+
+            box-shadow:
+                0 35px 90px rgba(0,0,0,.6);
+        }
+
+        .cut-item:hover .cut-video::before{
+            opacity:.55;
+        }
+
+        .cut-info{
+            position:absolute;
+            left:18px;
+            right:18px;
+            bottom:18px;
+            z-index:4;
+
+            pointer-events:none;
+        }
+
+        .cut-info small{
+            display:block;
+            margin-bottom:7px;
+
+            color:var(--gold);
+            font-family:"Courier New",monospace;
+            font-size:7px;
+            letter-spacing:2.5px;
+        }
+
+        .cut-info strong{
+            display:block;
+
+            color:#fff;
+            font-family:Georgia,serif;
+            font-size:24px;
+            font-weight:400;
+            line-height:1;
+
+            transition:
+                transform .5s cubic-bezier(.2,.7,.2,1);
+        }
+
+        .cut-item:hover .cut-info strong{
+            transform:translateX(5px);
+        }
+
+        .cut-arrow{
+            position:absolute;
+            top:18px;
+            right:18px;
+            z-index:5;
+
+            width:34px;
+            height:34px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border:1px solid rgba(255,255,255,.35);
+            border-radius:50%;
+
+            background:rgba(0,0,0,.35);
+            backdrop-filter:blur(8px);
+
+            color:#fff;
+            font-size:13px;
+
+            transition:
+                transform .5s cubic-bezier(.2,.7,.2,1),
+                border-color .4s ease,
+                background .4s ease;
+        }
+
+        .cut-item:hover .cut-arrow{
+            transform:rotate(45deg);
+            border-color:var(--gold);
+            background:rgba(0,0,0,.65);
+            color:var(--gold);
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .cuts-section{
+                padding-top:100px;
+                padding-bottom:120px;
+            }
+
+            .cuts-gallery{
+                grid-template-columns:repeat(2,minmax(0,1fr));
+                gap:70px 24px;
+            }
+
+            .cut-item:nth-child(2),
+            .cut-item:nth-child(5){
+                transform:translateY(-40px);
+            }
+
+            .cut-item:nth-child(3),
+            .cut-item:nth-child(6){
+                transform:translateY(0);
+            }
+        }
+
+        @media(max-width:600px){
+
+            .cuts-heading{
+                margin-bottom:60px;
+            }
+
+            .cuts-title{
+                font-size:76px;
+            }
+
+            .cuts-gallery{
+                grid-template-columns:1fr;
+                max-width:330px;
+                gap:60px;
+            }
+
+            .cut-item:nth-child(2),
+            .cut-item:nth-child(3),
+            .cut-item:nth-child(5),
+            .cut-item:nth-child(6){
+                transform:none;
+            }
+
+            .cut-info strong{
+                font-size:22px;
+            }
+        }
+    </style>
+
+
+    <div class="container">
+
+        <div class="cuts-heading">
+
+            <div class="section-number">
+                02 / SELECTED
+            </div>
+
+            <h2 class="cuts-title">
+                THE CUTS<span>.</span>
+            </h2>
+
+            <div class="cuts-description">
+                Selected edits and visual experiments.
+            </div>
+
+        </div>
+
+
+        <div class="cuts-gallery">
+
+
+            <!-- 01 — AIR DROP -->
+
+            <article class="cut-item">
+
+                <div class="cut-number">
+                    01 / SELECTED
+                </div>
+
+                <div class="cut-video">
+
+                    <iframe
+                        src="https://drive.google.com/file/d/1VNKxjEicRduamP1NvXfTp-mXmZoGsZNT/preview"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="cut-arrow">
+                        ↗
+                    </div>
+
+                    <div class="cut-info">
+
+                        <small>
+                            EDIT / 01
+                        </small>
+
+                        <strong>
+                            AIR DROP.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- 02 — GOLDEN TRAILS -->
+
+            <article class="cut-item">
+
+                <div class="cut-number">
+                    02 / SELECTED
+                </div>
+
+                <div class="cut-video">
+
+                    <iframe
+                        src="https://drive.google.com/file/d/1fKjWUHK17p9IcqSWnDXF5Wodvgh0_gnu/preview"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="cut-arrow">
+                        ↗
+                    </div>
+
+                    <div class="cut-info">
+
+                        <small>
+                            EDIT / 02
+                        </small>
+
+                        <strong>
+                            GOLDEN TRAILS.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- 03 — BAAD ME -->
+
+            <article class="cut-item">
+
+                <div class="cut-number">
+                    03 / SELECTED
+                </div>
+
+                <div class="cut-video">
+
+                    <iframe
+                        src="https://drive.google.com/file/d/1FP1LyWm23cHX_tdl68-9HC75Wv6oDFHo/preview"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="cut-arrow">
+                        ↗
+                    </div>
+
+                    <div class="cut-info">
+
+                        <small>
+                            EDIT / 03
+                        </small>
+
+                        <strong>
+                            BAAD ME.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- 04 — HOST -->
+
+            <article class="cut-item">
+
+                <div class="cut-number">
+                    04 / SELECTED
+                </div>
+
+                <div class="cut-video">
+
+                    <iframe
+                        src="https://drive.google.com/file/d/1SCgwsVoq58IbcBpYopDFF6Q323KAPsl5/preview"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="cut-arrow">
+                        ↗
+                    </div>
+
+                    <div class="cut-info">
+
+                        <small>
+                            EDIT / 04
+                        </small>
+
+                        <strong>
+                            HOST.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- 05 — REGAIN APP -->
+
+            <article class="cut-item">
+
+                <div class="cut-number">
+                    05 / SELECTED
+                </div>
+
+                <div class="cut-video">
+
+                    <iframe
+                        src="https://drive.google.com/file/d/1snzsnEeI_hdFCjudToqXIJcJVCLyAxuQ/preview"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="cut-arrow">
+                        ↗
+                    </div>
+
+                    <div class="cut-info">
+
+                        <small>
+                            EDIT / 05
+                        </small>
+
+                        <strong>
+                            REGAIN APP.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- 06 — EXPORT START -->
+
+            <article class="cut-item">
+
+                <div class="cut-number">
+                    06 / SELECTED
+                </div>
+
+                <div class="cut-video">
+
+                    <iframe
+                        src="https://drive.google.com/file/d/17iQG77_fTM5wtSFnHCyYapo-s4KSjrdr/preview"
+                        allow="autoplay; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+
+                    <div class="cut-arrow">
+                        ↗
+                    </div>
+
+                    <div class="cut-info">
+
+                        <small>
+                            EDIT / 06
+                        </small>
+
+                        <strong>
+                            EXPORT START.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
     </div>
-
-    <h2 class="showreel-title">
-        THE CUTS<span>.</span>
-    </h2>
-
-    <div class="showreel-description">
-        Selected edits and visual experiments.
-    </div>
-
-</div>
 
 </section>
 
